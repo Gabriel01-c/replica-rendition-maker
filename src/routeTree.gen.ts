@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as IndexRouteImport } from './routes/index'
 
+const EbookVasoativoRoute = EbookVasoativoRouteImport.update({
+  id: '/ebook-vasoativo',
+  path: '/ebook-vasoativo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ebook-vasoativo': typeof EbookVasoativoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ebook-vasoativo': typeof EbookVasoativoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ebook-vasoativo': typeof EbookVasoativoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/ebook-vasoativo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ebook-vasoativo'
+  id: '__root__' | '/' | '/ebook-vasoativo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EbookVasoativoRoute: typeof EbookVasoativoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ebook-vasoativo': {
+      id: '/ebook-vasoativo'
+      path: '/ebook-vasoativo'
+      fullPath: '/ebook-vasoativo'
+      preLoaderRoute: typeof EbookVasoativoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EbookVasoativoRoute: EbookVasoativoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
