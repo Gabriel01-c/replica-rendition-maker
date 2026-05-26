@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
 import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as IndexRouteImport } from './routes/index'
 
+const EbookVasoativoObgRoute = EbookVasoativoObgRouteImport.update({
+  id: '/ebook-vasoativo-obg',
+  path: '/ebook-vasoativo-obg',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EbookVasoativoRoute = EbookVasoativoRouteImport.update({
   id: '/ebook-vasoativo',
   path: '/ebook-vasoativo',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
+  '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
+  '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
+  '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ebook-vasoativo'
+  fullPaths: '/' | '/ebook-vasoativo' | '/ebook-vasoativo-obg'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ebook-vasoativo'
-  id: '__root__' | '/' | '/ebook-vasoativo'
+  to: '/' | '/ebook-vasoativo' | '/ebook-vasoativo-obg'
+  id: '__root__' | '/' | '/ebook-vasoativo' | '/ebook-vasoativo-obg'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EbookVasoativoRoute: typeof EbookVasoativoRoute
+  EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ebook-vasoativo-obg': {
+      id: '/ebook-vasoativo-obg'
+      path: '/ebook-vasoativo-obg'
+      fullPath: '/ebook-vasoativo-obg'
+      preLoaderRoute: typeof EbookVasoativoObgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ebook-vasoativo': {
       id: '/ebook-vasoativo'
       path: '/ebook-vasoativo'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EbookVasoativoRoute: EbookVasoativoRoute,
+  EbookVasoativoObgRoute: EbookVasoativoObgRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
