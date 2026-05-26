@@ -1,14 +1,13 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  component: RedirectToEbook,
+  loader: () => {
+    throw notFound();
+  },
+  component: () => null,
+  notFoundComponent: () => (
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "sans-serif" }}>
+      <h1>404 — Página não encontrada</h1>
+    </div>
+  ),
 });
-
-function RedirectToEbook() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate({ to: "/ebook-vasoativo" });
-  }, [navigate]);
-  return null;
-}
