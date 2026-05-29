@@ -52,6 +52,11 @@ function CongressoPage() {
           <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
         </h1>
 
+        {/* Subtítulo */}
+        <p className="mb-14 max-w-2xl text-center text-lg font-semibold text-white/80 md:text-xl">
+          Use o código <span className="rounded bg-white/15 px-2 py-0.5 font-bold text-white">CONGRESSO</span> e garanta seu desconto exclusivo no curso
+        </p>
+
         {/* 3 Cards */}
         <div className="grid w-full max-w-5xl gap-6 sm:grid-cols-3">
           {/* Card 1 */}
