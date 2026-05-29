@@ -142,3 +142,24 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float-1 {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+.animate-float-3 {
+  animation: float 4s ease-in-out infinite 1s;
+}
