@@ -56,10 +56,23 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ebook-vasoativo' | '/ebook-vasoativo-obg' | '/fisiologia-farmacologia'
+  fullPaths:
+    | '/'
+    | '/ebook-vasoativo'
+    | '/ebook-vasoativo-obg'
+    | '/fisiologia-farmacologia'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ebook-vasoativo' | '/ebook-vasoativo-obg' | '/fisiologia-farmacologia'
-  id: '__root__' | '/' | '/ebook-vasoativo' | '/ebook-vasoativo-obg' | '/fisiologia-farmacologia'
+  to:
+    | '/'
+    | '/ebook-vasoativo'
+    | '/ebook-vasoativo-obg'
+    | '/fisiologia-farmacologia'
+  id:
+    | '__root__'
+    | '/'
+    | '/ebook-vasoativo'
+    | '/ebook-vasoativo-obg'
+    | '/fisiologia-farmacologia'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
