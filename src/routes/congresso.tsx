@@ -48,8 +48,8 @@ function CongressoPage() {
         <h1
           className="mb-14 max-w-3xl text-center text-3xl font-black leading-tight text-white md:text-5xl lg:text-6xl"
         >
-          Como Raciocinar com{" "}
-          <span style={{ color: TEAL }}>segurança</span> na anestesia obstétrica
+          Raciocínio Clínico aplicado à prática real da{" "}
+          <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
         </h1>
 
         {/* 3 Cards */}
