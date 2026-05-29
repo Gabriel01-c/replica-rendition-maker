@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import capaFisioFarmac from "@/assets/capa-fisio-farmac.png";
 import capaEbookVasoativo from "@/assets/capa-ebook-vasoativo.png";
+import capaViasAereas from "@/assets/capa-vias-aereas.jpeg";
 
 
 export const Route = createFileRoute("/congresso")({
