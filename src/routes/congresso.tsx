@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import capaFisioFarmac from "@/assets/capa-fisio-farmac.png";
+
 
 export const Route = createFileRoute("/congresso")({
   head: () => ({
@@ -60,20 +62,20 @@ function CongressoPage() {
         {/* 3 Cards */}
         <div className="grid w-full max-w-5xl gap-6 sm:grid-cols-3">
           {/* Card 1 */}
-          <button
-            className="animate-float-1 group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10"
-            onClick={() => { /* reservado para imagem futura */ }}
+          <a
+            href="https://pay.hub.la/xPrruJVoPpKMO0zfGIsL"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="animate-float-1 group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10"
           >
-            <div
-              className="flex aspect-[4/5] items-center justify-center rounded-xl"
-              style={{ background: `linear-gradient(135deg, ${NAVY} 0%, ${VIOLET} 100%)` }}
-            >
-              <span className="text-5xl text-white/20 md:text-7xl">📷</span>
+            <div className="aspect-[4/5] overflow-hidden rounded-xl">
+              <img
+                src={capaFisioFarmac}
+                alt="Como Raciocinar com Segurança na Anestesia Obstétrica"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-            <div className="absolute inset-x-0 bottom-0 rounded-b-2xl bg-gradient-to-t from-black/60 to-transparent p-4 pt-10">
-              <span className="text-sm font-semibold text-white/90">Produto 1</span>
-            </div>
-          </button>
+          </a>
 
           {/* Card 2 */}
           <button
