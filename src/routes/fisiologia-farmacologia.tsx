@@ -92,13 +92,31 @@ function Page() {
       <section
         className="relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${NAVY} 0%, #0a0b7a 60%, ${VIOLET} 130%)`,
+          background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
         }}
       >
+        {/* Grid quadriculado moderno */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="pointer-events-none absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 30%, ${TEAL} 0%, transparent 40%), radial-gradient(circle at 80% 70%, ${VIOLET} 0%, transparent 40%)`,
+            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
+            maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+          }}
+        />
+        {/* Listras diagonais sutis */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `repeating-linear-gradient(-45deg, transparent, transparent 18px, #ffffff 18px, #ffffff 19px)`,
+          }}
+        />
+        {/* Brilho atmosférico */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(circle at 15% 20%, ${TEAL}55 0%, transparent 45%), radial-gradient(circle at 85% 80%, ${VIOLET}55 0%, transparent 45%)`,
           }}
         />
         <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-12 md:pt-20 md:pb-24">
