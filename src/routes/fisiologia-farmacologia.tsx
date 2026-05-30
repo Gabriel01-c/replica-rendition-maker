@@ -8,78 +8,95 @@ export const Route = createFileRoute("/fisiologia-farmacologia")({
       {
         name: "description",
         content:
-          "Aprenda a tomar decisões certas em qualquer situação obstétrica — sem decorar protocolo, sem travar na hora que mais importa.",
+          "Programa de aperfeiçoamento em fisiologia e farmacologia aplicadas à anestesia obstétrica, com base no Método RAC — Raciocínio Clínico Aplicado.",
       },
     ],
   }),
   component: Page,
 });
 
-const NAVY = "#02035b";
-const TEAL = "#01b796";
-const VIOLET = "#5758fa";
+// Paleta clínica
+const NAVY = "#052d5b";
+const BLUE = "#0e53a4";
+const SKY = "#add3ff";
+const GREEN = "#069b4a";
+const MINT = "#38e387";
 
 const fisiologia = [
-  "Fisiologia Cardiovascular da Gestante",
-  "Fisiologia Respiratória da Gestante",
-  "Fisiologia Neurológica da Gestante",
-  "Fisiologia Hematológica da Gestante",
-  "Fisiologia Renal da Gestante",
-  "Fisiologia Gastrointestinal da Gestante",
+  "Adaptações cardiovasculares da gestação",
+  "Mecânica respiratória e troca gasosa na gestante",
+  "Alterações neurológicas e sensibilidade a anestésicos",
+  "Perfil hematológico e coagulação periparto",
+  "Função renal e equilíbrio hidroeletrolítico",
+  "Motilidade gastrointestinal e risco de broncoaspiração",
 ];
 
 const farmacologia = [
-  "Farmacologia na Gestante",
-  "Farmacologia dos Anestésicos Venosos",
-  "Farmacologia dos Opioides em Gestantes",
-  "Vasopressores em Gestantes",
-  "Farmacologia dos Relaxantes Musculares",
-  "Halogenados em Gestantes",
+  "Farmacocinética e farmacodinâmica na gestação",
+  "Anestésicos venosos: propofol, etomidato e cetamina",
+  "Opioides: transferência placentária e repercussão fetal",
+  "Vasopressores: fenilefrina, noradrenalina e efedrina",
+  "Bloqueadores neuromusculares e reversão",
+  "Halogenados: MAC, tônus uterino e impacto fetal",
 ];
 
 const motivos = [
   {
     n: "01",
-    t: "Você foi treinado para decorar, não para raciocinar",
-    d: "A residência te ensinou condutas. Ninguém te ensinou o porquê por trás delas. E é o porquê que te salva quando o caso foge do protocolo.",
+    t: "Formação centrada em condutas, não em mecanismos",
+    d: "A residência prioriza protocolos. Sem o substrato fisiopatológico, qualquer cenário fora do padrão expõe o anestesiologista.",
   },
   {
     n: "02",
-    t: "Você não domina as adaptações da gestante",
-    d: "A fisiologia da gestante muda tudo — cardiovascular, respiratório, neurológico. Sem entender essas mudanças, qualquer procedimento complexo gera hesitação.",
+    t: "Domínio insuficiente das adaptações maternas",
+    d: "Alterações cardiovasculares, respiratórias e farmacocinéticas redefinem doses, técnicas e margens de segurança em obstetrícia.",
   },
   {
     n: "03",
-    t: "Você nunca foi treinado para decidir sob pressão",
-    d: "Raciocínio clínico não é improviso. É método. E sem método, a pressão do momento paralisa.",
+    t: "Tomada de decisão sem método estruturado",
+    d: "Decidir sob pressão exige um framework clínico reprodutível — não improviso nem memorização passiva.",
   },
 ];
 
 const paraQuem = [
-  "É residente em anestesiologia e sente insegurança em procedimentos obstétricos",
-  "Busca mais confiança para tomar decisões anestésicas em gestantes",
-  "Já atua em plantões mas trava na hora de raciocinar sob pressão",
-  "Quer dominar fisiologia e farmacologia obstétrica aplicadas à decisão clínica real",
+  "Residentes e especialistas em anestesiologia que atuam em centro obstétrico",
+  "Profissionais que buscam consistência técnica em cesarianas, analgesia de parto e emergências",
+  "Anestesiologistas que desejam fundamentar condutas em fisiologia aplicada",
+  "Médicos comprometidos com decisão clínica baseada em evidência e raciocínio estruturado",
 ];
 
 const naoEh = [
-  "Procura conteúdo superficial ou resumido demais",
-  "Não deseja aprofundar o raciocínio clínico na anestesia obstétrica",
-  "Não pretende evoluir tecnicamente dentro da especialidade",
-  "Busca fórmulas prontas sem compreender o motivo das condutas",
+  "Profissionais que buscam apenas resumos ou flashcards de protocolo",
+  "Quem não pretende aprofundar fisiopatologia obstétrica",
+  "Quem prefere condutas memorizadas sem compreender o mecanismo",
+  "Quem não atua nem pretende atuar em anestesia obstétrica",
 ];
 
 function CTA({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <a
       href="#preco"
-      className={`inline-block rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${className}`}
+      className={`inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:-translate-y-0.5 ${className}`}
       style={{
-        background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`,
+        background: BLUE,
+        boxShadow: `0 8px 24px -8px ${BLUE}99`,
       }}
     >
       {children}
+      <span aria-hidden>→</span>
     </a>
+  );
+}
+
+function SectionLabel({ children, color = BLUE }: { children: React.ReactNode; color?: string }) {
+  return (
+    <span
+      className="mb-4 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em]"
+      style={{ color }}
+    >
+      <span className="h-px w-8" style={{ background: color }} />
+      {children}
+    </span>
   );
 }
 
@@ -87,104 +104,149 @@ function Page() {
   const [hover, setHover] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
+    <div
+      className="min-h-screen bg-white text-slate-900"
+      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+    >
       {/* BLOCO 1 — Hero */}
       <section
         className="relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${NAVY} 0%, #0a0b7a 60%, ${VIOLET} 130%)`,
+          background: `linear-gradient(160deg, ${NAVY} 0%, #03224a 60%, ${BLUE} 130%)`,
         }}
       >
+        {/* grid técnico de fundo */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 30%, ${TEAL} 0%, transparent 40%), radial-gradient(circle at 80% 70%, ${VIOLET} 0%, transparent 40%)`,
+            backgroundImage: `linear-gradient(${SKY} 1px, transparent 1px), linear-gradient(90deg, ${SKY} 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
           }}
         />
-        <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-12 md:pt-20 md:pb-24">
-          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-            <div className="text-white">
-              <span
-                className="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
-                style={{ background: TEAL, color: NAVY }}
-              >
-                Anestesia Obstétrica
-              </span>
-              <h1 className="mb-4 text-3xl font-black leading-tight md:text-5xl lg:text-6xl">
-                Como Raciocinar com Segurança na{" "}
-                <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
+        <div className="relative mx-auto max-w-6xl px-5 pt-12 pb-16 md:pt-24 md:pb-28">
+          <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
+            <div className="text-white md:col-span-7">
+              <SectionLabel color={MINT}>Método RAC · Anestesia Obstétrica</SectionLabel>
+              <h1 className="mb-5 text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-[3.4rem]">
+                Raciocínio Clínico Aplicado à{" "}
+                <span style={{ color: MINT }}>Anestesia Obstétrica</span>
               </h1>
-              <p className="mb-6 text-base text-white/85 md:text-lg">
-                Aprenda a tomar decisões certas em qualquer situação obstétrica — sem decorar
-                protocolo, sem travar na hora que mais importa.
+              <p className="mb-7 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+                Programa de aperfeiçoamento em fisiologia materna e farmacologia perioperatória,
+                estruturado para decisão clínica segura em cenários obstétricos eletivos e de
+                emergência.
               </p>
-              <div className="mb-6 flex justify-center md:hidden">
-                <div
-                  className="flex h-32 w-32 items-center justify-center rounded-2xl text-5xl shadow-2xl"
-                  style={{ background: `linear-gradient(135deg, ${TEAL}, ${VIOLET})` }}
-                >
-                  🩺
-                </div>
+              <div className="mb-8 grid max-w-md grid-cols-3 gap-4 text-white/90">
+                {[
+                  { v: "12", l: "Módulos" },
+                  { v: "20+", l: "Anos de prática" },
+                  { v: "100%", l: "Online" },
+                ].map((s) => (
+                  <div key={s.l} className="border-l-2 pl-3" style={{ borderColor: MINT }}>
+                    <div className="text-2xl font-bold tracking-tight md:text-3xl">{s.v}</div>
+                    <div className="text-[11px] uppercase tracking-wider text-white/60">{s.l}</div>
+                  </div>
+                ))}
               </div>
-              <CTA>QUERO GARANTIR MINHA VAGA</CTA>
+              <CTA>Acessar o programa</CTA>
             </div>
-            <div className="hidden md:flex md:justify-center">
+
+            <div className="hidden md:col-span-5 md:block">
               <div
-                className="flex h-80 w-80 items-center justify-center rounded-3xl text-9xl shadow-2xl"
+                className="relative rounded-lg border p-6 backdrop-blur"
                 style={{
-                  background: `linear-gradient(135deg, ${TEAL}, ${VIOLET})`,
-                  boxShadow: `0 30px 80px -20px ${TEAL}80`,
+                  borderColor: `${SKY}33`,
+                  background: "rgba(255,255,255,0.04)",
                 }}
               >
-                🩺
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">
+                    Estrutura do Programa
+                  </span>
+                  <span
+                    className="rounded-sm px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider"
+                    style={{ background: MINT, color: NAVY }}
+                  >
+                    RAC
+                  </span>
+                </div>
+                <ul className="space-y-3 text-sm text-white/90">
+                  {[
+                    "Fisiologia materna aplicada",
+                    "Farmacologia perioperatória",
+                    "Raciocínio clínico estruturado",
+                    "Cenários de alta complexidade",
+                  ].map((i, idx) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span
+                        className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-sm text-[10px] font-bold"
+                        style={{ background: `${MINT}22`, color: MINT }}
+                      >
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* BLOCO 2 — Dor */}
-      <section className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
-        <div className="mx-auto max-w-4xl px-5 text-center">
-          <h2 className="mb-6 text-2xl font-bold leading-tight md:text-4xl" style={{ color: NAVY }}>
-            Você já ficou em dúvida numa situação obstétrica com o paciente instável e a equipe te
-            olhando?
+      {/* BLOCO 2 — Problema */}
+      <section className="border-b border-slate-200 py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-5">
+          <SectionLabel>Contexto Clínico</SectionLabel>
+          <h2
+            className="mb-6 text-2xl font-bold leading-tight tracking-tight md:text-4xl"
+            style={{ color: NAVY }}
+          >
+            Quando o cenário foge do protocolo, o que sustenta a decisão é o raciocínio clínico —
+            não a memória.
           </h2>
-          <p className="text-lg text-slate-700 md:text-xl">
-            Essa sensação não é falta de esforço. É falta de{" "}
-            <span className="font-bold" style={{ color: VIOLET }}>
-              raciocínio clínico estruturado
-            </span>
-            . E enquanto isso não mudar, a insegurança vai continuar aparecendo nos momentos que
-            mais importam.
+          <p className="text-base leading-relaxed text-slate-700 md:text-lg">
+            A insegurança em sala obstétrica raramente decorre de falta de estudo. Ela reflete uma
+            lacuna estrutural: a ausência de um modelo reprodutível para integrar fisiologia,
+            farmacologia e contexto cirúrgico em tempo real.
           </p>
         </div>
       </section>
 
       {/* BLOCO 3 — 3 motivos */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ background: "#f6f8fb" }}>
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
-            Isso acontece por <span style={{ color: TEAL }}>3 motivos</span>
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="mb-12 max-w-2xl">
+            <SectionLabel>Diagnóstico</SectionLabel>
+            <h2
+              className="text-3xl font-bold tracking-tight md:text-4xl"
+              style={{ color: NAVY }}
+            >
+              Três lacunas recorrentes na formação do anestesiologista
+            </h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
             {motivos.map((m) => (
               <div
                 key={m.n}
                 onMouseEnter={() => setHover(m.n)}
                 onMouseLeave={() => setHover(null)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="relative overflow-hidden rounded-md border bg-white p-7 transition-all duration-200"
                 style={{
-                  borderTop: `4px solid ${hover === m.n ? VIOLET : TEAL}`,
+                  borderColor: hover === m.n ? BLUE : "#e2e8f0",
+                  boxShadow: hover === m.n ? `0 12px 32px -16px ${NAVY}40` : "none",
                 }}
               >
                 <div
-                  className="mb-4 text-5xl font-black transition-colors"
-                  style={{ color: hover === m.n ? VIOLET : TEAL }}
+                  className="mb-4 font-mono text-xs font-semibold tracking-widest"
+                  style={{ color: BLUE }}
                 >
-                  {m.n}
+                  {m.n} / 03
                 </div>
-                <h3 className="mb-3 text-lg font-bold" style={{ color: NAVY }}>
+                <h3
+                  className="mb-3 text-lg font-bold leading-snug tracking-tight"
+                  style={{ color: NAVY }}
+                >
                   {m.t}
                 </h3>
                 <p className="text-sm leading-relaxed text-slate-600">{m.d}</p>
@@ -194,59 +256,57 @@ function Page() {
         </div>
       </section>
 
-      {/* BLOCO 4 — O que vai dominar */}
+      {/* BLOCO 4 — Conteúdo */}
       <section
         className="py-16 md:py-24"
-        style={{
-          background: `linear-gradient(160deg, ${NAVY} 0%, #0d0e8a 100%)`,
-        }}
+        style={{ background: `linear-gradient(180deg, ${NAVY} 0%, #03224a 100%)` }}
       >
         <div className="mx-auto max-w-6xl px-5">
-          <div className="mb-12 text-center">
-            <span
-              className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
-              style={{ background: TEAL, color: NAVY }}
-            >
-              Conteúdo do Programa
-            </span>
-            <h2 className="text-3xl font-bold text-white md:text-5xl">
-              O que você vai <span style={{ color: TEAL }}>DOMINAR</span>
+          <div className="mb-12 max-w-2xl">
+            <SectionLabel color={MINT}>Currículo</SectionLabel>
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Eixos do programa
             </h2>
+            <p className="mt-3 text-base text-white/70">
+              Conteúdo organizado em dois blocos integrados, com aplicação clínica direta em cada
+              módulo.
+            </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2">
             {[
-              { title: "FISIOLOGIA", items: fisiologia, color: TEAL },
-              { title: "FARMACOLOGIA", items: farmacologia, color: VIOLET },
+              { code: "I", title: "FISIOLOGIA MATERNA", items: fisiologia, color: SKY },
+              { code: "II", title: "FARMACOLOGIA APLICADA", items: farmacologia, color: MINT },
             ].map((bloco) => (
               <div
                 key={bloco.title}
-                className="rounded-2xl bg-white p-7 shadow-2xl md:p-9"
+                className="rounded-md border bg-white p-7 md:p-9"
+                style={{ borderColor: `${bloco.color}55` }}
               >
-                <div className="mb-6 flex items-center gap-3">
-                  <div
-                    className="h-10 w-1.5 rounded-full"
-                    style={{ background: bloco.color }}
-                  />
-                  <h3 className="text-2xl font-black" style={{ color: NAVY }}>
+                <div className="mb-6 flex items-baseline gap-3 border-b pb-4" style={{ borderColor: "#e2e8f0" }}>
+                  <span
+                    className="font-mono text-xs font-bold tracking-widest"
+                    style={{ color: BLUE }}
+                  >
+                    EIXO {bloco.code}
+                  </span>
+                  <h3 className="text-xl font-bold tracking-tight" style={{ color: NAVY }}>
                     {bloco.title}
                   </h3>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {bloco.items.map((item, i) => (
                     <li
                       key={item}
-                      className="flex items-start gap-4 rounded-xl bg-slate-50 p-4 transition-all hover:translate-x-1 hover:bg-slate-100"
+                      className="flex items-start gap-3 border-b border-slate-100 py-2 last:border-0"
                     >
                       <span
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold text-white"
-                        style={{ background: bloco.color }}
+                        className="font-mono text-xs font-semibold pt-0.5"
+                        style={{ color: BLUE }}
                       >
-                        {i + 1}
+                        {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="pt-1 text-base font-medium leading-snug text-slate-800">
-                        {item}
-                      </span>
+                      <span className="text-sm leading-relaxed text-slate-800">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -256,164 +316,176 @@ function Page() {
         </div>
       </section>
 
-      {/* BLOCO 5 — Para quem é / não é */}
+      {/* BLOCO 5 — Para quem / não é */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
-            Essa formação é para você?
-          </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* PARA */}
-            <div
-              className="relative overflow-hidden rounded-3xl p-8 text-white shadow-2xl transition-transform hover:-translate-y-1"
-              style={{
-                background: `linear-gradient(140deg, ${TEAL} 0%, #019e84 100%)`,
-              }}
-            >
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10" />
-              <div className="relative">
-                <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                  Perfeita para você
+          <div className="mb-12 max-w-2xl">
+            <SectionLabel>Público-alvo</SectionLabel>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: NAVY }}>
+              Indicações do programa
+            </h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <div className="rounded-md border bg-white p-8" style={{ borderColor: `${GREEN}40` }}>
+              <div className="mb-5 flex items-center gap-3 border-b pb-4" style={{ borderColor: "#e2e8f0" }}>
+                <span
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-sm text-sm font-bold text-white"
+                  style={{ background: GREEN }}
+                >
+                  ✓
                 </span>
-                <h3 className="mb-6 text-2xl font-black md:text-3xl">SIM, é para mim</h3>
-                <ul className="space-y-4">
-                  {paraQuem.map((p) => (
-                    <li key={p} className="flex items-start gap-3 rounded-xl bg-white/10 p-3 backdrop-blur transition-all hover:bg-white/20">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-base font-black" style={{ color: TEAL }}>
-                        ✓
-                      </span>
-                      <span className="pt-0.5 font-medium leading-snug">{p}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-bold tracking-tight" style={{ color: NAVY }}>
+                  Indicado para
+                </h3>
               </div>
+              <ul className="space-y-3">
+                {paraQuem.map((p) => (
+                  <li key={p} className="flex items-start gap-3 text-sm leading-relaxed text-slate-700">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full" style={{ background: GREEN }} />
+                    {p}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* NÃO */}
-            <div
-              className="relative overflow-hidden rounded-3xl p-8 text-white shadow-2xl transition-transform hover:-translate-y-1"
-              style={{
-                background: `linear-gradient(140deg, ${NAVY} 0%, ${VIOLET} 130%)`,
-              }}
-            >
-              <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-white/10" />
-              <div className="relative">
-                <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                  Não é para você se
+            <div className="rounded-md border bg-white p-8" style={{ borderColor: "#e2e8f0" }}>
+              <div className="mb-5 flex items-center gap-3 border-b pb-4" style={{ borderColor: "#e2e8f0" }}>
+                <span
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-sm text-sm font-bold text-white"
+                  style={{ background: "#64748b" }}
+                >
+                  —
                 </span>
-                <h3 className="mb-6 text-2xl font-black md:text-3xl">NÃO é para mim</h3>
-                <ul className="space-y-4">
-                  {naoEh.map((p) => (
-                    <li key={p} className="flex items-start gap-3 rounded-xl bg-white/10 p-3 backdrop-blur transition-all hover:bg-white/20">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-base font-black" style={{ color: VIOLET }}>
-                        ✕
-                      </span>
-                      <span className="pt-0.5 font-medium leading-snug">{p}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-bold tracking-tight" style={{ color: NAVY }}>
+                  Não recomendado
+                </h3>
               </div>
+              <ul className="space-y-3">
+                {naoEh.map((p) => (
+                  <li key={p} className="flex items-start gap-3 text-sm leading-relaxed text-slate-700">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-400" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* BLOCO 6 — Preço */}
-      <section id="preco" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
+      {/* BLOCO 6 — Investimento */}
+      <section id="preco" className="py-16 md:py-24" style={{ background: "#f6f8fb" }}>
         <div className="mx-auto max-w-4xl px-5">
-          <div className="mx-auto mb-10 max-w-3xl text-center">
-            <p className="text-lg italic leading-relaxed text-slate-700 md:text-xl">
-              "Vinte anos dentro de sala cirúrgica me ensinaram que o anestesista inseguro não
-              precisa de mais protocolo — precisa de raciocínio. É isso que eu coloquei aqui."
+          <div className="mx-auto mb-10 max-w-3xl border-l-2 pl-5" style={{ borderColor: BLUE }}>
+            <p className="text-base italic leading-relaxed text-slate-700 md:text-lg">
+              "Vinte anos em sala cirúrgica mostraram que o anestesiologista inseguro não precisa
+              de mais protocolo — precisa de método. É isso que estruturei aqui."
+            </p>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Dr. Francisco Amaral · TSA / MSc / PhD
             </p>
           </div>
+
           <div
-            className="overflow-hidden rounded-3xl shadow-2xl"
-            style={{
-              background: `linear-gradient(135deg, ${NAVY} 0%, ${VIOLET} 100%)`,
-            }}
+            className="overflow-hidden rounded-md border"
+            style={{ borderColor: `${BLUE}40`, background: "white" }}
           >
-            <div className="p-8 text-center text-white md:p-12">
-              <span
-                className="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
-                style={{ background: TEAL, color: NAVY }}
-              >
-                Oferta por tempo limitado
-              </span>
-              <div className="mb-2 text-lg text-white/70 line-through">De R$ 997</div>
-              <div className="mb-2 text-sm font-semibold uppercase tracking-wider text-white/90">
-                Por apenas
-              </div>
-              <div className="mb-2 text-6xl font-black md:text-7xl" style={{ color: TEAL }}>
-                R$ 297
-              </div>
-              <div className="mb-6 text-base text-white/90">
-                à vista <span className="opacity-60">ou</span>{" "}
-                <span className="font-bold">12x de R$ 30,18</span>
-              </div>
-              <div className="mb-8 flex flex-wrap justify-center gap-3 text-xs">
-                <span className="rounded-full bg-white/10 px-4 py-2 font-semibold backdrop-blur">
-                  ✓ Acesso imediato
+            <div className="border-b p-8 md:p-10" style={{ borderColor: "#e2e8f0", background: NAVY }}>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <SectionLabel color={MINT}>Investimento</SectionLabel>
+                  <h3 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                    Programa completo
+                  </h3>
+                </div>
+                <span
+                  className="rounded-sm px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
+                  style={{ background: MINT, color: NAVY }}
+                >
+                  Acesso imediato
                 </span>
-                <span className="rounded-full bg-white/10 px-4 py-2 font-semibold backdrop-blur">
-                  ✓ 100% online
+              </div>
+            </div>
+            <div className="p-8 md:p-10">
+              <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                <span className="text-sm text-slate-500 line-through">R$ 997</span>
+                <span className="text-5xl font-bold tracking-tight md:text-6xl" style={{ color: NAVY }}>
+                  R$ 297
                 </span>
-                <span className="rounded-full bg-white/10 px-4 py-2 font-semibold backdrop-blur">
-                  ✓ Garantia de 7 dias
+                <span className="text-sm text-slate-600">
+                  à vista · ou 12× de <strong>R$ 30,18</strong>
                 </span>
+              </div>
+              <div className="mb-8 grid grid-cols-1 gap-3 text-sm text-slate-700 sm:grid-cols-3">
+                {["Acesso vitalício", "Conteúdo 100% online", "Garantia de 7 dias"].map((b) => (
+                  <div key={b} className="flex items-center gap-2 rounded-sm border border-slate-200 px-3 py-2">
+                    <span className="text-xs font-bold" style={{ color: GREEN }}>
+                      ✓
+                    </span>
+                    {b}
+                  </div>
+                ))}
               </div>
               <a
                 href="#"
-                className="inline-block rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
-                style={{ color: NAVY }}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:-translate-y-0.5 md:w-auto"
+                style={{ background: GREEN, boxShadow: `0 10px 28px -10px ${GREEN}99` }}
               >
-                GARANTIR MINHA VAGA →
+                Garantir matrícula
+                <span aria-hidden>→</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* BLOCO 7 — Sobre Francisco */}
+      {/* BLOCO 7 — Sobre */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="grid items-center gap-10 md:grid-cols-5">
+          <div className="grid items-start gap-10 md:grid-cols-5">
             <div className="md:col-span-2">
               <div
-                className="mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-3xl shadow-2xl"
+                className="aspect-[4/5] w-full overflow-hidden rounded-md border"
                 style={{
-                  background: `linear-gradient(135deg, ${NAVY} 0%, ${VIOLET} 100%)`,
+                  borderColor: `${BLUE}40`,
+                  background: `linear-gradient(160deg, ${NAVY} 0%, ${BLUE} 100%)`,
                 }}
               >
-                <div className="flex h-full w-full items-center justify-center text-9xl text-white/30">
-                  👨‍⚕️
+                <div className="flex h-full w-full items-end p-6">
+                  <div className="text-white">
+                    <div className="font-mono text-xs uppercase tracking-widest text-white/60">
+                      Coordenação
+                    </div>
+                    <div className="text-2xl font-bold tracking-tight">Dr. Francisco Amaral</div>
+                    <div className="mt-1 text-xs text-white/70">
+                      Anestesiologista · TSA / MSc / PhD
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="md:col-span-3">
-              <span
-                className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white"
-                style={{ background: VIOLET }}
-              >
-                Quem está por trás
-              </span>
-              <h2 className="mb-4 text-3xl font-black md:text-4xl" style={{ color: NAVY }}>
+              <SectionLabel>Coordenação científica</SectionLabel>
+              <h2 className="mb-5 text-3xl font-bold tracking-tight md:text-4xl" style={{ color: NAVY }}>
                 Dr. Francisco Amaral
               </h2>
-              <p className="mb-4 text-base leading-relaxed text-slate-700 md:text-lg">
-                Anestesiologista com mais de <strong>20 anos de sala cirúrgica</strong>. Mestre e
-                Doutor pela UFPR, Fellowship nos Estados Unidos e membro do conselho da Sociedade
-                Paranaense de Anestesiologia.
-              </p>
-              <p className="mb-4 text-base leading-relaxed text-slate-700 md:text-lg">
-                Ao longo desses anos, percebi que o problema da maioria dos anestesistas não é
-                falta de esforço — é <strong>falta de raciocínio clínico estruturado</strong>.
-                Decoraram protocolos. Nunca aprenderam o porquê.
-              </p>
-              <p className="text-base leading-relaxed text-slate-700 md:text-lg">
-                Criei o <strong style={{ color: TEAL }}>Método RAC</strong> para mudar isso. E é
-                ele que está por trás de tudo que você vai aprender aqui.
-              </p>
+              <div className="space-y-4 text-base leading-relaxed text-slate-700 md:text-[1.05rem]">
+                <p>
+                  Anestesiologista com mais de <strong>20 anos de atuação</strong> em sala
+                  cirúrgica. Mestre e Doutor pela <strong>UFPR</strong>, com fellowship nos
+                  Estados Unidos e participação no conselho da Sociedade Paranaense de
+                  Anestesiologia.
+                </p>
+                <p>
+                  Estruturou o <strong style={{ color: BLUE }}>Método RAC</strong> — Raciocínio
+                  Clínico Aplicado — a partir da observação sistemática das lacunas de formação
+                  no ensino de anestesia obstétrica.
+                </p>
+                <p>
+                  O método integra fisiologia, farmacologia e tomada de decisão em um framework
+                  reprodutível, voltado à segurança perioperatória da gestante.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -423,28 +495,36 @@ function Page() {
       <section className="pb-20 md:pb-28">
         <div className="mx-auto max-w-3xl px-5">
           <div
-            className="relative overflow-hidden rounded-3xl border-2 p-8 text-center md:p-12"
-            style={{ borderColor: TEAL, background: "#f0fdf9" }}
+            className="rounded-md border p-8 md:p-10"
+            style={{ borderColor: `${GREEN}55`, background: "#f0fbf5" }}
           >
-            <div
-              className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full text-4xl text-white shadow-xl"
-              style={{ background: `linear-gradient(135deg, ${TEAL}, ${VIOLET})` }}
-            >
-              🛡️
+            <div className="flex items-start gap-5">
+              <div
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm font-bold text-white"
+                style={{ background: GREEN }}
+              >
+                7d
+              </div>
+              <div>
+                <h3 className="mb-2 text-xl font-bold tracking-tight md:text-2xl" style={{ color: NAVY }}>
+                  Garantia incondicional de 7 dias
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-700 md:text-base">
+                  Caso o conteúdo não corresponda à expectativa técnica, o reembolso é integral —
+                  solicitado por e-mail, sem burocracia.
+                </p>
+              </div>
             </div>
-            <h3 className="mb-3 text-2xl font-black md:text-3xl" style={{ color: NAVY }}>
-              Risco zero. Garantia de 7 dias.
-            </h3>
-            <p className="text-base leading-relaxed text-slate-700 md:text-lg">
-              Se você entrar, estudar e sentir que o conteúdo não era o que esperava —{" "}
-              <strong>devolvo 100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
-            </p>
           </div>
         </div>
       </section>
 
-      <footer className="py-8 text-center text-xs text-slate-500" style={{ background: NAVY, color: "rgba(255,255,255,0.7)" }}>
-        © {new Date().getFullYear()} Dr. Francisco Amaral — Todos os direitos reservados
+      <footer
+        className="py-8 text-center text-xs"
+        style={{ background: NAVY, color: "rgba(255,255,255,0.6)" }}
+      >
+        © {new Date().getFullYear()} Dr. Francisco Amaral · Método RAC — Todos os direitos
+        reservados
       </footer>
     </div>
   );
