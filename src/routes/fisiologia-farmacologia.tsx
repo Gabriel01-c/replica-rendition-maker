@@ -513,7 +513,7 @@ function Page() {
                 }}
               >
                 <div className="flex h-full w-full items-center justify-center text-9xl text-white/30">
-                  👨‍⚕️
+                  ​
                 </div>
               </div>
             </div>
