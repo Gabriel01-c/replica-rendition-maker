@@ -159,13 +159,15 @@ const BODY_HTML = `
       Agora que você já vai aprender como escolher o vasoativo certo no plantão, o próximo passo é aprender a raciocinar com segurança nas principais situações da anestesia obstétrica.
     </p>
 
-    <div class="mockup-wrap reveal reveal-d3">
-      <img src="${MOCKUP_URL}" alt="Módulos Fisiologia da Gestante e Farmacologia" class="object-fill" />
-    </div>
+    <div class="cta-group">
+      <div class="mockup-wrap reveal reveal-d3">
+        <img src="${MOCKUP_URL}" alt="Módulos Fisiologia da Gestante e Farmacologia" class="object-fill" />
+      </div>
 
-    <a href="${CTA_LINK}" class="whatsapp-btn reveal reveal-d4" aria-label="Quero Raciocinar com Segurança" target="_blank" rel="noopener noreferrer">
-      Quero Raciocinar com Segurança
-    </a>
+      <a href="${CTA_LINK}" class="whatsapp-btn reveal reveal-d4" aria-label="Quero Raciocinar com Segurança" target="_blank" rel="noopener noreferrer">
+        Quero Raciocinar com Segurança
+      </a>
+    </div>
   </div>
 </div>
 `;
