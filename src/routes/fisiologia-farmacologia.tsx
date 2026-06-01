@@ -49,7 +49,7 @@ const motivos = [
   {
     n: "02",
     t: "Você não domina as adaptações da gestante",
-    d: "A fisiologia da gestante muda tudo — cardiovascular, respiratório, neurológico. Sem entender essas mudanças, qualquer procedimento complexo gera hesitação.",
+    d: "A fisiologia da gestante muda tudo: cardiovascular, respiratório, neurológico. Sem entender essas mudanças, qualquer procedimento complexo gera hesitação.",
   },
   {
     n: "03",
