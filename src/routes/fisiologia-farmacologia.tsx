@@ -71,16 +71,76 @@ const naoEh = [
   "Busca fórmulas prontas sem compreender o motivo das condutas",
 ];
 
-function CTA({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function CTA({ children, className = "" }: { children?: React.ReactNode; className?: string }) {
   return (
     <a
       href="#preco"
-      className={`inline-block rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${className}`}
+      className={`inline-block whitespace-nowrap rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${className}`}
       style={{
         background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`,
       }}
     >
-      {children}
+      {children ?? "QUERO ESSE RACIOCÍNIO AGORA"}
+    </a>
+  );
+}
+
+function FloatingCTA() {
+  const [visible, setVisible] = useState(true);
+  const [variant, setVariant] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-section]")
+    );
+    if (!sections.length) return;
+
+    const update = () => {
+      const mid = window.innerHeight / 2;
+      let active: HTMLElement | null = null;
+      for (const s of sections) {
+        const r = s.getBoundingClientRect();
+        if (r.top <= mid && r.bottom >= mid) {
+          active = s;
+          break;
+        }
+      }
+      if (!active) {
+        // fallback: nearest
+        active =
+          sections.find((s) => s.getBoundingClientRect().bottom > 0) ?? sections[0];
+      }
+      const hasCta = active?.dataset.hascta === "true";
+      const bg = (active?.dataset.bg as "light" | "dark") ?? "light";
+      setVisible(!hasCta);
+      // Button uses TEAL→VIOLET gradient. On dark sections (navy/violet bg)
+      // switch to white button with navy text so it never blends.
+      setVariant(bg === "dark" ? "dark" : "light");
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  if (!visible) return null;
+
+  const style =
+    variant === "dark"
+      ? { background: "#ffffff", color: NAVY }
+      : { background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`, color: "#ffffff" };
+
+  return (
+    <a
+      href="#preco"
+      className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full px-7 py-4 text-sm font-bold shadow-2xl transition-all hover:-translate-y-0.5 md:text-base"
+      style={style}
+    >
+      QUERO ESSE RACIOCÍNIO AGORA
     </a>
   );
 }
