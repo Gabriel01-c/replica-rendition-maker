@@ -75,7 +75,9 @@ const naoEh = [
 function CTA({ children, className = "" }: { children?: React.ReactNode; className?: string }) {
   return (
     <a
-      href="#preco"
+      href="https://pay.hub.la/xPrruJVoPpKMO0zfGIsL"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`inline-block whitespace-nowrap rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${className}`}
       style={{
         background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`,
@@ -126,7 +128,9 @@ function FloatingCTA() {
 
   return (
     <a
-      href="#preco"
+      href="https://pay.hub.la/xPrruJVoPpKMO0zfGIsL"
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full px-7 py-4 text-sm font-bold text-white shadow-2xl transition-all hover:-translate-y-0.5 md:text-base"
       style={{ background: TEAL }}
     >
@@ -490,7 +494,9 @@ function Page() {
               </div>
               <div className="flex justify-center">
                 <a
-                  href="#"
+                  href="https://pay.hub.la/xPrruJVoPpKMO0zfGIsL"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block whitespace-nowrap rounded-full bg-white px-7 py-3 text-sm font-black shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl md:px-9 md:py-3.5 md:text-base"
                   style={{ color: NAVY }}
                 >
@@ -542,7 +548,9 @@ function Page() {
               className="mx-auto block w-full max-w-xl h-auto drop-shadow-2xl my-0"
             />
             <a
-              href="#"
+              href="https://pay.hub.la/xPrruJVoPpKMO0zfGIsL"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block whitespace-nowrap rounded-full px-7 py-3 text-sm font-black shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl md:px-9 md:py-3.5 md:text-base"
               style={{ background: TEAL, color: NAVY }}
             >
