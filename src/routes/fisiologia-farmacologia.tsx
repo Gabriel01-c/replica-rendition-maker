@@ -474,7 +474,7 @@ function Page() {
               </div>
               <div className="mb-6 text-base text-white/90">
                 à vista <span className="opacity-60">ou</span>{" "}
-                <span className="font-bold">12x de R$ 19,66</span>
+                <span className="font-bold">12x de R$ 20,02</span>
               </div>
               <div className="mb-8 flex flex-wrap justify-center gap-3 text-xs">
                 <span className="rounded-full bg-white/10 px-4 py-2 font-semibold backdrop-blur">
