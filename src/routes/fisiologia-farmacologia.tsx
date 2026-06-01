@@ -541,7 +541,7 @@ function Page() {
             </div>
             <div className="md:col-span-2 md:order-2">
               <img
-                src={FRANCISCO_PHOTO.url}
+                src={FRANCISCO_PHOTO}
                 alt="Dr. Francisco Amaral"
                 className="mx-auto w-full max-w-md h-auto drop-shadow-2xl"
               />
