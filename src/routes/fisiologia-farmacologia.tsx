@@ -609,63 +609,83 @@ function ModuloCard({
   return (
     <div
       ref={ref}
-      className="group relative overflow-hidden rounded-3xl border border-white/10 p-7 md:p-10"
+      className="group relative overflow-hidden rounded-[28px] border border-white/[0.08] p-8 md:p-12"
       style={{
         background:
-          "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%)",
-        boxShadow: `0 30px 80px -40px ${color}55`,
+          "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
       }}
     >
+      {/* hairline top accent */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-40 blur-3xl transition-opacity duration-700 group-hover:opacity-70"
-        style={{ background: color }}
+        className="absolute inset-x-10 top-0 h-px"
+        style={{
+          background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+        }}
       />
 
-      <div className="relative mb-8 flex items-center justify-between">
-        <div>
-          <span
-            className="mb-2 inline-block text-[10px] font-medium uppercase tracking-[0.3em]"
-            style={{ color }}
-          >
-            {label}
-          </span>
-          <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
-            {title}
-          </h3>
-        </div>
-        <span className="text-xs font-medium text-white/40">
-          {items.length} aulas
-        </span>
+      {/* watermark numeral */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-[140px] leading-none tracking-tighter md:text-[180px]"
+        style={{
+          color,
+          opacity: 0.07,
+          fontStyle: "italic",
+        }}
+      >
+        {label.replace("Módulo ", "")}
       </div>
 
-      <ul className="relative space-y-2">
+      <div className="relative mb-10">
+        <span
+          className="mb-3 inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.32em] text-white/50"
+        >
+          <span
+            className="inline-block h-px w-6"
+            style={{ background: color }}
+          />
+          {label}
+        </span>
+        <div className="flex items-end justify-between gap-4">
+          <h3 className="font-serif text-3xl font-normal tracking-tight text-white md:text-4xl">
+            {title}
+          </h3>
+          <span className="pb-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
+            {items.length} aulas
+          </span>
+        </div>
+      </div>
+
+      <ul className="relative divide-y divide-white/[0.06]">
         {items.map((item, i) => (
           <li
             key={item}
-            className="flex items-center gap-4 rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3.5 hover:border-white/20 hover:bg-white/[0.06] hover:translate-x-1"
+            className="group/item flex items-baseline gap-6 py-4 transition-colors duration-300 hover:bg-white/[0.015]"
             style={{
               opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(14px)",
-              transition: `opacity 500ms ease-out ${i * 110}ms, transform 500ms ease-out ${i * 110}ms, background-color 300ms, border-color 300ms`,
+              transform: visible ? "translateY(0)" : "translateY(10px)",
+              transition: `opacity 600ms cubic-bezier(0.16,1,0.3,1) ${i * 90}ms, transform 600ms cubic-bezier(0.16,1,0.3,1) ${i * 90}ms, background-color 300ms`,
             }}
           >
             <span
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg font-mono text-xs font-semibold tabular-nums"
-              style={{
-                background: `linear-gradient(135deg, ${color}30, ${color}10)`,
-                color,
-                border: `1px solid ${color}40`,
-              }}
+              className="w-6 shrink-0 font-mono text-[11px] font-medium tabular-nums text-white/30 transition-colors group-hover/item:text-white/60"
+              style={{ ["--c" as string]: color }}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
-            <span className="text-[15px] font-normal leading-snug text-white/90">
+            <span className="flex-1 text-[15px] font-light leading-relaxed text-white/85 transition-colors group-hover/item:text-white">
               {item}
             </span>
+            <span
+              aria-hidden
+              className="h-1.5 w-1.5 shrink-0 translate-y-[2px] rounded-full opacity-0 transition-opacity duration-300 group-hover/item:opacity-100"
+              style={{ background: color }}
+            />
           </li>
         ))}
       </ul>
     </div>
   );
+
 }
