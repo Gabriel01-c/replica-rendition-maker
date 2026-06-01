@@ -512,40 +512,43 @@ function Page() {
           background: `linear-gradient(160deg, #01021f 0%, #050636 60%, #0a0b4a 100%)`,
         }}
       >
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="grid items-center gap-4 md:grid-cols-5 md:gap-6">
-            <div className="md:col-span-3 md:order-1">
-              <span
-                className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
-                style={{ background: TEAL, color: NAVY }}
-              >
-                Quem está por trás
-              </span>
-              <h2 className="mb-4 text-3xl font-black text-white md:text-4xl">
-                Dr. Francisco Amaral
-              </h2>
-              <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
-                Anestesiologista com mais de <strong className="text-white">20 anos de sala cirúrgica</strong>. Mestre e
-                Doutor pela UFPR, Fellowship nos Estados Unidos e membro do conselho da Sociedade
-                Paranaense de Anestesiologia.
-              </p>
-              <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
-                Ao longo desses anos, percebi que o problema da maioria dos anestesistas não é
-                falta de esforço — é <strong className="text-white">falta de raciocínio clínico estruturado</strong>.
-                Decoraram protocolos. Nunca aprenderam o porquê.
-              </p>
-              <p className="text-base leading-relaxed text-white/80 md:text-lg">
-                Criei o <strong style={{ color: TEAL }}>Método RAC</strong> para mudar isso. E é
-                ele que está por trás de tudo que você vai aprender aqui.
-              </p>
-            </div>
-            <div className="md:col-span-2 md:order-2">
-              <img
-                src={FRANCISCO_PHOTO}
-                alt="Dr. Francisco Amaral"
-                className="mx-auto w-full max-w-md h-auto drop-shadow-2xl"
-              />
-            </div>
+        <div className="mx-auto max-w-3xl px-5">
+          <div className="flex flex-col items-center text-center">
+            <span
+              className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
+              style={{ background: TEAL, color: NAVY }}
+            >
+              Quem está por trás
+            </span>
+            <h2 className="mb-4 text-3xl font-black text-white md:text-4xl">
+              Dr. Francisco Amaral
+            </h2>
+            <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
+              Anestesiologista com mais de <strong className="text-white">20 anos de sala cirúrgica</strong>. Mestre e
+              Doutor pela UFPR, Fellowship nos Estados Unidos e membro do conselho da Sociedade
+              Paranaense de Anestesiologia.
+            </p>
+            <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
+              Ao longo desses anos, percebi que o problema da maioria dos anestesistas não é
+              falta de esforço — é <strong className="text-white">falta de raciocínio clínico estruturado</strong>.
+              Decoraram protocolos. Nunca aprenderam o porquê.
+            </p>
+            <p className="mb-0 text-base leading-relaxed text-white/80 md:text-lg">
+              Criei o <strong style={{ color: TEAL }}>Método RAC</strong> para mudar isso. E é
+              ele que está por trás de tudo que você vai aprender aqui.
+            </p>
+            <img
+              src={FRANCISCO_PHOTO}
+              alt="Dr. Francisco Amaral"
+              className="mx-auto block w-full max-w-xl h-auto drop-shadow-2xl my-0"
+            />
+            <a
+              href="#"
+              className="inline-block whitespace-nowrap rounded-full px-7 py-3 text-sm font-black shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl md:px-9 md:py-3.5 md:text-base"
+              style={{ background: TEAL, color: NAVY }}
+            >
+              QUERO APRENDER COM O DR. FRANCISCO
+            </a>
           </div>
         </div>
       </section>
