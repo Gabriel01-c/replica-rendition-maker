@@ -187,7 +187,7 @@ function Page() {
               >
                 aulas aplicadas com casos clínicos
               </span>
-              <h1 className="mb-4 text-3xl font-black leading-tight md:text-5xl lg:text-6xl">
+              <h1 className="mb-4 text-3xl font-black leading-tight md:text-5xl lg:text-6xl text-center">
                 Como Raciocinar com Segurança na{" "}
                 <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
               </h1>
