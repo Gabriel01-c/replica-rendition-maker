@@ -223,6 +223,9 @@ function Page() {
 
       {/* BLOCO 2 — Dor */}
       <section
+        data-section
+        data-bg="dark"
+        data-hascta="false"
         className="py-16 md:py-24"
         style={{
           background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
