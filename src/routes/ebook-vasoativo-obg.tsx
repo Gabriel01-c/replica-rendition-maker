@@ -229,7 +229,7 @@ const BODY_HTML = `
     </h1>
 
     <p class="access-sub reveal reveal-d2">
-      Entre no grupo para acessar conteúdos complementares e aprofundar seu raciocínio nas decisões da anestesia obstétrica.
+      Agora que você já vai aprender como escolher o vasoativo certo no plantão, o próximo passo é aprender a raciocinar com segurança nas principais situações da anestesia obstétrica.
     </p>
 
     <a href="${WHATSAPP_LINK}" class="whatsapp-btn reveal reveal-d3" aria-label="Entrar no grupo do WhatsApp">
