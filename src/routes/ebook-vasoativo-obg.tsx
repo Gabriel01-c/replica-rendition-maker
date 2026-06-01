@@ -31,12 +31,12 @@ const CSS = `
     height: 100vh;
     height: 100dvh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     background: var(--gradient-hero);
     position: relative;
     overflow: hidden;
-    padding: clamp(12px, 2.5vh, 28px) 16px;
+    padding: clamp(16px, 3vh, 32px) 16px;
   }
   .fullscreen-page::before {
     content: '';
@@ -49,12 +49,12 @@ const CSS = `
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 620px;
+    max-width: 640px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(6px, 1.2vh, 14px);
+    gap: clamp(10px, 1.8vh, 18px);
   }
 
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
@@ -70,40 +70,38 @@ const CSS = `
     border: 1px solid rgba(255,255,255,0.14);
     color: var(--yellow);
     border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 11px;
+    padding: 7px 16px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
   .access-headline {
-    font-size: clamp(20px, 3.4vh, 32px);
+    font-size: clamp(26px, 4.6vh, 42px);
     font-weight: 800;
     letter-spacing: -0.035em;
-    line-height: 1.1;
+    line-height: 1.08;
     color: var(--text-white);
   }
 
   .access-sub {
-    font-size: clamp(13px, 1.7vh, 15px);
+    font-size: clamp(15px, 2.1vh, 18px);
     color: var(--text-light);
-    line-height: 1.5;
-    max-width: 520px;
+    line-height: 1.55;
+    max-width: 560px;
   }
 
   .mockup-wrap {
     width: 100%;
-    max-width: 420px;
-    flex: 1 1 auto;
-    min-height: 0;
+    max-width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .mockup-wrap img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: clamp(140px, 26vh, 240px);
     height: auto;
     width: auto;
     object-fit: contain;
@@ -117,7 +115,7 @@ const CSS = `
     justify-content: center;
     width: 100%;
     max-width: 420px;
-    min-height: 54px;
+    min-height: 56px;
     padding: 0 28px;
     background: var(--whatsapp);
     color: var(--white);
@@ -130,7 +128,6 @@ const CSS = `
     cursor: pointer;
     box-shadow: 0 14px 34px rgba(21,185,141,0.28);
     transition: all 180ms ease;
-    margin-top: -6px;
   }
   .whatsapp-btn:hover {
     background: var(--whatsapp-hover);
@@ -139,6 +136,7 @@ const CSS = `
   }
   .whatsapp-btn:active { transform: scale(0.99); }
 `;
+
 
 const BODY_HTML = `
 <div class="fullscreen-page">
