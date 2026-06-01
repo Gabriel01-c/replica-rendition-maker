@@ -490,7 +490,7 @@ function Page() {
               <div className="flex justify-center">
                 <a
                   href="#"
-                  className="inline-block whitespace-nowrap rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
+                  className="inline-block whitespace-nowrap rounded-full bg-white px-7 py-3 text-sm font-black shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl md:px-9 md:py-3.5 md:text-base"
                   style={{ color: NAVY }}
                 >
                   QUERO ESSE RACIOCÍNIO AGORA
