@@ -248,7 +248,7 @@ function Page() {
       </section>
 
       {/* BLOCO 3 — 3 motivos */}
-      <section className="py-16 md:py-24">
+      <section data-section data-bg="light" data-hascta="false" className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
             Isso acontece por <span style={{ color: TEAL }}>3 motivos</span>
