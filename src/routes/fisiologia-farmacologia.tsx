@@ -505,3 +505,97 @@ function Page() {
     </div>
   );
 }
+
+function ModuloCard({
+  title,
+  items,
+  color,
+  label,
+}: {
+  title: string;
+  items: string[];
+  color: string;
+  label: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="group relative overflow-hidden rounded-3xl border border-white/10 p-7 md:p-10"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%)",
+        boxShadow: `0 30px 80px -40px ${color}55`,
+      }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-40 blur-3xl transition-opacity duration-700 group-hover:opacity-70"
+        style={{ background: color }}
+      />
+
+      <div className="relative mb-8 flex items-center justify-between">
+        <div>
+          <span
+            className="mb-2 inline-block text-[10px] font-medium uppercase tracking-[0.3em]"
+            style={{ color }}
+          >
+            {label}
+          </span>
+          <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            {title}
+          </h3>
+        </div>
+        <span className="text-xs font-medium text-white/40">
+          {items.length} aulas
+        </span>
+      </div>
+
+      <ul className="relative space-y-2">
+        {items.map((item, i) => (
+          <li
+            key={item}
+            className="flex items-center gap-4 rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3.5 hover:border-white/20 hover:bg-white/[0.06] hover:translate-x-1"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(14px)",
+              transition: `opacity 500ms ease-out ${i * 110}ms, transform 500ms ease-out ${i * 110}ms, background-color 300ms, border-color 300ms`,
+            }}
+          >
+            <span
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg font-mono text-xs font-semibold tabular-nums"
+              style={{
+                background: `linear-gradient(135deg, ${color}30, ${color}10)`,
+                color,
+                border: `1px solid ${color}40`,
+              }}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="text-[15px] font-normal leading-snug text-white/90">
+              {item}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
