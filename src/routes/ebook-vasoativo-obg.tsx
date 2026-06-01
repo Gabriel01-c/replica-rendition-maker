@@ -97,7 +97,7 @@ const CSS = `
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: -30px;
+    margin-bottom: -23px;
   }
   .mockup-wrap img {
     max-width: 100%;
