@@ -292,37 +292,54 @@ function Page() {
             </h2>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2">
             {[
-              { title: "FISIOLOGIA", items: fisiologia, color: TEAL },
-              { title: "FARMACOLOGIA", items: farmacologia, color: VIOLET },
+              { title: "Fisiologia", items: fisiologia, color: TEAL },
+              { title: "Farmacologia", items: farmacologia, color: VIOLET },
             ].map((bloco) => (
               <div
                 key={bloco.title}
-                className="rounded-2xl bg-white p-7 shadow-2xl md:p-9"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 p-8 backdrop-blur-sm md:p-10"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+                }}
               >
-                <div className="mb-6 flex items-center gap-3">
-                  <div
-                    className="h-10 w-1.5 rounded-full"
-                    style={{ background: bloco.color }}
-                  />
-                  <h3 className="text-2xl font-black" style={{ color: NAVY }}>
+                <div
+                  className="absolute inset-x-0 top-0 h-px"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${bloco.color}, transparent)`,
+                  }}
+                />
+
+                <div className="mb-8 flex items-baseline justify-between">
+                  <h3 className="text-xl font-semibold tracking-wide text-white md:text-2xl">
                     {bloco.title}
                   </h3>
+                  <span
+                    className="text-[11px] font-medium uppercase tracking-[0.2em]"
+                    style={{ color: bloco.color }}
+                  >
+                    Módulo
+                  </span>
                 </div>
-                <ul className="space-y-3">
+
+                <ul className="divide-y divide-white/10">
                   {bloco.items.map((item, i) => (
                     <li
                       key={item}
-                      className="flex items-start gap-4 rounded-xl bg-slate-50 p-4 transition-all hover:translate-x-1 hover:bg-slate-100"
+                      className="flex items-center gap-5 py-4 transition-colors hover:bg-white/[0.03]"
                     >
                       <span
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold text-white"
-                        style={{ background: bloco.color }}
+                        className="w-8 shrink-0 font-mono text-sm tabular-nums text-white/40"
                       >
-                        {i + 1}
+                        {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="pt-1 text-base font-medium leading-snug text-slate-800">
+                      <span
+                        className="h-4 w-px shrink-0"
+                        style={{ background: bloco.color, opacity: 0.6 }}
+                      />
+                      <span className="text-[15px] font-normal leading-snug text-white/90">
                         {item}
                       </span>
                     </li>
@@ -331,6 +348,7 @@ function Page() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
