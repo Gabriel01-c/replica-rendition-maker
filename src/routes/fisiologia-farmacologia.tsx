@@ -453,10 +453,10 @@ function Page() {
               </div>
               <a
                 href="#"
-                className="inline-block rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
+                className="inline-block whitespace-nowrap rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
                 style={{ color: NAVY }}
               >
-                GARANTIR MINHA VAGA →
+                QUERO ESSE RACIOCÍNIO AGORA
               </a>
             </div>
           </div>
