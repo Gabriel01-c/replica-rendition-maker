@@ -535,6 +535,7 @@ function Page() {
       <footer className="py-8 text-center text-xs text-slate-500" style={{ background: NAVY, color: "rgba(255,255,255,0.7)" }}>
         © {new Date().getFullYear()} Dr. Francisco Amaral — Todos os direitos reservados
       </footer>
+      <FloatingCTA />
     </div>
   );
 }
