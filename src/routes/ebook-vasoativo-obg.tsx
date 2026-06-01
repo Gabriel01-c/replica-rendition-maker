@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import mockupAsset from "@/assets/mockup-fisio-farmaco.png.asset.json";
+import MOCKUP_URL from "@/assets/mockup-fisio-farmaco-v3.png";
 
 const CTA_LINK = "https://pay.hub.la/xPrruJVoPpKMO0zfGIsL";
-const MOCKUP_URL = mockupAsset.url;
 
 const CSS = `
   :root {
@@ -109,6 +108,8 @@ const CSS = `
     filter: drop-shadow(0 18px 30px rgba(0,0,0,0.45));
   }
 
+  .object-fill { object-fit: fill !important; }
+
   .whatsapp-btn {
     display: inline-flex;
     align-items: center;
@@ -152,7 +153,7 @@ const BODY_HTML = `
     </p>
 
     <div class="mockup-wrap reveal reveal-d3">
-      <img src="${MOCKUP_URL}" alt="Módulos Fisiologia da Gestante e Farmacologia" />
+      <img src="${MOCKUP_URL}" alt="Módulos Fisiologia da Gestante e Farmacologia" class="object-fill" />
     </div>
 
     <a href="${CTA_LINK}" class="whatsapp-btn reveal reveal-d4" aria-label="Quero Raciocinar com Segurança" target="_blank" rel="noopener noreferrer">
