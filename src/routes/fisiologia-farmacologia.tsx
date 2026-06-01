@@ -10,7 +10,7 @@ export const Route = createFileRoute("/fisiologia-farmacologia")({
       {
         name: "description",
         content:
-          "Aprenda a tomar decisões certas em qualquer situação obstétrica — sem decorar protocolo, sem travar na hora que mais importa.",
+          "Aprenda a tomar decisões certas em qualquer situação obstétrica, sem decorar protocolo, sem travar na hora que mais importa.",
       },
     ],
   }),
@@ -135,7 +135,7 @@ function Page() {
                 <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
               </h1>
               <p className="mb-2 text-base text-white/85 md:mb-6 md:text-lg">
-                Aprenda a tomar decisões certas em qualquer situação obstétrica — sem decorar
+                Aprenda a tomar decisões certas em qualquer situação obstétrica, sem decorar
                 protocolo, sem travar na hora que mais importa.
               </p>
               <div className="-mb-2 flex justify-center md:hidden">
