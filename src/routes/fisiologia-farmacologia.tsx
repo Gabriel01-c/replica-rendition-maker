@@ -509,7 +509,7 @@ function Page() {
       </section>
 
       {/* BLOCO 8 — Garantia */}
-      <section className="pb-20 md:pb-28">
+      <section data-section data-bg="light" data-hascta="false" className="pb-20 md:pb-28">
         <div className="mx-auto max-w-3xl px-5">
           <div
             className="relative overflow-hidden rounded-3xl border-2 p-8 text-center md:p-12"
