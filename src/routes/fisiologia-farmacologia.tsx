@@ -282,6 +282,9 @@ function Page() {
 
       {/* BLOCO 4 — O que vai dominar */}
       <section
+        data-section
+        data-bg="dark"
+        data-hascta="false"
         className="py-16 md:py-24"
         style={{
           background: `linear-gradient(160deg, ${NAVY} 0%, #0d0e8a 100%)`,
