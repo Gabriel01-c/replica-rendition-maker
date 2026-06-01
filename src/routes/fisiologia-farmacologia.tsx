@@ -690,13 +690,6 @@ function ModuloCard({
             <span className="flex-1 text-[15px] font-normal leading-snug text-white/90 transition-colors group-hover/item:text-white">
               {item}
             </span>
-
-            <span
-              aria-hidden
-              className="shrink-0 text-white/20 transition-all duration-300 group-hover/item:translate-x-0.5 group-hover/item:text-white/60"
-            >
-              →
-            </span>
           </li>
         ))}
       </ul>
