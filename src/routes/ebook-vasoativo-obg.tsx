@@ -101,7 +101,7 @@ const CSS = `
   }
   .mockup-wrap img {
     max-width: 100%;
-    max-height: clamp(200px, 36vh, 310px);
+    max-height: clamp(220px, 48vh, 340px);
     height: auto;
     width: auto;
     display: block;
