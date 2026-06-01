@@ -503,47 +503,48 @@ function Page() {
       </section>
 
       {/* BLOCO 7 — Sobre Francisco */}
-      <section data-section data-bg="light" data-hascta="false" className="py-16 md:py-24">
+      <section
+        data-section
+        data-bg="dark"
+        data-hascta="false"
+        className="py-16 md:py-24"
+        style={{
+          background: `linear-gradient(160deg, #01021f 0%, #050636 60%, #0a0b4a 100%)`,
+        }}
+      >
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid items-center gap-10 md:grid-cols-5">
-            <div className="md:col-span-2">
-              <div
-                className="mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-3xl shadow-2xl"
-                style={{
-                  background: `linear-gradient(135deg, ${NAVY} 0%, ${VIOLET} 100%)`,
-                }}
-              >
-                <img
-                  src={FRANCISCO_PHOTO.url}
-                  alt="Dr. Francisco Amaral"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            </div>
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 md:order-1">
               <span
-                className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white"
-                style={{ background: VIOLET }}
+                className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
+                style={{ background: TEAL, color: NAVY }}
               >
                 Quem está por trás
               </span>
-              <h2 className="mb-4 text-3xl font-black md:text-4xl" style={{ color: NAVY }}>
+              <h2 className="mb-4 text-3xl font-black text-white md:text-4xl">
                 Dr. Francisco Amaral
               </h2>
-              <p className="mb-4 text-base leading-relaxed text-slate-700 md:text-lg">
-                Anestesiologista com mais de <strong>20 anos de sala cirúrgica</strong>. Mestre e
+              <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
+                Anestesiologista com mais de <strong className="text-white">20 anos de sala cirúrgica</strong>. Mestre e
                 Doutor pela UFPR, Fellowship nos Estados Unidos e membro do conselho da Sociedade
                 Paranaense de Anestesiologia.
               </p>
-              <p className="mb-4 text-base leading-relaxed text-slate-700 md:text-lg">
+              <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
                 Ao longo desses anos, percebi que o problema da maioria dos anestesistas não é
-                falta de esforço — é <strong>falta de raciocínio clínico estruturado</strong>.
+                falta de esforço — é <strong className="text-white">falta de raciocínio clínico estruturado</strong>.
                 Decoraram protocolos. Nunca aprenderam o porquê.
               </p>
-              <p className="text-base leading-relaxed text-slate-700 md:text-lg">
+              <p className="text-base leading-relaxed text-white/80 md:text-lg">
                 Criei o <strong style={{ color: TEAL }}>Método RAC</strong> para mudar isso. E é
                 ele que está por trás de tudo que você vai aprender aqui.
               </p>
+            </div>
+            <div className="md:col-span-2 md:order-2">
+              <img
+                src={FRANCISCO_PHOTO.url}
+                alt="Dr. Francisco Amaral"
+                className="mx-auto w-full max-w-sm h-auto drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>
