@@ -408,7 +408,7 @@ function Page() {
       </section>
 
       {/* BLOCO 6 — Preço */}
-      <section id="preco" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
+      <section id="preco" data-section data-bg="light" data-hascta="true" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
         <div className="mx-auto max-w-4xl px-5">
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <p className="text-lg italic leading-relaxed text-slate-700 md:text-xl">
