@@ -53,7 +53,7 @@ const CSS = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(10px, 1.8vh, 18px);
+    gap: 8px;
   }
 
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
@@ -93,17 +93,17 @@ const CSS = `
 
   .mockup-wrap {
     width: 100%;
-    max-width: 300px;
+    max-width: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: -8px;
   }
   .mockup-wrap img {
     max-width: 100%;
-    max-height: clamp(140px, 26vh, 240px);
+    max-height: clamp(200px, 36vh, 310px);
     height: auto;
     width: auto;
-    object-fit: contain;
     display: block;
     filter: drop-shadow(0 18px 30px rgba(0,0,0,0.45));
   }
