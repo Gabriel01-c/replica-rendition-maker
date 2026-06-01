@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import HERO_MOCKUP from "@/assets/mockup-fisio-farmaco-hero.png.asset.json";
-import FRANCISCO_PHOTO from "@/assets/francisco.png.asset.json";
+import FRANCISCO_PHOTO from "@/assets/francisco.png";
 
 
 export const Route = createFileRoute("/fisiologia-farmacologia")({
@@ -541,7 +541,7 @@ function Page() {
             </div>
             <div className="md:col-span-2 md:order-2">
               <img
-                src={FRANCISCO_PHOTO.url}
+                src={FRANCISCO_PHOTO}
                 alt="Dr. Francisco Amaral"
                 className="mx-auto w-full max-w-md h-auto drop-shadow-2xl"
               />
