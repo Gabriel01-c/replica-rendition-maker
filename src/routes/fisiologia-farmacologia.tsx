@@ -314,64 +314,134 @@ function Page() {
       {/* BLOCO 5 — Para quem é / não é */}
       <section data-section data-bg="light" data-hascta="false" className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
-            Essa formação é para você?
-          </h2>
+          <div className="mb-12 text-center">
+            <span className="mb-3 inline-block text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-500">
+              Diagnóstico rápido
+            </span>
+            <h2 className="text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
+              Essa formação é para você?
+            </h2>
+          </div>
           <div className="grid gap-6 md:grid-cols-2">
             {/* PARA */}
-            <div
-              className="relative overflow-hidden rounded-3xl p-8 text-white shadow-2xl transition-transform hover:-translate-y-1"
-              style={{
-                background: `linear-gradient(140deg, ${TEAL} 0%, #019e84 100%)`,
-              }}
-            >
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10" />
-              <div className="relative">
-                <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                  Perfeita para você
-                </span>
-                <h3 className="mb-6 text-2xl font-black md:text-3xl">SIM, é para mim</h3>
-                <ul className="space-y-4">
-                  {paraQuem.map((p) => (
-                    <li key={p} className="flex items-start gap-3 rounded-xl bg-white/10 p-3 backdrop-blur transition-all hover:bg-white/20">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-base font-black" style={{ color: TEAL }}>
+            {(() => {
+              const GREEN = "#10b981";
+              return (
+                <div
+                  className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
+                  style={{ boxShadow: `0 20px 60px -30px ${GREEN}80` }}
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-[3px]"
+                    style={{ background: `linear-gradient(90deg, transparent, ${GREEN}, transparent)` }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full opacity-10 blur-3xl"
+                    style={{ background: GREEN }}
+                  />
+                  <div className="relative">
+                    <div className="mb-5 flex items-center gap-3">
+                      <span
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full text-base font-bold text-white"
+                        style={{ background: GREEN }}
+                      >
                         ✓
                       </span>
-                      <span className="pt-0.5 font-medium leading-snug">{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                      <span
+                        className="text-[11px] font-semibold uppercase tracking-[0.25em]"
+                        style={{ color: GREEN }}
+                      >
+                        Perfeita para você
+                      </span>
+                    </div>
+                    <h3 className="mb-7 text-2xl font-semibold tracking-tight md:text-3xl" style={{ color: NAVY }}>
+                      Sim, é para mim
+                    </h3>
+                    <ul className="space-y-3">
+                      {paraQuem.map((p) => (
+                        <li
+                          key={p}
+                          className="flex items-start gap-3.5 rounded-xl border border-slate-100 bg-slate-50/60 p-3.5 transition-colors hover:border-slate-200 hover:bg-white"
+                        >
+                          <span
+                            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                            style={{ background: GREEN }}
+                          >
+                            ✓
+                          </span>
+                          <span className="pt-0.5 text-[15px] font-normal leading-snug text-slate-700">
+                            {p}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* NÃO */}
-            <div
-              className="relative overflow-hidden rounded-3xl p-8 text-white shadow-2xl transition-transform hover:-translate-y-1"
-              style={{
-                background: `linear-gradient(140deg, ${NAVY} 0%, ${VIOLET} 130%)`,
-              }}
-            >
-              <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-white/10" />
-              <div className="relative">
-                <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                  Não é para você se
-                </span>
-                <h3 className="mb-6 text-2xl font-black md:text-3xl">NÃO é para mim</h3>
-                <ul className="space-y-4">
-                  {naoEh.map((p) => (
-                    <li key={p} className="flex items-start gap-3 rounded-xl bg-white/10 p-3 backdrop-blur transition-all hover:bg-white/20">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-base font-black" style={{ color: VIOLET }}>
+            {(() => {
+              const RED = "#e11d48";
+              return (
+                <div
+                  className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
+                  style={{ boxShadow: `0 20px 60px -30px ${RED}80` }}
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-[3px]"
+                    style={{ background: `linear-gradient(90deg, transparent, ${RED}, transparent)` }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -left-20 -bottom-20 h-56 w-56 rounded-full opacity-10 blur-3xl"
+                    style={{ background: RED }}
+                  />
+                  <div className="relative">
+                    <div className="mb-5 flex items-center gap-3">
+                      <span
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full text-base font-bold text-white"
+                        style={{ background: RED }}
+                      >
                         ✕
                       </span>
-                      <span className="pt-0.5 font-medium leading-snug">{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                      <span
+                        className="text-[11px] font-semibold uppercase tracking-[0.25em]"
+                        style={{ color: RED }}
+                      >
+                        Não é para você se
+                      </span>
+                    </div>
+                    <h3 className="mb-7 text-2xl font-semibold tracking-tight md:text-3xl" style={{ color: NAVY }}>
+                      Não é para mim
+                    </h3>
+                    <ul className="space-y-3">
+                      {naoEh.map((p) => (
+                        <li
+                          key={p}
+                          className="flex items-start gap-3.5 rounded-xl border border-slate-100 bg-slate-50/60 p-3.5 transition-colors hover:border-slate-200 hover:bg-white"
+                        >
+                          <span
+                            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                            style={{ background: RED }}
+                          >
+                            ✕
+                          </span>
+                          <span className="pt-0.5 text-[15px] font-normal leading-snug text-slate-700">
+                            {p}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       </section>
+
 
       {/* BLOCO 6 — Preço */}
       <section id="preco" data-section data-bg="light" data-hascta="true" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
