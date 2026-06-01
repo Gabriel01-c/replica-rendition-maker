@@ -513,7 +513,7 @@ function Page() {
         }}
       >
         <div className="mx-auto max-w-6xl px-5">
-          <div className="grid items-center gap-10 md:grid-cols-5">
+          <div className="grid items-center gap-4 md:grid-cols-5 md:gap-6">
             <div className="md:col-span-3 md:order-1">
               <span
                 className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
@@ -543,7 +543,7 @@ function Page() {
               <img
                 src={FRANCISCO_PHOTO.url}
                 alt="Dr. Francisco Amaral"
-                className="mx-auto w-full max-w-sm h-auto drop-shadow-2xl"
+                className="mx-auto w-full max-w-md h-auto drop-shadow-2xl"
               />
             </div>
           </div>
