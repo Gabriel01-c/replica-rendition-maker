@@ -159,13 +159,18 @@ function Page() {
       </section>
 
       {/* BLOCO 2 — Dor */}
-      <section className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
+      <section
+        className="py-16 md:py-24"
+        style={{
+          background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
+        }}
+      >
         <div className="mx-auto max-w-4xl px-5 text-center">
-          <h2 className="mb-6 text-2xl font-bold leading-tight md:text-4xl" style={{ color: NAVY }}>
+          <h2 className="mb-6 text-2xl font-bold leading-tight text-white md:text-4xl">
             Você já ficou em dúvida numa situação obstétrica com o paciente instável e a equipe te
             olhando?
           </h2>
-          <p className="text-lg text-slate-700 md:text-xl">
+          <p className="text-lg text-white/85 md:text-xl">
             Essa sensação não é falta de esforço. É falta de{" "}
             <span className="font-bold" style={{ color: VIOLET }}>
               raciocínio clínico estruturado
