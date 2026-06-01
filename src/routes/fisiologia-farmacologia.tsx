@@ -134,11 +134,11 @@ function Page() {
                 Como Raciocinar com Segurança na{" "}
                 <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
               </h1>
-              <p className="mb-6 text-base text-white/85 md:text-lg">
+              <p className="mb-2 text-base text-white/85 md:mb-6 md:text-lg">
                 Aprenda a tomar decisões certas em qualquer situação obstétrica — sem decorar
                 protocolo, sem travar na hora que mais importa.
               </p>
-              <div className="mb-6 flex justify-center md:hidden">
+              <div className="-mb-2 flex justify-center md:hidden">
                 <img
                   src={HERO_MOCKUP.url}
                   alt="Módulos Fisiologia da Gestante e Farmacologia"
