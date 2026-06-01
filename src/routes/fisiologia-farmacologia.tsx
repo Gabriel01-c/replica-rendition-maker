@@ -128,7 +128,7 @@ function Page() {
                 className="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
                 style={{ background: TEAL, color: NAVY }}
               >
-                Anestesia Obstétrica
+                aulas aplicadas com casos clínicos
               </span>
               <h1 className="mb-4 text-3xl font-black leading-tight md:text-5xl lg:text-6xl">
                 Como Raciocinar com Segurança na{" "}
