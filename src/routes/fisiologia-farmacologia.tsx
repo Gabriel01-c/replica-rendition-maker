@@ -487,13 +487,15 @@ function Page() {
                   ✓ Garantia de 7 dias
                 </span>
               </div>
-              <a
-                href="#"
-                className="inline-block whitespace-nowrap rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
-                style={{ color: NAVY }}
-              >
-                QUERO ESSE RACIOCÍNIO AGORA
-              </a>
+              <div className="flex justify-center">
+                <a
+                  href="#"
+                  className="inline-block whitespace-nowrap rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
+                  style={{ color: NAVY }}
+                >
+                  QUERO ESSE RACIOCÍNIO AGORA
+                </a>
+              </div>
             </div>
           </div>
         </div>
