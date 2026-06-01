@@ -227,7 +227,7 @@ function Page() {
               className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
               style={{ background: TEAL, color: NAVY }}
             >
-              Conteúdo do Programa
+              Conteúdo das Aulas
             </span>
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               O que você vai <span style={{ color: TEAL }}>DOMINAR</span>
