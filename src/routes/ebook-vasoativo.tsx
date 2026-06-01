@@ -70,6 +70,14 @@ function Index() {
       observer.disconnect();
       window.removeEventListener('scroll', onScroll);
     };
+    // Script UTMify
+    const script = document.createElement('script');
+    script.src = 'https://cdn.utmify.com.br/scripts/utms/latest.js';
+    script.setAttribute('data-utmify-prevent-xcod-sck', '');
+    script.setAttribute('data-utmify-prevent-subids', '');
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
   }, []);
 
   return (
