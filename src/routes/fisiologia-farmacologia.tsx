@@ -513,9 +513,11 @@ function Page() {
                   background: `linear-gradient(135deg, ${NAVY} 0%, ${VIOLET} 100%)`,
                 }}
               >
-                <div className="flex h-full w-full items-center justify-center text-9xl text-white/30">
-                  ​
-                </div>
+                <img
+                  src={FRANCISCO_PHOTO.url}
+                  alt="Dr. Francisco Amaral"
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
             </div>
             <div className="md:col-span-3">
