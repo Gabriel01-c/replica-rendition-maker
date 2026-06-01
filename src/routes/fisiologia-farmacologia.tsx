@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HERO_MOCKUP from "@/assets/mockup-fisio-farmaco-hero.png.asset.json";
 
 
@@ -71,16 +71,76 @@ const naoEh = [
   "Busca fórmulas prontas sem compreender o motivo das condutas",
 ];
 
-function CTA({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function CTA({ children, className = "" }: { children?: React.ReactNode; className?: string }) {
   return (
     <a
       href="#preco"
-      className={`inline-block rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${className}`}
+      className={`inline-block whitespace-nowrap rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${className}`}
       style={{
         background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`,
       }}
     >
-      {children}
+      {children ?? "QUERO ESSE RACIOCÍNIO AGORA"}
+    </a>
+  );
+}
+
+function FloatingCTA() {
+  const [visible, setVisible] = useState(true);
+  const [variant, setVariant] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-section]")
+    );
+    if (!sections.length) return;
+
+    const update = () => {
+      const mid = window.innerHeight / 2;
+      let active: HTMLElement | null = null;
+      for (const s of sections) {
+        const r = s.getBoundingClientRect();
+        if (r.top <= mid && r.bottom >= mid) {
+          active = s;
+          break;
+        }
+      }
+      if (!active) {
+        // fallback: nearest
+        active =
+          sections.find((s) => s.getBoundingClientRect().bottom > 0) ?? sections[0];
+      }
+      const hasCta = active?.dataset.hascta === "true";
+      const bg = (active?.dataset.bg as "light" | "dark") ?? "light";
+      setVisible(!hasCta);
+      // Button uses TEAL→VIOLET gradient. On dark sections (navy/violet bg)
+      // switch to white button with navy text so it never blends.
+      setVariant(bg === "dark" ? "dark" : "light");
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  if (!visible) return null;
+
+  const style =
+    variant === "dark"
+      ? { background: "#ffffff", color: NAVY }
+      : { background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`, color: "#ffffff" };
+
+  return (
+    <a
+      href="#preco"
+      className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full px-7 py-4 text-sm font-bold shadow-2xl transition-all hover:-translate-y-0.5 md:text-base"
+      style={style}
+    >
+      QUERO ESSE RACIOCÍNIO AGORA
     </a>
   );
 }
@@ -92,6 +152,9 @@ function Page() {
     <div className="min-h-screen bg-white text-slate-900" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* BLOCO 1 — Hero */}
       <section
+        data-section
+        data-bg="dark"
+        data-hascta="true"
         className="relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
@@ -145,7 +208,7 @@ function Page() {
                   className="w-full max-w-xs h-auto drop-shadow-2xl"
                 />
               </div>
-              <CTA>QUERO GARANTIR MINHA VAGA</CTA>
+              <CTA />
             </div>
             <div className="hidden md:flex md:justify-center">
               <img
@@ -160,6 +223,9 @@ function Page() {
 
       {/* BLOCO 2 — Dor */}
       <section
+        data-section
+        data-bg="dark"
+        data-hascta="false"
         className="py-16 md:py-24"
         style={{
           background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
@@ -182,7 +248,7 @@ function Page() {
       </section>
 
       {/* BLOCO 3 — 3 motivos */}
-      <section className="py-16 md:py-24">
+      <section data-section data-bg="light" data-hascta="false" className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
             Isso acontece por <span style={{ color: TEAL }}>3 motivos</span>
@@ -216,6 +282,9 @@ function Page() {
 
       {/* BLOCO 4 — O que vai dominar */}
       <section
+        data-section
+        data-bg="dark"
+        data-hascta="false"
         className="py-16 md:py-24"
         style={{
           background: `linear-gradient(160deg, ${NAVY} 0%, #0d0e8a 100%)`,
@@ -277,7 +346,7 @@ function Page() {
       </section>
 
       {/* BLOCO 5 — Para quem é / não é */}
-      <section className="py-16 md:py-24">
+      <section data-section data-bg="light" data-hascta="false" className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl" style={{ color: NAVY }}>
             Essa formação é para você?
@@ -339,7 +408,7 @@ function Page() {
       </section>
 
       {/* BLOCO 6 — Preço */}
-      <section id="preco" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
+      <section id="preco" data-section data-bg="light" data-hascta="true" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
         <div className="mx-auto max-w-4xl px-5">
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <p className="text-lg italic leading-relaxed text-slate-700 md:text-xl">
@@ -384,10 +453,10 @@ function Page() {
               </div>
               <a
                 href="#"
-                className="inline-block rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
+                className="inline-block whitespace-nowrap rounded-full bg-white px-10 py-5 text-lg font-black shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl"
                 style={{ color: NAVY }}
               >
-                GARANTIR MINHA VAGA →
+                QUERO ESSE RACIOCÍNIO AGORA
               </a>
             </div>
           </div>
@@ -395,7 +464,7 @@ function Page() {
       </section>
 
       {/* BLOCO 7 — Sobre Francisco */}
-      <section className="py-16 md:py-24">
+      <section data-section data-bg="light" data-hascta="false" className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid items-center gap-10 md:grid-cols-5">
             <div className="md:col-span-2">
@@ -440,7 +509,7 @@ function Page() {
       </section>
 
       {/* BLOCO 8 — Garantia */}
-      <section className="pb-20 md:pb-28">
+      <section data-section data-bg="light" data-hascta="false" className="pb-20 md:pb-28">
         <div className="mx-auto max-w-3xl px-5">
           <div
             className="relative overflow-hidden rounded-3xl border-2 p-8 text-center md:p-12"
@@ -466,6 +535,7 @@ function Page() {
       <footer className="py-8 text-center text-xs text-slate-500" style={{ background: NAVY, color: "rgba(255,255,255,0.7)" }}>
         © {new Date().getFullYear()} Dr. Francisco Amaral — Todos os direitos reservados
       </footer>
+      <FloatingCTA />
     </div>
   );
 }
