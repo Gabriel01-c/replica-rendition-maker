@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
-const WHATSAPP_LINK = "https://chat.whatsapp.com/BtP56iwn2ZPAao4DhqtaTv?mode=gi_t";
+const CTA_LINK = "https://pay.hub.la/xPrruJVoPpKMO0zfGIsL";
 
 const CSS = `
   :root {
