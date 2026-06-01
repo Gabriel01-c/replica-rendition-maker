@@ -657,35 +657,51 @@ function ModuloCard({
         </div>
       </div>
 
-      <ul className="relative divide-y divide-white/[0.06]">
+      <ul className="relative space-y-2.5">
         {items.map((item, i) => (
           <li
             key={item}
-            className="group/item flex items-baseline gap-6 py-4 transition-colors duration-300 hover:bg-white/[0.015]"
+            className="group/item relative flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(10px)",
-              transition: `opacity 600ms cubic-bezier(0.16,1,0.3,1) ${i * 90}ms, transform 600ms cubic-bezier(0.16,1,0.3,1) ${i * 90}ms, background-color 300ms`,
+              transition: `opacity 600ms cubic-bezier(0.16,1,0.3,1) ${i * 90}ms, transform 600ms cubic-bezier(0.16,1,0.3,1) ${i * 90}ms, background-color 300ms, border-color 300ms`,
             }}
           >
+            {/* left accent bar */}
             <span
-              className="w-6 shrink-0 font-mono text-[11px] font-medium tabular-nums text-white/30 transition-colors group-hover/item:text-white/60"
-              style={{ ["--c" as string]: color }}
+              aria-hidden
+              className="absolute inset-y-3 left-0 w-[2px] rounded-full opacity-30 transition-opacity duration-300 group-hover/item:opacity-100"
+              style={{ background: color }}
+            />
+
+            {/* number badge */}
+            <span
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[13px] font-semibold tabular-nums transition-all duration-300"
+              style={{
+                background: `${color}14`,
+                color,
+                border: `1px solid ${color}33`,
+              }}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
-            <span className="flex-1 text-[15px] font-light leading-relaxed text-white/85 transition-colors group-hover/item:text-white">
+
+            <span className="flex-1 text-[15px] font-normal leading-snug text-white/90 transition-colors group-hover/item:text-white">
               {item}
             </span>
+
             <span
               aria-hidden
-              className="h-1.5 w-1.5 shrink-0 translate-y-[2px] rounded-full opacity-0 transition-opacity duration-300 group-hover/item:opacity-100"
-              style={{ background: color }}
-            />
+              className="shrink-0 text-white/20 transition-all duration-300 group-hover/item:translate-x-0.5 group-hover/item:text-white/60"
+            >
+              →
+            </span>
           </li>
         ))}
       </ul>
     </div>
   );
+
 
 }
