@@ -53,7 +53,7 @@ const CSS = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(10px, 1.8vh, 18px);
+    gap: 8px;
   }
 
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
@@ -93,19 +93,26 @@ const CSS = `
 
   .mockup-wrap {
     width: 100%;
-    max-width: 300px;
+    max-width: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .mockup-wrap img {
     max-width: 100%;
-    max-height: clamp(140px, 26vh, 240px);
+    max-height: clamp(220px, 48vh, 340px);
     height: auto;
     width: auto;
-    object-fit: contain;
     display: block;
     filter: drop-shadow(0 18px 30px rgba(0,0,0,0.45));
+  }
+
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
   }
 
   .object-fill { object-fit: fill !important; }
@@ -152,13 +159,15 @@ const BODY_HTML = `
       Agora que você já vai aprender como escolher o vasoativo certo no plantão, o próximo passo é aprender a raciocinar com segurança nas principais situações da anestesia obstétrica.
     </p>
 
-    <div class="mockup-wrap reveal reveal-d3">
-      <img src="${MOCKUP_URL}" alt="Módulos Fisiologia da Gestante e Farmacologia" class="object-fill" />
-    </div>
+    <div class="cta-group">
+      <div class="mockup-wrap reveal reveal-d3">
+        <img src="${MOCKUP_URL}" alt="Módulos Fisiologia da Gestante e Farmacologia" class="object-fill" />
+      </div>
 
-    <a href="${CTA_LINK}" class="whatsapp-btn reveal reveal-d4" aria-label="Quero Raciocinar com Segurança" target="_blank" rel="noopener noreferrer">
-      Quero Raciocinar com Segurança
-    </a>
+      <a href="${CTA_LINK}" class="whatsapp-btn reveal reveal-d4" aria-label="Quero Raciocinar com Segurança" target="_blank" rel="noopener noreferrer">
+        Quero Raciocinar com Segurança
+      </a>
+    </div>
   </div>
 </div>
 `;
