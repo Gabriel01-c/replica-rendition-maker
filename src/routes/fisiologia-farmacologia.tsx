@@ -529,8 +529,7 @@ function Page() {
               Paranaense de Anestesiologia.
             </p>
             <p className="mb-4 text-base leading-relaxed text-white/80 md:text-lg">
-              Ao longo desses anos, percebi que o problema da maioria dos anestesistas não é
-              falta de esforço — é <strong className="text-white">falta de raciocínio clínico estruturado</strong>.
+              Ao longo desses anos, percebi que o problema da maioria dos anestesistas não é falta de esforço, é falta de raciocínio clínico estruturado.
               Decoraram protocolos. Nunca aprenderam o porquê.
             </p>
             <p className="mb-0 text-base leading-relaxed text-white/80 md:text-lg">
