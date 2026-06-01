@@ -87,7 +87,6 @@ function CTA({ children, className = "" }: { children?: React.ReactNode; classNa
 
 function FloatingCTA() {
   const [visible, setVisible] = useState(true);
-  const [variant, setVariant] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     const sections = Array.from(
@@ -106,16 +105,11 @@ function FloatingCTA() {
         }
       }
       if (!active) {
-        // fallback: nearest
         active =
           sections.find((s) => s.getBoundingClientRect().bottom > 0) ?? sections[0];
       }
       const hasCta = active?.dataset.hascta === "true";
-      const bg = (active?.dataset.bg as "light" | "dark") ?? "light";
       setVisible(!hasCta);
-      // Button uses TEAL→VIOLET gradient. On dark sections (navy/violet bg)
-      // switch to white button with navy text so it never blends.
-      setVariant(bg === "dark" ? "dark" : "light");
     };
 
     update();
@@ -129,16 +123,11 @@ function FloatingCTA() {
 
   if (!visible) return null;
 
-  const style =
-    variant === "dark"
-      ? { background: "#ffffff", color: NAVY }
-      : { background: `linear-gradient(135deg, ${TEAL} 0%, ${VIOLET} 100%)`, color: "#ffffff" };
-
   return (
     <a
       href="#preco"
-      className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full px-7 py-4 text-sm font-bold shadow-2xl transition-all hover:-translate-y-0.5 md:text-base"
-      style={style}
+      className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full px-7 py-4 text-sm font-bold text-white shadow-2xl transition-all hover:-translate-y-0.5 md:text-base"
+      style={{ background: TEAL }}
     >
       QUERO ESSE RACIOCÍNIO AGORA
     </a>
