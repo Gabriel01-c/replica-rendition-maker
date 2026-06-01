@@ -152,6 +152,9 @@ function Page() {
     <div className="min-h-screen bg-white text-slate-900" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* BLOCO 1 — Hero */}
       <section
+        data-section
+        data-bg="dark"
+        data-hascta="true"
         className="relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
