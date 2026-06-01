@@ -107,6 +107,14 @@ const CSS = `
     filter: drop-shadow(0 18px 30px rgba(0,0,0,0.45));
   }
 
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
   .object-fill { object-fit: fill !important; }
 
   .whatsapp-btn {
