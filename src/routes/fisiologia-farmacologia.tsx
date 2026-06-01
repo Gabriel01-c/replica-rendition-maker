@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HERO_MOCKUP from "@/assets/mockup-fisio-farmaco-hero.png.asset.json";
 
 
