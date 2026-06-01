@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import HERO_MOCKUP from "@/assets/mockup-fisio-farmaco-hero.png.asset.json";
+import FRANCISCO_PHOTO from "@/assets/francisco.png.asset.json";
 
 
 export const Route = createFileRoute("/fisiologia-farmacologia")({
@@ -512,9 +513,11 @@ function Page() {
                   background: `linear-gradient(135deg, ${NAVY} 0%, ${VIOLET} 100%)`,
                 }}
               >
-                <div className="flex h-full w-full items-center justify-center text-9xl text-white/30">
-                  ​
-                </div>
+                <img
+                  src={FRANCISCO_PHOTO.url}
+                  alt="Dr. Francisco Amaral"
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
             </div>
             <div className="md:col-span-3">
