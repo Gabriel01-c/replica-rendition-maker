@@ -547,7 +547,7 @@ function Page() {
               className="inline-block whitespace-nowrap rounded-full px-7 py-3 text-sm font-black shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl md:px-9 md:py-3.5 md:text-base"
               style={{ background: TEAL, color: NAVY }}
             >
-              QUERO APRENDER COM O DR. FRANCISCO
+              QUERO ESSE RACIOCÍNIO AGORA
             </a>
           </div>
         </div>
