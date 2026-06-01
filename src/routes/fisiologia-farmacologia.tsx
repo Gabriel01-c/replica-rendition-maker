@@ -449,7 +449,7 @@ function Page() {
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <p className="text-lg italic leading-relaxed text-slate-700 md:text-xl">
               "Vinte anos dentro de sala cirúrgica me ensinaram que o anestesista inseguro não
-              precisa de mais protocolo — precisa de raciocínio. É isso que eu coloquei aqui."
+              precisa de mais protocolo, precisa de raciocínio. É isso que eu coloquei aqui."
             </p>
           </div>
           <div
