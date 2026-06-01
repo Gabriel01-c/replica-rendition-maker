@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import HERO_MOCKUP from "@/assets/mockup-fisio-farmaco-hero.png.asset.json";
+import FRANCISCO_PHOTO from "@/assets/francisco.png.asset.json";
 
 
 export const Route = createFileRoute("/fisiologia-farmacologia")({
