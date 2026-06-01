@@ -139,25 +139,20 @@ function Page() {
                 protocolo, sem travar na hora que mais importa.
               </p>
               <div className="mb-6 flex justify-center md:hidden">
-                <div
-                  className="flex h-32 w-32 items-center justify-center rounded-2xl text-5xl shadow-2xl"
-                  style={{ background: `linear-gradient(135deg, ${TEAL}, ${VIOLET})` }}
-                >
-                  🩺
-                </div>
+                <img
+                  src={HERO_MOCKUP.url}
+                  alt="Módulos Fisiologia da Gestante e Farmacologia"
+                  className="w-full max-w-xs h-auto drop-shadow-2xl"
+                />
               </div>
               <CTA>QUERO GARANTIR MINHA VAGA</CTA>
             </div>
             <div className="hidden md:flex md:justify-center">
-              <div
-                className="flex h-80 w-80 items-center justify-center rounded-3xl text-9xl shadow-2xl"
-                style={{
-                  background: `linear-gradient(135deg, ${TEAL}, ${VIOLET})`,
-                  boxShadow: `0 30px 80px -20px ${TEAL}80`,
-                }}
-              >
-                🩺
-              </div>
+              <img
+                src={HERO_MOCKUP.url}
+                alt="Módulos Fisiologia da Gestante e Farmacologia"
+                className="w-full max-w-lg h-auto drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>
