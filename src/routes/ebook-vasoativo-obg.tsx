@@ -156,7 +156,7 @@ const BODY_HTML = `
     </h1>
 
     <p class="access-sub reveal reveal-d2">
-      Agora que você já vai aprender como escolher o vasoativo certo no plantão, o próximo passo é aprender a raciocinar com segurança nas principais situações da anestesia obstétrica.
+      O próximo passo é dominar fisiologia e farmacologia aplicados na prática em 12 aulas para raciocinar com segurança nas principais situações da anestesia obstétrica.
     </p>
 
     <div class="cta-group">
