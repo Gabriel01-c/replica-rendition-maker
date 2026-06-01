@@ -513,7 +513,7 @@ function Page() {
         }}
       >
         <div className="mx-auto max-w-3xl px-5">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-left">
             <span
               className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
               style={{ background: TEAL, color: NAVY }}
