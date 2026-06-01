@@ -205,7 +205,7 @@ function Page() {
                   className="w-full max-w-xs h-auto drop-shadow-2xl"
                 />
               </div>
-              <CTA>QUERO GARANTIR MINHA VAGA</CTA>
+              <CTA />
             </div>
             <div className="hidden md:flex md:justify-center">
               <img
