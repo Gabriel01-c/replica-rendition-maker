@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
+import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
 import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
 import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
   id: '/fisiologia-farmacologia',
   path: '/fisiologia-farmacologia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookViasAereasRoute = EbookViasAereasRouteImport.update({
+  id: '/ebook-vias-aereas',
+  path: '/ebook-vias-aereas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EbookVasoativoObgRoute = EbookVasoativoObgRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
+  '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
+  '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
 }
 export interface FileRoutesById {
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
+  '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
 }
 export interface FileRouteTypes {
@@ -70,6 +79,7 @@ export interface FileRouteTypes {
     | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
+    | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -77,6 +87,7 @@ export interface FileRouteTypes {
     | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
+    | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
   id:
     | '__root__'
@@ -84,6 +95,7 @@ export interface FileRouteTypes {
     | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
+    | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
   fileRoutesById: FileRoutesById
 }
@@ -92,6 +104,7 @@ export interface RootRouteChildren {
   CongressoRoute: typeof CongressoRoute
   EbookVasoativoRoute: typeof EbookVasoativoRoute
   EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
+  EbookViasAereasRoute: typeof EbookViasAereasRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
 }
 
@@ -102,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/fisiologia-farmacologia'
       fullPath: '/fisiologia-farmacologia'
       preLoaderRoute: typeof FisiologiaFarmacologiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook-vias-aereas': {
+      id: '/ebook-vias-aereas'
+      path: '/ebook-vias-aereas'
+      fullPath: '/ebook-vias-aereas'
+      preLoaderRoute: typeof EbookViasAereasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ebook-vasoativo-obg': {
@@ -140,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   CongressoRoute: CongressoRoute,
   EbookVasoativoRoute: EbookVasoativoRoute,
   EbookVasoativoObgRoute: EbookVasoativoObgRoute,
+  EbookViasAereasRoute: EbookViasAereasRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
 }
 export const routeTree = rootRouteImport
