@@ -447,7 +447,9 @@ function Page() {
           <div className="container max-w-3xl text-center">
             <h2 className="section-title reveal mb-5">
               O problema não é só{" "}
-              <span style={{ color: "var(--va-teal)" }}>passar o tubo</span>
+              <span style={{ color: "var(--va-teal)" }}>
+                fazer a intubação
+              </span>
             </h2>
             <div className="section-sub space-y-4 reveal">
               <p>
