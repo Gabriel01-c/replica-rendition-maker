@@ -50,7 +50,7 @@ const STYLES = `
   --va-muted: #92B0BC;
 }
 .va-root {
-  background: radial-gradient(1200px 600px at 50% -10%, #072d3f 0%, #020a0f 60%, #010608 100%);
+  background: radial-gradient(1200px 600px at 50% -10%, #03161f 0%, #01080d 60%, #000305 100%);
   color: var(--va-text);
   font-family: 'Manrope', Inter, system-ui, sans-serif;
   min-height: 100vh;
