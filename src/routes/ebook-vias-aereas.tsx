@@ -183,6 +183,23 @@ const STYLES = `
 .mockup-accent { width: 44px; height: 3px; background: var(--va-teal); border-radius: 3px; margin: 14px auto; }
 .mockup-placeholder { font-size: 9px; color: rgba(146,176,188,0.7); margin-top: 18px; letter-spacing: .14em; text-transform: uppercase; }
 
+.mockup-mini {
+  width: 130px; height: 165px;
+  border-radius: 6px 10px 10px 6px;
+  background: linear-gradient(160deg, #0A2C3E 0%, #03131C 100%);
+  border: 1px solid rgba(94,234,212,0.22);
+  border-left: 5px solid #0e4a66;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 12px 10px; text-align: center;
+  transform: perspective(700px) rotateY(-8deg);
+}
+.mockup-mini-tag { font-size: 7px; letter-spacing: .16em; color: var(--va-teal); font-weight: 700; margin-bottom: 6px; }
+.mockup-mini-title { font-size: 12px; font-weight: 800; line-height: 1.15; color: var(--va-text); letter-spacing: -.01em; }
+.mockup-mini-accent { width: 28px; height: 2px; background: var(--va-teal); border-radius: 3px; margin: 8px auto; }
+.mockup-mini-sub { font-size: 8.5px; color: var(--va-muted); }
+
+
 .divider-soft {
   height: 1px; width: 100%;
   background: linear-gradient(90deg, transparent, rgba(94,234,212,0.25), transparent);
