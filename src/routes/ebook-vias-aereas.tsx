@@ -451,10 +451,16 @@ function Page() {
             </h2>
             <div className="section-sub space-y-4 reveal">
               <p>
-                Na emergência, a via aérea não acontece em um cenário limpo e previsível. O
-                paciente pode estar chocado, hipóxico, acidótico, obeso, sangrando, vomitando,
-                agitado ou com anatomia difícil.
+                Na emergência, a via aérea não acontece em um cenário limpo e previsível. O paciente pode estar:
               </p>
+              <ul className="space-y-1 text-left mx-auto max-w-sm">
+                {["Chocado", "Hipóxico", "Acidótico", "Obeso", "Sangrando"].map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
               <p>
                 E quando a saturação cai, a pressão despenca e a equipe espera sua decisão, decorar
                 algoritmo não é suficiente.
