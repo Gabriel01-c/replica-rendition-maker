@@ -454,7 +454,7 @@ function Page() {
 
         {/* ============ BLOCO 3 - 3 MOTIVOS ============ */}
         <section className="section relative">
-          <EcgLine className="top-12 opacity-30" />
+          {/* ECG line removed */}
           <div className="container relative">
             <h2 className="section-title text-center reveal mb-12">
               Isso acontece por <span style={{ color: "var(--va-teal)" }}>3 motivos</span>
