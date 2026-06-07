@@ -691,7 +691,7 @@ function Page() {
           />
           <div className="container max-w-2xl relative">
             <div className="va-card reveal p-8 md:p-10 text-center" style={{ borderColor: "rgba(94,234,212,0.35)" }}>
-              <h2 className="section-title mb-4">
+              <h2 className="section-title mb-4 text-balance text-[22px] md:text-[38px] leading-tight">
                 Acesse agora o ebook{" "}
                 <span style={{ color: "var(--va-teal)" }}>
                   Como Dominar Vias Aéreas na Emergência sem Decoreba
