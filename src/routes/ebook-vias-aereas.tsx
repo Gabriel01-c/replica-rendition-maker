@@ -744,7 +744,7 @@ function Page() {
               Quem está por trás do{" "}
               <span style={{ color: "var(--va-teal)" }}>Método RAC</span>
             </h2>
-            <div className="section-sub space-y-4 reveal mb-9 max-w-2xl mx-auto">
+            <div className="section-sub space-y-4 reveal mb-0 max-w-2xl mx-auto">
               <p>
                 Dr. Francisco Amaral Egydio de Carvalho é anestesiologista, TSA pela SBA, Mestre e
                 Doutor pela UFPR.
@@ -759,7 +759,7 @@ function Page() {
                 Neste ebook, ele aplica esse método ao manejo de vias aéreas na emergência.
               </p>
             </div>
-            <div className="reveal mb-9 flex justify-center">
+            <div className="reveal -my-6 md:-my-10 flex justify-center">
               <div
                 className="relative"
                 style={{
@@ -778,7 +778,7 @@ function Page() {
                 <img
                   src={drFranciscoAsset.url}
                   alt="Dr. Francisco Amaral Egydio de Carvalho"
-                  className="w-64 md:w-80 h-auto object-contain"
+                  className="w-[22rem] md:w-[30rem] h-auto object-contain"
                   loading="lazy"
                 />
               </div>
