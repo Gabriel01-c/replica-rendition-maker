@@ -603,6 +603,7 @@ function Page() {
               <div
                 className="va-card reveal p-7"
                 style={{
+                  background: "linear-gradient(160deg, rgba(15,60,25,0.85), rgba(8,35,15,0.7))",
                   borderColor: "rgba(74,222,128,0.4)",
                   boxShadow: "0 0 30px rgba(74,222,128,0.12), inset 0 0 40px rgba(74,222,128,0.03)",
                 }}
