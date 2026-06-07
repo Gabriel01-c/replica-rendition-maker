@@ -7,7 +7,6 @@ import {
   Stethoscope,
   Wind,
   Activity,
-  ShieldCheck,
   HeartPulse,
   Brain,
   Pill,
@@ -479,7 +478,6 @@ function Page() {
                 { icon: Stethoscope, label: "Avaliar" },
                 { icon: Wind, label: "Otimizar" },
                 { icon: Activity, label: "Intubar" },
-                { icon: ShieldCheck, label: "Confirmar" },
                 { icon: HeartPulse, label: "Estabilizar" },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="seq-step">
