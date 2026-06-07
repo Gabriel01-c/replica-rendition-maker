@@ -357,7 +357,7 @@ function Page() {
             className="va-glow"
             style={{ width: 360, height: 360, background: "#0a3b54", top: 80, right: -80 }}
           />
-          {/* ECG line removed */}
+          <EcgLine className="top-24" />
           <O2Flow />
 
           <div className="container relative">
@@ -454,7 +454,7 @@ function Page() {
 
         {/* ============ BLOCO 3 - 3 MOTIVOS ============ */}
         <section className="section relative">
-          {/* ECG line removed */}
+          <EcgLine className="top-12 opacity-30" />
           <div className="container relative">
             <h2 className="section-title text-center reveal mb-12">
               Isso acontece por <span style={{ color: "var(--va-teal)" }}>3 motivos</span>
