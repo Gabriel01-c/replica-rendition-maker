@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import ebookMockupAsset from "@/assets/ebook-vias-aereas-mockup.png.asset.json";
+import drFranciscoAsset from "@/assets/dr-francisco.png.asset.json";
 import {
   Check,
   X,
