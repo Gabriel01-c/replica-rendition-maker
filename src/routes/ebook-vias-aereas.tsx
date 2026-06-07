@@ -453,11 +453,14 @@ function Page() {
               <p>
                 Na emergência, a via aérea não acontece em um cenário limpo e previsível. O paciente pode estar:
               </p>
-              <ul className="space-y-1 text-left mx-auto max-w-sm">
+              <ul className="grid grid-cols-2 gap-3 text-left mx-auto max-w-md">
                 {["Chocado", "Hipóxico", "Acidótico", "Obeso", "Sangrando"].map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                    <span>{item}</span>
+                  <li
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-3 shadow-[0_0_20px_rgba(34,197,94,0.08)]"
+                  >
+                    <Check className="w-5 h-5 text-green-400 flex-shrink-0 drop-shadow-[0_0_4px_rgba(34,197,94,0.6)]" />
+                    <span className="font-semibold text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
