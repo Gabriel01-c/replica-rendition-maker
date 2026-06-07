@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import ebookMockupAsset from "@/assets/ebook-vias-aereas-mockup.png.asset.json";
 import {
   Check,
   X,
@@ -286,15 +287,11 @@ function Mockup() {
         className="va-glow"
         style={{ width: 280, height: 280, background: "#2DD4BF", top: -40, left: -40 }}
       />
-      <div className="mockup">
-        <div className="mockup-tag">EBOOK · MÉTODO RAC</div>
-        <div className="mockup-title">
-          Como Dominar Vias Aéreas na Emergência sem Decoreba
-        </div>
-        <div className="mockup-accent" />
-        <div className="mockup-sub">Dr. Francisco Amaral</div>
-        <div className="mockup-placeholder">Espaço para mockup</div>
-      </div>
+      <img
+        src={ebookMockupAsset.url}
+        alt="Ebook Vias Aéreas na Emergência - Dr. Francisco Amaral"
+        className="relative w-full max-w-[460px] h-auto mx-auto"
+      />
     </div>
   );
 }
@@ -392,13 +389,12 @@ function Page() {
                   fisiologia e farmacologia para tomar decisões mais seguras em cenários críticos.
                 </p>
 
-                <div className="md:hidden mb-3 flex justify-center">
-                  <div className="mockup-mini" aria-hidden>
-                    <div className="mockup-mini-tag">EBOOK · MÉTODO RAC</div>
-                    <div className="mockup-mini-title">Vias Aéreas na Emergência</div>
-                    <div className="mockup-mini-accent" />
-                    <div className="mockup-mini-sub">Dr. Francisco Amaral</div>
-                  </div>
+                <div className="md:hidden mb-4 flex justify-center">
+                  <img
+                    src={ebookMockupAsset.url}
+                    alt="Ebook Vias Aéreas na Emergência - Dr. Francisco Amaral"
+                    className="w-full max-w-[280px] h-auto"
+                  />
                 </div>
 
                 <div className="max-w-md mx-auto md:mx-0">
