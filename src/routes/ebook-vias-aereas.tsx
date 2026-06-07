@@ -361,21 +361,30 @@ function Page() {
 
           <div className="container relative">
             <div className="grid md:grid-cols-2 gap-10 items-center">
-              <div className="reveal">
+              <div className="reveal text-center md:text-left">
                 <span className="chip mb-3 md:mb-5">
                   <Sparkles size={14} /> Método RAC aplicado
                 </span>
-                <h1 className="text-[26px] md:text-5xl font-extrabold leading-[1.08] tracking-tight mb-3 md:mb-5">
+                <h1 className="text-[22px] md:text-5xl font-extrabold leading-[1.1] tracking-tight mb-2 md:mb-5">
                   Descubra como dominar{" "}
                   <span style={{ color: "var(--va-teal)" }}>vias aéreas na emergência</span> sem
                   depender de decoreba
                 </h1>
-                <p className="section-sub mb-5 md:mb-7 max-w-xl text-[14px] md:text-[15.5px]">
+                <p className="section-sub mb-3 md:mb-7 max-w-xl mx-auto md:mx-0 text-[12.5px] md:text-[15.5px] leading-snug md:leading-relaxed">
                   Aprenda a raciocinar antes, durante e depois da intubação, conectando clínica,
                   fisiologia e farmacologia para tomar decisões mais seguras em cenários críticos.
                 </p>
 
-                <div className="max-w-md">
+                <div className="md:hidden mb-3 flex justify-center">
+                  <div className="mockup-mini" aria-hidden>
+                    <div className="mockup-mini-tag">EBOOK · MÉTODO RAC</div>
+                    <div className="mockup-mini-title">Vias Aéreas na Emergência</div>
+                    <div className="mockup-mini-accent" />
+                    <div className="mockup-mini-sub">Dr. Francisco Amaral</div>
+                  </div>
+                </div>
+
+                <div className="max-w-md mx-auto md:mx-0">
                   <CtaButton>Quero acessar o ebook agora</CtaButton>
                 </div>
 
@@ -401,6 +410,7 @@ function Page() {
             </div>
           </div>
         </section>
+
 
         <div className="divider-soft" />
 
