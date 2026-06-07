@@ -602,9 +602,12 @@ function Page() {
             <div className="grid md:grid-cols-2 gap-5">
               <div
                 className="va-card reveal p-7"
-                style={{ borderColor: "rgba(94,234,212,0.3)" }}
+                style={{
+                  borderColor: "rgba(74,222,128,0.4)",
+                  boxShadow: "0 0 30px rgba(74,222,128,0.12), inset 0 0 40px rgba(74,222,128,0.03)",
+                }}
               >
-                <h3 className="text-xl font-extrabold mb-5" style={{ color: "var(--va-teal)" }}>
+                <h3 className="text-xl font-extrabold mb-5" style={{ color: "#4ADE80" }}>
                   É para você se
                 </h3>
                 <ul className="space-y-3">
@@ -618,7 +621,12 @@ function Page() {
                     <li key={t} className="flex items-start gap-3 text-sm">
                       <Check
                         size={18}
-                        style={{ color: "var(--va-teal)", flexShrink: 0, marginTop: 2 }}
+                        style={{
+                          color: "#4ADE80",
+                          flexShrink: 0,
+                          marginTop: 2,
+                          filter: "drop-shadow(0 0 4px rgba(74,222,128,0.6))",
+                        }}
                       />
                       <span style={{ color: "var(--va-text)" }}>{t}</span>
                     </li>
