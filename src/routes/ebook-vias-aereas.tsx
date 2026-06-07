@@ -371,7 +371,6 @@ function Page() {
             className="va-glow"
             style={{ width: 360, height: 360, background: "#072d3f", top: 80, right: -80 }}
           />
-          <EcgLine className="top-24" />
 
           <div className="container relative">
             <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -379,15 +378,31 @@ function Page() {
                 <span className="chip mb-3 md:mb-5">
                   <Sparkles size={14} /> Método RAC aplicado
                 </span>
-                <h1 className="text-[22px] md:text-5xl font-extrabold leading-[1.1] tracking-tight mb-2 md:mb-5">
+                <h1 className="text-[26px] md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-2 md:mb-5">
                   Descubra como dominar{" "}
                   <span style={{ color: "var(--va-teal)" }}>vias aéreas na emergência</span> sem
                   depender de decoreba
                 </h1>
-                <p className="section-sub mb-3 md:mb-7 max-w-xl mx-auto md:mx-0 text-[12.5px] md:text-[15.5px] leading-snug md:leading-relaxed">
+                <p className="section-sub mb-3 md:mb-5 max-w-xl mx-auto md:mx-0 text-[12.5px] md:text-[15.5px] leading-snug md:leading-relaxed">
                   Aprenda a raciocinar antes, durante e depois da intubação, conectando clínica,
                   fisiologia e farmacologia para tomar decisões mais seguras em cenários críticos.
                 </p>
+
+                <div className="relative h-10 mb-2 md:mb-5 overflow-hidden" aria-hidden>
+                  <div className="ecg-wrap" style={{ position: "absolute", inset: 0, height: "100%", opacity: 0.6 }}>
+                    <svg className="ecg-svg" viewBox="0 0 800 80" preserveAspectRatio="none">
+                      <path
+                        d="M0 40 H120 L130 40 L138 20 L146 60 L154 30 L162 40 H280 L290 40 L298 20 L306 60 L314 30 L322 40 H440 L450 40 L458 20 L466 60 L474 30 L482 40 H600 L610 40 L618 20 L626 60 L634 30 L642 40 H800"
+                        fill="none"
+                        stroke="#5EEAD4"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        opacity="0.8"
+                      />
+                    </svg>
+                  </div>
+                </div>
 
                 <div className="md:hidden mb-4 flex justify-center">
                   <img
