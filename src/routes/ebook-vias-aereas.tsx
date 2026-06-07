@@ -759,7 +759,7 @@ function Page() {
                 Neste ebook, ele aplica esse método ao manejo de vias aéreas na emergência.
               </p>
             </div>
-            <div className="reveal -my-6 md:-my-10 flex justify-center">
+            <div className="reveal mt-2 -mb-6 md:-mb-10 flex justify-center">
               <div
                 className="relative"
                 style={{
