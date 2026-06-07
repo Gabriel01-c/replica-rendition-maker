@@ -637,7 +637,11 @@ function Page() {
 
               <div
                 className="va-card reveal p-7"
-                style={{ borderColor: "rgba(248,113,113,0.3)" }}
+                style={{
+                  background: "linear-gradient(160deg, rgba(60,15,15,0.85), rgba(35,10,10,0.7))",
+                  borderColor: "rgba(248,113,113,0.4)",
+                  boxShadow: "0 0 30px rgba(248,113,113,0.12), inset 0 0 40px rgba(248,113,113,0.03)",
+                }}
               >
                 <h3 className="text-xl font-extrabold mb-5" style={{ color: "#F87171" }}>
                   Não é para você se
