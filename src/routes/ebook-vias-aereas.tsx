@@ -40,9 +40,9 @@ const CHECKOUT_URL = "https://pay.hub.la/xPrruJVoPpKMO0zfGIsL";
 
 const STYLES = `
 :root {
-  --va-bg: #03131C;
-  --va-bg-2: #062131;
-  --va-panel: #0A2C3E;
+  --va-bg: #020a0f;
+  --va-bg-2: #041824;
+  --va-panel: #071e2b;
   --va-line: rgba(94, 234, 212, 0.18);
   --va-teal: #5EEAD4;
   --va-teal-strong: #2DD4BF;
@@ -50,7 +50,7 @@ const STYLES = `
   --va-muted: #92B0BC;
 }
 .va-root {
-  background: radial-gradient(1200px 600px at 50% -10%, #0a3b54 0%, #03131C 60%, #020c12 100%);
+  background: radial-gradient(1200px 600px at 50% -10%, #072d3f 0%, #020a0f 60%, #010608 100%);
   color: var(--va-text);
   font-family: 'Manrope', Inter, system-ui, sans-serif;
   min-height: 100vh;
@@ -126,7 +126,7 @@ const STYLES = `
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   width: 100%; min-height: 58px; padding: 0 24px;
   font-weight: 800; font-size: 15px; letter-spacing: .02em; text-transform: uppercase;
-  color: #03131C;
+  color: #020a0f;
   background: linear-gradient(180deg, #5EEAD4 0%, #2DD4BF 100%);
   border-radius: 14px; border: none; cursor: pointer;
   box-shadow: 0 14px 40px rgba(45,212,191,0.35);
@@ -170,9 +170,9 @@ const STYLES = `
   position: relative;
   width: 220px; height: 300px; margin: 0 auto;
   border-radius: 8px 14px 14px 8px;
-  background: linear-gradient(160deg, #0A2C3E 0%, #03131C 100%);
+  background: linear-gradient(160deg, #071e2b 0%, #020a0f 100%);
   border: 1px solid rgba(94,234,212,0.18);
-  border-left: 6px solid #0e4a66;
+  border-left: 6px solid #0a3448;
   box-shadow: 0 30px 70px rgba(0,0,0,0.55), inset 1px 0 0 rgba(255,255,255,0.04);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 24px 18px; text-align: center;
@@ -187,9 +187,9 @@ const STYLES = `
 .mockup-mini {
   width: 130px; height: 165px;
   border-radius: 6px 10px 10px 6px;
-  background: linear-gradient(160deg, #0A2C3E 0%, #03131C 100%);
+  background: linear-gradient(160deg, #071e2b 0%, #020a0f 100%);
   border: 1px solid rgba(94,234,212,0.22);
-  border-left: 5px solid #0e4a66;
+  border-left: 5px solid #0a3448;
   box-shadow: 0 18px 40px rgba(0,0,0,0.55);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 12px 10px; text-align: center;
@@ -369,7 +369,7 @@ function Page() {
           <div
             aria-hidden
             className="va-glow"
-            style={{ width: 360, height: 360, background: "#0a3b54", top: 80, right: -80 }}
+            style={{ width: 360, height: 360, background: "#072d3f", top: 80, right: -80 }}
           />
           <EcgLine className="top-24" />
 
