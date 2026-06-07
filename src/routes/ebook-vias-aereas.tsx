@@ -657,7 +657,12 @@ function Page() {
                     <li key={t} className="flex items-start gap-3 text-sm">
                       <X
                         size={18}
-                        style={{ color: "#F87171", flexShrink: 0, marginTop: 2 }}
+                        style={{
+                          color: "#F87171",
+                          flexShrink: 0,
+                          marginTop: 2,
+                          filter: "drop-shadow(0 0 4px rgba(248,113,113,0.6))",
+                        }}
                       />
                       <span style={{ color: "var(--va-text)" }}>{t}</span>
                     </li>
