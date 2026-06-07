@@ -759,7 +759,7 @@ function Page() {
                 Neste ebook, ele aplica esse método ao manejo de vias aéreas na emergência.
               </p>
             </div>
-            <div className="reveal mb-9 flex justify-center">
+            <div className="reveal -my-6 md:-my-10 flex justify-center">
               <div
                 className="relative"
                 style={{
@@ -778,7 +778,7 @@ function Page() {
                 <img
                   src={drFranciscoAsset.url}
                   alt="Dr. Francisco Amaral Egydio de Carvalho"
-                  className="w-64 md:w-80 h-auto object-contain"
+                  className="w-[22rem] md:w-[30rem] h-auto object-contain"
                   loading="lazy"
                 />
               </div>
