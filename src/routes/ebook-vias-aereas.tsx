@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import ebookMockupAsset from "@/assets/ebook-vias-aereas-mockup.png.asset.json";
+import drFranciscoAsset from "@/assets/dr-francisco.png.asset.json";
 import {
   Check,
   X,
@@ -757,6 +758,30 @@ function Page() {
               <p>
                 Neste ebook, ele aplica esse método ao manejo de vias aéreas na emergência.
               </p>
+            </div>
+            <div className="reveal mb-9 flex justify-center">
+              <div
+                className="relative"
+                style={{
+                  filter:
+                    "drop-shadow(0 20px 40px color-mix(in oklab, var(--va-teal) 30%, transparent))",
+                }}
+              >
+                <div
+                  aria-hidden
+                  className="absolute inset-0 -z-10 rounded-full blur-3xl"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at center, color-mix(in oklab, var(--va-teal) 35%, transparent) 0%, transparent 70%)",
+                  }}
+                />
+                <img
+                  src={drFranciscoAsset.url}
+                  alt="Dr. Francisco Amaral Egydio de Carvalho"
+                  className="w-64 md:w-80 h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div className="max-w-md mx-auto reveal">
               <CtaButton />
