@@ -299,7 +299,7 @@ function Mockup() {
   );
 }
 
-function CtaButton({ children = "Quero Dominar Vias Aéreas" }: { children?: React.ReactNode }) {
+function CtaButton({ children = "QUERO DOMINAR VIAS AÉREAS" }: { children?: React.ReactNode }) {
   return (
     <a
       href={CHECKOUT_URL}
@@ -402,7 +402,7 @@ function Page() {
                 </div>
 
                 <div className="max-w-md mx-auto md:mx-0">
-                  <CtaButton>Quero acessar o ebook agora</CtaButton>
+                  <CtaButton />
                 </div>
 
                 <div className="hidden md:flex flex-wrap gap-2 mt-6">
