@@ -36,7 +36,7 @@ export const Route = createFileRoute("/ebook-vias-aereas")({
   component: Page,
 });
 
-const CHECKOUT_URL = "https://pay.hub.la/xPrruJVoPpKMO0zfGIsL";
+const CHECKOUT_URL = "https://pay.hub.la/3rzxUpiSVGGSHi9ReKFR";
 
 const STYLES = `
 :root {
