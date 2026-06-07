@@ -378,7 +378,7 @@ function Page() {
                 <span className="chip mb-3 md:mb-5">
                   <Sparkles size={14} /> Método RAC aplicado
                 </span>
-                <h1 className="text-[26px] md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-2 md:mb-5">
+                <h1 className="text-[26px] md:text-[2.75rem] lg:text-5xl font-extrabold leading-[1.1] tracking-tight mb-2 md:mb-5">
                   Descubra como dominar{" "}
                   <span style={{ color: "var(--va-teal)" }}>vias aéreas na emergência</span> sem
                   depender de decoreba
