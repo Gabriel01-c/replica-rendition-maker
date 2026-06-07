@@ -357,7 +357,7 @@ function Page() {
             className="va-glow"
             style={{ width: 360, height: 360, background: "#0a3b54", top: 80, right: -80 }}
           />
-          <EcgLine className="top-24" />
+          {/* ECG line removed */}
           <O2Flow />
 
           <div className="container relative">
