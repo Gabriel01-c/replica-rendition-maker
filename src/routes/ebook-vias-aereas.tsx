@@ -7,7 +7,6 @@ import {
   Stethoscope,
   Wind,
   Activity,
-  ShieldCheck,
   HeartPulse,
   Brain,
   Pill,
