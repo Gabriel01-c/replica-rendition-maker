@@ -345,7 +345,7 @@ function Page() {
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
       <div className="va-root">
         {/* ============ HERO ============ */}
-        <section ref={heroRef} className="section relative pt-10 md:pt-16">
+        <section ref={heroRef} className="section relative !py-6 md:!py-24 pt-6 md:pt-16">
           <div className="va-grid-bg" />
           <div
             aria-hidden
