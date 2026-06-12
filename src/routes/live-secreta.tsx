@@ -135,66 +135,42 @@ function LiveSecretaPage() {
         `}</style>
       </div>
 
-      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-4 md:py-6 flex flex-col md:grid md:grid-cols-[1fr_1.4fr_1fr] gap-4 md:gap-6 items-start md:items-end">
-        {/* Imagem esquerda — Dr. Francisco */}
-        <div className="hidden md:flex items-end justify-center">
-          <img
-            src={drFrancisco.url}
-            alt="Dr. Francisco Amaral — Anestesista Obstétrico"
-            className="w-full max-w-[260px] h-auto object-contain"
-            loading="eager"
-          />
-        </div>
-
-        {/* Bloco central — texto */}
-        <div className="flex flex-col items-center text-center w-full">
-          <div className="flex flex-col gap-2 mb-3 items-center">
-            <div
-              className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
-              style={{ borderColor: RED, color: "white" }}
-            >
-              <Lock size={14} style={{ color: RED }} />
-              Exclusivo para médicos e residentes
-            </div>
-            <div
-              className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
-              style={{ borderColor: RED, color: "white" }}
-            >
-              <Video size={14} style={{ color: RED }} />
-              Reunião fechada no Google Meet
-            </div>
+      <section className="mx-auto w-full max-w-3xl px-4 sm:px-6 py-4 md:py-6 flex flex-col items-center text-center gap-4">
+        <div className="flex flex-col gap-2 mb-3 items-center">
+          <div
+            className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
+            style={{ borderColor: RED, color: "white" }}
+          >
+            <Lock size={14} style={{ color: RED }} />
+            Exclusivo para médicos e residentes
           </div>
-
-          <h1 className="text-2xl sm:text-3xl md:text-[28px] lg:text-3xl font-extrabold leading-[1.15] mb-3">
-            Polêmicas Jurídicas Intraparto. <span style={{ color: RED }}>Defendendo o médico.</span>
-          </h1>
-
-          <div className="flex flex-row flex-wrap gap-2 mb-4 justify-center">
-            <div className="flex items-center gap-2 px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
-              <Calendar size={14} style={{ color: RED }} />
-              Quinta-feira 18/06 às 20h30
-            </div>
-            <div className="flex items-center gap-2 px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
-              <Monitor size={14} style={{ color: RED }} />
-              Sala com capacidade limitada
-            </div>
+          <div
+            className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
+            style={{ borderColor: RED, color: "white" }}
+          >
+            <Video size={14} style={{ color: RED }} />
+            Reunião fechada no Google Meet
           </div>
-
-          <div className="mb-4 text-left md:text-center w-full max-w-lg">{checks}</div>
-
-          <div className="w-full max-w-sm">{ctaButton}</div>
         </div>
 
-        {/* Imagem direita — Dra. Assistente */}
-        <div className="hidden md:flex items-end justify-center">
-          <img
-            src={draAssistente.url}
-            alt="Convidada"
-            className="w-full max-w-[260px] h-auto object-contain"
-            loading="eager"
-          />
+        <h1 className="text-2xl sm:text-3xl md:text-[28px] lg:text-3xl font-extrabold leading-[1.15] mb-3">
+          Polêmicas Jurídicas Intraparto. <span style={{ color: RED }}>Defendendo o médico.</span>
+        </h1>
+
+        <div className="flex flex-row flex-wrap gap-2 mb-4 justify-center">
+          <div className="flex items-center gap-2 px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
+            <Calendar size={14} style={{ color: RED }} />
+            Quinta-feira 18/06 às 20h30
+          </div>
+          <div className="flex items-center gap-2 px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
+            <Monitor size={14} style={{ color: RED }} />
+            Sala com capacidade limitada
+          </div>
         </div>
 
+        <div className="mb-4 text-left md:text-center w-full max-w-lg">{checks}</div>
+
+        <div className="w-full max-w-sm">{ctaButton}</div>
       </section>
 
       {/* Popup formulário */}
