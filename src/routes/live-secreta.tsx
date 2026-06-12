@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Video, Calendar, Monitor, Check, Lock, X } from "lucide-react";
 import { useState } from "react";
-import drFrancisco from "@/assets/dr-francisco-v3.png.asset.json";
-import draAssistente from "@/assets/dra-assistente.png.asset.json";
 import { supabase } from "@/integrations/supabase/client";
 
 const WEBHOOK_URL = "https://n8n-n8n.s7gbvq.easypanel.host/webhook/livei-secreta";
