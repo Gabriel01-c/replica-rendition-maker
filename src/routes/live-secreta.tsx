@@ -158,10 +158,7 @@ function LiveSecretaPage() {
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.15] mb-3">
-            Aprenda a tomar decisões mais seguras em anestesia obstétrica{" "}
-            <span style={{ color: RED }}>
-              mesmo quando a gestante sai completamente do protocolo.
-            </span>
+            Polêmicas Jurídicas Intraparto. <span style={{ color: RED }}>Defendendo o médico.</span>
           </h1>
 
           <div className="flex flex-row flex-wrap gap-2 mb-4">
