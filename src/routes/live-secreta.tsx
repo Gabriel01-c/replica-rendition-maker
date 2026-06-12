@@ -36,13 +36,32 @@ function LiveSecretaPage() {
   const marqueeItems = Array.from({ length: 6 });
 
   const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
     const nome = form.nome.trim().slice(0, 100);
     const email = form.email.trim().slice(0, 255);
     const whatsapp = form.whatsapp.trim().slice(0, 30);
     if (!nome || !email || !whatsapp) return;
+
+    setSubmitting(true);
+    const payload = { nome, email, whatsapp, source: "live-secreta" };
+
+    try {
+      await Promise.allSettled([
+        supabase.from("leads").insert(payload),
+        fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...payload, submitted_at: new Date().toISOString() }),
+        }),
+      ]);
+    } catch (err) {
+      console.error("lead submit error", err);
+    }
+
     const params = new URLSearchParams({ name: nome, email, phone: whatsapp });
     window.location.href = `${PAY_URL}?${params.toString()}`;
   };
