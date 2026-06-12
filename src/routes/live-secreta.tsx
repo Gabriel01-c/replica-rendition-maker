@@ -28,7 +28,7 @@ export const Route = createFileRoute("/live-secreta")({
 
 const RED = "#E11D2A";
 const GREEN = "#1FA84A";
-const PAY_URL = "https://pay.hub.la/3rzxUpiSVGGSHi9ReKFR";
+const WHATSAPP_URL = "https://chat.whatsapp.com/HDtCkQnhYAOEBn3pfs3iIz?s=sw&p=i&ilr=0";
 
 function LiveSecretaPage() {
   const marqueeText =
