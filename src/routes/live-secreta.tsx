@@ -172,17 +172,11 @@ function LiveSecretaPage() {
           </h1>
 
           <div className="flex flex-row flex-wrap gap-2 mb-4 justify-center">
-            <div
-              className="flex items-center gap-2 border rounded-md px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
-              style={{ borderColor: RED }}
-            >
+            <div className="flex items-center gap-2 px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
               <Calendar size={14} style={{ color: RED }} />
               Quinta-feira 18/06 às 20h30
             </div>
-            <div
-              className="flex items-center gap-2 border rounded-md px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
-              style={{ borderColor: RED }}
-            >
+            <div className="flex items-center gap-2 px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
               <Monitor size={14} style={{ color: RED }} />
               Sala com capacidade limitada
             </div>
