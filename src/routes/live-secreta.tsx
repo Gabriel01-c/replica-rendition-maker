@@ -28,7 +28,7 @@ export const Route = createFileRoute("/live-secreta")({
 
 const RED = "#E11D2A";
 const GREEN = "#1FA84A";
-const PAY_URL = "https://pay.hub.la/3rzxUpiSVGGSHi9ReKFR";
+const WHATSAPP_URL = "https://chat.whatsapp.com/HDtCkQnhYAOEBn3pfs3iIz?s=sw&p=i&ilr=0";
 
 function LiveSecretaPage() {
   const marqueeText =
@@ -62,8 +62,7 @@ function LiveSecretaPage() {
       console.error("lead submit error", err);
     }
 
-    const params = new URLSearchParams({ name: nome, email, phone: whatsapp });
-    window.location.href = `${PAY_URL}?${params.toString()}`;
+    window.location.href = WHATSAPP_URL;
   };
 
   const checks = (
@@ -174,7 +173,7 @@ function LiveSecretaPage() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !form.nome.trim() || !form.email.trim() || !form.whatsapp.trim()}
               className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
               style={{ backgroundColor: GREEN, color: "white" }}
             >
