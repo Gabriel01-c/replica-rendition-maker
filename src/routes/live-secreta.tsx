@@ -90,7 +90,7 @@ function LiveSecretaPage() {
           </ul>
 
           {/* Foto mobile — entre os checks e os cards */}
-          <div className="md:hidden flex justify-center -mt-32 -mb-2">
+          <div className="md:hidden flex justify-center -mt-40 -mb-2">
             <img
               src={drFrancisco.url}
               alt="Dr. Francisco Amaral — Anestesista Obstétrico"
