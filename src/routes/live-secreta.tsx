@@ -31,7 +31,7 @@ function LiveSecretaPage() {
   const marqueeItems = Array.from({ length: 6 });
 
   return (
-    <main className="h-screen w-full bg-black text-white flex flex-col overflow-hidden">
+    <main className="min-h-screen md:h-screen w-full bg-black text-white flex flex-col md:overflow-hidden">
       {/* Faixa marquee topo */}
       <div
         className="w-full overflow-hidden py-2 shrink-0"
@@ -105,6 +105,18 @@ function LiveSecretaPage() {
               Sala com capacidade limitada
             </div>
           </div>
+
+          {/* Foto mobile — grudada no botão */}
+          <div className="md:hidden flex justify-center -mb-2">
+            <img
+              src={drFrancisco.url}
+              alt="Dr. Francisco Amaral — Anestesista Obstétrico"
+              className="w-40 h-auto object-contain"
+              loading="eager"
+            />
+          </div>
+
+
 
           <a
             href="https://pay.hub.la/3rzxUpiSVGGSHi9ReKFR"
