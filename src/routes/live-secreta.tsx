@@ -37,14 +37,19 @@ function LiveSecretaPage() {
 
   const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (submitting) return;
+    setError("");
     const nome = form.nome.trim().slice(0, 100);
     const email = form.email.trim().slice(0, 255);
     const whatsapp = form.whatsapp.trim().slice(0, 30);
-    if (!nome || !email || !whatsapp) return;
+    if (!nome || !email || !whatsapp) {
+      setError("Preencha todos os campos para continuar.");
+      return;
+    }
 
     setSubmitting(true);
     const payload = { nome, email, whatsapp, source: "live-secreta" };
@@ -171,11 +176,14 @@ function LiveSecretaPage() {
               className="w-full rounded-md bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-white/50"
             />
 
+            {error && (
+              <p className="text-xs text-red-400 text-center -mt-1 mb-1">{error}</p>
+            )}
             <button
               type="submit"
-              disabled={submitting || !form.nome.trim() || !form.email.trim() || !form.whatsapp.trim()}
+              disabled={submitting}
               className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
-              style={{ backgroundColor: GREEN, color: "white" }}
+              style={{ backgroundColor: RED, color: "white" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
