@@ -197,21 +197,6 @@ function LiveSecretaPage() {
           />
         </div>
 
-        {/* Imagens empilhadas no mobile */}
-        <div className="flex md:hidden flex-row items-end justify-center gap-2 w-full">
-          <img
-            src={drFrancisco.url}
-            alt="Dr. Francisco Amaral — Anestesista Obstétrico"
-            className="w-1/2 max-w-[200px] h-auto object-contain"
-            loading="eager"
-          />
-          <img
-            src={draAssistente.url}
-            alt="Convidada"
-            className="w-1/2 max-w-[200px] h-auto object-contain"
-            loading="eager"
-          />
-        </div>
       </section>
 
       {/* Popup formulário */}
