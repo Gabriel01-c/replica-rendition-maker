@@ -174,7 +174,8 @@ function LiveSecretaPage() {
 
             <button
               type="submit"
-              className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99]"
+              disabled={submitting}
+              className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
               style={{ backgroundColor: GREEN, color: "white" }}
             >
               <svg
