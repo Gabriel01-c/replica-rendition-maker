@@ -68,7 +68,7 @@ function LiveSecretaPage() {
         className="w-full overflow-hidden py-2 shrink-0"
         style={{ backgroundColor: RED }}
       >
-        <div className="flex whitespace-nowrap animate-[marquee_18s_linear_infinite]">
+        <div className="flex whitespace-nowrap animate-[marquee_12s_linear_infinite]">
           {marqueeItems.map((_, i) => (
             <span
               key={i}
@@ -97,14 +97,14 @@ function LiveSecretaPage() {
             Reunião fechada no Google Meet
           </div>
 
-          <h1 className="text-lg sm:text-2xl md:text-3xl font-extrabold leading-[1.15] mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.15] mb-3">
             Aprenda a tomar decisões mais seguras em anestesia obstétrica{" "}
             <span style={{ color: RED }}>
               mesmo quando a gestante sai completamente do protocolo.
             </span>
           </h1>
 
-          <div className="flex flex-col sm:flex-row gap-2 mb-4">
+          <div className="flex flex-row gap-2 mb-4">
             <div
               className="flex items-center gap-2 border rounded-md px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
               style={{ borderColor: RED }}
@@ -175,7 +175,7 @@ function LiveSecretaPage() {
           <img
             src={drFrancisco.url}
             alt="Dr. Francisco Amaral — Anestesista Obstétrico"
-            className="w-full max-w-[320px] md:max-w-full h-auto object-contain"
+            className="w-full max-w-[200px] md:max-w-full h-auto object-contain"
             loading="eager"
           />
         </div>
