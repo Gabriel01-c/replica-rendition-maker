@@ -37,14 +37,19 @@ function LiveSecretaPage() {
 
   const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (submitting) return;
+    setError("");
     const nome = form.nome.trim().slice(0, 100);
     const email = form.email.trim().slice(0, 255);
     const whatsapp = form.whatsapp.trim().slice(0, 30);
-    if (!nome || !email || !whatsapp) return;
+    if (!nome || !email || !whatsapp) {
+      setError("Preencha todos os campos para continuar.");
+      return;
+    }
 
     setSubmitting(true);
     const payload = { nome, email, whatsapp, source: "live-secreta" };
