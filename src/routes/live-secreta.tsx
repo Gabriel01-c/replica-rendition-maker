@@ -176,11 +176,14 @@ function LiveSecretaPage() {
               className="w-full rounded-md bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-white/50"
             />
 
+            {error && (
+              <p className="text-xs text-red-400 text-center -mt-1 mb-1">{error}</p>
+            )}
             <button
               type="submit"
-              disabled={submitting || !form.nome.trim() || !form.email.trim() || !form.whatsapp.trim()}
+              disabled={submitting}
               className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
-              style={{ backgroundColor: GREEN, color: "white" }}
+              style={{ backgroundColor: RED, color: "white" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
