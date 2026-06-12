@@ -137,19 +137,29 @@ function LiveSecretaPage() {
         `}</style>
       </div>
 
-      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-4 md:py-6 grid md:grid-cols-[1fr_minmax(280px,420px)] gap-6 items-start">
-        {/* Bloco 1 */}
-        <div className="flex flex-col">
-          <div className="flex flex-col gap-2 mb-3">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-4 md:py-6 flex flex-col md:grid md:grid-cols-[1fr_1.4fr_1fr] gap-4 md:gap-6 items-start md:items-end">
+        {/* Imagem esquerda — Dr. Francisco */}
+        <div className="hidden md:flex items-end justify-center">
+          <img
+            src={drFrancisco.url}
+            alt="Dr. Francisco Amaral — Anestesista Obstétrico"
+            className="w-full max-w-[260px] h-auto object-contain"
+            loading="eager"
+          />
+        </div>
+
+        {/* Bloco central — texto */}
+        <div className="flex flex-col items-center text-center w-full">
+          <div className="flex flex-col gap-2 mb-3 items-center">
             <div
-              className="inline-flex self-start items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
+              className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
               style={{ borderColor: RED, color: "white" }}
             >
               <Lock size={14} style={{ color: RED }} />
               Exclusivo para médicos e residentes
             </div>
             <div
-              className="inline-flex self-start items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
+              className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
               style={{ borderColor: RED, color: "white" }}
             >
               <Video size={14} style={{ color: RED }} />
@@ -157,11 +167,11 @@ function LiveSecretaPage() {
             </div>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.15] mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-[28px] lg:text-3xl font-extrabold leading-[1.15] mb-3">
             Polêmicas Jurídicas Intraparto. <span style={{ color: RED }}>Defendendo o médico.</span>
           </h1>
 
-          <div className="flex flex-row flex-wrap gap-2 mb-4">
+          <div className="flex flex-row flex-wrap gap-2 mb-4 justify-center">
             <div
               className="flex items-center gap-2 border rounded-md px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
               style={{ borderColor: RED }}
@@ -178,23 +188,33 @@ function LiveSecretaPage() {
             </div>
           </div>
 
-          <div className="mb-4">{checks}</div>
+          <div className="mb-4 text-left md:text-center w-full max-w-lg">{checks}</div>
 
-          {ctaButton}
+          <div className="w-full max-w-sm">{ctaButton}</div>
         </div>
 
-        {/* Bloco 2 — imagens lado a lado */}
-        <div className="flex flex-row items-end justify-center gap-2 md:-mt-6">
+        {/* Imagem direita — Dra. Assistente */}
+        <div className="hidden md:flex items-end justify-center">
+          <img
+            src={draAssistente.url}
+            alt="Convidada"
+            className="w-full max-w-[260px] h-auto object-contain"
+            loading="eager"
+          />
+        </div>
+
+        {/* Imagens empilhadas no mobile */}
+        <div className="flex md:hidden flex-row items-end justify-center gap-2 w-full">
           <img
             src={drFrancisco.url}
             alt="Dr. Francisco Amaral — Anestesista Obstétrico"
-            className="w-1/2 max-w-[200px] md:max-w-full h-auto object-contain"
+            className="w-1/2 max-w-[200px] h-auto object-contain"
             loading="eager"
           />
           <img
             src={draAssistente.url}
             alt="Convidada"
-            className="w-1/2 max-w-[200px] md:max-w-full h-auto object-contain"
+            className="w-1/2 max-w-[200px] h-auto object-contain"
             loading="eager"
           />
         </div>
