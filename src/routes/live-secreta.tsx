@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Video, Calendar, Monitor, Check } from "lucide-react";
-import drFrancisco from "@/assets/dr-francisco-foto45.jpg.asset.json";
+import drFrancisco from "@/assets/dr-francisco-v3.png.asset.json";
 
 export const Route = createFileRoute("/live-secreta")({
   head: () => ({
