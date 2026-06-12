@@ -62,8 +62,7 @@ function LiveSecretaPage() {
       console.error("lead submit error", err);
     }
 
-    const params = new URLSearchParams({ name: nome, email, phone: whatsapp });
-    window.location.href = `${PAY_URL}?${params.toString()}`;
+    window.location.href = WHATSAPP_URL;
   };
 
   const checks = (
