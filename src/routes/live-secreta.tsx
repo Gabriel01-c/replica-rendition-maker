@@ -31,7 +31,7 @@ function LiveSecretaPage() {
   const marqueeItems = Array.from({ length: 6 });
 
   return (
-    <main className="h-screen w-full bg-black text-white flex flex-col overflow-hidden">
+    <main className="min-h-screen md:h-screen w-full bg-black text-white flex flex-col md:overflow-hidden">
       {/* Faixa marquee topo */}
       <div
         className="w-full overflow-hidden py-2 shrink-0"
