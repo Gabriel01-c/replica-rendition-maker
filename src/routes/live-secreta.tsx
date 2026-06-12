@@ -76,15 +76,15 @@ function LiveSecretaPage() {
     <ul className="space-y-2 md:space-y-3 text-sm md:text-[15px] leading-snug">
       <li className="flex gap-2">
         <Check size={18} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>O raciocínio clínico que utilizo para tomar decisões em cenários de alta pressão.</span>
+        <span>Quais decisões clínicas mais geram processos contra anestesistas no intraparto</span>
       </li>
       <li className="flex gap-2">
         <Check size={18} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>Por que muitos anestesistas experientes ainda se sentem inseguros diante de complicações obstétricas.</span>
+        <span>Como documentar sua conduta para se proteger juridicamente em qualquer cenário</span>
       </li>
       <li className="flex gap-2">
         <Check size={18} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>Como desenvolver critérios que permitem agir com segurança mesmo quando o caso não se encaixa no que está escrito nos livros.</span>
+        <span>O que fazer quando a equipe toma uma decisão errada e você já estava na sala</span>
       </li>
     </ul>
   );
