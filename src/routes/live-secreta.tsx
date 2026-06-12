@@ -89,6 +89,16 @@ function LiveSecretaPage() {
             </li>
           </ul>
 
+          {/* Foto mobile — entre os checks e os cards */}
+          <div className="md:hidden flex justify-center mb-2">
+            <img
+              src={drFrancisco.url}
+              alt="Dr. Francisco Amaral — Anestesista Obstétrico"
+              className="w-24 h-auto object-contain"
+              loading="eager"
+            />
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-2 mb-3 md:mb-4">
             <div
               className="flex items-center gap-2 border rounded-md px-3 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
@@ -106,15 +116,6 @@ function LiveSecretaPage() {
             </div>
           </div>
 
-          {/* Foto mobile — grudada no botão */}
-          <div className="md:hidden flex justify-center -mb-2">
-            <img
-              src={drFrancisco.url}
-              alt="Dr. Francisco Amaral — Anestesista Obstétrico"
-              className="w-40 h-auto object-contain"
-              loading="eager"
-            />
-          </div>
 
 
 
