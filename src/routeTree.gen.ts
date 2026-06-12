@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
 import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
 import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
@@ -16,6 +17,11 @@ import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
 import { Route as IndexRouteImport } from './routes/index'
 
+const LiveSecretaRoute = LiveSecretaRouteImport.update({
+  id: '/live-secreta',
+  path: '/live-secreta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
   id: '/fisiologia-farmacologia',
   path: '/fisiologia-farmacologia',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/live-secreta': typeof LiveSecretaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/live-secreta': typeof LiveSecretaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/live-secreta': typeof LiveSecretaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
+    | '/live-secreta'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
+    | '/live-secreta'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
+    | '/live-secreta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,10 +118,18 @@ export interface RootRouteChildren {
   EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
   EbookViasAereasRoute: typeof EbookViasAereasRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
+  LiveSecretaRoute: typeof LiveSecretaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/live-secreta': {
+      id: '/live-secreta'
+      path: '/live-secreta'
+      fullPath: '/live-secreta'
+      preLoaderRoute: typeof LiveSecretaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fisiologia-farmacologia': {
       id: '/fisiologia-farmacologia'
       path: '/fisiologia-farmacologia'
@@ -162,7 +182,18 @@ const rootRouteChildren: RootRouteChildren = {
   EbookVasoativoObgRoute: EbookVasoativoObgRoute,
   EbookViasAereasRoute: EbookViasAereasRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
+  LiveSecretaRoute: LiveSecretaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
