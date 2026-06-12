@@ -106,6 +106,18 @@ function LiveSecretaPage() {
             </div>
           </div>
 
+          {/* Foto mobile — grudada no botão */}
+          <div className="md:hidden flex justify-center -mb-2">
+            <img
+              src={drFrancisco.url}
+              alt="Dr. Francisco Amaral — Anestesista Obstétrico"
+              className="w-40 h-auto object-contain"
+              loading="eager"
+            />
+          </div>
+
+
+
           <a
             href="https://pay.hub.la/3rzxUpiSVGGSHi9ReKFR"
             className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99]"
