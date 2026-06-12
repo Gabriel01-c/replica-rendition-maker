@@ -197,11 +197,14 @@ function LiveSecretaPage() {
               {submitting ? "Enviando..." : "Entrar no grupo"}
             </button>
           </form>
+
+          <div className="mt-2 md:mt-4">
+            {checks}
+          </div>
         </div>
 
-        {/* Bloco 2 — checks + imagem */}
-        <div className="flex flex-col items-center gap-3">
-          {checks}
+        {/* Bloco 2 — imagem */}
+        <div className="flex flex-col items-center md:-mt-6">
           <img
             src={drFrancisco.url}
             alt="Dr. Francisco Amaral — Anestesista Obstétrico"
