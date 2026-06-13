@@ -68,14 +68,23 @@ function LiveSecretaPolemicasPage() {
       <div className="w-full max-w-[430px] flex flex-col">
         {/* Faixa vermelha topo */}
         <div
-          className="w-full px-4 py-3 text-center"
+          className="w-full py-3 overflow-hidden"
           style={{ backgroundColor: RED }}
         >
-          <p className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide">
-            ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS
-            <br />
-            EM ANESTESIA OBSTÉTRICA
-          </p>
+          <div className="flex whitespace-nowrap animate-marquee">
+            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
+              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
+              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
+              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
+              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
+            </span>
+          </div>
         </div>
 
         <div className="flex flex-col px-5 pt-5 pb-6 gap-4">
