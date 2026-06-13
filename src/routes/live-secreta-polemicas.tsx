@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Video, Calendar, Monitor, Check, Lock, X } from "lucide-react";
+import { Video, Calendar, Monitor, Check, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import drFrancisco from "@/assets/dr-francisco-polemicas.png.asset.json";
