@@ -129,13 +129,6 @@ function LiveSecretaPolemicasPage() {
         className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide"
         style={{ borderColor: RED, color: "white" }}
       >
-        <Lock size={14} style={{ color: RED }} />
-        Exclusivo para médicos e residentes
-      </div>
-      <div
-        className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide"
-        style={{ borderColor: RED, color: "white" }}
-      >
         <Video size={14} style={{ color: RED }} />
         Reunião fechada no Google Meet
       </div>
