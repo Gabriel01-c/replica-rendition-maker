@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Video, Calendar, Monitor, Check, Lock, X } from "lucide-react";
+import { Video, Calendar, Monitor, Check, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import drFrancisco from "@/assets/dr-francisco-polemicas.png.asset.json";
@@ -125,13 +125,6 @@ function LiveSecretaPolemicasPage() {
 
   const badges = (
     <div className="flex flex-col md:flex-row gap-2.5 md:gap-3 items-center md:items-start md:justify-start">
-      <div
-        className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide"
-        style={{ borderColor: RED, color: "white" }}
-      >
-        <Lock size={14} style={{ color: RED }} />
-        Exclusivo para médicos e residentes
-      </div>
       <div
         className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide"
         style={{ borderColor: RED, color: "white" }}
