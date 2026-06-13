@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Video, Calendar, Monitor, Check, Lock, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import drFrancisco from "@/assets/dr-francisco.png.asset.json";
-import draAssistente from "@/assets/dra-assistente.png.asset.json";
+import drFrancisco from "@/assets/dr-francisco-polemicas.png.asset.json";
+import draAssistente from "@/assets/isadora-leardini.png.asset.json";
 
 const WEBHOOK_URL = "https://n8n-n8n.s7gbvq.easypanel.host/webhook/livei-secreta";
 const RED = "#E11D2A";
@@ -113,34 +113,56 @@ function LiveSecretaPolemicasPage() {
           </h1>
 
           {/* Fotos lado a lado */}
-          <div className="grid grid-cols-2 gap-2 mt-2">
-            <div className="flex flex-col items-center">
-              <img
-                src={draAssistente.url}
-                alt="Isadora Leardini"
-                className="w-full h-auto object-contain"
-              />
-              <div className="text-center mt-2">
-                <p className="font-bold text-[16px] leading-tight">Isadora Leardini</p>
-                <p className="text-[13px] text-white/85 leading-snug mt-1">Mestre em Direito</p>
-                <p className="text-[13px] text-white/85 leading-snug">
-                  Especialista em Direito Penal
-                </p>
+          <div className="grid grid-cols-2 gap-3 mt-2">
+            {[
+              {
+                src: draAssistente.url,
+                alt: "Isadora Leardini",
+                name: "Isadora Leardini",
+                lines: ["Mestre em Direito", "Especialista em Direito Penal"],
+              },
+              {
+                src: drFrancisco.url,
+                alt: "Dr. Francisco Amaral",
+                name: "Dr. Francisco Amaral",
+                lines: ["PhD — TSA/SBA", "@anestesio_trends"],
+              },
+            ].map((p) => (
+              <div key={p.name} className="flex flex-col">
+                <div
+                  className="relative w-full aspect-[4/5] overflow-hidden rounded-md border"
+                  style={{ borderColor: "rgba(225,29,42,0.35)" }}
+                >
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+                </div>
+                <div
+                  className="relative -mt-3 mx-1.5 rounded-md px-3 py-2 text-center bg-neutral-950/90 border"
+                  style={{ borderColor: "rgba(225,29,42,0.45)" }}
+                >
+                  <div
+                    className="absolute left-1/2 -top-[1px] -translate-x-1/2 h-[2px] w-10"
+                    style={{ backgroundColor: RED }}
+                  />
+                  <p className="font-bold text-[14px] leading-tight">{p.name}</p>
+                  <div
+                    className="mx-auto my-1 h-px w-8"
+                    style={{ backgroundColor: "rgba(255,255,255,0.18)" }}
+                  />
+                  {p.lines.map((l) => (
+                    <p key={l} className="text-[11.5px] text-white/80 leading-snug uppercase tracking-wide">
+                      {l}
+                    </p>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img
-                src={drFrancisco.url}
-                alt="Dr. Francisco Amaral"
-                className="w-full h-auto object-contain"
-              />
-              <div className="text-center mt-2">
-                <p className="font-bold text-[16px] leading-tight">Dr. Francisco Amaral</p>
-                <p className="text-[13px] text-white/85 leading-snug mt-1">PhD - TSA/SBA</p>
-                <p className="text-[13px] text-white/85 leading-snug">@anestesio_trends</p>
-              </div>
-            </div>
+            ))}
           </div>
+
 
           {/* Data e Sala */}
           <div className="flex flex-col items-center gap-2 mt-2">
