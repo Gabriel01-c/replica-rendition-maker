@@ -29,6 +29,43 @@ export const Route = createFileRoute("/live-secreta-polemicas")({
   component: LiveSecretaPolemicasPage,
 });
 
+const PEOPLE = [
+  {
+    src: draAssistente.url,
+    alt: "Isadora Leardini",
+    name: "Isadora Leardini",
+    lines: ["Mestre em Direito", "Especialista em Direito Penal"],
+  },
+  {
+    src: drFrancisco.url,
+    alt: "Dr. Francisco Amaral",
+    name: "Dr. Francisco Amaral",
+    lines: ["PhD — TSA/SBA", "@anestesio_trends"],
+  },
+];
+
+function PersonName({ name, lines }: { name: string; lines: string[] }) {
+  return (
+    <div className="mt-3 text-center">
+      <p className="font-bold text-[15px] md:text-[16px] leading-tight">{name}</p>
+      <div
+        className="mx-auto mt-1.5 h-[2px] w-10"
+        style={{ backgroundColor: RED }}
+      />
+      <div className="mt-1.5 space-y-0.5">
+        {lines.map((l) => (
+          <p
+            key={l}
+            className="text-[11px] md:text-[12px] text-white/75 leading-snug uppercase tracking-wide"
+          >
+            {l}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function LiveSecretaPolemicasPage() {
   const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -63,71 +100,105 @@ function LiveSecretaPolemicasPage() {
     window.location.href = WHATSAPP_URL;
   };
 
+  const ctaButton = (
+    <button
+      type="button"
+      onClick={() => {
+        setError("");
+        setOpen(true);
+      }}
+      className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-4 text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99]"
+      style={{ backgroundColor: GREEN, color: "white" }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-6 h-6"
+        aria-hidden="true"
+      >
+        <path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .17 5.33.17 11.89c0 2.09.55 4.13 1.6 5.93L0 24l6.34-1.66a11.86 11.86 0 0 0 5.72 1.46h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43ZM12.07 21.3h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.76.99 1-3.67-.22-.38a9.39 9.39 0 0 1-1.43-4.84c0-5.18 4.22-9.4 9.4-9.4 2.51 0 4.87.98 6.65 2.76a9.36 9.36 0 0 1 2.75 6.65c0 5.18-4.22 9.4-9.25 9.4Zm5.16-7.04c-.28-.14-1.66-.82-1.92-.92-.26-.09-.45-.14-.64.14-.19.28-.74.92-.91 1.11-.17.19-.34.21-.62.07-.28-.14-1.18-.43-2.25-1.39-.83-.74-1.39-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43s1.03 2.83 1.17 3.02c.14.19 2.02 3.08 4.9 4.32.69.3 1.22.47 1.64.6.69.22 1.32.19 1.82.12.55-.08 1.66-.68 1.9-1.34.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33Z" />
+      </svg>
+      GARANTIR MINHA VAGA
+    </button>
+  );
+
+  const badges = (
+    <div className="flex flex-col md:flex-row gap-2.5 md:gap-3 items-center md:items-start md:justify-start">
+      <div
+        className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide"
+        style={{ borderColor: RED, color: "white" }}
+      >
+        <Lock size={14} style={{ color: RED }} />
+        Exclusivo para médicos e residentes
+      </div>
+      <div
+        className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide"
+        style={{ borderColor: RED, color: "white" }}
+      >
+        <Video size={14} style={{ color: RED }} />
+        Reunião fechada no Google Meet
+      </div>
+    </div>
+  );
+
+  const dateInfo = (
+    <div className="flex flex-col md:flex-row items-center md:items-start md:justify-start gap-2 md:gap-5">
+      <div className="flex items-center gap-2 text-[12px] md:text-[13px] font-semibold uppercase tracking-wide">
+        <Calendar size={16} style={{ color: RED }} />
+        Quinta-feira 18/06 às 20h30
+      </div>
+      <div className="flex items-center gap-2 text-[12px] md:text-[13px] font-semibold uppercase tracking-wide">
+        <Monitor size={16} style={{ color: RED }} />
+        Sala com capacidade limitada
+      </div>
+    </div>
+  );
+
+  const checks = (
+    <ul className="flex flex-col gap-2.5 md:gap-3 text-[14px] md:text-[15px] leading-snug md:text-left">
+      <li className="flex gap-2.5">
+        <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
+        <span>Quais decisões clínicas mais geram processos contra anestesistas no intraparto</span>
+      </li>
+      <li className="flex gap-2.5">
+        <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
+        <span>Como documentar sua conduta para se proteger juridicamente em qualquer cenário</span>
+      </li>
+      <li className="flex gap-2.5">
+        <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
+        <span>O que fazer quando a equipe toma uma decisão errada e você já estava na sala</span>
+      </li>
+    </ul>
+  );
+
   return (
-    <main className="min-h-screen w-full bg-black text-white flex justify-center">
-      <div className="w-full max-w-[430px] flex flex-col">
-        {/* Faixa vermelha topo */}
-        <div
-          className="w-full py-3 overflow-hidden"
-          style={{ backgroundColor: RED }}
-        >
-          <div className="flex whitespace-nowrap animate-marquee">
-            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
+    <main className="min-h-screen w-full bg-black text-white flex flex-col">
+      {/* Faixa vermelha topo */}
+      <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: RED }}>
+        <div className="flex whitespace-nowrap animate-marquee">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <span
+              key={i}
+              className="text-[12px] sm:text-[13px] md:text-sm font-bold leading-tight tracking-wide px-8"
+            >
               ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
             </span>
-            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
-              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
-            </span>
-            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
-              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
-            </span>
-            <span className="text-[12px] sm:text-[13px] font-bold leading-tight tracking-wide px-8">
-              ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA
-            </span>
-          </div>
+          ))}
         </div>
+      </div>
 
-        <div className="flex flex-col px-5 pt-5 pb-6 gap-4">
-          {/* Badges */}
-          <div className="flex flex-col gap-2.5 items-center">
-            <div
-              className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
-              style={{ borderColor: RED, color: "white" }}
-            >
-              <Lock size={14} style={{ color: RED }} />
-              Exclusivo para médicos e residentes
-            </div>
-            <div
-              className="inline-flex items-center gap-2 border rounded-md px-4 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
-              style={{ borderColor: RED, color: "white" }}
-            >
-              <Video size={14} style={{ color: RED }} />
-              Reunião fechada no Google Meet
-            </div>
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-center text-[28px] sm:text-[30px] font-extrabold leading-[1.1] mt-1">
+      {/* MOBILE */}
+      <div className="md:hidden flex justify-center">
+        <div className="w-full max-w-[430px] flex flex-col px-5 pt-5 pb-6 gap-4">
+          {badges}
+          <h1 className="text-center text-[28px] font-extrabold leading-[1.1] mt-1">
             Polêmicas Jurídicas Intraparto.{" "}
             <span style={{ color: RED }}>Defendendo o médico.</span>
           </h1>
 
-          {/* Fotos lado a lado */}
-          <div className="grid grid-cols-2 gap-3 mt-2">
-            {[
-              {
-                src: draAssistente.url,
-                alt: "Isadora Leardini",
-                name: "Isadora Leardini",
-                lines: ["Mestre em Direito", "Especialista em Direito Penal"],
-              },
-              {
-                src: drFrancisco.url,
-                alt: "Dr. Francisco Amaral",
-                name: "Dr. Francisco Amaral",
-                lines: ["PhD — TSA/SBA", "@anestesio_trends"],
-              },
-            ].map((p) => (
+          <div className="grid grid-cols-2 gap-4 mt-2">
+            {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
                   className="relative w-full aspect-[4/5] overflow-hidden rounded-md border"
@@ -138,81 +209,51 @@ function LiveSecretaPolemicasPage() {
                     alt={p.alt}
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
                 </div>
-                <div
-                  className="relative -mt-3 mx-1.5 rounded-md px-3 py-2 text-center bg-neutral-950/90 border"
-                  style={{ borderColor: "rgba(225,29,42,0.45)" }}
-                >
-                  <div
-                    className="absolute left-1/2 -top-[1px] -translate-x-1/2 h-[2px] w-10"
-                    style={{ backgroundColor: RED }}
-                  />
-                  <p className="font-bold text-[14px] leading-tight">{p.name}</p>
-                  <div
-                    className="mx-auto my-1 h-px w-8"
-                    style={{ backgroundColor: "rgba(255,255,255,0.18)" }}
-                  />
-                  {p.lines.map((l) => (
-                    <p key={l} className="text-[11.5px] text-white/80 leading-snug uppercase tracking-wide">
-                      {l}
-                    </p>
-                  ))}
-                </div>
+                <PersonName name={p.name} lines={p.lines} />
               </div>
             ))}
           </div>
 
+          {dateInfo}
+          {checks}
+          {ctaButton}
+        </div>
+      </div>
 
-          {/* Data e Sala */}
-          <div className="flex flex-col items-center gap-2 mt-2">
-            <div className="flex items-center gap-2 text-[12px] sm:text-[13px] font-semibold uppercase tracking-wide">
-              <Calendar size={16} style={{ color: RED }} />
-              Quinta-feira 18/06 às 20h30
-            </div>
-            <div className="flex items-center gap-2 text-[12px] sm:text-[13px] font-semibold uppercase tracking-wide">
-              <Monitor size={16} style={{ color: RED }} />
-              Sala com capacidade limitada
-            </div>
+      {/* DESKTOP */}
+      <div className="hidden md:flex flex-1 w-full">
+        <div className="w-full max-w-7xl mx-auto px-10 lg:px-16 py-10 lg:py-14 grid grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Coluna texto */}
+          <div className="col-span-7 flex flex-col gap-6">
+            {badges}
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.05]">
+              Polêmicas Jurídicas Intraparto.{" "}
+              <span style={{ color: RED }}>Defendendo o médico.</span>
+            </h1>
+            {dateInfo}
+            {checks}
+            <div className="max-w-md">{ctaButton}</div>
           </div>
 
-          {/* Checks */}
-          <ul className="flex flex-col gap-2.5 mt-2 text-[14px] leading-snug">
-            <li className="flex gap-2.5">
-              <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-              <span>Quais decisões clínicas mais geram processos contra anestesistas no intraparto</span>
-            </li>
-            <li className="flex gap-2.5">
-              <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-              <span>Como documentar sua conduta para se proteger juridicamente em qualquer cenário</span>
-            </li>
-            <li className="flex gap-2.5">
-              <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-              <span>O que fazer quando a equipe toma uma decisão errada e você já estava na sala</span>
-            </li>
-          </ul>
-
-          {/* Botão */}
-          <button
-            type="button"
-            onClick={() => {
-              setError("");
-              setOpen(true);
-            }}
-            className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-4 text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99] mt-2"
-            style={{ backgroundColor: GREEN, color: "white" }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-6 h-6"
-              aria-hidden="true"
-            >
-              <path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .17 5.33.17 11.89c0 2.09.55 4.13 1.6 5.93L0 24l6.34-1.66a11.86 11.86 0 0 0 5.72 1.46h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43ZM12.07 21.3h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.76.99 1-3.67-.22-.38a9.39 9.39 0 0 1-1.43-4.84c0-5.18 4.22-9.4 9.4-9.4 2.51 0 4.87.98 6.65 2.76a9.36 9.36 0 0 1 2.75 6.65c0 5.18-4.22 9.4-9.25 9.4Zm5.16-7.04c-.28-.14-1.66-.82-1.92-.92-.26-.09-.45-.14-.64.14-.19.28-.74.92-.91 1.11-.17.19-.34.21-.62.07-.28-.14-1.18-.43-2.25-1.39-.83-.74-1.39-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43s1.03 2.83 1.17 3.02c.14.19 2.02 3.08 4.9 4.32.69.3 1.22.47 1.64.6.69.22 1.32.19 1.82.12.55-.08 1.66-.68 1.9-1.34.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33Z" />
-            </svg>
-            GARANTIR MINHA VAGA
-          </button>
+          {/* Coluna imagens */}
+          <div className="col-span-5 grid grid-cols-2 gap-5 lg:gap-6">
+            {PEOPLE.map((p) => (
+              <div key={p.name} className="flex flex-col">
+                <div
+                  className="relative w-full aspect-[4/5] overflow-hidden rounded-md border"
+                  style={{ borderColor: "rgba(225,29,42,0.35)" }}
+                >
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                </div>
+                <PersonName name={p.name} lines={p.lines} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
