@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
 import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
@@ -17,6 +18,11 @@ import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
 import { Route as IndexRouteImport } from './routes/index'
 
+const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
+  id: '/live-secreta-polemicas',
+  path: '/live-secreta-polemicas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LiveSecretaRoute = LiveSecretaRouteImport.update({
   id: '/live-secreta',
   path: '/live-secreta',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
+  '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
+  '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
+  '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
+    | '/live-secreta-polemicas'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
+    | '/live-secreta-polemicas'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
+    | '/live-secreta-polemicas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   EbookViasAereasRoute: typeof EbookViasAereasRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
   LiveSecretaRoute: typeof LiveSecretaRoute
+  LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/live-secreta-polemicas': {
+      id: '/live-secreta-polemicas'
+      path: '/live-secreta-polemicas'
+      fullPath: '/live-secreta-polemicas'
+      preLoaderRoute: typeof LiveSecretaPolemicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/live-secreta': {
       id: '/live-secreta'
       path: '/live-secreta'
@@ -183,17 +203,8 @@ const rootRouteChildren: RootRouteChildren = {
   EbookViasAereasRoute: EbookViasAereasRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
   LiveSecretaRoute: LiveSecretaRoute,
+  LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
