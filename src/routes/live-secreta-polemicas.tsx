@@ -224,7 +224,7 @@ function LiveSecretaPolemicasPage() {
       <div className="hidden md:flex flex-1 w-full">
         <div className="w-full max-w-7xl mx-auto px-10 lg:px-16 py-10 lg:py-14 grid grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Coluna texto */}
-          <div className="col-span-7 flex flex-col gap-6">
+          <div className="col-span-6 flex flex-col gap-6">
             {badges}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.05]">
               Polêmicas Jurídicas Intraparto.{" "}
@@ -236,11 +236,11 @@ function LiveSecretaPolemicasPage() {
           </div>
 
           {/* Coluna imagens */}
-          <div className="col-span-5 grid grid-cols-2 gap-5 lg:gap-6">
+          <div className="col-span-6 grid grid-cols-2 gap-6 lg:gap-8">
             {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
-                  className="relative w-full aspect-[4/5] overflow-hidden rounded-md"
+                  className="relative w-full aspect-[3/4] overflow-hidden rounded-md"
                 >
                   <img
                     src={p.src}
