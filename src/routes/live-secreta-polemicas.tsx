@@ -240,8 +240,7 @@ function LiveSecretaPolemicasPage() {
             {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
-                  className="relative w-full aspect-[4/5] overflow-hidden rounded-md border"
-                  style={{ borderColor: "rgba(225,29,42,0.35)" }}
+                  className="relative w-full aspect-[4/5] overflow-hidden rounded-md"
                 >
                   <img
                     src={p.src}
