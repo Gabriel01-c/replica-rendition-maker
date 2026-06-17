@@ -31,12 +31,6 @@ export const Route = createFileRoute("/live-secreta-polemicas")({
 
 const PEOPLE = [
   {
-    src: draAssistente.url,
-    alt: "Isadora Leardini",
-    name: "Isadora Leardini",
-    lines: ["Mestre em Direito", "Especialista em Direito Penal"],
-  },
-  {
     src: drFrancisco.url,
     alt: "Dr. Francisco Amaral",
     name: "Dr. Francisco Amaral",
