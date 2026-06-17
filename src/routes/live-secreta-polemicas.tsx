@@ -12,16 +12,16 @@ const WHATSAPP_URL = "https://chat.whatsapp.com/HDtCkQnhYAOEBn3pfs3iIz?s=sw&p=i&
 export const Route = createFileRoute("/live-secreta-polemicas")({
   head: () => ({
     meta: [
-      { title: "Polêmicas Jurídicas Intraparto — Dr. Francisco Amaral" },
+      { title: "Live Secreta — Decisões seguras em anestesia obstétrica" },
       {
         name: "description",
         content:
-          "Reunião fechada no Google Meet — Polêmicas jurídicas no intraparto e defesa do médico anestesista.",
+          "Reunião fechada no Google Meet — Aprenda a tomar decisões mais seguras em anestesia obstétrica mesmo quando a gestante sai completamente do protocolo.",
       },
-      { property: "og:title", content: "Polêmicas Jurídicas Intraparto — Dr. Francisco Amaral" },
+      { property: "og:title", content: "Live Secreta — Decisões seguras em anestesia obstétrica" },
       {
         property: "og:description",
-        content: "Reunião fechada no Google Meet — defendendo o médico.",
+        content: "Reunião fechada no Google Meet — decisões seguras em anestesia obstétrica.",
       },
     ],
   }),
