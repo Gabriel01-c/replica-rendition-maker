@@ -178,9 +178,8 @@ function LiveSecretaPolemicasPage() {
       <div className="md:hidden flex justify-center">
         <div className="w-full max-w-[430px] flex flex-col px-5 pt-5 pb-6 gap-4">
           {badges}
-          <h1 className="text-center text-[28px] font-extrabold leading-[1.1] mt-1">
-            Polêmicas Jurídicas Intraparto.{" "}
-            <span style={{ color: RED }}>Defendendo o médico.</span>
+          <h1 className="text-center text-[22px] font-extrabold leading-[1.15] mt-1">
+            Aprenda a tomar decisões mais seguras em anestesia obstétrica mesmo quando a gestante sai completamente do protocolo.
           </h1>
 
           <div className="grid grid-cols-1 gap-4 mt-2 max-w-[260px] mx-auto">
