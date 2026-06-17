@@ -12,16 +12,16 @@ const WHATSAPP_URL = "https://chat.whatsapp.com/HDtCkQnhYAOEBn3pfs3iIz?s=sw&p=i&
 export const Route = createFileRoute("/live-secreta-polemicas")({
   head: () => ({
     meta: [
-      { title: "Polêmicas Jurídicas Intraparto — Dr. Francisco Amaral" },
+      { title: "Live Secreta — Decisões seguras em anestesia obstétrica" },
       {
         name: "description",
         content:
-          "Reunião fechada no Google Meet — Polêmicas jurídicas no intraparto e defesa do médico anestesista.",
+          "Reunião fechada no Google Meet — Aprenda a tomar decisões mais seguras em anestesia obstétrica mesmo quando a gestante sai completamente do protocolo.",
       },
-      { property: "og:title", content: "Polêmicas Jurídicas Intraparto — Dr. Francisco Amaral" },
+      { property: "og:title", content: "Live Secreta — Decisões seguras em anestesia obstétrica" },
       {
         property: "og:description",
-        content: "Reunião fechada no Google Meet — defendendo o médico.",
+        content: "Reunião fechada no Google Meet — decisões seguras em anestesia obstétrica.",
       },
     ],
   }),
@@ -178,9 +178,8 @@ function LiveSecretaPolemicasPage() {
       <div className="md:hidden flex justify-center">
         <div className="w-full max-w-[430px] flex flex-col px-5 pt-5 pb-6 gap-4">
           {badges}
-          <h1 className="text-center text-[28px] font-extrabold leading-[1.1] mt-1">
-            Polêmicas Jurídicas Intraparto.{" "}
-            <span style={{ color: RED }}>Defendendo o médico.</span>
+          <h1 className="text-center text-[22px] font-extrabold leading-[1.15] mt-1">
+            Aprenda a tomar decisões mais seguras em anestesia obstétrica mesmo quando a gestante sai completamente do protocolo.
           </h1>
 
           <div className="grid grid-cols-1 gap-4 mt-2 max-w-[260px] mx-auto">
@@ -212,9 +211,8 @@ function LiveSecretaPolemicasPage() {
           {/* Coluna texto */}
           <div className="col-span-7 flex flex-col gap-6">
             {badges}
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.05]">
-              Polêmicas Jurídicas Intraparto.{" "}
-              <span style={{ color: RED }}>Defendendo o médico.</span>
+            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-[1.1]">
+              Aprenda a tomar decisões mais seguras em anestesia obstétrica mesmo quando a gestante sai completamente do protocolo.
             </h1>
             {dateInfo}
             {checks}
