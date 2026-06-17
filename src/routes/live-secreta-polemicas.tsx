@@ -184,7 +184,7 @@ function LiveSecretaPolemicasPage() {
             <span style={{ color: RED }}>Defendendo o médico.</span>
           </h1>
 
-          <div className="grid grid-cols-2 gap-4 mt-2">
+          <div className="grid grid-cols-1 gap-4 mt-2 max-w-[260px] mx-auto">
             {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
@@ -223,7 +223,7 @@ function LiveSecretaPolemicasPage() {
           </div>
 
           {/* Coluna imagens */}
-          <div className="col-span-5 grid grid-cols-2 gap-5 lg:gap-6">
+          <div className="col-span-5 grid grid-cols-1 gap-5 lg:gap-6 max-w-[320px] mx-auto">
             {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
