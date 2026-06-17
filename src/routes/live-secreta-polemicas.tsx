@@ -212,7 +212,7 @@ function LiveSecretaPolemicasPage() {
           <div className="col-span-7 flex flex-col gap-6">
             {badges}
             <h1 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-[1.1]">
-              Aprenda a tomar decisões mais seguras em anestesia obstétrica mesmo quando a gestante sai completamente do protocolo.
+              Aprenda a tomar decisões mais seguras em anestesia obstétrica <span style={{ color: RED }}>mesmo quando a gestante sai completamente do protocolo.</span>
             </h1>
             {dateInfo}
             {checks}
