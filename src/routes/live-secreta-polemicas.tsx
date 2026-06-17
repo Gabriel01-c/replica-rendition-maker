@@ -3,7 +3,6 @@ import { Video, Calendar, Monitor, Check, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import drFrancisco from "@/assets/dr-francisco-polemicas.png.asset.json";
-import draAssistente from "@/assets/isadora-leardini.png.asset.json";
 
 const WEBHOOK_URL = "https://n8n-n8n.s7gbvq.easypanel.host/webhook/livei-secreta";
 const RED = "#E11D2A";
