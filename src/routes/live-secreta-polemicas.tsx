@@ -134,7 +134,7 @@ function LiveSecretaPolemicasPage() {
         <Calendar size={16} style={{ color: RED }} />
         Quinta-feira 18/06 às 20h30
       </div>
-      <div className="flex items-center gap-2 text-[12px] md:text-[13px] font-semibold uppercase tracking-wide">
+      <div className="flex items-center gap-2 text-[12px] md:text-[13px] font-semibold uppercase tracking-wide bg-white/10 rounded-md px-3 py-1.5">
         <Monitor size={16} style={{ color: RED }} />
         Sala com capacidade limitada
       </div>
