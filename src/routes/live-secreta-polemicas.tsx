@@ -3,7 +3,6 @@ import { Video, Calendar, Monitor, Check, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import drFrancisco from "@/assets/dr-francisco-polemicas.png.asset.json";
-import draAssistente from "@/assets/isadora-leardini.png.asset.json";
 
 const WEBHOOK_URL = "https://n8n-n8n.s7gbvq.easypanel.host/webhook/livei-secreta";
 const RED = "#E11D2A";
@@ -30,12 +29,6 @@ export const Route = createFileRoute("/live-secreta-polemicas")({
 });
 
 const PEOPLE = [
-  {
-    src: draAssistente.url,
-    alt: "Isadora Leardini",
-    name: "Isadora Leardini",
-    lines: ["Mestre em Direito", "Especialista em Direito Penal"],
-  },
   {
     src: drFrancisco.url,
     alt: "Dr. Francisco Amaral",
@@ -190,7 +183,7 @@ function LiveSecretaPolemicasPage() {
             <span style={{ color: RED }}>Defendendo o médico.</span>
           </h1>
 
-          <div className="grid grid-cols-2 gap-4 mt-2">
+          <div className="grid grid-cols-1 gap-4 mt-2 max-w-[260px] mx-auto">
             {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
@@ -229,7 +222,7 @@ function LiveSecretaPolemicasPage() {
           </div>
 
           {/* Coluna imagens */}
-          <div className="col-span-5 grid grid-cols-2 gap-5 lg:gap-6">
+          <div className="col-span-5 grid grid-cols-1 gap-5 lg:gap-6 max-w-[320px] mx-auto">
             {PEOPLE.map((p) => (
               <div key={p.name} className="flex flex-col">
                 <div
