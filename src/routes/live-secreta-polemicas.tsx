@@ -190,7 +190,16 @@ function LiveSecretaPolemicasPage() {
   );
 
   return (
-    <main className="min-h-screen w-full bg-black text-white flex flex-col">
+    <>
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-WDFRGF2G"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        />
+      </noscript>
+      <main className="min-h-screen w-full bg-black text-white flex flex-col">
       {/* Faixa vermelha topo */}
       <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: RED }}>
         <div className="flex whitespace-nowrap animate-marquee">
@@ -340,5 +349,6 @@ function LiveSecretaPolemicasPage() {
         </div>
       )}
     </main>
+    </>
   );
 }
