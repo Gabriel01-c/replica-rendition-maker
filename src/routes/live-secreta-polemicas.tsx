@@ -24,6 +24,12 @@ export const Route = createFileRoute("/live-secreta-polemicas")({
         content: "Reunião fechada no Google Meet — decisões seguras em anestesia obstétrica.",
       },
     ],
+    script: [
+      {
+        type: "text/javascript",
+        children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDFRGF2G');`,
+      },
+    ],
   }),
   component: LiveSecretaPolemicasPage,
 });
