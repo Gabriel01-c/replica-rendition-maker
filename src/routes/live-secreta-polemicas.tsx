@@ -219,7 +219,7 @@ function LiveSecretaPolemicasPage() {
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
                 </div>
-                <PersonName name={p.name} lines={p.lines} handle={p.handle} />
+                <PersonName name={p.name} lines={p.lines} role={p.role} handle={p.handle} />
               </div>
             ))}
           </div>
@@ -257,7 +257,7 @@ function LiveSecretaPolemicasPage() {
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
                 </div>
-                <PersonName name={p.name} lines={p.lines} handle={p.handle} />
+                <PersonName name={p.name} lines={p.lines} role={p.role} handle={p.handle} />
               </div>
             ))}
           </div>
