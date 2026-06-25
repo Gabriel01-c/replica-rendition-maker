@@ -67,7 +67,10 @@ function PersonName({
           </p>
         ))}
         {role && (
-          <p className="text-[11px] md:text-[12px] text-white/90 leading-snug tracking-wide bg-white/10 rounded px-2 py-0.5 inline-block">
+          <p
+            className="text-[11px] md:text-[12px] leading-snug uppercase tracking-wide"
+            style={{ color: RED }}
+          >
             {role}
           </p>
         )}
