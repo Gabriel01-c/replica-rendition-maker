@@ -34,6 +34,7 @@ const PEOPLE = [
     alt: "Dr. Francisco Amaral",
     name: "Dr. Francisco Amaral",
     lines: ["PhD — TSA/SBA"],
+    role: "Anestesista Obstétrico",
     handle: "@anestesio_trends",
   },
 ];
@@ -56,6 +57,14 @@ function PersonName({
         className="mx-auto mt-1.5 h-[2px] w-10"
         style={{ backgroundColor: RED }}
       />
+      {role && (
+        <p
+          className="mt-1.5 text-[11px] md:text-[12px] leading-snug uppercase tracking-wide"
+          style={{ color: RED }}
+        >
+          {role}
+        </p>
+      )}
       <div className="mt-1.5 space-y-0.5">
         {lines.map((l) => (
           <p
@@ -65,11 +74,6 @@ function PersonName({
             {l}
           </p>
         ))}
-        {role && (
-          <p className="text-[11px] md:text-[12px] text-white/90 leading-snug tracking-wide bg-white/10 rounded px-2 py-0.5 inline-block">
-            {role}
-          </p>
-        )}
         {handle && (
           <p className="text-[11px] md:text-[12px] text-white/75 leading-snug tracking-wide lowercase">
             {handle}
@@ -215,7 +219,7 @@ function LiveSecretaPolemicasPage() {
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
                 </div>
-                <PersonName name={p.name} lines={p.lines} handle={p.handle} />
+                <PersonName name={p.name} lines={p.lines} role={p.role} handle={p.handle} />
               </div>
             ))}
           </div>
@@ -253,7 +257,7 @@ function LiveSecretaPolemicasPage() {
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
                 </div>
-                <PersonName name={p.name} lines={p.lines} handle={p.handle} />
+                <PersonName name={p.name} lines={p.lines} role={p.role} handle={p.handle} />
               </div>
             ))}
           </div>
