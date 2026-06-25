@@ -14,6 +14,12 @@ export const Route = createFileRoute("/fisiologia-farmacologia")({
           "Aprenda a tomar decisões certas em qualquer situação obstétrica, sem decorar protocolo, sem travar na hora que mais importa.",
       },
     ],
+    scripts: [
+      {
+        type: "text/javascript",
+        children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDFRGF2G');`,
+      },
+    ],
   }),
   component: Page,
 });
