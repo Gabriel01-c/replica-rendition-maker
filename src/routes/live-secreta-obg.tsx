@@ -110,5 +110,6 @@ function LiveSecretaObgPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }
