@@ -115,7 +115,7 @@ function LiveSecretaPolemicasPage() {
     } catch (err) {
       console.error("lead submit error", err);
     }
-    window.location.href = WHATSAPP_URL;
+    window.location.href = "/live-secreta-obg";
   };
 
   const ctaButton = (

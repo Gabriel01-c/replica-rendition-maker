@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
+import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
 import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
   id: '/live-secreta-polemicas',
   path: '/live-secreta-polemicas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveSecretaObgRoute = LiveSecretaObgRouteImport.update({
+  id: '/live-secreta-obg',
+  path: '/live-secreta-obg',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveSecretaRoute = LiveSecretaRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
+  '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
+  '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
+  '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
+    | '/live-secreta-obg'
     | '/live-secreta-polemicas'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
+    | '/live-secreta-obg'
     | '/live-secreta-polemicas'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
+    | '/live-secreta-obg'
     | '/live-secreta-polemicas'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   EbookViasAereasRoute: typeof EbookViasAereasRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
   LiveSecretaRoute: typeof LiveSecretaRoute
+  LiveSecretaObgRoute: typeof LiveSecretaObgRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
 }
 
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/live-secreta-polemicas'
       fullPath: '/live-secreta-polemicas'
       preLoaderRoute: typeof LiveSecretaPolemicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-secreta-obg': {
+      id: '/live-secreta-obg'
+      path: '/live-secreta-obg'
+      fullPath: '/live-secreta-obg'
+      preLoaderRoute: typeof LiveSecretaObgRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live-secreta': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   EbookViasAereasRoute: EbookViasAereasRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
   LiveSecretaRoute: LiveSecretaRoute,
+  LiveSecretaObgRoute: LiveSecretaObgRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
 }
 export const routeTree = rootRouteImport
