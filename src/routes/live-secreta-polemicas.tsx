@@ -260,21 +260,23 @@ function LiveSecretaPolemicasPage() {
           </div>
 
           {/* Coluna imagens */}
-          <div className="col-span-5 grid grid-cols-1 gap-5 lg:gap-6 max-w-[320px] mx-auto">
-            {PEOPLE.map((p) => (
-              <div key={p.name} className="flex flex-col">
-                <div
-                  className="relative w-full aspect-[4/5] overflow-hidden rounded-md"
-                >
-                  <img
-                    src={p.src}
-                    alt={p.alt}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                  />
+          <div className="col-span-5 flex items-center justify-center">
+            <div className="grid grid-cols-1 gap-5 lg:gap-6 w-full max-w-[400px] lg:max-w-[460px]">
+              {PEOPLE.map((p) => (
+                <div key={p.name} className="flex flex-col">
+                  <div
+                    className="relative w-full aspect-[4/5] overflow-hidden rounded-md"
+                  >
+                    <img
+                      src={p.src}
+                      alt={p.alt}
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <PersonName name={p.name} lines={p.lines} role={p.role} handle={p.handle} />
                 </div>
-                <PersonName name={p.name} lines={p.lines} role={p.role} handle={p.handle} />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
