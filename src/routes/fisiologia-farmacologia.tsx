@@ -150,6 +150,16 @@ function Page() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
+      {/* Google Tag Manager (noscript) */}
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-WDFRGF2G"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        />
+      </noscript>
+      {/* End Google Tag Manager (noscript) */}
       {/* BLOCO 1 — Hero */}
       <section
         data-section
