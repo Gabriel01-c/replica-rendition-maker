@@ -34,7 +34,6 @@ const PEOPLE = [
     alt: "Dr. Francisco Amaral",
     name: "Dr. Francisco Amaral",
     lines: ["PhD — TSA/SBA"],
-    role: "Anestesista Obstétrico",
     handle: "@anestesio_trends",
   },
 ];
