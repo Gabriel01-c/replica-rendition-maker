@@ -39,7 +39,17 @@ const PEOPLE = [
   },
 ];
 
-function PersonName({ name, lines }: { name: string; lines: string[] }) {
+function PersonName({
+  name,
+  lines,
+  role,
+  handle,
+}: {
+  name: string;
+  lines: string[];
+  role?: string;
+  handle?: string;
+}) {
   return (
     <div className="mt-3 text-center">
       <p className="font-bold text-[15px] md:text-[16px] leading-tight">{name}</p>
@@ -56,6 +66,16 @@ function PersonName({ name, lines }: { name: string; lines: string[] }) {
             {l}
           </p>
         ))}
+        {role && (
+          <p className="text-[11px] md:text-[12px] text-white/90 leading-snug tracking-wide bg-white/10 rounded px-2 py-0.5 inline-block">
+            {role}
+          </p>
+        )}
+        {handle && (
+          <p className="text-[11px] md:text-[12px] text-white/75 leading-snug tracking-wide lowercase">
+            {handle}
+          </p>
+        )}
       </div>
     </div>
   );
