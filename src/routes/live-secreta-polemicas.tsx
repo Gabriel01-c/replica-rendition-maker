@@ -57,6 +57,14 @@ function PersonName({
         className="mx-auto mt-1.5 h-[2px] w-10"
         style={{ backgroundColor: RED }}
       />
+      {role && (
+        <p
+          className="mt-1.5 text-[11px] md:text-[12px] leading-snug uppercase tracking-wide"
+          style={{ color: RED }}
+        >
+          {role}
+        </p>
+      )}
       <div className="mt-1.5 space-y-0.5">
         {lines.map((l) => (
           <p
@@ -66,14 +74,6 @@ function PersonName({
             {l}
           </p>
         ))}
-        {role && (
-          <p
-            className="text-[11px] md:text-[12px] leading-snug uppercase tracking-wide"
-            style={{ color: RED }}
-          >
-            {role}
-          </p>
-        )}
         {handle && (
           <p className="text-[11px] md:text-[12px] text-white/75 leading-snug tracking-wide lowercase">
             {handle}
