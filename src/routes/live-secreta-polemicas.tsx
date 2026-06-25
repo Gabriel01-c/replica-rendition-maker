@@ -33,7 +33,9 @@ const PEOPLE = [
     src: drFrancisco.url,
     alt: "Dr. Francisco Amaral",
     name: "Dr. Francisco Amaral",
-    lines: ["PhD — TSA/SBA", "@anestesio_trends"],
+    lines: ["PhD — TSA/SBA"],
+    role: "Anestesista Obstétrico",
+    handle: "@anestesio_trends",
   },
 ];
 
