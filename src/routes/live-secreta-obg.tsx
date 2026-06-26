@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const RED = "#E11D2A";
 const GREEN = "#1FA84A";
-const WHATSAPP_URL = "https://chat.whatsapp.com/L7xItxFiM4NDPBUTfqJLTs?mode=gi_t";
+const WHATSAPP_URL = "https://chat.whatsapp.com/Jgyn3iV9qhG46UfY9q6xks";
 
 export const Route = createFileRoute("/live-secreta-obg")({
   head: () => ({
