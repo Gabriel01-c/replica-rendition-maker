@@ -173,6 +173,23 @@ const BODY_HTML = `
 `;
 
 export const Route = createFileRoute("/ebook-viasaereas-obg")({
+  head: () => ({
+    meta: [
+      {
+        title: "Acesso Liberado — Ebook Vias Aéreas",
+      },
+      {
+        name: "description",
+        content: "Acesso liberado ao ebook de Vias Aéreas na Emergência.",
+      },
+    ],
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtm.js?id=GTM-PD6G9FZT",
+        async: true,
+      },
+    ],
+  }),
   component: WhatsAppAccessPage,
 });
 
@@ -195,6 +212,11 @@ function WhatsAppAccessPage() {
 
   return (
     <>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD6G9FZT" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
       <div dangerouslySetInnerHTML={{ __html: BODY_HTML }} />
     </>

@@ -102,11 +102,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: React.ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isFisiologiaFarmacologia = pathname === "/fisiologia-farmacologia";
+  const isEbookViasAereas = pathname === "/ebook-vias-aereas" || pathname === "/ebook-viasaereas-obg";
+  const excludeGlobalGtm = isFisiologiaFarmacologia || isEbookViasAereas;
 
   return (
     <html lang="en">
       <head>
-        {!isFisiologiaFarmacologia && (
+        {!excludeGlobalGtm && (
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NNNKN4GS');`,
@@ -121,7 +123,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {!isFisiologiaFarmacologia && (
+        {!excludeGlobalGtm && (
           <noscript
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNNKN4GS" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
