@@ -13,6 +13,7 @@ import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-
 import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
+import { Route as EbookViasaereasObgRouteImport } from './routes/ebook-viasaereas-obg'
 import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
 import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
 import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
@@ -37,6 +38,11 @@ const LiveSecretaRoute = LiveSecretaRouteImport.update({
 const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
   id: '/fisiologia-farmacologia',
   path: '/fisiologia-farmacologia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookViasaereasObgRoute = EbookViasaereasObgRouteImport.update({
+  id: '/ebook-viasaereas-obg',
+  path: '/ebook-viasaereas-obg',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EbookViasAereasRoute = EbookViasAereasRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
+  '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
+  '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
+  '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
+    | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
     | '/live-secreta-obg'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
+    | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
     | '/live-secreta-obg'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
+    | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
     | '/live-secreta'
     | '/live-secreta-obg'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   EbookVasoativoRoute: typeof EbookVasoativoRoute
   EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
   EbookViasAereasRoute: typeof EbookViasAereasRoute
+  EbookViasaereasObgRoute: typeof EbookViasaereasObgRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
   LiveSecretaRoute: typeof LiveSecretaRoute
   LiveSecretaObgRoute: typeof LiveSecretaObgRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/fisiologia-farmacologia'
       fullPath: '/fisiologia-farmacologia'
       preLoaderRoute: typeof FisiologiaFarmacologiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook-viasaereas-obg': {
+      id: '/ebook-viasaereas-obg'
+      path: '/ebook-viasaereas-obg'
+      fullPath: '/ebook-viasaereas-obg'
+      preLoaderRoute: typeof EbookViasaereasObgRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ebook-vias-aereas': {
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   EbookVasoativoRoute: EbookVasoativoRoute,
   EbookVasoativoObgRoute: EbookVasoativoObgRoute,
   EbookViasAereasRoute: EbookViasAereasRoute,
+  EbookViasaereasObgRoute: EbookViasaereasObgRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
   LiveSecretaRoute: LiveSecretaRoute,
   LiveSecretaObgRoute: LiveSecretaObgRoute,
@@ -229,3 +250,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
