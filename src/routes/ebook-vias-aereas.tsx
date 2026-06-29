@@ -32,6 +32,12 @@ export const Route = createFileRoute("/ebook-vias-aereas")({
           "Clínica, fisiologia e farmacologia para decisões mais seguras em cenários críticos de via aérea.",
       },
     ],
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtm.js?id=GTM-PD6G9FZT",
+        async: true,
+      },
+    ],
   }),
   component: Page,
 });
@@ -356,6 +362,11 @@ function Page() {
 
   return (
     <>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD6G9FZT" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
       <div className="va-root">
         {/* ============ HERO ============ */}
