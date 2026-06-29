@@ -172,7 +172,7 @@ const BODY_HTML = `
 </div>
 `;
 
-export const Route = createFileRoute("/ebook-vasoativo-obg")({
+export const Route = createFileRoute("/ebook-viasaereas-obg")({
   component: WhatsAppAccessPage,
 });
 
