@@ -150,6 +150,13 @@ function Page() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes checkPulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(1, 183, 150, 0.5); }
+          50% { transform: scale(1.12); box-shadow: 0 0 0 8px rgba(1, 183, 150, 0); }
+        }
+        .check-pulse { animation: checkPulse 1.6s ease-in-out infinite; }
+      ` }} />
       {/* Google Tag Manager (noscript) */}
       <noscript>
         <iframe
