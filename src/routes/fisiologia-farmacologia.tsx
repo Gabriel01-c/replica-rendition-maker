@@ -324,7 +324,59 @@ function Page() {
         </div>
       </section>
 
+      {/* BLOCO 3.5 — Por isso criei o programa */}
+      <section
+        data-section
+        data-bg="dark"
+        data-hascta="false"
+        className="py-16 md:py-24"
+        style={{
+          background: `linear-gradient(135deg, #01021f 0%, #02043a 60%, #060764 100%)`,
+        }}
+      >
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <span
+            className="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
+            style={{ background: TEAL, color: NAVY }}
+          >
+            O método por trás da formação
+          </span>
+          <h2 className="mb-6 text-3xl font-bold leading-tight text-white md:text-4xl">
+            Por isso criei um programa completo
+          </h2>
+          <p className="mb-4 text-lg leading-relaxed text-white/85 md:text-xl">
+            Não só aulas gravadas, mas encontros ao vivo e suporte direto no WhatsApp para você desenvolver o raciocínio clínico que a residência não ensinou.
+          </p>
+          <p className="mb-8 text-lg leading-relaxed text-white/85 md:text-xl">
+            Como Raciocinar com Segurança na Anestesia Obstétrica foi desenvolvido para te ensinar a pensar, não a decorar.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              "Fisiologia aplicada à decisão clínica real",
+              "Farmacologia integrada ao raciocínio obstétrico",
+              "Casos clínicos reais resolvidos passo a passo",
+              "Encontros ao vivo para consolidar o aprendizado",
+              "Suporte no WhatsApp para dúvidas do dia a dia",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-left"
+              >
+                <span
+                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                  style={{ background: TEAL, color: NAVY }}
+                >
+                  ✓
+                </span>
+                <span className="text-base leading-snug text-white/90">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* BLOCO 4 — O que vai dominar */}
+
       <section
         data-section
         data-bg="dark"
