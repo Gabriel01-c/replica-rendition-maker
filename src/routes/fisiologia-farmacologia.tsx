@@ -348,7 +348,8 @@ function Page() {
             Não só aulas gravadas, mas encontros ao vivo e suporte direto no WhatsApp para você desenvolver o raciocínio clínico que a residência não ensinou.
           </p>
           <p className="mb-8 text-lg leading-relaxed text-white/85 md:text-xl">
-            Como Raciocinar com Segurança na Anestesia Obstétrica foi desenvolvido para te ensinar a pensar, não a decorar.
+            <span className="font-bold" style={{ color: TEAL }}>Como Raciocinar com Segurança na Anestesia Obstétrica</span>{" "}
+            foi desenvolvido para te ensinar a pensar, não a decorar.
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
