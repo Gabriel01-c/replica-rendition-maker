@@ -460,12 +460,6 @@ function Page() {
                       >
                         ✓
                       </span>
-                      <span
-                        className="text-[11px] font-semibold uppercase tracking-[0.25em]"
-                        style={{ color: GREEN }}
-                      >
-                        Perfeita para você
-                      </span>
                     </div>
                     <h3 className="mb-7 text-xl font-semibold tracking-[0.2em] md:text-2xl" style={{ color: GREEN }}>
                       Essa formação é PERFEITA para VOCÊ que:
