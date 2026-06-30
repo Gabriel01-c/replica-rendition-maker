@@ -548,9 +548,12 @@ function Page() {
       <section id="preco" data-section data-bg="light" data-hascta="true" className="py-16 md:py-24" style={{ background: "#f7f8fc" }}>
         <div className="mx-auto max-w-4xl px-5">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <p className="text-lg italic leading-relaxed text-slate-700 md:text-xl">
+            <p className="mb-4 text-lg italic leading-relaxed text-slate-700 md:text-xl">
               "Vinte anos dentro de sala cirúrgica me ensinaram que o anestesista inseguro não
-              precisa de mais protocolo, precisa de raciocínio. É isso que eu coloquei aqui."
+              precisa de mais protocolo, precisa de raciocínio."
+            </p>
+            <p className="text-lg italic leading-relaxed text-slate-700 md:text-xl">
+              Foi esse raciocínio que coloquei aqui. Com aulas gravadas, encontros ao vivo e suporte no WhatsApp.
             </p>
           </div>
           <div
