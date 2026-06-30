@@ -403,7 +403,10 @@ function Page() {
           <div className="grid gap-6 lg:grid-cols-2">
             {[
               { title: "Fisiologia", items: fisiologia, color: TEAL, label: "Módulo 01" },
-              { title: "Farmacologia", items: farmacologia, color: VIOLET, label: "Módulo 02" },
+              { title: "Farmacologia", items: farmacologia, color: VIOLET, label: "Módulo 02", bonus: [
+                "Encontros ao vivo para tirar dúvidas e aprofundar os casos clínicos",
+                "Grupo de suporte no WhatsApp com acesso direto durante todo o programa",
+              ] },
             ].map((bloco) => (
               <ModuloCard
                 key={bloco.title}
@@ -411,6 +414,7 @@ function Page() {
                 items={bloco.items}
                 color={bloco.color}
                 label={bloco.label}
+                bonus={bloco.bonus}
               />
             ))}
           </div>
@@ -700,11 +704,13 @@ function ModuloCard({
   items,
   color,
   label,
+  bonus,
 }: {
   title: string;
   items: string[];
   color: string;
   label: string;
+  bonus?: string[];
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -812,8 +818,55 @@ function ModuloCard({
           </li>
         ))}
       </ul>
+
+      {bonus && bonus.length > 0 && (
+        <div className="relative mt-6">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="h-px flex-1" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
+            <span
+              className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
+              style={{ background: color, color: NAVY }}
+            >
+              Bônus
+            </span>
+            <span className="h-px flex-1" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
+          </div>
+          <ul className="space-y-3">
+            {bonus.map((item, i) => (
+              <li
+                key={item}
+                className="group/bonus relative flex items-center gap-4 rounded-2xl border px-5 py-4 transition-all duration-300"
+                style={{
+                  background: `${color}10`,
+                  borderColor: `${color}40`,
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(10px)",
+                  transition: `opacity 600ms cubic-bezier(0.16,1,0.3,1) ${(items.length + i) * 90}ms, transform 600ms cubic-bezier(0.16,1,0.3,1) ${(items.length + i) * 90}ms, background-color 300ms, border-color 300ms`,
+                }}
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-y-3 left-0 w-[2px] rounded-full opacity-60 transition-opacity duration-300 group-hover/bonus:opacity-100"
+                  style={{ background: color }}
+                />
+                <span
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg font-bold transition-all duration-300"
+                  style={{
+                    background: color,
+                    color: NAVY,
+                    boxShadow: `0 0 18px ${color}80`,
+                  }}
+                >
+                  +
+                </span>
+                <span className="flex-1 text-[15px] font-medium leading-snug text-white transition-colors group-hover/bonus:text-white">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
-
-
 }
