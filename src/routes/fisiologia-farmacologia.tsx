@@ -219,22 +219,21 @@ function Page() {
                   "Acesso imediato",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-1.5 text-[11px] text-white/90 md:text-sm">
-                    <svg
-                      className="mt-0.5 shrink-0"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
+                    <span
+                      className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full md:h-5 md:w-5"
+                      style={{ background: TEAL }}
                       aria-hidden="true"
                     >
-                      <path
-                        d="M20 6L9 17L4 12"
-                        stroke={TEAL}
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="md:h-3 md:w-3">
+                        <path
+                          d="M20 6L9 17L4 12"
+                          stroke={NAVY}
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
                     <span className="leading-tight">{item}</span>
                   </li>
                 ))}
