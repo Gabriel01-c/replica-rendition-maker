@@ -69,6 +69,7 @@ const paraQuem = [
   "Busca mais confiança para tomar decisões anestésicas em gestantes",
   "Já atua em plantões mas trava na hora de raciocinar sob pressão",
   "Quer dominar fisiologia e farmacologia obstétrica aplicadas à decisão clínica real",
+  "Quer suporte real, não só conteúdo gravado para assistir sozinho",
 ];
 
 const naoEh = [
