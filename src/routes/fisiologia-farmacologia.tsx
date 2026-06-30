@@ -853,7 +853,7 @@ function ModuloCard({
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg font-bold transition-all duration-300"
                   style={{
                     background: color,
-                    color: NAVY,
+                    color: "#ffffff",
                     boxShadow: `0 0 18px ${color}80`,
                   }}
                 >
