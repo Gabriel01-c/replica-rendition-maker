@@ -455,15 +455,15 @@ function Page() {
                   <div className="relative">
                     <div className="mb-5 flex items-center gap-3">
                       <span
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full text-base font-bold text-white"
+                        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-base font-bold text-white"
                         style={{ background: GREEN }}
                       >
                         ✓
                       </span>
+                      <h3 className="text-xl font-semibold tracking-[0.2em] md:text-2xl" style={{ color: GREEN }}>
+                        Essa formação é PERFEITA para VOCÊ que:
+                      </h3>
                     </div>
-                    <h3 className="mb-7 text-xl font-semibold tracking-[0.2em] md:text-2xl" style={{ color: GREEN }}>
-                      Essa formação é PERFEITA para VOCÊ que:
-                    </h3>
                     <ul className="space-y-3">
                       {paraQuem.map((p) => (
                         <li
