@@ -194,37 +194,64 @@ function Page() {
             backgroundImage: `radial-gradient(circle at 15% 20%, ${TEAL}55 0%, transparent 45%), radial-gradient(circle at 85% 80%, ${VIOLET}55 0%, transparent 45%)`,
           }}
         />
-        <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-12 md:pt-20 md:pb-24">
-          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-            <div className="text-white">
+        <div className="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col justify-center px-4 py-4 md:py-8">
+          <div className="grid items-center gap-4 md:grid-cols-2 md:gap-8">
+            <div className="flex flex-col text-white">
               <span
-                className="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
+                className="mb-2 inline-block self-start rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider"
                 style={{ background: TEAL, color: NAVY }}
               >
                 aulas aplicadas com casos clínicos
               </span>
-              <h1 className="mb-4 text-3xl font-black leading-tight md:text-5xl lg:text-6xl">
+              <h1 className="mb-2 text-[26px] font-black leading-[1.1] md:text-5xl lg:text-6xl">
                 Como Raciocinar com Segurança na{" "}
                 <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
               </h1>
-              <p className="mb-2 text-base text-white/85 md:mb-6 md:text-lg">
+              <p className="mb-3 text-sm text-white/85 md:text-lg">
                 Aprenda a tomar decisões certas em qualquer situação obstétrica, sem decorar
                 protocolo, sem travar na hora que mais importa.
               </p>
-              <div className="-mb-2 flex justify-center md:hidden">
+              <ul className="mb-3 grid grid-cols-2 gap-x-2 gap-y-1.5 md:mb-5 md:gap-x-3 md:gap-y-2">
+                {[
+                  "Aulas gravadas com casos clínicos reais",
+                  "Encontros ao vivo para tirar dúvidas",
+                  "Grupo de suporte no WhatsApp",
+                  "Acesso imediato",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-1.5 text-[11px] text-white/90 md:text-sm">
+                    <span
+                      className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full md:h-5 md:w-5"
+                      style={{ background: TEAL }}
+                      aria-hidden="true"
+                    >
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="md:h-3 md:w-3">
+                        <path
+                          d="M20 6L9 17L4 12"
+                          stroke={NAVY}
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span className="leading-tight">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mb-1 flex justify-center md:hidden">
                 <img
                   src={HERO_MOCKUP.url}
                   alt="Módulos Fisiologia da Gestante e Farmacologia"
-                  className="w-full max-w-xs h-auto drop-shadow-2xl"
+                  className="h-auto w-full max-w-[200px] drop-shadow-2xl"
                 />
               </div>
-              <CTA />
+              <CTA className="self-center md:self-start" />
             </div>
             <div className="hidden md:flex md:justify-center">
               <img
                 src={HERO_MOCKUP.url}
                 alt="Módulos Fisiologia da Gestante e Farmacologia"
-                className="w-full max-w-lg h-auto drop-shadow-2xl"
+                className="h-auto w-full max-w-md drop-shadow-2xl"
               />
             </div>
           </div>
