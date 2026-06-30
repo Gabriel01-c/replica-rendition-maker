@@ -211,20 +211,20 @@ function Page() {
                 Aprenda a tomar decisões certas em qualquer situação obstétrica, sem decorar
                 protocolo, sem travar na hora que mais importa.
               </p>
-              <ul className="mb-3 grid grid-cols-2 gap-x-2 gap-y-1.5 md:mb-5 md:gap-x-3 md:gap-y-2">
+              <ul className="mb-3 grid grid-cols-2 gap-x-2 gap-y-2 md:mb-5 md:gap-x-3 md:gap-y-2.5">
                 {[
                   "Aulas gravadas com casos clínicos reais",
                   "Encontros ao vivo para tirar dúvidas",
                   "Grupo de suporte no WhatsApp",
                   "Acesso imediato",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-1.5 text-[11px] text-white/90 md:text-sm">
+                ].map((item, idx) => (
+                  <li key={item} className="flex items-start gap-2 text-xs font-medium text-white md:text-sm">
                     <span
-                      className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full md:h-5 md:w-5"
-                      style={{ background: TEAL }}
+                      className="check-pulse mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full md:h-6 md:w-6"
+                      style={{ background: TEAL, animationDelay: `${idx * 180}ms` }}
                       aria-hidden="true"
                     >
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="md:h-3 md:w-3">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="md:h-4 md:w-4">
                         <path
                           d="M20 6L9 17L4 12"
                           stroke={NAVY}
