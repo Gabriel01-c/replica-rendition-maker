@@ -277,8 +277,8 @@ function Page() {
       >
         <div className="mx-auto max-w-4xl px-5 text-center">
           <h2 className="mb-6 text-2xl font-bold leading-tight text-white md:text-4xl">
-            Você já ficou em dúvida numa situação obstétrica com o paciente instável e a equipe te
-            olhando?
+            Você já esteve em uma situação obstétrica com o paciente instável, a equipe te olhando, e
+            por um segundo, o tempo congelou?
           </h2>
           <p className="text-lg text-white/85 md:text-xl">
             Essa sensação não é falta de esforço. É falta de{" "}
