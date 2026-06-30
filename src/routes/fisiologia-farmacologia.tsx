@@ -507,21 +507,15 @@ function Page() {
                   <div className="relative">
                     <div className="mb-5 flex items-center gap-3">
                       <span
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full text-base font-bold text-white"
+                        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-base font-bold text-white"
                         style={{ background: RED }}
                       >
                         ✕
                       </span>
-                      <span
-                        className="text-[11px] font-semibold uppercase tracking-[0.25em]"
-                        style={{ color: RED }}
-                      >
-                        Não é para você se
-                      </span>
+                      <h3 className="text-xl font-semibold tracking-[0.2em] md:text-2xl" style={{ color: RED }}>
+                        Essa formação NÃO É para quem:
+                      </h3>
                     </div>
-                    <h3 className="mb-7 text-2xl font-semibold tracking-tight md:text-3xl" style={{ color: NAVY }}>
-                      Não é para mim
-                    </h3>
                     <ul className="space-y-3">
                       {naoEh.map((p) => (
                         <li
