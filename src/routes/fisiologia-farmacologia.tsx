@@ -403,7 +403,10 @@ function Page() {
           <div className="grid gap-6 lg:grid-cols-2">
             {[
               { title: "Fisiologia", items: fisiologia, color: TEAL, label: "Módulo 01" },
-              { title: "Farmacologia", items: farmacologia, color: VIOLET, label: "Módulo 02" },
+              { title: "Farmacologia", items: farmacologia, color: VIOLET, label: "Módulo 02", bonus: [
+                "Encontros ao vivo para tirar dúvidas e aprofundar os casos clínicos",
+                "Grupo de suporte no WhatsApp com acesso direto durante todo o programa",
+              ] },
             ].map((bloco) => (
               <ModuloCard
                 key={bloco.title}
@@ -411,6 +414,7 @@ function Page() {
                 items={bloco.items}
                 color={bloco.color}
                 label={bloco.label}
+                bonus={bloco.bonus}
               />
             ))}
           </div>
