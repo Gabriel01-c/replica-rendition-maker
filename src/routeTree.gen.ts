@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PosGraduacaoApresentacaoRouteImport } from './routes/pos-graduacao-apresentacao'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
@@ -21,12 +20,6 @@ import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
 import { Route as IndexRouteImport } from './routes/index'
 
-const PosGraduacaoApresentacaoRoute =
-  PosGraduacaoApresentacaoRouteImport.update({
-    id: '/pos-graduacao-apresentacao',
-    path: '/pos-graduacao-apresentacao',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
   id: '/live-secreta-polemicas',
   path: '/live-secreta-polemicas',
@@ -89,7 +82,6 @@ export interface FileRoutesByFullPath {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
-  '/pos-graduacao-apresentacao': typeof PosGraduacaoApresentacaoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,7 +94,6 @@ export interface FileRoutesByTo {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
-  '/pos-graduacao-apresentacao': typeof PosGraduacaoApresentacaoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,7 +107,6 @@ export interface FileRoutesById {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
-  '/pos-graduacao-apresentacao': typeof PosGraduacaoApresentacaoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,7 +121,6 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
-    | '/pos-graduacao-apresentacao'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,7 +133,6 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
-    | '/pos-graduacao-apresentacao'
   id:
     | '__root__'
     | '/'
@@ -157,7 +145,6 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
-    | '/pos-graduacao-apresentacao'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,18 +158,10 @@ export interface RootRouteChildren {
   LiveSecretaRoute: typeof LiveSecretaRoute
   LiveSecretaObgRoute: typeof LiveSecretaObgRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
-  PosGraduacaoApresentacaoRoute: typeof PosGraduacaoApresentacaoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/pos-graduacao-apresentacao': {
-      id: '/pos-graduacao-apresentacao'
-      path: '/pos-graduacao-apresentacao'
-      fullPath: '/pos-graduacao-apresentacao'
-      preLoaderRoute: typeof PosGraduacaoApresentacaoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/live-secreta-polemicas': {
       id: '/live-secreta-polemicas'
       path: '/live-secreta-polemicas'
@@ -267,8 +246,17 @@ const rootRouteChildren: RootRouteChildren = {
   LiveSecretaRoute: LiveSecretaRoute,
   LiveSecretaObgRoute: LiveSecretaObgRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
-  PosGraduacaoApresentacaoRoute: PosGraduacaoApresentacaoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
