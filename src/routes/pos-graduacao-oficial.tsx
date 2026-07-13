@@ -139,7 +139,6 @@ function PosGraduacaoOficialPage() {
           />
         </div>
 
-        </div>
 
         {/* Conteúdo abaixo da imagem, integrado ao hero */}
         <div
