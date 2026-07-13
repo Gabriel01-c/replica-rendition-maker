@@ -186,7 +186,7 @@ function PosGraduacaoOficial() {
               />
               {/* Lançamento oficial — mobile */}
               <div
-                className="absolute left-1/2 top-2 z-10 -translate-x-1/2 rounded-full border px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] shadow-lg sm:top-3 sm:px-5 sm:py-2 sm:text-[11px]"
+                className="absolute left-1/2 top-2 z-10 -translate-x-1/2 whitespace-nowrap rounded border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] shadow-lg sm:top-3 sm:px-4 sm:py-2 sm:text-[11px]"
                 style={{
                   backgroundColor: "rgba(6,18,28,0.82)",
                   borderColor: "rgba(94,234,212,0.35)",
@@ -301,7 +301,7 @@ function PosGraduacaoOficial() {
               />
               {/* Lançamento oficial — desktop */}
               <div
-                className="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full border px-6 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] shadow-xl xl:top-6 xl:px-7 xl:py-2.5 xl:text-xs"
+                className="absolute left-1/2 top-4 z-10 -translate-x-1/2 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:top-6 xl:px-6 xl:py-2.5 xl:text-xs"
                 style={{
                   backgroundColor: "rgba(6,18,28,0.82)",
                   borderColor: "rgba(94,234,212,0.35)",
