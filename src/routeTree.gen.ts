@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PosAnestesiaObstetricaRouteImport } from './routes/pos-anestesia-obstetrica'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
@@ -20,6 +21,11 @@ import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PosAnestesiaObstetricaRoute = PosAnestesiaObstetricaRouteImport.update({
+  id: '/pos-anestesia-obstetrica',
+  path: '/pos-anestesia-obstetrica',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
   id: '/live-secreta-polemicas',
   path: '/live-secreta-polemicas',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/pos-anestesia-obstetrica': typeof PosAnestesiaObstetricaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/pos-anestesia-obstetrica': typeof PosAnestesiaObstetricaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/pos-anestesia-obstetrica': typeof PosAnestesiaObstetricaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
+    | '/pos-anestesia-obstetrica'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
+    | '/pos-anestesia-obstetrica'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
+    | '/pos-anestesia-obstetrica'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,10 +170,18 @@ export interface RootRouteChildren {
   LiveSecretaRoute: typeof LiveSecretaRoute
   LiveSecretaObgRoute: typeof LiveSecretaObgRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
+  PosAnestesiaObstetricaRoute: typeof PosAnestesiaObstetricaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/pos-anestesia-obstetrica': {
+      id: '/pos-anestesia-obstetrica'
+      path: '/pos-anestesia-obstetrica'
+      fullPath: '/pos-anestesia-obstetrica'
+      preLoaderRoute: typeof PosAnestesiaObstetricaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/live-secreta-polemicas': {
       id: '/live-secreta-polemicas'
       path: '/live-secreta-polemicas'
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   LiveSecretaRoute: LiveSecretaRoute,
   LiveSecretaObgRoute: LiveSecretaObgRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
+  PosAnestesiaObstetricaRoute: PosAnestesiaObstetricaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
