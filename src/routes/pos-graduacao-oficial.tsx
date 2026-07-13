@@ -156,14 +156,15 @@ function PosGraduacaoOficial() {
           draggable={false}
         />
 
-        {/* Overlay escuro para garantir legibilidade do texto */}
+        {/* Overlay suave para manter a imagem visível e o texto legível */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(6,20,36,0.55) 0%, rgba(6,20,36,0.40) 50%, rgba(6,20,36,0.75) 100%)",
+              "linear-gradient(180deg, rgba(4,12,20,0.35) 0%, rgba(4,12,20,0.18) 45%, rgba(4,12,20,0.55) 100%)",
           }}
         />
+
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-2 lg:gap-14 lg:pt-16">
           {/* MOBILE: image first with gradient overlap over text */}
