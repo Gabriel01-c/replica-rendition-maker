@@ -81,104 +81,20 @@ function PosGraduacaoPage() {
       {/* Subtle cardiac monitor screens — heartbeat lines */}
       <svg
         aria-hidden
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-        viewBox="0 0 400 800"
-        preserveAspectRatio="xMidYMid slice"
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.07]"
+        preserveAspectRatio="none"
       >
         <defs>
-          <pattern id="monitor-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-            <path d="M 30 0 L 0 0 L 0 30" fill="none" stroke={TEAL} strokeWidth="0.4" strokeOpacity="0.22" />
+          <pattern id="monitor-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M40 0H0V40" fill="none" stroke={TEAL} strokeWidth="0.5" strokeOpacity="0.15" />
           </pattern>
         </defs>
-
-        {/* Monitor screen 1 — top left */}
-        <g transform="translate(20, 60)">
-          <rect width="120" height="70" rx="6" fill="rgba(6,20,36,0.55)" stroke={TEAL} strokeOpacity="0.25" strokeWidth="1" />
-          <rect x="4" y="4" width="112" height="62" fill="url(#monitor-grid)" />
-          <polyline
-            fill="none"
-            stroke={TEAL}
-            strokeWidth="1.4"
-            strokeOpacity="0.55"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="10,35 25,35 30,28 35,45 40,20 45,38 50,35 70,35 75,28 80,45 85,20 90,38 95,35 110,35"
-          />
-        </g>
-
-        {/* Monitor screen 2 — top right */}
-        <g transform="translate(260, 100)">
-          <rect width="120" height="70" rx="6" fill="rgba(6,20,36,0.55)" stroke={TEAL} strokeOpacity="0.25" strokeWidth="1" />
-          <rect x="4" y="4" width="112" height="62" fill="url(#monitor-grid)" />
-          <polyline
-            fill="none"
-            stroke={TEAL}
-            strokeWidth="1.4"
-            strokeOpacity="0.55"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="10,35 22,35 28,30 33,42 38,24 43,36 48,35 68,35 73,30 78,42 83,24 88,36 93,35 110,35"
-          />
-        </g>
-
-        {/* Monitor screen 3 — mid left */}
-        <g transform="translate(10, 320)">
-          <rect width="110" height="65" rx="6" fill="rgba(6,20,36,0.55)" stroke={TEAL} strokeOpacity="0.22" strokeWidth="1" />
-          <rect x="4" y="4" width="102" height="57" fill="url(#monitor-grid)" />
-          <polyline
-            fill="none"
-            stroke={TEAL}
-            strokeWidth="1.2"
-            strokeOpacity="0.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="8,32 20,32 26,26 31,40 36,22 41,34 46,32 64,32 69,26 74,40 79,22 84,34 89,32 105,32"
-          />
-        </g>
-
-        {/* Monitor screen 4 — mid right */}
-        <g transform="translate(270, 360)">
-          <rect width="110" height="65" rx="6" fill="rgba(6,20,36,0.55)" stroke={TEAL} strokeOpacity="0.22" strokeWidth="1" />
-          <rect x="4" y="4" width="102" height="57" fill="url(#monitor-grid)" />
-          <polyline
-            fill="none"
-            stroke={TEAL}
-            strokeWidth="1.2"
-            strokeOpacity="0.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="8,32 20,32 26,26 31,40 36,22 41,34 46,32 64,32 69,26 74,40 79,22 84,34 89,32 105,32"
-          />
-        </g>
-
-        {/* Monitor screen 5 — lower left */}
-        <g transform="translate(30, 580)">
-          <rect width="115" height="68" rx="6" fill="rgba(6,20,36,0.55)" stroke={TEAL} strokeOpacity="0.2" strokeWidth="1" />
-          <rect x="4" y="4" width="107" height="60" fill="url(#monitor-grid)" />
-          <polyline
-            fill="none"
-            stroke={TEAL}
-            strokeWidth="1.3"
-            strokeOpacity="0.48"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="9,34 22,34 28,28 33,42 38,22 43,36 48,34 68,34 73,28 78,42 83,22 88,36 93,34 108,34"
-          />
-        </g>
-
-        {/* Monitor screen 6 — lower right */}
-        <g transform="translate(255, 620)">
-          <rect width="115" height="68" rx="6" fill="rgba(6,20,36,0.55)" stroke={TEAL} strokeOpacity="0.2" strokeWidth="1" />
-          <rect x="4" y="4" width="107" height="60" fill="url(#monitor-grid)" />
-          <polyline
-            fill="none"
-            stroke={TEAL}
-            strokeWidth="1.3"
-            strokeOpacity="0.48"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            points="9,34 22,34 28,28 33,42 38,22 43,36 48,34 68,34 73,28 78,42 83,22 88,36 93,34 108,34"
-          />
+        <rect width="100%" height="100%" fill="url(#monitor-grid)" />
+        <g fill="none" stroke={TEAL} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.35">
+          <path d="M-20 18% h20 l3 -2 l3 6 l3 -10 l3 14 l3 -8 l3 4 h60" />
+          <path d="M-20 38% h35 l3 -3 l2 7 l3 -12 l4 16 l2 -9 l3 5 h48" />
+          <path d="M-20 58% h25 l4 -2 l2 5 l3 -9 l4 11 l3 -6 l2 3 h55" />
+          <path d="M-20 78% h30 l3 -4 l3 8 l2 -11 l4 13 l3 -7 l3 4 h42" />
         </g>
       </svg>
 
