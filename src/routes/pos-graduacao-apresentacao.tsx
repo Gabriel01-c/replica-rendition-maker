@@ -17,7 +17,7 @@ export const Route = createFileRoute("/pos-graduacao-apresentacao")({
 
 const BG_DEEP = "#050d1a";
 const BG_MID = "#0a1a2e";
-const ACCENT = "#f4c430";
+const TEAL = "#4fd1c5";
 
 const CHIPS = [
   "480 horas",
@@ -38,7 +38,7 @@ function PosGraduacaoApresentacao() {
       }}
     >
       <section className="relative w-full">
-        {/* Imagem do Dr. no topo, menor */}
+        {/* Imagem do Dr. no topo */}
         <div className="relative w-full flex justify-center">
           <div className="relative w-full max-w-[520px]">
             <img
@@ -52,13 +52,13 @@ function PosGraduacaoApresentacao() {
                 objectPosition: "center top",
               }}
             />
-            {/* Degradê inferior fundindo com a página */}
+            {/* Degradê inferior: ~30% da imagem, transparente → azul escuro */}
             <div
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0"
               style={{
-                height: "55%",
-                background: `linear-gradient(180deg, rgba(5,13,26,0) 0%, rgba(5,13,26,0.55) 45%, rgba(5,13,26,0.92) 78%, ${BG_DEEP} 100%)`,
+                height: "30%",
+                background: `linear-gradient(180deg, rgba(5,13,26,0) 0%, rgba(5,13,26,0.45) 35%, rgba(5,13,26,0.82) 70%, ${BG_DEEP} 100%)`,
               }}
             />
             {/* Degradês laterais suaves para fundir com o fundo */}
@@ -79,26 +79,39 @@ function PosGraduacaoApresentacao() {
           </div>
         </div>
 
-        {/* Conteúdo do Hero */}
-        <div className="relative z-10 mx-auto max-w-3xl px-6 -mt-16 sm:-mt-24 text-center">
+        {/* Conteúdo do Hero — sobe sobre o degradê no mobile */}
+        <div className="relative z-10 mx-auto max-w-3xl px-6 -mt-24 sm:-mt-16 text-center">
           <h1
-            className="text-white font-bold leading-[1.12] tracking-tight"
+            className="text-white font-semibold tracking-tight mx-auto sm:max-w-3xl"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(28px, 5.2vw, 46px)",
+              fontSize: "clamp(26px, 7.5vw, 40px)",
+              lineHeight: 0.95,
+              maxWidth: "90%",
             }}
           >
-            A 1ª Pós-Graduação em{" "}
-            <span style={{ color: ACCENT }}>Anestesia Obstétrica</span> do Brasil{" "}
-            <span className="whitespace-nowrap">100% Online</span>
+            A 1ª Pós-Graduação em
+            <br />
+            Anestesia Obstétrica
+            <br />
+            do Brasil{" "}
+            <span
+              className="font-semibold"
+              style={{
+                color: TEAL,
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              100% Online
+            </span>
           </h1>
 
           <p
-            className="mt-6 text-white/75 mx-auto"
+            className="mt-4 sm:mt-6 text-white/75 mx-auto font-normal"
             style={{
-              fontSize: "clamp(15px, 1.9vw, 18px)",
-              lineHeight: 1.6,
-              maxWidth: "640px",
+              fontSize: "clamp(13.5px, 3.8vw, 17px)",
+              lineHeight: 1.45,
+              maxWidth: "86%",
             }}
           >
             Domine as emergências, as drogas e as decisões que definem se a
@@ -107,16 +120,15 @@ function PosGraduacaoApresentacao() {
           </p>
 
           {/* Chips */}
-          <ul className="mt-8 flex flex-wrap justify-center gap-x-3 gap-y-3">
+          <ul className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-x-3 gap-y-3">
             {CHIPS.map((c) => (
               <li
                 key={c}
-                className="rounded-full border px-4 py-2 text-white/90"
+                className="rounded-full border px-4 py-2 text-white/90 font-semibold"
                 style={{
                   borderColor: "rgba(244,196,48,0.35)",
                   background: "rgba(255,255,255,0.03)",
                   fontSize: "13px",
-                  fontWeight: 500,
                   letterSpacing: "0.02em",
                 }}
               >
