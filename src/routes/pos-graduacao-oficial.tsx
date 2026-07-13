@@ -157,14 +157,15 @@ function PosGraduacaoOficial() {
           draggable={false}
         />
 
-        {/* Overlay suave para manter a imagem visível e o texto legível */}
+        {/* Overlay bem leve para manter a sala visível e o texto legível */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(4,12,20,0.28) 0%, rgba(4,12,20,0.12) 45%, rgba(4,12,20,0.45) 100%)",
+              "linear-gradient(180deg, rgba(4,12,20,0.18) 0%, rgba(4,12,20,0.06) 40%, rgba(4,12,20,0.32) 100%)",
           }}
         />
+
 
 
 
