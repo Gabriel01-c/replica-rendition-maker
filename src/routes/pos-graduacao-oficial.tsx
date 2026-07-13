@@ -1,58 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import drFrancisco from "@/assets/dr-francisco-polemicas-transparent.png.asset.json";
-
-// Data limite do contador — ajuste conforme a data real das inscrições
-const COUNTDOWN_TARGET = new Date("2026-08-15T23:59:59-03:00").getTime();
-
-function useCountdown(target: number) {
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const diff = Math.max(0, target - now);
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff / 3600000) % 24);
-  const minutes = Math.floor((diff / 60000) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-  return { days, hours, minutes, seconds };
-}
-
-function Countdown() {
-  const { days, hours, minutes, seconds } = useCountdown(COUNTDOWN_TARGET);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return (
-    <div
-      className="inline-flex flex-col gap-2 rounded-md border px-5 py-3.5 backdrop-blur-sm"
-      style={{
-        borderColor: "rgba(94,234,212,0.18)",
-        backgroundColor: "rgba(255,255,255,0.02)",
-      }}
-    >
-      <span
-        className="text-[10px] font-semibold uppercase tracking-[0.28em]"
-        style={{ color: "#c9a84c" }}
-      >
-        Inscrições encerram em
-      </span>
-      <div
-        className="font-mono text-2xl font-light tabular-nums sm:text-3xl"
-        style={{ color: "#f4f7fb", letterSpacing: "0.02em" }}
-      >
-        <span>{pad(days)}</span>
-        <span className="mx-1 opacity-40">d</span>
-        <span>{pad(hours)}</span>
-        <span className="mx-1 opacity-40">:</span>
-        <span>{pad(minutes)}</span>
-        <span className="mx-1 opacity-40">:</span>
-        <span>{pad(seconds)}</span>
-      </div>
-    </div>
-  );
-}
-
-
 
 export const Route = createFileRoute("/pos-graduacao-oficial")({
   head: () => ({
@@ -212,12 +159,7 @@ function PosGraduacaoOficial() {
                 </li>
               ))}
             </ul>
-
-            <div className="mt-10">
-              <Countdown />
-            </div>
           </div>
-
 
           {/* DESKTOP IMAGE */}
           <div className="relative order-3 hidden lg:order-2 lg:block lg:h-full">
