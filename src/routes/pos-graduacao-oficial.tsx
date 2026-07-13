@@ -212,7 +212,12 @@ function PosGraduacaoOficial() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-10">
+              <Countdown />
+            </div>
           </div>
+
 
           {/* DESKTOP IMAGE */}
           <div className="relative order-3 hidden lg:order-2 lg:block lg:h-full">
