@@ -173,7 +173,7 @@ function PosGraduacaoOficial() {
 
 
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:pt-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pt-12 lg:gap-14 lg:pt-16">
           {/* MOBILE: image first with gradient overlap over text */}
           <div className="relative order-1 lg:hidden">
             <div className="relative mx-auto max-w-md">
