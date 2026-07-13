@@ -139,13 +139,121 @@ function PosGraduacaoOficial() {
         <Countdown />
       </div>
 
-      {/* HERO */}
+      {/* HERO — ambiente de sala cirúrgica (sem luzes, sem pessoas, sem IA) */}
       <section
         className="relative overflow-hidden lg:min-h-[calc(100vh-44px)]"
         style={{
-          background: `radial-gradient(1200px 600px at 80% 0%, rgba(94,234,212,0.08), transparent 60%), radial-gradient(900px 500px at 0% 100%, rgba(201,168,76,0.06), transparent 60%), ${NAVY_DEEP}`,
+          backgroundColor: "#09151d",
         }}
       >
+        {/* Sala cirúrgica vazia — vetor puro, sem luzes, sem pessoas, sem IA */}
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          preserveAspectRatio="xMidYMid slice"
+          viewBox="0 0 1440 900"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {/* Gradiente da parede posterior */}
+            <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#1f4456" />
+              <stop offset="55%" stopColor="#153542" />
+              <stop offset="100%" stopColor="#0c1f29" />
+            </linearGradient>
+
+            {/* Gradiente do piso */}
+            <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#0f2c39" />
+              <stop offset="100%" stopColor="#040c11" />
+            </linearGradient>
+
+            {/* Luz difusa vinda de cima */}
+            <radialGradient id="topLight" cx="50%" cy="0%" r="80%">
+              <stop offset="0%" stopColor="rgba(225,245,255,0.22)" />
+              <stop offset="60%" stopColor="rgba(225,245,255,0.05)" />
+              <stop offset="100%" stopColor="rgba(225,245,255,0)" />
+            </radialGradient>
+
+            {/* Brilho no piso */}
+            <radialGradient id="floorGlow" cx="50%" cy="100%" r="70%">
+              <stop offset="0%" stopColor="rgba(230,248,255,0.10)" />
+              <stop offset="55%" stopColor="rgba(230,248,255,0.02)" />
+              <stop offset="100%" stopColor="rgba(230,248,255,0)" />
+            </radialGradient>
+
+            {/* Sombra dos cantos */}
+            <linearGradient id="leftCorner" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="rgba(3,9,13,0.85)" />
+              <stop offset="100%" stopColor="rgba(3,9,13,0)" />
+            </linearGradient>
+            <linearGradient id="rightCorner" x1="1" y1="0" x2="0" y2="0">
+              <stop offset="0%" stopColor="rgba(3,9,13,0.85)" />
+              <stop offset="100%" stopColor="rgba(3,9,13,0)" />
+            </linearGradient>
+          </defs>
+
+          {/* Parede */}
+          <rect x="0" y="0" width="1440" height="520" fill="url(#wallGrad)" />
+
+          {/* Piso */}
+          <rect x="0" y="520" width="1440" height="380" fill="url(#floorGrad)" />
+
+          {/* Linha do horizonte */}
+          <line x1="0" y1="520" x2="1440" y2="520" stroke="rgba(170,205,220,0.35)" strokeWidth="2" />
+
+          {/* Luz difusa de cima */}
+          <rect x="0" y="0" width="1440" height="520" fill="url(#topLight)" />
+
+          {/* Linhas de perspectiva do piso */}
+          <g stroke="rgba(170,205,220,0.16)" strokeWidth="1.5">
+            {/* centro */}
+            <line x1="720" y1="520" x2="720" y2="900" />
+            {/* laterais */}
+            <line x1="720" y1="520" x2="180" y2="900" />
+            <line x1="720" y1="520" x2="1260" y2="900" />
+            <line x1="720" y1="520" x2="0" y2="760" />
+            <line x1="720" y1="520" x2="1440" y2="760" />
+            {/* intermediárias */}
+            <line x1="720" y1="520" x2="420" y2="900" />
+            <line x1="720" y1="520" x2="1020" y2="900" />
+          </g>
+
+          {/* Linhas horizontais do piso (perspectiva) */}
+          <g stroke="rgba(170,205,220,0.10)" strokeWidth="1">
+            <line x1="0" y1="560" x2="1440" y2="560" />
+            <line x1="0" y1="610" x2="1440" y2="610" />
+            <line x1="0" y1="670" x2="1440" y2="670" />
+            <line x1="0" y1="740" x2="1440" y2="740" />
+            <line x1="0" y1="820" x2="1440" y2="820" />
+          </g>
+
+          {/* Azulejos da parede — horizontais */}
+          <g stroke="rgba(170,205,220,0.10)" strokeWidth="1">
+            <line x1="0" y1="80" x2="1440" y2="80" />
+            <line x1="0" y1="160" x2="1440" y2="160" />
+            <line x1="0" y1="240" x2="1440" y2="240" />
+            <line x1="0" y1="320" x2="1440" y2="320" />
+            <line x1="0" y1="400" x2="1440" y2="400" />
+            <line x1="0" y1="480" x2="1440" y2="480" />
+          </g>
+
+          {/* Azulejos da parede — verticais */}
+          <g stroke="rgba(170,205,220,0.07)" strokeWidth="1">
+            <line x1="120" y1="0" x2="120" y2="520" />
+            <line x1="360" y1="0" x2="360" y2="520" />
+            <line x1="600" y1="0" x2="600" y2="520" />
+            <line x1="840" y1="0" x2="840" y2="520" />
+            <line x1="1080" y1="0" x2="1080" y2="520" />
+            <line x1="1320" y1="0" x2="1320" y2="520" />
+          </g>
+
+          {/* Brilho no piso */}
+          <rect x="0" y="520" width="1440" height="380" fill="url(#floorGlow)" />
+
+          {/* Cantos escuros */}
+          <rect x="0" y="0" width="220" height="900" fill="url(#leftCorner)" />
+          <rect x="1220" y="0" width="220" height="900" fill="url(#rightCorner)" />
+        </svg>
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-2 lg:gap-14 lg:pt-16">
           {/* MOBILE: image first with gradient overlap over text */}
           <div className="relative order-1 lg:hidden">
