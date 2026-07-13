@@ -304,13 +304,13 @@ function PosGraduacaoOficial() {
               <img
                 src={anhanguera.url}
                 alt="Anhanguera"
-                className="pointer-events-none absolute left-4 bottom-10 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:bottom-14 xl:w-48"
+                className="pointer-events-none absolute left-4 bottom-16 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:bottom-20 xl:w-48"
                 draggable={false}
               />
               <img
                 src={reconhecidoMec.url}
                 alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-6 bottom-10 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:bottom-14 xl:w-48"
+                className="pointer-events-none absolute right-6 bottom-16 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:bottom-20 xl:w-48"
                 draggable={false}
               />
             </div>
