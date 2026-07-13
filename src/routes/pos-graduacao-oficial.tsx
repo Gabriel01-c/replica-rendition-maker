@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import drFrancisco from "@/assets/dr-francisco-polemicas-transparent.png.asset.json";
 
 export const Route = createFileRoute("/pos-graduacao-oficial")({
@@ -34,6 +35,68 @@ const GOLD = "#c9a84c";
 const MARQUEE_TEXT =
   "EXCLUSIVO PARA MÉDICOS ANESTESIOLOGISTAS  •  A 1ª PÓS-GRADUAÇÃO EM ANESTESIA OBSTÉTRICA DO BRASIL 100% ONLINE  •  480H  •  12 DISCIPLINAS  •  12 MESES  •  SEM TCC  •  CERTIFICADO RECONHECIDO  •  ";
 
+// Ajuste a data-alvo da próxima turma/abertura
+const TARGET_DATE = new Date("2026-08-15T00:00:00-03:00");
+
+function Countdown() {
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const diff = Math.max(0, TARGET_DATE.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  const items = [
+    { value: days, label: "dias" },
+    { value: hours, label: "horas" },
+    { value: minutes, label: "min" },
+    { value: seconds, label: "seg" },
+  ];
+
+  return (
+    <div
+      className="flex items-center justify-center gap-3 sm:gap-5"
+      style={{ color: "#f4f7fb" }}
+    >
+      {items.map((item, i) => (
+        <div key={item.label} className="flex items-center gap-3 sm:gap-5">
+          <div className="flex flex-col items-center">
+            <span
+              className="min-w-[52px] text-center text-3xl font-light tabular-nums sm:text-4xl"
+              style={{
+                fontFamily:
+                  '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
+              }}
+            >
+              {String(item.value).padStart(2, "0")}
+            </span>
+            <span
+              className="mt-1 text-[10px] font-medium uppercase tracking-[0.18em] sm:text-xs"
+              style={{ color: "rgba(232,238,245,0.55)" }}
+            >
+              {item.label}
+            </span>
+          </div>
+          {i < items.length - 1 && (
+            <span
+              className="text-xl font-light sm:text-2xl"
+              style={{ color: "rgba(94,234,212,0.5)" }}
+            >
+              :
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function PosGraduacaoOficial() {
   return (
     <main
@@ -63,6 +126,23 @@ function PosGraduacaoOficial() {
             </span>
           ))}
         </div>
+      </div>
+
+      {/* Countdown */}
+      <div
+        className="border-b px-5 py-8 text-center sm:py-10"
+        style={{
+          background: `radial-gradient(800px 300px at 50% 0%, rgba(94,234,212,0.06), transparent 60%), ${NAVY_DEEP}`,
+          borderColor: "rgba(94,234,212,0.08)",
+        }}
+      >
+        <p
+          className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] sm:text-xs"
+          style={{ color: GOLD }}
+        >
+          Início da próxima turma em
+        </p>
+        <Countdown />
       </div>
 
       {/* HERO */}
