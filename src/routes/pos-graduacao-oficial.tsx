@@ -212,13 +212,13 @@ function PosGraduacaoOficial() {
               <img
                 src={anhanguera.url}
                 alt="Anhanguera"
-                className="pointer-events-none absolute left-2 bottom-4 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:bottom-6 sm:w-32"
+                className="pointer-events-none absolute left-2 bottom-10 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:bottom-12 sm:w-32"
                 draggable={false}
               />
               <img
                 src={reconhecidoMec.url}
                 alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-2 bottom-4 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:bottom-6 sm:w-32"
+                className="pointer-events-none absolute right-2 bottom-10 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:bottom-12 sm:w-32"
                 draggable={false}
               />
             </div>
