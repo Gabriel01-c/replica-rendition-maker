@@ -289,8 +289,8 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* DESKTOP IMAGE */}
-          <div className="relative order-3 hidden lg:order-2 lg:block lg:h-full">
-            <div className="relative mx-auto flex h-full min-h-[560px] items-end justify-center">
+          <div className="relative order-3 hidden lg:order-2 lg:block lg:h-full lg:translate-x-10">
+            <div className="relative mx-auto flex h-full min-h-[560px] items-end justify-center lg:justify-end">
               <div
                 className="pointer-events-none absolute inset-0 -z-10"
                 style={{
