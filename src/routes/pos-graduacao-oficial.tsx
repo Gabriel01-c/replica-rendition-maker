@@ -228,29 +228,35 @@ function PosGraduacaoOficial() {
           {/* TEXT COLUMN */}
           <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-20 lg:pb-24">
             <h1
-              className="text-[34px] font-light leading-[1.05] tracking-tight sm:text-5xl md:text-[40px] lg:text-[56px]"
+              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[40px] lg:text-[48px] xl:text-[54px]"
               style={{
                 fontFamily:
                   '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
                 color: "#f4f7fb",
               }}
             >
-              A 1ª Pós-Graduação em{" "}
-              <span style={{ color: TEAL, fontWeight: 500 }}>Anestesia Obstétrica</span>{" "}
-              do Brasil{" "}
+              <span className="block md:inline">A 1ª Pós-Graduação em</span>{" "}
               <span
-                className="relative inline-block font-medium"
-                style={{ color: GOLD }}
+                className="block md:inline"
+                style={{ color: TEAL, fontWeight: 500 }}
               >
-                100% online
+                Anestesia Obstétrica do Brasil
+              </span>{" "}
+              <span className="block md:inline">
                 <span
-                  className="absolute -bottom-1 left-0 h-[2px] w-full"
-                  style={{
-                    background: `linear-gradient(90deg, ${GOLD}, transparent)`,
-                  }}
-                />
+                  className="relative inline-block font-medium"
+                  style={{ color: GOLD }}
+                >
+                  100% online
+                  <span
+                    className="absolute -bottom-1 left-0 h-[2px] w-full"
+                    style={{
+                      background: `linear-gradient(90deg, ${GOLD}, transparent)`,
+                    }}
+                  />
+                </span>
+                .
               </span>
-              .
             </h1>
 
             <p
