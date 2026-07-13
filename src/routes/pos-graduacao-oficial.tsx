@@ -128,73 +128,17 @@ function PosGraduacaoOficialPage() {
             className="block h-auto w-full select-none"
             draggable={false}
           />
-          {/* Overlay sutil para legibilidade dos elementos no topo/base */}
+          {/* Overlay sutil só na base para transição com o conteúdo abaixo */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
             style={{
               background:
-                "linear-gradient(180deg, rgba(4,18,30,0.55) 0%, rgba(4,18,30,0) 18%, rgba(4,18,30,0) 55%, rgba(4,18,30,0.85) 100%)",
+                "linear-gradient(180deg, rgba(4,18,30,0) 0%, #04121e 100%)",
             }}
           />
+        </div>
 
-          {/* Selos sobre a imagem */}
-          <div className="pointer-events-none absolute inset-x-0 top-[34%] flex items-start justify-between px-3">
-            {/* Selo Acesso Vitalício */}
-            <div
-              className="flex h-20 w-20 flex-col items-center justify-center rounded-full text-center text-[8px] font-black uppercase leading-tight tracking-widest shadow-xl sm:h-24 sm:w-24 sm:text-[9px]"
-              style={{
-                fontFamily: FONT_BODY,
-                background: "radial-gradient(circle at 30% 30%, #1a1a1a, #000)",
-                border: `2px solid ${GOLD}`,
-                boxShadow: "0 0 0 3px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.5)",
-                color: GOLD,
-              }}
-            >
-              <span>ACESSO</span>
-              <span>VITALÍCIO</span>
-              <span className="mt-1 text-[8px]">★★★★★</span>
-            </div>
-
-            {/* Logo Anhanguera (centro) */}
-            <div
-              className="mt-2 flex h-14 flex-col items-center justify-center rounded-md px-3 py-1.5 shadow-lg"
-              style={{
-                background: "rgba(255,255,255,0.95)",
-                border: "1px solid rgba(255,255,255,0.6)",
-                fontFamily: FONT_HEAD,
-              }}
-            >
-              <span
-                className="text-[9px] font-semibold uppercase leading-none tracking-[0.15em]"
-                style={{ color: "#7a1414", fontFamily: FONT_BODY, fontWeight: 600 }}
-              >
-                Faculdade
-              </span>
-              <span
-                className="mt-0.5 text-lg font-extrabold leading-none tracking-tight"
-                style={{ color: "#c8102e", fontFamily: FONT_HEAD, fontWeight: 700 }}
-              >
-                Anhanguera
-              </span>
-            </div>
-
-            {/* Selo MEC */}
-            <div
-              className="flex h-20 w-20 flex-col items-center justify-center rounded-full text-center text-[8px] font-black uppercase leading-tight tracking-widest shadow-xl sm:h-24 sm:w-24 sm:text-[9px]"
-              style={{
-                fontFamily: FONT_BODY,
-                background: "radial-gradient(circle at 30% 30%, #1a1a1a, #000)",
-                border: `2px solid ${GOLD}`,
-                boxShadow: "0 0 0 3px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.5)",
-                color: GOLD,
-              }}
-            >
-              <span>RECONHECIDO</span>
-              <span>PELO</span>
-              <span className="mt-0.5 text-lg font-black leading-none">MEC</span>
-            </div>
-          </div>
         </div>
 
         {/* Conteúdo abaixo da imagem, integrado ao hero */}
