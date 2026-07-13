@@ -299,6 +299,18 @@ function PosGraduacaoOficial() {
                   filter: "blur(20px)",
                 }}
               />
+              {/* Lançamento oficial — desktop */}
+              <div
+                className="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full border px-6 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] shadow-xl xl:top-6 xl:px-7 xl:py-2.5 xl:text-xs"
+                style={{
+                  backgroundColor: "rgba(6,18,28,0.82)",
+                  borderColor: "rgba(94,234,212,0.35)",
+                  color: "#f4f7fb",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(94,234,212,0.12)",
+                }}
+              >
+                Lançamento Oficial
+              </div>
               <img
                 src={drFrancisco.url}
                 alt="Dr. Francisco Amaral"
