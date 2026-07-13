@@ -328,7 +328,7 @@ function PosGraduacaoOficial() {
               <img
                 src={anhanguera.url}
                 alt="Anhanguera"
-                className="pointer-events-none absolute left-4 top-8 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:top-10 xl:w-48"
+                className="pointer-events-none absolute left-2 top-6 w-32 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:left-3 md:top-7 md:w-36 lg:left-4 lg:top-8 lg:w-40 xl:top-10 xl:w-48"
                 draggable={false}
               />
               <img
