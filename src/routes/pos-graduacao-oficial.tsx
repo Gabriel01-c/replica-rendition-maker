@@ -333,17 +333,17 @@ function PosGraduacaoOficial() {
                 draggable={false}
               />
               {/* Selos flutuantes — desktop */}
-              <div className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4 md:bottom-6 md:gap-5 lg:bottom-8">
+              <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4 md:bottom-8 md:gap-5 lg:bottom-10">
                 <img
                   src={anhanguera.url}
                   alt="Anhanguera"
-                  className="h-auto w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:w-32 lg:w-36 xl:w-40"
+                  className="h-16 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:h-20 lg:h-24 xl:h-28"
                   draggable={false}
                 />
                 <img
                   src={reconhecidoMec.url}
                   alt="Reconhecido pelo MEC"
-                  className="h-auto w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:w-32 lg:w-36 xl:w-40"
+                  className="h-16 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:h-20 lg:h-24 xl:h-28"
                   draggable={false}
                 />
               </div>
