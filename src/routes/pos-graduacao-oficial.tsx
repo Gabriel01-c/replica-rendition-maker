@@ -254,7 +254,7 @@ function PosGraduacaoOficial() {
             </h1>
 
             <p
-              className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg"
+              className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg md:max-w-md lg:max-w-xl"
               style={{ color: "rgba(232,238,245,0.75)" }}
             >
               Domine as emergências, as drogas e as decisões que definem se a gestante
