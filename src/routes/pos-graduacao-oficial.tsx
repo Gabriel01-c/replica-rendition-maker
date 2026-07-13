@@ -143,14 +143,14 @@ function PosGraduacaoOficial() {
       <section
         className="relative overflow-hidden lg:min-h-[calc(100vh-44px)]"
         style={{
-          backgroundColor: "#0a171f",
+          backgroundColor: "#09151d",
         }}
       >
         {/* Parede posterior — tom estéril azul-esverdeado hospitalar */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `linear-gradient(180deg, #163040 0%, #0f222d 45%, #0a171f 100%)`,
+            background: `linear-gradient(180deg, #1a3a4a 0%, #122b38 35%, #09151d 100%)`,
           }}
         />
 
@@ -158,7 +158,7 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `radial-gradient(1100px 480px at 50% -5%, rgba(210,230,240,0.14), transparent 60%)`,
+            background: `radial-gradient(1200px 520px at 50% -8%, rgba(220,240,250,0.18), transparent 55%)`,
           }}
         />
 
@@ -166,10 +166,9 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-x-0"
           style={{
-            top: "58%",
-            height: "1px",
-            background: `linear-gradient(90deg, transparent 0%, rgba(148,180,195,0.22) 20%, rgba(148,180,195,0.22) 80%, transparent 100%)`,
-            boxShadow: "0 1px 0 rgba(0,0,0,0.25)",
+            top: "56%",
+            height: "2px",
+            background: `linear-gradient(90deg, transparent 0%, rgba(160,195,210,0.35) 15%, rgba(160,195,210,0.35) 85%, transparent 100%)`,
           }}
         />
 
@@ -177,8 +176,8 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0"
           style={{
-            top: "58%",
-            background: `linear-gradient(180deg, #0c1e27 0%, #07121a 100%)`,
+            top: "56%",
+            background: `linear-gradient(180deg, #0d2430 0%, #050f14 100%)`,
           }}
         />
 
@@ -186,10 +185,25 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0"
           style={{
-            top: "58%",
-            background: `linear-gradient(90deg, transparent 0%, transparent 49.5%, rgba(148,180,195,0.10) 49.5%, rgba(148,180,195,0.10) 50.5%, transparent 50.5%, transparent 100%),
-                         linear-gradient(90deg, transparent 0%, transparent 24%, rgba(148,180,195,0.06) 24%, rgba(148,180,195,0.06) 25%, transparent 25%, transparent 75%, rgba(148,180,195,0.06) 75%, rgba(148,180,195,0.06) 76%, transparent 76%, transparent 100%)`,
-            transform: "perspective(600px) rotateX(55deg)",
+            top: "56%",
+            height: "44%",
+            background: `
+              linear-gradient(90deg, transparent 0%, transparent calc(50% - 1px), rgba(160,195,210,0.18) calc(50% - 1px), rgba(160,195,210,0.18) calc(50% + 1px), transparent calc(50% + 1px), transparent 100%),
+              linear-gradient(90deg, transparent 0%, transparent 24%, rgba(160,195,210,0.10) 24%, rgba(160,195,210,0.10) 26%, transparent 26%, transparent 74%, rgba(160,195,210,0.10) 74%, rgba(160,195,210,0.10) 76%, transparent 76%, transparent 100%),
+              linear-gradient(90deg, transparent 0%, transparent 12%, rgba(160,195,210,0.06) 12%, rgba(160,195,210,0.06) 13%, transparent 13%, transparent 87%, rgba(160,195,210,0.06) 87%, rgba(160,195,210,0.06) 88%, transparent 88%, transparent 100%)
+            `,
+            transform: "perspective(500px) rotateX(62deg)",
+            transformOrigin: "50% 0%",
+          }}
+        />
+
+        {/* Linhas horizontais do piso (perspectiva) */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0"
+          style={{
+            top: "56%",
+            background: `repeating-linear-gradient(180deg, rgba(160,195,210,0.08) 0px, rgba(160,195,210,0.08) 1px, transparent 1px, transparent 28px)`,
+            transform: "perspective(500px) rotateX(62deg)",
             transformOrigin: "50% 0%",
           }}
         />
@@ -198,8 +212,8 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0"
           style={{
-            top: "58%",
-            background: `linear-gradient(180deg, rgba(94,234,212,0.00) 0%, rgba(94,234,212,0.05) 100%)`,
+            top: "56%",
+            background: `linear-gradient(180deg, rgba(94,234,212,0.00) 0%, rgba(94,234,212,0.06) 100%)`,
           }}
         />
 
@@ -207,7 +221,7 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `repeating-linear-gradient(180deg, transparent 0px, transparent 99px, rgba(148,180,195,0.07) 100px, transparent 101px)`,
+            background: `repeating-linear-gradient(180deg, transparent 0px, transparent 79px, rgba(160,195,210,0.10) 80px, transparent 82px)`,
           }}
         />
 
@@ -215,7 +229,7 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `repeating-linear-gradient(90deg, transparent 0px, transparent 159px, rgba(148,180,195,0.05) 160px, transparent 161px)`,
+            background: `repeating-linear-gradient(90deg, transparent 0px, transparent 119px, rgba(160,195,210,0.07) 120px, transparent 122px)`,
           }}
         />
 
@@ -223,7 +237,7 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `linear-gradient(90deg, rgba(5,12,17,0.65) 0%, transparent 16%), linear-gradient(270deg, rgba(5,12,17,0.65) 0%, transparent 16%)`,
+            background: `linear-gradient(90deg, rgba(4,10,14,0.75) 0%, transparent 14%), linear-gradient(270deg, rgba(4,10,14,0.75) 0%, transparent 14%)`,
           }}
         />
 
@@ -231,8 +245,8 @@ function PosGraduacaoOficial() {
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0"
           style={{
-            height: "38%",
-            background: `radial-gradient(1000px 260px at 50% 100%, rgba(220,235,245,0.06), transparent 60%)`,
+            height: "40%",
+            background: `radial-gradient(1100px 300px at 50% 100%, rgba(230,245,255,0.08), transparent 55%)`,
           }}
         />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-2 lg:gap-14 lg:pt-16">
