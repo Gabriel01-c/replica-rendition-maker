@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
@@ -20,6 +21,11 @@ import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PosGraduacaoRoute = PosGraduacaoRouteImport.update({
+  id: '/pos-graduacao',
+  path: '/pos-graduacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
   id: '/live-secreta-polemicas',
   path: '/live-secreta-polemicas',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/pos-graduacao': typeof PosGraduacaoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/pos-graduacao': typeof PosGraduacaoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/pos-graduacao': typeof PosGraduacaoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
+    | '/pos-graduacao'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
+    | '/pos-graduacao'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/live-secreta'
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
+    | '/pos-graduacao'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,10 +170,18 @@ export interface RootRouteChildren {
   LiveSecretaRoute: typeof LiveSecretaRoute
   LiveSecretaObgRoute: typeof LiveSecretaObgRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
+  PosGraduacaoRoute: typeof PosGraduacaoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/pos-graduacao': {
+      id: '/pos-graduacao'
+      path: '/pos-graduacao'
+      fullPath: '/pos-graduacao'
+      preLoaderRoute: typeof PosGraduacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/live-secreta-polemicas': {
       id: '/live-secreta-polemicas'
       path: '/live-secreta-polemicas'
@@ -246,17 +266,8 @@ const rootRouteChildren: RootRouteChildren = {
   LiveSecretaRoute: LiveSecretaRoute,
   LiveSecretaObgRoute: LiveSecretaObgRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
+  PosGraduacaoRoute: PosGraduacaoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
