@@ -139,13 +139,79 @@ function PosGraduacaoOficial() {
         <Countdown />
       </div>
 
-      {/* HERO */}
+      {/* HERO — ambiente de sala cirúrgica (sem luzes, sem pessoas, sem IA) */}
       <section
         className="relative overflow-hidden lg:min-h-[calc(100vh-44px)]"
         style={{
-          background: `radial-gradient(1200px 600px at 80% 0%, rgba(94,234,212,0.08), transparent 60%), radial-gradient(900px 500px at 0% 100%, rgba(201,168,76,0.06), transparent 60%), ${NAVY_DEEP}`,
+          backgroundColor: "#0b1825",
         }}
       >
+        {/* Parede posterior — tom estéril azulado-acinzentado */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `linear-gradient(180deg, #132636 0%, #0e1f2d 55%, #0b1825 100%)`,
+          }}
+        />
+
+        {/* Luz difusa vinda de cima (sem luminária visível) */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `radial-gradient(1000px 420px at 50% -10%, rgba(200,220,235,0.10), transparent 65%)`,
+          }}
+        />
+
+        {/* Junção parede/piso — linha de horizonte sutil */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0"
+          style={{
+            height: "42%",
+            background: `linear-gradient(180deg, rgba(11,24,37,0) 0%, rgba(13,30,43,0.55) 18%, rgba(15,35,50,0.82) 100%)`,
+          }}
+        />
+
+        {/* Reflexo do piso */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0"
+          style={{
+            height: "26%",
+            background: `linear-gradient(180deg, rgba(94,234,212,0.00) 0%, rgba(94,234,212,0.04) 100%)`,
+          }}
+        />
+
+        {/* Azulejos / painéis de parede — linhas finas horizontais */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `repeating-linear-gradient(180deg, transparent 0px, transparent 119px, rgba(148,180,200,0.04) 120px, transparent 121px)`,
+          }}
+        />
+
+        {/* Azulejos / painéis de parede — linhas finas verticais */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `repeating-linear-gradient(90deg, transparent 0px, transparent 199px, rgba(148,180,200,0.03) 200px, transparent 201px)`,
+          }}
+        />
+
+        {/* Cantos da sala — sombras de profundidade */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `linear-gradient(90deg, rgba(6,14,22,0.55) 0%, transparent 18%), linear-gradient(270deg, rgba(6,14,22,0.55) 0%, transparent 18%)`,
+          }}
+        />
+
+        {/* Brilho estéril sutil no centro-piso */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0"
+          style={{
+            height: "35%",
+            background: `radial-gradient(900px 220px at 50% 100%, rgba(220,235,245,0.045), transparent 60%)`,
+          }}
+        />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-2 lg:gap-14 lg:pt-16">
           {/* MOBILE: image first with gradient overlap over text */}
           <div className="relative order-1 lg:hidden">
