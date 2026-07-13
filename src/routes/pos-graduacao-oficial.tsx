@@ -141,21 +141,8 @@ function PosGraduacaoOficial() {
         }}
       >
         <Countdown />
-        <div className="mt-3 flex items-center justify-center gap-6 sm:gap-10">
-          <img
-            src={anhanguera.url}
-            alt="Anhanguera"
-            className="h-10 w-auto object-contain sm:h-12"
-            draggable={false}
-          />
-          <img
-            src={reconhecidoMec.url}
-            alt="Reconhecido pelo MEC"
-            className="h-12 w-auto object-contain sm:h-14"
-            draggable={false}
-          />
-        </div>
       </div>
+
 
 
       {/* HERO — ambiente de sala cirúrgica */}
@@ -209,7 +196,21 @@ function PosGraduacaoOficial() {
                 }}
                 draggable={false}
               />
+              {/* Selos flutuantes — mobile */}
+              <img
+                src={anhanguera.url}
+                alt="Anhanguera"
+                className="pointer-events-none absolute left-2 top-6 w-20 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:w-24"
+                draggable={false}
+              />
+              <img
+                src={reconhecidoMec.url}
+                alt="Reconhecido pelo MEC"
+                className="pointer-events-none absolute right-2 top-4 w-20 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:w-24"
+                draggable={false}
+              />
             </div>
+
           </div>
 
           {/* TEXT COLUMN */}
@@ -297,6 +298,19 @@ function PosGraduacaoOficial() {
                   maskImage:
                     "linear-gradient(to bottom, black 60%, transparent 98%)",
                 }}
+                draggable={false}
+              />
+              {/* Selos flutuantes — desktop */}
+              <img
+                src={anhanguera.url}
+                alt="Anhanguera"
+                className="pointer-events-none absolute left-4 top-8 w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:w-32"
+                draggable={false}
+              />
+              <img
+                src={reconhecidoMec.url}
+                alt="Reconhecido pelo MEC"
+                className="pointer-events-none absolute right-6 top-4 w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:w-32"
                 draggable={false}
               />
             </div>
