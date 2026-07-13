@@ -200,13 +200,13 @@ function PosGraduacaoOficial() {
               <img
                 src={anhanguera.url}
                 alt="Anhanguera"
-                className="pointer-events-none absolute left-2 top-6 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:w-32"
+                className="pointer-events-none absolute left-2 bottom-4 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:bottom-6 sm:w-32"
                 draggable={false}
               />
               <img
                 src={reconhecidoMec.url}
                 alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-2 top-4 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:w-32"
+                className="pointer-events-none absolute right-2 bottom-4 w-28 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:bottom-6 sm:w-32"
                 draggable={false}
               />
             </div>
@@ -304,13 +304,13 @@ function PosGraduacaoOficial() {
               <img
                 src={anhanguera.url}
                 alt="Anhanguera"
-                className="pointer-events-none absolute left-4 top-8 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:w-48"
+                className="pointer-events-none absolute left-4 top-16 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:top-20 xl:w-48"
                 draggable={false}
               />
               <img
                 src={reconhecidoMec.url}
                 alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-6 top-4 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:w-48"
+                className="pointer-events-none absolute right-6 top-16 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:top-20 xl:w-48"
                 draggable={false}
               />
             </div>
