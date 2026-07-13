@@ -125,7 +125,7 @@ function PosGraduacaoPage() {
           />
 
           <img
-            src={drFrancisco.url}
+            src={drFrancisco}
             alt="Dr. Francisco Amaral"
             className="relative z-10 mx-auto block h-auto w-[85%] select-none"
             draggable={false}
