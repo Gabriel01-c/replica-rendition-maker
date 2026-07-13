@@ -139,7 +139,22 @@ function PosGraduacaoOficial() {
         }}
       >
         <Countdown />
+        <div className="mt-3 flex items-center justify-center gap-6 sm:gap-10">
+          <img
+            src={anhanguera.url}
+            alt="Anhanguera"
+            className="h-10 w-auto object-contain sm:h-12"
+            draggable={false}
+          />
+          <img
+            src={reconhecidoMec.url}
+            alt="Reconhecido pelo MEC"
+            className="h-12 w-auto object-contain sm:h-14"
+            draggable={false}
+          />
+        </div>
       </div>
+
 
       {/* HERO — ambiente de sala cirúrgica */}
       <section
