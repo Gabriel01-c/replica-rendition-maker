@@ -334,7 +334,7 @@ function PosGraduacaoOficial() {
               <img
                 src={reconhecidoMec.url}
                 alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-6 top-8 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:top-10 xl:w-48"
+                className="pointer-events-none absolute right-4 top-6 w-32 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:right-5 md:top-7 md:w-36 lg:right-6 lg:top-8 lg:w-40 xl:top-10 xl:w-48"
                 draggable={false}
               />
             </div>
