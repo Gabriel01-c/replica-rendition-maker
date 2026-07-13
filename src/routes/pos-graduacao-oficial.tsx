@@ -226,7 +226,7 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* TEXT COLUMN */}
-          <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 lg:order-1 lg:mt-0 lg:pb-24">
+          <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-20 lg:pb-24">
             <h1
               className="text-[34px] font-light leading-[1.05] tracking-tight sm:text-5xl lg:text-[56px]"
               style={{
