@@ -61,14 +61,14 @@ function Countdown() {
 
   return (
     <div
-      className="flex items-center justify-center gap-3 sm:gap-5"
+      className="flex items-center justify-center gap-2 sm:gap-3"
       style={{ color: "#f4f7fb" }}
     >
       {items.map((item, i) => (
-        <div key={item.label} className="flex items-center gap-3 sm:gap-5">
-          <div className="flex flex-col items-center">
+        <div key={item.label} className="flex items-center gap-2 sm:gap-3">
+          <div className="flex flex-col items-center leading-none">
             <span
-              className="min-w-[52px] text-center text-3xl font-light tabular-nums sm:text-4xl"
+              className="min-w-[36px] text-center text-xl font-light tabular-nums sm:text-2xl"
               style={{
                 fontFamily:
                   '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
@@ -77,7 +77,7 @@ function Countdown() {
               {String(item.value).padStart(2, "0")}
             </span>
             <span
-              className="mt-1 text-[10px] font-medium uppercase tracking-[0.18em] sm:text-xs"
+              className="mt-0.5 text-[9px] font-medium uppercase tracking-[0.14em] sm:text-[10px]"
               style={{ color: "rgba(232,238,245,0.55)" }}
             >
               {item.label}
@@ -85,7 +85,7 @@ function Countdown() {
           </div>
           {i < items.length - 1 && (
             <span
-              className="text-xl font-light sm:text-2xl"
+              className="self-start pb-3 text-base font-light sm:text-lg"
               style={{ color: "rgba(94,234,212,0.5)" }}
             >
               :
