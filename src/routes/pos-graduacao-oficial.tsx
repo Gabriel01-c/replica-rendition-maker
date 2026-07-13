@@ -300,6 +300,19 @@ function PosGraduacaoOficial() {
                 }}
                 draggable={false}
               />
+              {/* Selos flutuantes — desktop */}
+              <img
+                src={anhanguera.url}
+                alt="Anhanguera"
+                className="pointer-events-none absolute left-4 top-8 w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:w-32"
+                draggable={false}
+              />
+              <img
+                src={reconhecidoMec.url}
+                alt="Reconhecido pelo MEC"
+                className="pointer-events-none absolute right-6 top-4 w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:w-32"
+                draggable={false}
+              />
             </div>
           </div>
         </div>
