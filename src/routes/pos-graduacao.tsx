@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShieldCheck, Clock, Monitor, GraduationCap, Calendar, FileText, Award, ChevronsDown } from "lucide-react";
-import drFrancisco from "@/assets/dr-francisco-verde.png.asset.json";
+import drFrancisco from "@/assets/dr-francisco-verde-transparent.png";
 
 export const Route = createFileRoute("/pos-graduacao")({
   head: () => ({
@@ -125,7 +125,7 @@ function PosGraduacaoPage() {
           />
 
           <img
-            src={drFrancisco.url}
+            src={drFrancisco}
             alt="Dr. Francisco Amaral"
             className="relative z-10 mx-auto block h-auto w-[85%] select-none"
             draggable={false}
