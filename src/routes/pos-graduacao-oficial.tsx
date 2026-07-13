@@ -128,6 +128,23 @@ function PosGraduacaoOficial() {
         </div>
       </div>
 
+      {/* Countdown */}
+      <div
+        className="border-b px-5 py-8 text-center sm:py-10"
+        style={{
+          background: `radial-gradient(800px 300px at 50% 0%, rgba(94,234,212,0.06), transparent 60%), ${NAVY_DEEP}`,
+          borderColor: "rgba(94,234,212,0.08)",
+        }}
+      >
+        <p
+          className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] sm:text-xs"
+          style={{ color: GOLD }}
+        >
+          Início da próxima turma em
+        </p>
+        <Countdown />
+      </div>
+
       {/* HERO */}
       <section
         className="relative overflow-hidden lg:min-h-[calc(100vh-44px)]"
