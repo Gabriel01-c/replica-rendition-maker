@@ -184,6 +184,18 @@ function PosGraduacaoOficial() {
                     "radial-gradient(circle at 50% 40%, rgba(94,234,212,0.25), transparent 60%)",
                 }}
               />
+              {/* Lançamento oficial — mobile */}
+              <div
+                className="absolute left-1/2 top-2 z-10 -translate-x-1/2 rounded-full border px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] shadow-lg sm:top-3 sm:px-5 sm:py-2 sm:text-[11px]"
+                style={{
+                  backgroundColor: "rgba(6,18,28,0.82)",
+                  borderColor: "rgba(94,234,212,0.35)",
+                  color: "#f4f7fb",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(94,234,212,0.12)",
+                }}
+              >
+                Lançamento Oficial
+              </div>
               <img
                 src={drFrancisco.url}
                 alt="Dr. Francisco Amaral"
