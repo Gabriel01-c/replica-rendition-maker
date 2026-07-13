@@ -295,8 +295,8 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* DESKTOP IMAGE */}
-          <div className="relative order-3 hidden md:order-2 md:block md:h-full md:translate-x-10 lg:h-full">
-            <div className="relative mx-auto flex h-full min-h-[480px] items-end justify-center md:min-h-[520px] lg:min-h-[560px] lg:justify-end">
+          <div className="relative order-3 hidden md:order-2 md:block md:h-full lg:h-full">
+            <div className="relative mx-auto flex h-full min-h-[520px] items-end justify-center md:min-h-[560px] lg:min-h-[620px] lg:justify-end">
               <div
                 className="pointer-events-none absolute inset-0 -z-10"
                 style={{
@@ -320,10 +320,10 @@ function PosGraduacaoOficial() {
               <img
                 src={drFrancisco.url}
                 alt="Dr. Francisco Amaral"
-                className="h-full max-h-[72vh] w-auto select-none object-contain md:max-h-[78vh] lg:max-h-[88vh]"
+                className="h-full max-h-[78vh] w-auto select-none object-contain md:max-h-[84vh] lg:max-h-[92vh]"
                 style={{
                   WebkitMaskImage:
-                    "linear-gradient(to bottom, black 60%, transparent 98%), linear-gradient(to left, black 85%, transparent 100%)",
+                    "linear-gradient(to bottom, black 60%, transparent 98%), linear-gradient(to left, black 88%, transparent 100%)",
                   WebkitMaskComposite: "source-in",
                   maskImage:
                     "linear-gradient(to bottom, black 60%, transparent 98%)",
@@ -331,18 +331,20 @@ function PosGraduacaoOficial() {
                 draggable={false}
               />
               {/* Selos flutuantes — desktop */}
-              <img
-                src={anhanguera.url}
-                alt="Anhanguera"
-                className="pointer-events-none absolute left-2 top-6 w-32 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:left-3 md:top-7 md:w-36 lg:left-4 lg:top-8 lg:w-40 xl:top-10 xl:w-48"
-                draggable={false}
-              />
-              <img
-                src={reconhecidoMec.url}
-                alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-4 top-6 w-32 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:right-5 md:top-7 md:w-36 lg:right-6 lg:top-8 lg:w-40 xl:top-10 xl:w-48"
-                draggable={false}
-              />
+              <div className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4 md:bottom-6 md:gap-5 lg:bottom-8">
+                <img
+                  src={anhanguera.url}
+                  alt="Anhanguera"
+                  className="h-auto w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:w-32 lg:w-36 xl:w-40"
+                  draggable={false}
+                />
+                <img
+                  src={reconhecidoMec.url}
+                  alt="Reconhecido pelo MEC"
+                  className="h-auto w-28 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:w-32 lg:w-36 xl:w-40"
+                  draggable={false}
+                />
+              </div>
             </div>
           </div>
         </div>
