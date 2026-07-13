@@ -196,7 +196,21 @@ function PosGraduacaoOficial() {
                 }}
                 draggable={false}
               />
+              {/* Selos flutuantes — mobile */}
+              <img
+                src={anhanguera.url}
+                alt="Anhanguera"
+                className="pointer-events-none absolute left-2 top-6 w-20 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:w-24"
+                draggable={false}
+              />
+              <img
+                src={reconhecidoMec.url}
+                alt="Reconhecido pelo MEC"
+                className="pointer-events-none absolute right-2 top-4 w-20 select-none drop-shadow-[0_6px_16px_rgba(0,0,0,0.5)] sm:w-24"
+                draggable={false}
+              />
             </div>
+
           </div>
 
           {/* TEXT COLUMN */}
