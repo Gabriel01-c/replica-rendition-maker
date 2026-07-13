@@ -314,7 +314,7 @@ function PosGraduacaoOficial() {
               <img
                 src={drFrancisco.url}
                 alt="Dr. Francisco Amaral"
-                className="h-full max-h-[88vh] w-auto select-none object-contain"
+                className="h-full max-h-[72vh] w-auto select-none object-contain md:max-h-[78vh] lg:max-h-[88vh]"
                 style={{
                   WebkitMaskImage:
                     "linear-gradient(to bottom, black 60%, transparent 98%), linear-gradient(to left, black 85%, transparent 100%)",
