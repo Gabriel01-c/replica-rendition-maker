@@ -173,9 +173,9 @@ function PosGraduacaoOficial() {
 
 
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:pt-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pt-12 lg:gap-14 lg:pt-16">
           {/* MOBILE: image first with gradient overlap over text */}
-          <div className="relative order-1 lg:hidden">
+          <div className="relative order-1 md:hidden">
             <div className="relative mx-auto max-w-md">
               <div
                 className="pointer-events-none absolute inset-0 -z-10 rounded-full blur-3xl"
@@ -226,9 +226,9 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* TEXT COLUMN */}
-          <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 lg:order-1 lg:mt-0 lg:pb-24">
+          <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-20 lg:pb-24">
             <h1
-              className="text-[34px] font-light leading-[1.05] tracking-tight sm:text-5xl lg:text-[56px]"
+              className="text-[34px] font-light leading-[1.05] tracking-tight sm:text-5xl md:text-[40px] lg:text-[56px]"
               style={{
                 fontFamily:
                   '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
@@ -254,7 +254,7 @@ function PosGraduacaoOficial() {
             </h1>
 
             <p
-              className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg"
+              className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg md:max-w-md lg:max-w-xl"
               style={{ color: "rgba(232,238,245,0.75)" }}
             >
               Domine as emergências, as drogas e as decisões que definem se a gestante
@@ -289,8 +289,8 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* DESKTOP IMAGE */}
-          <div className="relative order-3 hidden lg:order-2 lg:block lg:h-full lg:translate-x-10">
-            <div className="relative mx-auto flex h-full min-h-[560px] items-end justify-center lg:justify-end">
+          <div className="relative order-3 hidden md:order-2 md:block md:h-full md:translate-x-10 lg:h-full">
+            <div className="relative mx-auto flex h-full min-h-[480px] items-end justify-center md:min-h-[520px] lg:min-h-[560px] lg:justify-end">
               <div
                 className="pointer-events-none absolute inset-0 -z-10"
                 style={{
@@ -314,7 +314,7 @@ function PosGraduacaoOficial() {
               <img
                 src={drFrancisco.url}
                 alt="Dr. Francisco Amaral"
-                className="h-full max-h-[88vh] w-auto select-none object-contain"
+                className="h-full max-h-[72vh] w-auto select-none object-contain md:max-h-[78vh] lg:max-h-[88vh]"
                 style={{
                   WebkitMaskImage:
                     "linear-gradient(to bottom, black 60%, transparent 98%), linear-gradient(to left, black 85%, transparent 100%)",
@@ -328,13 +328,13 @@ function PosGraduacaoOficial() {
               <img
                 src={anhanguera.url}
                 alt="Anhanguera"
-                className="pointer-events-none absolute left-4 top-8 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:top-10 xl:w-48"
+                className="pointer-events-none absolute left-2 top-6 w-32 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:left-3 md:top-7 md:w-36 lg:left-4 lg:top-8 lg:w-40 xl:top-10 xl:w-48"
                 draggable={false}
               />
               <img
                 src={reconhecidoMec.url}
                 alt="Reconhecido pelo MEC"
-                className="pointer-events-none absolute right-6 top-8 w-40 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] xl:top-10 xl:w-48"
+                className="pointer-events-none absolute right-4 top-6 w-32 select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:right-5 md:top-7 md:w-36 lg:right-6 lg:top-8 lg:w-40 xl:top-10 xl:w-48"
                 draggable={false}
               />
             </div>
