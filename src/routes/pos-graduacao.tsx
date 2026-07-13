@@ -78,6 +78,26 @@ function PosGraduacaoPage() {
         }}
       />
 
+      {/* Subtle cardiac monitor screens — heartbeat lines */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.07]"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <pattern id="monitor-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M40 0H0V40" fill="none" stroke={TEAL} strokeWidth="0.5" strokeOpacity="0.15" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#monitor-grid)" />
+        <g fill="none" stroke={TEAL} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.35">
+          <path d="M-20 18% h20 l3 -2 l3 6 l3 -10 l3 14 l3 -8 l3 4 h60" />
+          <path d="M-20 38% h35 l3 -3 l2 7 l3 -12 l4 16 l2 -9 l3 5 h48" />
+          <path d="M-20 58% h25 l4 -2 l2 5 l3 -9 l4 11 l3 -6 l2 3 h55" />
+          <path d="M-20 78% h30 l3 -4 l3 8 l2 -11 l4 13 l3 -7 l3 4 h42" />
+        </g>
+      </svg>
+
       {/* Top badge */}
       <div
         className="relative z-10 flex items-center justify-center gap-3 border-b border-white/10 px-5 py-4"
