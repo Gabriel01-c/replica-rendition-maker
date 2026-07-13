@@ -152,7 +152,8 @@ function PosGraduacaoOficial() {
         <img
           src={salaCirurgica.url}
           alt="Ambiente de sala cirúrgica"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+          style={{ objectPosition: "70% center" }}
           draggable={false}
         />
 
@@ -161,9 +162,10 @@ function PosGraduacaoOficial() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(4,12,20,0.35) 0%, rgba(4,12,20,0.18) 45%, rgba(4,12,20,0.55) 100%)",
+              "linear-gradient(180deg, rgba(4,12,20,0.28) 0%, rgba(4,12,20,0.12) 45%, rgba(4,12,20,0.45) 100%)",
           }}
         />
+
 
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 lg:grid-cols-2 lg:gap-14 lg:pt-16">
