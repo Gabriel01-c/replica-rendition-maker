@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShieldCheck, Clock, Monitor, GraduationCap, Calendar, FileText, Award, ChevronsDown } from "lucide-react";
-import drFrancisco from "@/assets/dr-francisco-verde.png.asset.json";
+import drFrancisco from "@/assets/dr-francisco-verde-transparent.png";
 
 export const Route = createFileRoute("/pos-graduacao")({
   head: () => ({
