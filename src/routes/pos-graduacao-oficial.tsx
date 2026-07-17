@@ -297,8 +297,8 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* DESKTOP IMAGE */}
-          <div className="relative order-3 hidden h-full min-h-[560px] md:order-2 md:block lg:min-h-[640px]">
-            <div className="relative ml-auto flex h-full w-full max-w-[390px] flex-col items-center justify-start pt-2 lg:max-w-[460px] xl:max-w-[500px]">
+          <div className="relative order-3 hidden md:order-2 md:flex md:items-center md:justify-end">
+            <div className="relative ml-auto flex w-full max-w-[360px] flex-col items-center justify-start lg:max-w-[430px] xl:max-w-[470px]">
               <div
                 className="pointer-events-none absolute inset-0 -z-10"
                 style={{
@@ -309,7 +309,7 @@ function PosGraduacaoOficial() {
               />
               {/* Lançamento oficial — desktop */}
               <div
-                className="z-20 mb-0 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:px-6 xl:py-2.5 xl:text-xs"
+                className="relative z-20 mb-1 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:px-6 xl:py-2.5 xl:text-xs"
                 style={{
                   backgroundColor: "rgba(6,18,28,0.82)",
                   borderColor: "rgba(94,234,212,0.35)",
@@ -319,11 +319,11 @@ function PosGraduacaoOficial() {
               >
                 Lançamento Oficial
               </div>
-              <div className="relative -mt-1 flex min-h-0 flex-1 items-end justify-center self-stretch overflow-visible">
+              <div className="relative -mt-1 flex w-full items-start justify-center overflow-visible">
                 <img
                   src={drFrancisco.url}
                   alt="Dr. Francisco Amaral"
-                  className="max-h-[520px] w-full max-w-[390px] select-none object-contain lg:max-h-[610px] lg:max-w-[470px] xl:max-h-[680px] xl:max-w-[520px]"
+                  className="w-full max-w-[360px] select-none object-contain lg:max-w-[430px] xl:max-w-[470px]"
                   style={{
                     WebkitMaskImage:
                       "linear-gradient(to bottom, black 72%, transparent 100%)",
@@ -332,21 +332,21 @@ function PosGraduacaoOficial() {
                   }}
                   draggable={false}
                 />
-              </div>
-              {/* Selos — desktop, lado a lado, sem distorcer proporção */}
-              <div className="relative z-20 -mt-16 flex w-full items-center justify-center gap-4 pb-6 lg:-mt-20 lg:gap-6 lg:pb-8 xl:-mt-24 xl:gap-7">
-                <img
-                  src={anhanguera.url}
-                  alt="Anhanguera"
-                  className="w-24 max-w-[44%] select-none object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:w-32 xl:w-36"
-                  draggable={false}
-                />
-                <img
-                  src={reconhecidoMec.url}
-                  alt="Reconhecido pelo MEC"
-                  className="w-24 max-w-[44%] select-none object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:w-32 xl:w-36"
-                  draggable={false}
-                />
+                {/* Selos — desktop, lado a lado, sem distorcer proporção */}
+                <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-4 lg:bottom-7 lg:gap-5 xl:bottom-8 xl:gap-6">
+                  <img
+                    src={anhanguera.url}
+                    alt="Anhanguera"
+                    className="w-20 select-none object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:w-28 xl:w-32"
+                    draggable={false}
+                  />
+                  <img
+                    src={reconhecidoMec.url}
+                    alt="Reconhecido pelo MEC"
+                    className="w-20 select-none object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:w-28 xl:w-32"
+                    draggable={false}
+                  />
+                </div>
               </div>
             </div>
           </div>
