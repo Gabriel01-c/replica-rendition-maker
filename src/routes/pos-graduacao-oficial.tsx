@@ -270,30 +270,37 @@ function PosGraduacaoOficial() {
               qualquer lugar do Brasil.
             </p>
 
-            <ul
-              className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-[13px] font-medium tracking-wide sm:text-sm"
-              style={{ color: "rgba(232,238,245,0.9)" }}
+            <div
+              className="mt-8 grid w-full max-w-xl grid-cols-3 gap-px overflow-hidden rounded-lg border backdrop-blur-sm sm:max-w-2xl"
+              style={{
+                backgroundColor: "rgba(6,18,28,0.72)",
+                borderColor: "rgba(94,234,212,0.22)",
+              }}
             >
               {[
-                "480 horas",
-                "100% Online",
-                "12 disciplinas",
-                "12 meses",
-                "Sem TCC",
-                "Certificado reconhecido",
-              ].map((item, i, arr) => (
-                <li key={item} className="flex items-center gap-3">
+                { label: "CARGA HORÁRIA", value: "480 horas" },
+                { label: "COMO VAI FUNCIONAR", value: "100% online | 12 disciplinas" },
+                { label: "DURAÇÃO DO PROGRAMA", value: "12 meses | Sem TCC" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex flex-col items-center justify-center px-2 py-4 text-center sm:px-4 sm:py-5"
+                >
                   <span
-                    className="h-1 w-1 rounded-full"
-                    style={{ backgroundColor: TEAL }}
-                  />
-                  {item}
-                  {i < arr.length - 1 && (
-                    <span className="hidden text-white/20 sm:inline">/</span>
-                  )}
-                </li>
+                    className="text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-[11px]"
+                    style={{ color: GOLD }}
+                  >
+                    {item.label}
+                  </span>
+                  <span
+                    className="mt-1.5 text-[11px] font-medium leading-tight sm:text-[13px] md:text-sm"
+                    style={{ color: "rgba(232,238,245,0.92)" }}
+                  >
+                    {item.value}
+                  </span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* DESKTOP IMAGE */}
