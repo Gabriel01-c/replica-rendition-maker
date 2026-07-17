@@ -173,7 +173,7 @@ function PosGraduacaoOficial() {
 
 
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 md:min-h-[calc(100svh-88px)] md:grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] md:gap-6 md:pt-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(390px,0.88fr)] lg:gap-10 lg:pt-10 xl:grid-cols-[minmax(0,1.18fr)_minmax(440px,0.82fr)] xl:gap-14">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 md:min-h-[calc(100svh-88px)] md:grid-cols-[minmax(0,1.3fr)_minmax(240px,0.7fr)] md:gap-6 md:pt-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(340px,0.7fr)] lg:gap-10 lg:pt-10 xl:grid-cols-[minmax(0,1.35fr)_minmax(360px,0.65fr)] xl:gap-14">
           {/* MOBILE: image first with gradient overlap over text */}
           <div className="relative order-1 md:hidden">
             <div className="relative mx-auto max-w-md">
@@ -228,36 +228,30 @@ function PosGraduacaoOficial() {
           {/* TEXT COLUMN */}
           <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-10 md:pr-2 lg:pb-14">
             <h1
-              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[36px] lg:text-[44px] xl:text-[48px]"
+              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[27px] lg:text-[36px] xl:text-[42px]"
               style={{
                 fontFamily:
                   '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
                 color: "#f4f7fb",
               }}
             >
-              <span className="block md:whitespace-nowrap">
-                A 1ª Pós-Graduação em{" "}
-              </span>
+              A 1ª Pós-Graduação em{" "}
+              <span style={{ color: TEAL, fontWeight: 500 }}>
+                Anestesia
+                <br className="hidden md:inline xl:hidden" /> Obstétrica
+                <br className="hidden xl:inline" /> do Brasil
+              </span>{" "}
               <span
-                className="block md:whitespace-nowrap"
-                style={{ color: TEAL, fontWeight: 500 }}
+                className="relative inline font-medium"
+                style={{ color: GOLD }}
               >
-                Anestesia Obstétrica do Brasil
-              </span>
-              <span className="block md:whitespace-nowrap">
+                100% online<span style={{ color: "#f4f7fb" }}>.</span>
                 <span
-                  className="relative inline-block font-medium"
-                  style={{ color: GOLD }}
-                >
-                  100% online
-                  <span
-                    className="absolute -bottom-1 left-0 h-[2px] w-full"
-                    style={{
-                      background: `linear-gradient(90deg, ${GOLD}, transparent)`,
-                    }}
-                  />
-                </span>
-                .
+                  className="absolute -bottom-1 left-0 h-[2px] w-full"
+                  style={{
+                    background: `linear-gradient(90deg, ${GOLD}, transparent)`,
+                  }}
+                />
               </span>
             </h1>
 
