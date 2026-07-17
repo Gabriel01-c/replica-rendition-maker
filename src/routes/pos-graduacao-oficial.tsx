@@ -228,7 +228,7 @@ function PosGraduacaoOficial() {
           {/* TEXT COLUMN */}
           <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-10 md:pr-2 lg:pb-14">
             <h1
-              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[28px] lg:text-[36px] xl:text-[42px]"
+              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[27px] lg:text-[36px] xl:text-[42px]"
               style={{
                 fontFamily:
                   '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
@@ -238,8 +238,8 @@ function PosGraduacaoOficial() {
               A 1ª Pós-Graduação em{" "}
               <span style={{ color: TEAL, fontWeight: 500 }}>
                 Anestesia
-                <br className="hidden md:inline lg:hidden" /> Obstétrica
-                <br className="hidden lg:inline" /> do Brasil
+                <br className="hidden md:inline xl:hidden" /> Obstétrica
+                <br className="hidden xl:inline" /> do Brasil
               </span>{" "}
               <span
                 className="relative inline font-medium"
