@@ -173,7 +173,7 @@ function PosGraduacaoOficial() {
 
 
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pt-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:pt-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-8 sm:px-8 md:min-h-[calc(100svh-88px)] md:grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] md:gap-6 md:pt-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(390px,0.88fr)] lg:gap-10 lg:pt-10 xl:grid-cols-[minmax(0,1.18fr)_minmax(440px,0.82fr)] xl:gap-14">
           {/* MOBILE: image first with gradient overlap over text */}
           <div className="relative order-1 md:hidden">
             <div className="relative mx-auto max-w-md">
@@ -226,25 +226,25 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* TEXT COLUMN */}
-          <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-20 lg:pb-24">
+          <div className="relative order-2 -mt-16 pb-14 sm:-mt-24 md:order-1 md:mt-0 md:pb-10 md:pr-2 lg:pb-14">
             <h1
-              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[40px] lg:text-[44px] xl:text-[48px]"
+              className="text-[34px] font-light leading-[1.08] tracking-tight sm:text-5xl md:text-[36px] lg:text-[44px] xl:text-[48px]"
               style={{
                 fontFamily:
                   '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
                 color: "#f4f7fb",
               }}
             >
-              <span className="block md:inline-block md:whitespace-nowrap">
+              <span className="block md:whitespace-nowrap">
                 A 1ª Pós-Graduação em{" "}
               </span>
               <span
-                className="block md:inline-block md:whitespace-nowrap"
+                className="block md:whitespace-nowrap"
                 style={{ color: TEAL, fontWeight: 500 }}
               >
                 Anestesia Obstétrica do Brasil
-              </span>{" "}
-              <span className="block md:inline-block md:whitespace-nowrap">
+              </span>
+              <span className="block md:whitespace-nowrap">
                 <span
                   className="relative inline-block font-medium"
                   style={{ color: GOLD }}
@@ -297,8 +297,8 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* DESKTOP IMAGE */}
-          <div className="relative order-3 hidden md:order-2 md:block">
-            <div className="relative mx-auto flex w-full flex-col items-center gap-4 lg:items-end">
+          <div className="relative order-3 hidden h-full min-h-[560px] md:order-2 md:block lg:min-h-[640px]">
+            <div className="relative ml-auto flex h-full w-full max-w-[390px] flex-col items-center justify-start pt-2 lg:max-w-[460px] xl:max-w-[500px]">
               <div
                 className="pointer-events-none absolute inset-0 -z-10"
                 style={{
@@ -309,7 +309,7 @@ function PosGraduacaoOficial() {
               />
               {/* Lançamento oficial — desktop */}
               <div
-                className="z-10 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:px-6 xl:py-2.5 xl:text-xs"
+                className="z-20 mb-0 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:px-6 xl:py-2.5 xl:text-xs"
                 style={{
                   backgroundColor: "rgba(6,18,28,0.82)",
                   borderColor: "rgba(94,234,212,0.35)",
@@ -319,30 +319,32 @@ function PosGraduacaoOficial() {
               >
                 Lançamento Oficial
               </div>
-              <img
-                src={drFrancisco.url}
-                alt="Dr. Francisco Amaral"
-                className="w-auto select-none object-contain h-[420px] md:h-[460px] lg:h-[540px] xl:h-[600px]"
-                style={{
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, black 70%, transparent 100%)",
-                  maskImage:
-                    "linear-gradient(to bottom, black 70%, transparent 100%)",
-                }}
-                draggable={false}
-              />
-              {/* Selos — desktop, lado a lado, tamanho fixo */}
-              <div className="flex items-center justify-center gap-6 md:gap-8">
+              <div className="relative -mt-1 flex min-h-0 flex-1 items-end justify-center self-stretch overflow-visible">
+                <img
+                  src={drFrancisco.url}
+                  alt="Dr. Francisco Amaral"
+                  className="max-h-[520px] w-full max-w-[390px] select-none object-contain lg:max-h-[610px] lg:max-w-[470px] xl:max-h-[680px] xl:max-w-[520px]"
+                  style={{
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, black 72%, transparent 100%)",
+                    maskImage:
+                      "linear-gradient(to bottom, black 72%, transparent 100%)",
+                  }}
+                  draggable={false}
+                />
+              </div>
+              {/* Selos — desktop, lado a lado, sem distorcer proporção */}
+              <div className="relative z-20 -mt-16 flex w-full items-center justify-center gap-4 pb-6 lg:-mt-20 lg:gap-6 lg:pb-8 xl:-mt-24 xl:gap-7">
                 <img
                   src={anhanguera.url}
                   alt="Anhanguera"
-                  className="h-20 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:h-24 xl:h-28"
+                  className="w-24 max-w-[44%] select-none object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:w-32 xl:w-36"
                   draggable={false}
                 />
                 <img
                   src={reconhecidoMec.url}
                   alt="Reconhecido pelo MEC"
-                  className="h-20 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:h-24 xl:h-28"
+                  className="w-24 max-w-[44%] select-none object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:w-32 xl:w-36"
                   draggable={false}
                 />
               </div>
