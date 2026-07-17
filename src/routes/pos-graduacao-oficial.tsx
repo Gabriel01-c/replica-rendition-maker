@@ -297,8 +297,8 @@ function PosGraduacaoOficial() {
           </div>
 
           {/* DESKTOP IMAGE */}
-          <div className="relative order-3 hidden md:order-2 md:block md:h-full lg:h-full">
-            <div className="relative mx-auto flex h-full min-h-[520px] items-end justify-center md:min-h-[560px] lg:min-h-[620px] lg:justify-end">
+          <div className="relative order-3 hidden md:order-2 md:block">
+            <div className="relative mx-auto flex w-full flex-col items-center gap-4 lg:items-end">
               <div
                 className="pointer-events-none absolute inset-0 -z-10"
                 style={{
@@ -309,7 +309,7 @@ function PosGraduacaoOficial() {
               />
               {/* Lançamento oficial — desktop */}
               <div
-                className="absolute left-1/2 top-4 z-10 -translate-x-1/2 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:top-6 xl:px-6 xl:py-2.5 xl:text-xs"
+                className="z-10 whitespace-nowrap rounded border px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-xl xl:px-6 xl:py-2.5 xl:text-xs"
                 style={{
                   backgroundColor: "rgba(6,18,28,0.82)",
                   borderColor: "rgba(94,234,212,0.35)",
@@ -322,33 +322,33 @@ function PosGraduacaoOficial() {
               <img
                 src={drFrancisco.url}
                 alt="Dr. Francisco Amaral"
-                className="h-full max-h-[78vh] w-auto select-none object-contain md:max-h-[84vh] lg:max-h-[92vh]"
+                className="w-auto select-none object-contain h-[420px] md:h-[460px] lg:h-[540px] xl:h-[600px]"
                 style={{
                   WebkitMaskImage:
-                    "linear-gradient(to bottom, black 60%, transparent 98%), linear-gradient(to left, black 88%, transparent 100%)",
-                  WebkitMaskComposite: "source-in",
+                    "linear-gradient(to bottom, black 70%, transparent 100%)",
                   maskImage:
-                    "linear-gradient(to bottom, black 60%, transparent 98%)",
+                    "linear-gradient(to bottom, black 70%, transparent 100%)",
                 }}
                 draggable={false}
               />
-              {/* Selos flutuantes — desktop */}
-              <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4 md:bottom-8 md:gap-5 lg:bottom-10">
+              {/* Selos — desktop, lado a lado, tamanho fixo */}
+              <div className="flex items-center justify-center gap-6 md:gap-8">
                 <img
                   src={anhanguera.url}
                   alt="Anhanguera"
-                  className="h-16 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:h-20 lg:h-24 xl:h-28"
+                  className="h-20 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:h-24 xl:h-28"
                   draggable={false}
                 />
                 <img
                   src={reconhecidoMec.url}
                   alt="Reconhecido pelo MEC"
-                  className="h-16 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] md:h-20 lg:h-24 xl:h-28"
+                  className="h-20 w-auto select-none drop-shadow-[0_10px_24px_rgba(0,0,0,0.55)] lg:h-24 xl:h-28"
                   draggable={false}
                 />
               </div>
             </div>
           </div>
+
         </div>
 
         {/* bottom fade into next section */}
