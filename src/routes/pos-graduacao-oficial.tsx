@@ -266,7 +266,7 @@ function PosGraduacaoOficial() {
               style={{ color: "rgba(232,238,245,0.75)" }}
             >
               Domine as emergências, as drogas e as decisões que definem se a gestante
-              sobrevive — com formação estruturada, baseada em ciência e acessível de
+              sobrevive, com formação estruturada, baseada em ciência e acessível de
               qualquer lugar do Brasil.
             </p>
 
