@@ -271,11 +271,10 @@ function PosGraduacaoOficial() {
             </p>
 
             <div
-              className="mt-8 grid w-full max-w-xl grid-cols-3 gap-px overflow-hidden rounded-xl border backdrop-blur-md sm:max-w-2xl"
+              className="mt-8 grid w-full max-w-xl grid-cols-3 gap-px overflow-hidden rounded-lg border backdrop-blur-sm sm:max-w-2xl"
               style={{
-                backgroundColor: "rgba(6,18,28,0.78)",
-                borderColor: "rgba(94,234,212,0.28)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06), 0 12px 32px rgba(0,0,0,0.25)",
+                backgroundColor: "rgba(6,18,28,0.72)",
+                borderColor: "rgba(94,234,212,0.22)",
               }}
             >
               {[
@@ -285,21 +284,17 @@ function PosGraduacaoOficial() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="flex flex-col items-center justify-center px-2 py-4 text-center sm:px-4 sm:py-5 md:py-6"
+                  className="flex flex-col items-center justify-center px-2 py-4 text-center sm:px-4 sm:py-5"
                 >
                   <span
-                    className="text-[11px] font-bold uppercase tracking-[0.12em] sm:text-xs md:text-[13px]"
-                    style={{
-                      color: "#f4e4a5",
-                      fontFamily:
-                        '"Bricolage Grotesque", "Inter Tight", system-ui, sans-serif',
-                    }}
+                    className="text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-[11px]"
+                    style={{ color: GOLD }}
                   >
                     {item.label}
                   </span>
                   <span
-                    className="mt-1.5 text-xs font-semibold leading-snug sm:text-sm md:text-base"
-                    style={{ color: "#f4f7fb" }}
+                    className="mt-1.5 text-[11px] font-medium leading-tight sm:text-[13px] md:text-sm"
+                    style={{ color: "rgba(232,238,245,0.92)" }}
                   >
                     {item.value}
                   </span>
