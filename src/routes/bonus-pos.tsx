@@ -29,20 +29,27 @@ function BonusPos() {
 
   return (
     <main
-      className="w-screen h-screen overflow-hidden bg-black bg-no-repeat bg-center bg-contain md:bg-cover"
+      className="w-screen h-screen overflow-hidden bg-black bg-no-repeat bg-center bg-contain"
       style={{ backgroundImage: `url(${bg.url})` }}
     >
-      <div className="w-full h-full flex items-center">
-        <div className="pl-[6vw] flex flex-col items-start gap-[3vh]">
+      <div className="w-full h-full flex items-start justify-start">
+        <div
+          className="flex flex-col items-start"
+          style={{
+            paddingLeft: "8vw",
+            paddingTop: "clamp(80px, 18vh, 220px)",
+            gap: "clamp(12px, 2vh, 24px)",
+          }}
+        >
           <div
             className="text-white font-bold tabular-nums leading-none tracking-tight"
-            style={{ fontSize: "clamp(64px, 11vw, 180px)" }}
+            style={{ fontSize: "clamp(56px, 9vw, 150px)" }}
           >
             {mm}:{ss}
           </div>
           <div
-            className="bg-white/95 flex items-center justify-center text-black/40 text-sm"
-            style={{ width: "clamp(160px, 18vw, 280px)", height: "clamp(160px, 18vw, 280px)" }}
+            className="bg-white/95 flex items-center justify-center text-black/40 text-xs"
+            style={{ width: "clamp(120px, 14vw, 220px)", height: "clamp(120px, 14vw, 220px)" }}
           >
             QR Code
           </div>
