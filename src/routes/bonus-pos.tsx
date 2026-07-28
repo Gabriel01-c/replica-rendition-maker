@@ -29,11 +29,22 @@ function BonusPos() {
   const ss = String(seconds % 60).padStart(2, "0");
 
   return (
-    <main
-      className="w-screen h-screen overflow-hidden bg-no-repeat bg-center bg-cover"
-      style={{ backgroundImage: `url(${bg.url})`, backgroundColor: "#02060b" }}
-    >
-      <div className="w-full h-full flex items-start justify-start">
+    <main className="relative w-screen h-screen overflow-hidden" style={{ backgroundColor: "#02060b" }}>
+      {/* Blurred fill so viewport is fully covered on any aspect */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-center bg-cover scale-110"
+        style={{ backgroundImage: `url(${bg.url})`, filter: "blur(40px)" }}
+      />
+      {/* Full, uncropped image */}
+      <img
+        src={bg.url}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-contain"
+      />
+      {/* Countdown + QR overlaid on the left */}
+      <div className="relative w-full h-full flex items-start justify-start">
         <div
           className="flex flex-col items-start"
           style={{
