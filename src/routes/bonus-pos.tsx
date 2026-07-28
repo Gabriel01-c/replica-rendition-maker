@@ -44,7 +44,7 @@ function BonusPos() {
       <div
         className="absolute flex flex-col items-start"
         style={{
-          left: "clamp(16px, 12vw, 180px)",
+          left: "clamp(24px, 16vw, 240px)",
           top: "clamp(12px, 7vh, 80px)",
           gap: "clamp(32px, 5vh, 72px)",
         }}
@@ -59,7 +59,7 @@ function BonusPos() {
           src={qr.url}
           alt="QR Code"
           className="block"
-          style={{ width: "clamp(160px, 18vw, 280px)", height: "auto", marginTop: "clamp(8px, 1.5vh, 20px)" }}
+          style={{ width: "clamp(140px, 15vw, 240px)", height: "auto", marginTop: "clamp(8px, 1.5vh, 20px)" }}
         />
       </div>
     </main>
