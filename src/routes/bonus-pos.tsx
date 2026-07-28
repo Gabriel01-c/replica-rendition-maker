@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import bg from "@/assets/francisco-pos-safe.png.asset.json";
+import bg from "@/assets/francisco-pos-safe-v2.png.asset.json";
 import qr from "@/assets/qr-bonus-pos.png.asset.json";
 
 export const Route = createFileRoute("/bonus-pos")({
