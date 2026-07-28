@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import bg from "@/assets/francisco-pos-base.png.asset.json";
+import bg from "@/assets/francisco-pos-base-v2.png.asset.json";
+import qr from "@/assets/qr-bonus-pos.png.asset.json";
 
 export const Route = createFileRoute("/bonus-pos")({
   head: () => ({
@@ -29,16 +30,16 @@ function BonusPos() {
 
   return (
     <main
-      className="w-screen h-screen overflow-hidden bg-no-repeat bg-center bg-contain"
-      style={{ backgroundImage: `url(${bg.url})`, backgroundColor: "#02070d" }}
+      className="w-screen h-screen overflow-hidden bg-no-repeat bg-center bg-cover"
+      style={{ backgroundImage: `url(${bg.url})`, backgroundColor: "#02060b" }}
     >
       <div className="w-full h-full flex items-start justify-start">
         <div
           className="flex flex-col items-start"
           style={{
             paddingLeft: "8vw",
-            paddingTop: "clamp(80px, 18vh, 220px)",
-            gap: "clamp(12px, 2vh, 24px)",
+            paddingTop: "clamp(80px, 16vh, 200px)",
+            gap: "clamp(14px, 2.2vh, 28px)",
           }}
         >
           <div
@@ -47,12 +48,12 @@ function BonusPos() {
           >
             {mm}:{ss}
           </div>
-          <div
-            className="bg-white/95 flex items-center justify-center text-black/40 text-xs"
-            style={{ width: "clamp(120px, 14vw, 220px)", height: "clamp(120px, 14vw, 220px)" }}
-          >
-            QR Code
-          </div>
+          <img
+            src={qr.url}
+            alt="QR Code"
+            className="block"
+            style={{ width: "clamp(180px, 20vw, 320px)", height: "auto" }}
+          />
         </div>
       </div>
     </main>
