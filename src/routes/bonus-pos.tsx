@@ -41,8 +41,9 @@ function BonusPos() {
         className="relative"
         style={{
           aspectRatio: `${IMG_W} / ${IMG_H}`,
-          width: "min(100vw, calc(100vh * " + IMG_W + " / " + IMG_H + "))",
-          height: "min(100vh, calc(100vw * " + IMG_H + " / " + IMG_W + "))",
+          width: `min(100vw, calc(100vh * ${IMG_W} / ${IMG_H}))`,
+          height: `min(100vh, calc(100vw * ${IMG_H} / ${IMG_W}))`,
+          containerType: "inline-size",
         }}
       >
         <img
@@ -60,10 +61,9 @@ function BonusPos() {
             left: "5.2%",
             top: "10%",
             fontSize: "9.2cqw",
-            containerType: "inline-size",
           }}
         >
-          <span style={{ fontSize: "9.2cqw" }}>{mm}:{ss}</span>
+          {mm}:{ss}
         </div>
 
         {/* Live QR covering the baked QR */}
@@ -79,6 +79,7 @@ function BonusPos() {
           }}
         />
       </div>
+
     </main>
   );
 }
