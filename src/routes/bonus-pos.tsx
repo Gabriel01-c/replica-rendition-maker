@@ -29,8 +29,8 @@ function BonusPos() {
   const ss = String(seconds % 60).padStart(2, "0");
 
   return (
-    <main className="fixed inset-0 overflow-hidden">
-      {/* Image fills viewport completely, no visible borders */}
+    <main className="fixed inset-0 overflow-hidden bg-[#01050b]">
+      {/* Image fills viewport; safe-padding around content absorbs any crop */}
       <img
         src={bg.url}
         alt=""
@@ -38,18 +38,20 @@ function BonusPos() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: "center center" }}
       />
-      {/* Countdown + QR overlaid on the left */}
+      {/* Countdown + QR positioned over the left side of the visible content.
+          Extended image is 2608x1355; original content sits centered inside.
+          Overlay uses % of viewport so it stays over Francisco's left area. */}
       <div
         className="absolute flex flex-col items-start"
         style={{
-          left: "6vw",
-          top: "14vh",
+          left: "22vw",
+          top: "20vh",
           gap: "clamp(14px, 2.2vh, 28px)",
         }}
       >
         <div
           className="text-white font-bold tabular-nums leading-none tracking-tight"
-          style={{ fontSize: "clamp(56px, 9vw, 150px)" }}
+          style={{ fontSize: "clamp(56px, 8vw, 140px)" }}
         >
           {mm}:{ss}
         </div>
@@ -57,7 +59,7 @@ function BonusPos() {
           src={qr.url}
           alt="QR Code"
           className="block"
-          style={{ width: "clamp(180px, 20vw, 320px)", height: "auto" }}
+          style={{ width: "clamp(160px, 16vw, 280px)", height: "auto" }}
         />
       </div>
     </main>
