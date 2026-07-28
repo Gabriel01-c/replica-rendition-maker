@@ -20,6 +20,7 @@ import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
 import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
 import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as CongressoRouteImport } from './routes/congresso'
+import { Route as BonusPosRouteImport } from './routes/bonus-pos'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PosGraduacaoOficialRoute = PosGraduacaoOficialRouteImport.update({
@@ -77,6 +78,11 @@ const CongressoRoute = CongressoRouteImport.update({
   path: '/congresso',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BonusPosRoute = BonusPosRouteImport.update({
+  id: '/bonus-pos',
+  path: '/bonus-pos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -85,6 +91,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bonus-pos': typeof BonusPosRoute
   '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bonus-pos': typeof BonusPosRoute
   '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
@@ -114,6 +122,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bonus-pos': typeof BonusPosRoute
   '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/bonus-pos'
     | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/bonus-pos'
     | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/bonus-pos'
     | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
@@ -173,6 +185,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BonusPosRoute: typeof BonusPosRoute
   CongressoRoute: typeof CongressoRoute
   EbookVasoativoRoute: typeof EbookVasoativoRoute
   EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
@@ -265,6 +278,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CongressoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus-pos': {
+      id: '/bonus-pos'
+      path: '/bonus-pos'
+      fullPath: '/bonus-pos'
+      preLoaderRoute: typeof BonusPosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -277,6 +297,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BonusPosRoute: BonusPosRoute,
   CongressoRoute: CongressoRoute,
   EbookVasoativoRoute: EbookVasoativoRoute,
   EbookVasoativoObgRoute: EbookVasoativoObgRoute,
@@ -292,13 +313,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
