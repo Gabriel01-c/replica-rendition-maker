@@ -29,8 +29,8 @@ function BonusPos() {
 
   return (
     <main
-      className="w-screen h-screen overflow-hidden bg-black bg-no-repeat bg-center bg-contain"
-      style={{ backgroundImage: `url(${bg.url})` }}
+      className="w-screen h-screen overflow-hidden bg-no-repeat bg-center bg-contain"
+      style={{ backgroundImage: `url(${bg.url})`, backgroundColor: "#02070d" }}
     >
       <div className="w-full h-full flex items-start justify-start">
         <div
