@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import bg from "@/assets/francisco-pos-safe.png.asset.json";
+import bg from "@/assets/francisco-pos-print.png.asset.json";
 import qr from "@/assets/qr-bonus-pos.png.asset.json";
 
 export const Route = createFileRoute("/bonus-pos")({
@@ -17,6 +17,10 @@ export const Route = createFileRoute("/bonus-pos")({
   component: BonusPos,
 });
 
+// Image intrinsic aspect ratio (from reference print)
+const IMG_W = 1600;
+const IMG_H = 900;
+
 function BonusPos() {
   const [seconds, setSeconds] = useState(30 * 60);
 
@@ -29,37 +33,50 @@ function BonusPos() {
   const ss = String(seconds % 60).padStart(2, "0");
 
   return (
-    <main className="fixed inset-0 overflow-hidden bg-[#01050b]">
-      {/* Image fills viewport; safe-padding around content absorbs any crop */}
-      <img
-        src={bg.url}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center center" }}
-      />
-      {/* Countdown + QR positioned over the left side of the visible content.
-          Extended image is 2608x1355; original content sits centered inside.
-          Overlay uses % of viewport so it stays over Francisco's left area. */}
+    <main className="fixed inset-0 overflow-hidden bg-[#01050b] grid place-items-center">
+      {/* Stage matches image aspect ratio; scales to fit viewport (contain).
+          All overlays are positioned in % of the stage so they land exactly
+          on the baked-in countdown/QR positions of the reference image. */}
       <div
-        className="absolute flex flex-col items-start"
+        className="relative"
         style={{
-          left: "22vw",
-          top: "20vh",
-          gap: "clamp(14px, 2.2vh, 28px)",
+          aspectRatio: `${IMG_W} / ${IMG_H}`,
+          width: "min(100vw, calc(100vh * " + IMG_W + " / " + IMG_H + "))",
+          height: "min(100vh, calc(100vw * " + IMG_H + " / " + IMG_W + "))",
         }}
       >
+        <img
+          src={bg.url}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-contain select-none"
+          draggable={false}
+        />
+
+        {/* Live countdown covering the baked "29:59" */}
         <div
-          className="text-white font-bold tabular-nums leading-none tracking-tight"
-          style={{ fontSize: "clamp(56px, 8vw, 140px)" }}
+          className="absolute text-white font-bold tabular-nums leading-none tracking-tight"
+          style={{
+            left: "5.2%",
+            top: "10%",
+            fontSize: "9.2cqw",
+            containerType: "inline-size",
+          }}
         >
-          {mm}:{ss}
+          <span style={{ fontSize: "9.2cqw" }}>{mm}:{ss}</span>
         </div>
+
+        {/* Live QR covering the baked QR */}
         <img
           src={qr.url}
           alt="QR Code"
-          className="block"
-          style={{ width: "clamp(160px, 16vw, 280px)", height: "auto" }}
+          className="absolute block"
+          style={{
+            left: "5.2%",
+            top: "31%",
+            width: "16%",
+            height: "auto",
+          }}
         />
       </div>
     </main>
