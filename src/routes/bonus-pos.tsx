@@ -59,7 +59,7 @@ function BonusPos() {
           src={qr.url}
           alt="QR Code"
           className="block"
-          style={{ width: "clamp(88px, 9vw, 140px)", height: "auto", marginTop: "clamp(8px, 1.5vh, 20px)" }}
+          style={{ width: "clamp(120px, 13vw, 200px)", height: "auto", marginTop: "clamp(8px, 1.5vh, 20px)" }}
         />
       </div>
     </main>
