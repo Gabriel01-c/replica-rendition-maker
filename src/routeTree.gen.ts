@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-oficial'
+import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
 import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
@@ -28,6 +29,12 @@ const PosGraduacaoOficialRoute = PosGraduacaoOficialRouteImport.update({
   path: '/pos-graduacao-oficial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PosGraduacaoAnestesiaObstetricaRoute =
+  PosGraduacaoAnestesiaObstetricaRouteImport.update({
+    id: '/pos-graduacao-anestesia-obstetrica',
+    path: '/pos-graduacao-anestesia-obstetrica',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PosGraduacaoRoute = PosGraduacaoRouteImport.update({
   id: '/pos-graduacao',
   path: '/pos-graduacao',
@@ -102,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
+  '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
 }
 export interface FileRoutesByTo {
@@ -117,6 +125,7 @@ export interface FileRoutesByTo {
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
+  '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
 }
 export interface FileRoutesById {
@@ -133,6 +142,7 @@ export interface FileRoutesById {
   '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
+  '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
+    | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +176,7 @@ export interface FileRouteTypes {
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
+    | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
   id:
     | '__root__'
@@ -180,6 +192,7 @@ export interface FileRouteTypes {
     | '/live-secreta-obg'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
+    | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
   fileRoutesById: FileRoutesById
 }
@@ -196,6 +209,7 @@ export interface RootRouteChildren {
   LiveSecretaObgRoute: typeof LiveSecretaObgRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
   PosGraduacaoRoute: typeof PosGraduacaoRoute
+  PosGraduacaoAnestesiaObstetricaRoute: typeof PosGraduacaoAnestesiaObstetricaRoute
   PosGraduacaoOficialRoute: typeof PosGraduacaoOficialRoute
 }
 
@@ -206,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/pos-graduacao-oficial'
       fullPath: '/pos-graduacao-oficial'
       preLoaderRoute: typeof PosGraduacaoOficialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pos-graduacao-anestesia-obstetrica': {
+      id: '/pos-graduacao-anestesia-obstetrica'
+      path: '/pos-graduacao-anestesia-obstetrica'
+      fullPath: '/pos-graduacao-anestesia-obstetrica'
+      preLoaderRoute: typeof PosGraduacaoAnestesiaObstetricaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pos-graduacao': {
@@ -308,18 +329,9 @@ const rootRouteChildren: RootRouteChildren = {
   LiveSecretaObgRoute: LiveSecretaObgRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
   PosGraduacaoRoute: PosGraduacaoRoute,
+  PosGraduacaoAnestesiaObstetricaRoute: PosGraduacaoAnestesiaObstetricaRoute,
   PosGraduacaoOficialRoute: PosGraduacaoOficialRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
