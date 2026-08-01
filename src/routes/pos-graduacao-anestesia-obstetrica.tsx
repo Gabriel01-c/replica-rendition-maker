@@ -37,12 +37,13 @@ const TEAL = "#5eead4";
 const TARGET_DATE = new Date("2026-08-15T20:00:00-03:00");
 
 function useCountdown() {
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
+    setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
-  const diff = Math.max(0, TARGET_DATE.getTime() - now.getTime());
+  const diff = now ? Math.max(0, TARGET_DATE.getTime() - now.getTime()) : 0;
   return [
     { value: Math.floor(diff / 86400000), label: "DIAS" },
     { value: Math.floor((diff / 3600000) % 24), label: "HRS" },
