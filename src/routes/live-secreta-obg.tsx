@@ -78,7 +78,7 @@ function LiveSecretaObgPage() {
             Sua participação está{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #E11D2A 0%, #FF4D4D 100%)",
+                background: `linear-gradient(135deg, ${AZURE_STRONG} 0%, #0088FF 100%)`,
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
