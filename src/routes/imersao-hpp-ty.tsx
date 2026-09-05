@@ -32,7 +32,13 @@ export const Route = createFileRoute("/imersao-hpp-ty")({
 
 function ImersaoHppTyPage() {
   return (
-    <main className="min-h-screen w-full bg-white flex flex-col">
+    <>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNNKN4GS" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />
+      <main className="min-h-screen w-full bg-white flex flex-col">
       {/* Faixa vermelha topo */}
       <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: RED }}>
         <div className="flex whitespace-nowrap animate-marquee">
