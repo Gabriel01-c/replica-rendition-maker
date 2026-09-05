@@ -61,7 +61,7 @@ function LiveSecretaObgPage() {
         <div className="w-full max-w-[560px] flex flex-col items-center text-center gap-6">
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: GREEN }}
+            style={{ backgroundColor: AZURE_STRONG }}
           >
             <Check size={36} strokeWidth={3} className="text-white" />
           </div>
