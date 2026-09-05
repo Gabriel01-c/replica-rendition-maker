@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 const RED = "#E11D2A";
 const GREEN = "#1FA84A";
 const AZURE_FLAT = "#007CF0";
-const WHATSAPP_URL = "https://chat.whatsapp.com/Jgyn3iV9qhG46UfY9q6xks";
+const WHATSAPP_URL = "https://chat.whatsapp.com/EcxKehfph0wIm6Jc5g8iX0?s=sw&p=i&mlu=0&ilr=4";
 
 export const Route = createFileRoute("/imersao-hpp-ty")({
   head: () => ({
