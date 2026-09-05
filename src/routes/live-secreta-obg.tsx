@@ -41,7 +41,7 @@ function LiveSecretaObgPage() {
           style={{ display: "none", visibility: "hidden" }}
         />
       </noscript>
-      <main className="min-h-screen w-full bg-black text-white flex flex-col">
+      <main className="min-h-screen w-full bg-white flex flex-col">
       {/* Faixa vermelha topo */}
       <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: RED }}>
         <div className="flex whitespace-nowrap animate-marquee">
