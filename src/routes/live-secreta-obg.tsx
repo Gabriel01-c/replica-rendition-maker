@@ -74,7 +74,17 @@ function LiveSecretaObgPage() {
               color: "transparent",
             }}
           >
-            Sua participação está <span style={{ color: RED }}>quase garantida</span>
+            Sua participação está{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #E11D2A 0%, #FF4D4D 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              quase garantida
+            </span>
           </h1>
 
           <p
