@@ -65,19 +65,35 @@ function LiveSecretaObgPage() {
             <Check size={36} strokeWidth={3} className="text-white" />
           </div>
 
-          <h1 className="text-[26px] md:text-4xl font-extrabold leading-[1.15]">
-            Sua vaga está <span style={{ color: RED }}>quase garantida</span>
+          <h1
+            className="text-[26px] md:text-4xl font-extrabold leading-[1.15]"
+            style={{
+              background: AZURE_GRADIENT,
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            Sua participação está <span style={{ color: RED }}>quase garantida</span>
           </h1>
 
-          <p className="text-[15px] md:text-base text-white/85 leading-relaxed">
-            Falta apenas <strong>um último passo</strong>: clique no botão abaixo
-            para entrar no <strong>grupo reservado no WhatsApp</strong>. É por
-            lá que você vai receber o link da reunião e os avisos antes da live
-            começar.
+          <p
+            className="text-[15px] md:text-base leading-relaxed"
+            style={{ color: "#1a3a5c" }}
+          >
+            Falta o próximo passo: clique no botão abaixo para entrar no{" "}
+            <strong>grupo oficial do WhatsApp</strong>. É por lá que você vai
+            receber o link da imersão e os avisos antes de começar.
           </p>
 
-          <div className="w-full rounded-md border border-white/15 bg-white/5 p-4 text-left">
-            <p className="text-[13px] md:text-sm text-white/80 leading-snug">
+          <div
+            className="w-full rounded-md border p-4 text-left"
+            style={{ borderColor: "rgba(0,124,240,0.2)", backgroundColor: "rgba(0,124,240,0.05)" }}
+          >
+            <p
+              className="text-[13px] md:text-sm leading-snug"
+              style={{ color: "#1a3a5c" }}
+            >
               <strong className="block mb-1" style={{ color: RED }}>
                 Importante
               </strong>
