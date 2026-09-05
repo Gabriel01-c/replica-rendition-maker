@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 
 const RED = "#E11D2A";
 const GREEN = "#1FA84A";
+const AZURE_STRONG = "#0066CC";
 const WHATSAPP_URL = "https://chat.whatsapp.com/Jgyn3iV9qhG46UfY9q6xks";
 const AZURE_GRADIENT = "linear-gradient(135deg, #007CF0 0%, #00BFFF 50%, #7EC8E3 100%)";
 
@@ -60,7 +61,7 @@ function LiveSecretaObgPage() {
         <div className="w-full max-w-[560px] flex flex-col items-center text-center gap-6">
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: GREEN }}
+            style={{ backgroundColor: AZURE_STRONG }}
           >
             <Check size={36} strokeWidth={3} className="text-white" />
           </div>
@@ -77,7 +78,7 @@ function LiveSecretaObgPage() {
             Sua participação está{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #E11D2A 0%, #FF4D4D 100%)",
+                background: `linear-gradient(135deg, ${AZURE_STRONG} 0%, #0088FF 100%)`,
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
@@ -108,7 +109,7 @@ function LiveSecretaObgPage() {
                 Importante
               </strong>
               Sem entrar no grupo, você não vai receber o link de acesso à
-              reunião fechada no Google Meet.
+              imersão.
             </p>
           </div>
 
