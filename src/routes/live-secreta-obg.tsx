@@ -9,15 +9,15 @@ const AZURE_GRADIENT = "linear-gradient(135deg, #007CF0 0%, #00BFFF 50%, #7EC8E3
 export const Route = createFileRoute("/live-secreta-obg")({
   head: () => ({
     meta: [
-      { title: "Obrigado — Live Secreta" },
+      { title: "Obrigado — Imersão" },
       {
         name: "description",
-        content: "Inscrição confirmada. Entre no grupo reservado no WhatsApp para receber o link da reunião.",
+        content: "Inscrição confirmada. Entre no grupo oficial da imersão no WhatsApp para receber o link.",
       },
-      { property: "og:title", content: "Obrigado — Live Secreta" },
+      { property: "og:title", content: "Obrigado — Imersão" },
       {
         property: "og:description",
-        content: "Inscrição confirmada. Entre no grupo reservado no WhatsApp.",
+        content: "Inscrição confirmada. Entre no grupo oficial da imersão no WhatsApp.",
       },
     ],
     scripts: [
