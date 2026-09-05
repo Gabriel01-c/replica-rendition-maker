@@ -1,117 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
-import capaFisioFarmac from "@/assets/capa-fisio-farmac.png";
-import capaEbookVasoativo from "@/assets/capa-ebook-vasoativo.png";
-import capaViasAereas from "@/assets/capa-vias-aereas.jpeg";
-
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/congresso")({
   head: () => ({
     meta: [
-      { title: "Método RAC — Congresso" },
+      {
+        title:
+          "Imersão Hemorragia Pós-Parto | Dr. Francisco Amaral Egydio",
+      },
       {
         name: "description",
         content:
-          "Como Raciocinar com segurança na anestesia obstétrica — Método RAC.",
+          "Uma imersão online para anestesiologistas dominarem a condução clínica da hemorragia pós-parto.",
       },
     ],
   }),
   component: CongressoPage,
 });
 
-const NAVY = "#02035b";
-const TEAL = "#01b796";
-const VIOLET = "#5758fa";
-
 function CongressoPage() {
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const previousMargin = document.body.style.margin;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.margin = "0";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.margin = previousMargin;
+    };
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: NAVY }}>
-      {/* Listras sutis ao fundo */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 40px,
-            #ffffff 40px,
-            #ffffff 41px
-          )`,
-        }}
-      />
-
-      {/* Conteúdo centralizado */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-16">
-        {/* MÉTODO RAC discreto */}
-        <span
-          className="mb-3 inline-block text-sm font-bold uppercase tracking-[0.25em] text-white/40"
-        >
-          MÉTODO RAC
-        </span>
-
-        {/* Título */}
-        <h1
-          className="mb-14 max-w-3xl text-center text-3xl font-black leading-tight text-white md:text-5xl lg:text-6xl"
-        >
-          Raciocínio Clínico aplicado à prática real da{" "}
-          <span style={{ color: TEAL }}>Anestesia Obstétrica</span>
-        </h1>
-
-        {/* Subtítulo */}
-        <p className="mb-14 max-w-2xl text-center text-lg font-semibold text-white/80 md:text-xl">
-          Use o código <span className="rounded bg-white/15 px-2 py-0.5 font-bold text-white">CONGRESSO</span> e garanta seu desconto exclusivo no curso
-        </p>
-
-        {/* 3 Cards */}
-        <div className="grid w-full max-w-5xl gap-6 sm:grid-cols-3">
-          {/* Card 1 */}
-          <a
-            href="https://pay.hub.la/xPrruJVoPpKMO0zfGIsL"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="animate-float-1 group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10"
-          >
-            <div className="aspect-[4/5] overflow-hidden rounded-xl">
-              <img
-                src={capaFisioFarmac}
-                alt="Como Raciocinar com Segurança na Anestesia Obstétrica"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          </a>
-
-          {/* Card 2 */}
-          <a
-            href="https://pay.hub.la/uhQNUwjwUBDDXRh15Uun"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="animate-float-2 group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10"
-          >
-            <div className="aspect-[4/5] overflow-hidden rounded-xl">
-              <img
-                src={capaEbookVasoativo}
-                alt="Como Escolher o Vasoativo Certo no Plantão"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          </a>
-
-          {/* Card 3 */}
-          <a
-            href="https://pay.hub.la/3rzxUpiSVGGSHi9ReKFR"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="animate-float-3 group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10"
-          >
-            <div className="aspect-[4/5] overflow-hidden rounded-xl">
-              <img
-                src={capaViasAereas}
-                alt="Como Dominar Vias Aéreas na Emergência"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
+    <iframe
+      title="Imersão Hemorragia Pós-Parto"
+      src="/congresso-site/index.html"
+      className="block h-dvh w-full border-0 bg-white"
+      allow="clipboard-write"
+    />
   );
 }
