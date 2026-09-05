@@ -20,13 +20,25 @@ export const Route = createFileRoute("/imersao-hpp-ty")({
         content: "Inscrição confirmada. Entre no grupo oficial da imersão no WhatsApp.",
       },
     ],
+    scripts: [
+      {
+        type: "text/javascript",
+        children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NNNKN4GS');`,
+      },
+    ],
   }),
   component: ImersaoHppTyPage,
 });
 
 function ImersaoHppTyPage() {
   return (
-    <main className="min-h-screen w-full bg-white flex flex-col">
+    <>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNNKN4GS" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />
+      <main className="min-h-screen w-full bg-white flex flex-col">
       {/* Faixa vermelha topo */}
       <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: RED }}>
         <div className="flex whitespace-nowrap animate-marquee">
@@ -110,5 +122,6 @@ function ImersaoHppTyPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }
