@@ -13,8 +13,8 @@ import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-
 import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
 import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
-import { Route as LiveSecretaObgRouteImport } from './routes/live-secreta-obg'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
+import { Route as ImersaoHppTyRouteImport } from './routes/imersao-hpp-ty'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
 import { Route as EbookViasaereasObgRouteImport } from './routes/ebook-viasaereas-obg'
 import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
@@ -45,14 +45,14 @@ const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
   path: '/live-secreta-polemicas',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LiveSecretaObgRoute = LiveSecretaObgRouteImport.update({
-  id: '/live-secreta-obg',
-  path: '/live-secreta-obg',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LiveSecretaRoute = LiveSecretaRouteImport.update({
   id: '/live-secreta',
   path: '/live-secreta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImersaoHppTyRoute = ImersaoHppTyRouteImport.update({
+  id: '/imersao-hpp-ty',
+  path: '/imersao-hpp-ty',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
@@ -105,8 +105,8 @@ export interface FileRoutesByFullPath {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta': typeof LiveSecretaRoute
-  '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
@@ -121,8 +121,8 @@ export interface FileRoutesByTo {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta': typeof LiveSecretaRoute
-  '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
@@ -138,8 +138,8 @@ export interface FileRoutesById {
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta': typeof LiveSecretaRoute
-  '/live-secreta-obg': typeof LiveSecretaObgRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
@@ -156,8 +156,8 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
+    | '/imersao-hpp-ty'
     | '/live-secreta'
-    | '/live-secreta-obg'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
@@ -172,8 +172,8 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
+    | '/imersao-hpp-ty'
     | '/live-secreta'
-    | '/live-secreta-obg'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
@@ -188,8 +188,8 @@ export interface FileRouteTypes {
     | '/ebook-vias-aereas'
     | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
+    | '/imersao-hpp-ty'
     | '/live-secreta'
-    | '/live-secreta-obg'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
@@ -205,8 +205,8 @@ export interface RootRouteChildren {
   EbookViasAereasRoute: typeof EbookViasAereasRoute
   EbookViasaereasObgRoute: typeof EbookViasaereasObgRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
+  ImersaoHppTyRoute: typeof ImersaoHppTyRoute
   LiveSecretaRoute: typeof LiveSecretaRoute
-  LiveSecretaObgRoute: typeof LiveSecretaObgRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
   PosGraduacaoRoute: typeof PosGraduacaoRoute
   PosGraduacaoAnestesiaObstetricaRoute: typeof PosGraduacaoAnestesiaObstetricaRoute
@@ -243,18 +243,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LiveSecretaPolemicasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/live-secreta-obg': {
-      id: '/live-secreta-obg'
-      path: '/live-secreta-obg'
-      fullPath: '/live-secreta-obg'
-      preLoaderRoute: typeof LiveSecretaObgRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/live-secreta': {
       id: '/live-secreta'
       path: '/live-secreta'
       fullPath: '/live-secreta'
       preLoaderRoute: typeof LiveSecretaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imersao-hpp-ty': {
+      id: '/imersao-hpp-ty'
+      path: '/imersao-hpp-ty'
+      fullPath: '/imersao-hpp-ty'
+      preLoaderRoute: typeof ImersaoHppTyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fisiologia-farmacologia': {
@@ -325,8 +325,8 @@ const rootRouteChildren: RootRouteChildren = {
   EbookViasAereasRoute: EbookViasAereasRoute,
   EbookViasaereasObgRoute: EbookViasaereasObgRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
+  ImersaoHppTyRoute: ImersaoHppTyRoute,
   LiveSecretaRoute: LiveSecretaRoute,
-  LiveSecretaObgRoute: LiveSecretaObgRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
   PosGraduacaoRoute: PosGraduacaoRoute,
   PosGraduacaoAnestesiaObstetricaRoute: PosGraduacaoAnestesiaObstetricaRoute,

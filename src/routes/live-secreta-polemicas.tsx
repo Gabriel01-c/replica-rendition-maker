@@ -121,7 +121,7 @@ function LiveSecretaPolemicasPage() {
     } catch (err) {
       console.error("lead submit error", err);
     }
-    window.location.href = "/live-secreta-obg";
+    window.location.href = "/imersao-hpp-ty";
   };
 
   const ctaButton = (
