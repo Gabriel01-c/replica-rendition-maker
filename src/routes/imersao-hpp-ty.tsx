@@ -5,9 +5,8 @@ const RED = "#E11D2A";
 const GREEN = "#1FA84A";
 const AZURE_FLAT = "#007CF0";
 const WHATSAPP_URL = "https://chat.whatsapp.com/Jgyn3iV9qhG46UfY9q6xks";
-const AZURE_GRADIENT = "linear-gradient(135deg, #007CF0 0%, #00BFFF 50%, #7EC8E3 100%)";
 
-export const Route = createFileRoute("/live-secreta-obg")({
+export const Route = createFileRoute("/imersao-hpp-ty")({
   head: () => ({
     meta: [
       { title: "Obrigado — Imersão" },
@@ -21,28 +20,13 @@ export const Route = createFileRoute("/live-secreta-obg")({
         content: "Inscrição confirmada. Entre no grupo oficial da imersão no WhatsApp.",
       },
     ],
-    scripts: [
-      {
-        type: "text/javascript",
-        children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KXJTGGKS');`,
-      },
-    ],
   }),
-  component: LiveSecretaObgPage,
+  component: ImersaoHppTyPage,
 });
 
-function LiveSecretaObgPage() {
+function ImersaoHppTyPage() {
   return (
-    <>
-      <noscript>
-        <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-KXJTGGKS"
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden" }}
-        />
-      </noscript>
-      <main className="min-h-screen w-full bg-white flex flex-col">
+    <main className="min-h-screen w-full bg-white flex flex-col">
       {/* Faixa vermelha topo */}
       <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: RED }}>
         <div className="flex whitespace-nowrap animate-marquee">
@@ -126,6 +110,5 @@ function LiveSecretaObgPage() {
         </div>
       </div>
     </main>
-    </>
   );
 }
