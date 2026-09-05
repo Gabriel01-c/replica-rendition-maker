@@ -106,7 +106,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isFisiologiaFarmacologia = pathname === "/fisiologia-farmacologia";
   const isEbookViasAereas = pathname === "/ebook-vias-aereas" || pathname === "/ebook-viasaereas-obg";
-  const excludeGlobalGtm = isFisiologiaFarmacologia || isEbookViasAereas;
+  const isImersaoHppTy = pathname === "/imersao-hpp-ty";
+  const excludeGlobalGtm = isFisiologiaFarmacologia || isEbookViasAereas || isImersaoHppTy;
 
   return (
     <html lang="en">
