@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const RED = "#E11D2A";
 const GREEN = "#1FA84A";
-const AZURE_STRONG = "#0066CC";
+const AZURE_FLAT = "#007CF0";
 const WHATSAPP_URL = "https://chat.whatsapp.com/Jgyn3iV9qhG46UfY9q6xks";
 const AZURE_GRADIENT = "linear-gradient(135deg, #007CF0 0%, #00BFFF 50%, #7EC8E3 100%)";
 
@@ -61,31 +61,16 @@ function LiveSecretaObgPage() {
         <div className="w-full max-w-[560px] flex flex-col items-center text-center gap-6">
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: AZURE_STRONG }}
+            style={{ backgroundColor: AZURE_FLAT }}
           >
             <Check size={36} strokeWidth={3} className="text-white" />
           </div>
 
           <h1
             className="text-[26px] md:text-4xl font-extrabold leading-[1.15]"
-            style={{
-              background: AZURE_GRADIENT,
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
+            style={{ color: AZURE_FLAT }}
           >
-            Sua participação está{" "}
-            <span
-              style={{
-                background: `linear-gradient(135deg, ${AZURE_STRONG} 0%, #0088FF 100%)`,
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              quase garantida
-            </span>
+            Sua participação está quase garantida
           </h1>
 
           <p
