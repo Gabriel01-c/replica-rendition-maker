@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
-export const Route = createFileRoute("/congresso")({
+export const Route = createFileRoute("/imersao-hpp-2")({
   head: () => ({
     meta: [
       {

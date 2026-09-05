@@ -15,12 +15,12 @@ import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
 import { Route as ImersaoHppTyRouteImport } from './routes/imersao-hpp-ty'
+import { Route as ImersaoHpp2RouteImport } from './routes/imersao-hpp-2'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
 import { Route as EbookViasaereasObgRouteImport } from './routes/ebook-viasaereas-obg'
 import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
 import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
 import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
-import { Route as CongressoRouteImport } from './routes/congresso'
 import { Route as BonusPosRouteImport } from './routes/bonus-pos'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -55,6 +55,11 @@ const ImersaoHppTyRoute = ImersaoHppTyRouteImport.update({
   path: '/imersao-hpp-ty',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImersaoHpp2Route = ImersaoHpp2RouteImport.update({
+  id: '/imersao-hpp-2',
+  path: '/imersao-hpp-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
   id: '/fisiologia-farmacologia',
   path: '/fisiologia-farmacologia',
@@ -80,11 +85,6 @@ const EbookVasoativoRoute = EbookVasoativoRouteImport.update({
   path: '/ebook-vasoativo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CongressoRoute = CongressoRouteImport.update({
-  id: '/congresso',
-  path: '/congresso',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BonusPosRoute = BonusPosRouteImport.update({
   id: '/bonus-pos',
   path: '/bonus-pos',
@@ -99,12 +99,12 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bonus-pos': typeof BonusPosRoute
-  '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
@@ -115,12 +115,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bonus-pos': typeof BonusPosRoute
-  '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
@@ -132,12 +132,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bonus-pos': typeof BonusPosRoute
-  '/congresso': typeof CongressoRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
   '/ebook-vias-aereas': typeof EbookViasAereasRoute
   '/ebook-viasaereas-obg': typeof EbookViasaereasObgRoute
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
+  '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
@@ -150,12 +150,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bonus-pos'
-    | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
     | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
+    | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
     | '/live-secreta'
     | '/live-secreta-polemicas'
@@ -166,12 +166,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bonus-pos'
-    | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
     | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
+    | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
     | '/live-secreta'
     | '/live-secreta-polemicas'
@@ -182,12 +182,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bonus-pos'
-    | '/congresso'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
     | '/ebook-vias-aereas'
     | '/ebook-viasaereas-obg'
     | '/fisiologia-farmacologia'
+    | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
     | '/live-secreta'
     | '/live-secreta-polemicas'
@@ -199,12 +199,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BonusPosRoute: typeof BonusPosRoute
-  CongressoRoute: typeof CongressoRoute
   EbookVasoativoRoute: typeof EbookVasoativoRoute
   EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
   EbookViasAereasRoute: typeof EbookViasAereasRoute
   EbookViasaereasObgRoute: typeof EbookViasaereasObgRoute
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
+  ImersaoHpp2Route: typeof ImersaoHpp2Route
   ImersaoHppTyRoute: typeof ImersaoHppTyRoute
   LiveSecretaRoute: typeof LiveSecretaRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
@@ -257,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImersaoHppTyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/imersao-hpp-2': {
+      id: '/imersao-hpp-2'
+      path: '/imersao-hpp-2'
+      fullPath: '/imersao-hpp-2'
+      preLoaderRoute: typeof ImersaoHpp2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fisiologia-farmacologia': {
       id: '/fisiologia-farmacologia'
       path: '/fisiologia-farmacologia'
@@ -292,13 +299,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EbookVasoativoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/congresso': {
-      id: '/congresso'
-      path: '/congresso'
-      fullPath: '/congresso'
-      preLoaderRoute: typeof CongressoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/bonus-pos': {
       id: '/bonus-pos'
       path: '/bonus-pos'
@@ -319,12 +319,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BonusPosRoute: BonusPosRoute,
-  CongressoRoute: CongressoRoute,
   EbookVasoativoRoute: EbookVasoativoRoute,
   EbookVasoativoObgRoute: EbookVasoativoObgRoute,
   EbookViasAereasRoute: EbookViasAereasRoute,
   EbookViasaereasObgRoute: EbookViasaereasObgRoute,
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
+  ImersaoHpp2Route: ImersaoHpp2Route,
   ImersaoHppTyRoute: ImersaoHppTyRoute,
   LiveSecretaRoute: LiveSecretaRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
