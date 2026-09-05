@@ -68,24 +68,9 @@ function LiveSecretaObgPage() {
 
           <h1
             className="text-[26px] md:text-4xl font-extrabold leading-[1.15]"
-            style={{
-              background: AZURE_GRADIENT,
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
+            style={{ color: AZURE_FLAT }}
           >
-            Sua participação está{" "}
-            <span
-              style={{
-                background: `linear-gradient(135deg, ${AZURE_STRONG} 0%, #0088FF 100%)`,
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              quase garantida
-            </span>
+            Sua participação está quase garantida
           </h1>
 
           <p
