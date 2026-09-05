@@ -109,7 +109,7 @@ function LiveSecretaObgPage() {
                 Importante
               </strong>
               Sem entrar no grupo, você não vai receber o link de acesso à
-              reunião fechada no Google Meet.
+              imersão.
             </p>
           </div>
 
