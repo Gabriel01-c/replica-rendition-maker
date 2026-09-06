@@ -16,7 +16,7 @@ const pageCss = sourceCss
   )
   .replaceAll("url('assets/operating-room.png')", "url('/congresso-site/assets/operating-room.webp')")
   .concat(
-    "@font-face{font-family:'Inter Tight';src:url('/congresso-site/assets/fonts/inter-tight-latin.woff2') format('woff2');font-style:normal;font-weight:300 900;font-display:swap}.hpp2-root .section{content-visibility:auto;contain-intrinsic-size:auto 850px}.hpp2-root img{max-width:100%}@media(max-width:820px){.hpp2-root .hero,.hpp2-root .layout{min-height:auto}.hpp2-root .layout{padding-bottom:28px}}",
+    "@font-face{font-family:'Inter Tight';src:url('/congresso-site/assets/fonts/inter-tight-latin.woff2') format('woff2');font-style:normal;font-weight:300 900;font-display:swap}.hpp2-root .section{content-visibility:auto;contain-intrinsic-size:auto 850px}.hpp2-root img{max-width:100%}@media(max-width:820px){.hpp2-root .hero{height:calc(100dvh - 34px);min-height:calc(100dvh - 34px)}.hpp2-root .layout{height:100%;min-height:0;padding-bottom:max(13px,env(safe-area-inset-bottom));overflow:hidden}.hpp2-root .content{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between}.hpp2-root .cta{flex:none}}@media(max-width:390px) and (max-height:760px){.hpp2-root .content{justify-content:flex-start}}",
   );
 
 const pageMarkup = sourceBody
