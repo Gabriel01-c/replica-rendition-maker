@@ -16,7 +16,7 @@ const pageCss = sourceCss
   )
   .replaceAll("url('assets/operating-room.png')", "url('/congresso-site/assets/operating-room.webp')")
   .concat(
-    "@font-face{font-family:'Inter Tight';src:url('/congresso-site/assets/fonts/inter-tight-latin.woff2') format('woff2');font-style:normal;font-weight:300 900;font-display:swap}.hpp2-root .section{content-visibility:auto;contain-intrinsic-size:auto 850px}.hpp2-root img{max-width:100%}",
+    "@font-face{font-family:'Inter Tight';src:url('/congresso-site/assets/fonts/inter-tight-latin.woff2') format('woff2');font-style:normal;font-weight:300 900;font-display:swap}.hpp2-root .section{content-visibility:auto;contain-intrinsic-size:auto 850px}.hpp2-root img{max-width:100%}@media(max-width:820px){.hpp2-root .hero,.hpp2-root .layout{min-height:auto}.hpp2-root .layout{padding-bottom:28px}}",
   );
 
 const pageMarkup = sourceBody
