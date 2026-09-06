@@ -88,12 +88,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Inter+Tight:wght@300;400;500;600&display=swap",
-      },
     ],
   }),
   shellComponent: RootShell,
@@ -107,11 +101,22 @@ function RootShell({ children }: { children: React.ReactNode }) {
   const isFisiologiaFarmacologia = pathname === "/fisiologia-farmacologia";
   const isEbookViasAereas = pathname === "/ebook-vias-aereas" || pathname === "/ebook-viasaereas-obg";
   const isImersaoHppTy = pathname === "/imersao-hpp-ty";
-  const excludeGlobalGtm = isFisiologiaFarmacologia || isEbookViasAereas || isImersaoHppTy;
+  const isImersaoHpp2 = pathname === "/imersao-hpp-2";
+  const excludeGlobalGtm = isFisiologiaFarmacologia || isEbookViasAereas || isImersaoHppTy || isImersaoHpp2;
 
   return (
     <html lang="en">
       <head>
+        {!isImersaoHpp2 && (
+          <>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Inter+Tight:wght@300;400;500;600&display=swap"
+            />
+          </>
+        )}
         {!excludeGlobalGtm && (
           <script
             dangerouslySetInnerHTML={{
@@ -119,11 +124,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
             }}
           />
         )}
-        <script
+        {!isImersaoHpp2 && <script
           dangerouslySetInnerHTML={{
             __html: `(function(dashfacil, d, s, id){var df = window.dashfacil = window.dashfacil || {};df._c = df._c || [];var js, fjs = d.getElementsByTagName(s)[0];if (!fjs) { return; }js = d.createElement(s); js.id = id;js.src = "//server.dashfacil.com/static/assets/rastreio.js?v=" + Date.now();fjs.parentNode.insertBefore(js, fjs);df.dfq = function(k, v) { df._c.push([k, v]); };df.dfq('init', '1759');})(window, document, 'script', 'dashfacil-js');`,
           }}
-        />
+        />}
         <HeadContent />
       </head>
       <body>

@@ -16,14 +16,14 @@ const pageCss = sourceCss
   )
   .replaceAll("url('assets/operating-room.png')", "url('/congresso-site/assets/operating-room.webp')")
   .concat(
-    ".hpp2-root .section{content-visibility:auto;contain-intrinsic-size:auto 850px}.hpp2-root img{max-width:100%}",
+    "@font-face{font-family:'Inter Tight';src:url('/congresso-site/assets/fonts/inter-tight-latin.woff2') format('woff2');font-style:normal;font-weight:300 900;font-display:swap}.hpp2-root .section{content-visibility:auto;contain-intrinsic-size:auto 850px}.hpp2-root img{max-width:100%}",
   );
 
 const pageMarkup = sourceBody
   .replace(/<script>[\s\S]*?<\/script>/g, "")
   .replace(
     'src="assets/francisco-transparent.png"',
-    'src="/congresso-site/assets/francisco-hero.webp" width="900" height="1350" decoding="async"',
+    'src="/congresso-site/assets/francisco-hero.webp" srcset="/congresso-site/assets/francisco-hero-480.webp 480w, /congresso-site/assets/francisco-hero.webp 900w" sizes="(max-width: 820px) 100vw, 50vw" width="900" height="1350" loading="eager" fetchpriority="high" decoding="async"',
   )
   .replace(
     'src="assets/francisco-labcoat-transparent.png"',
@@ -31,11 +31,15 @@ const pageMarkup = sourceBody
   )
   .replace(
     'src="assets/logo-hpp.png"',
-    'src="/congresso-site/assets/logo-hpp.webp" width="960" height="228" decoding="async"',
+    'src="/congresso-site/assets/logo-hpp.webp" srcset="/congresso-site/assets/logo-hpp-520.webp 520w, /congresso-site/assets/logo-hpp.webp 960w" sizes="(max-width: 820px) 305px, 455px" width="960" height="228" decoding="async"',
   )
   .replace(
     'src="assets/logo-imersao.png"',
     'src="/congresso-site/assets/logo-imersao.png" width="419" height="99" decoding="async"',
+  )
+  .replace(
+    'role="progressbar" aria-valuemin="0"',
+    'role="progressbar" aria-label="45% dos ingressos vendidos" aria-valuemin="0"',
   );
 
 export const Route = createFileRoute("/imersao-hpp-2")({
@@ -54,9 +58,24 @@ export const Route = createFileRoute("/imersao-hpp-2")({
     links: [
       {
         rel: "preload",
+        as: "font",
+        href: "/congresso-site/assets/fonts/inter-tight-latin.woff2",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/congresso-site/assets/francisco-hero-480.webp",
+        type: "image/webp",
+        media: "(max-width: 820px)",
+      },
+      {
+        rel: "preload",
         as: "image",
         href: "/congresso-site/assets/francisco-hero.webp",
         type: "image/webp",
+        media: "(min-width: 821px)",
       },
     ],
   }),
@@ -69,6 +88,36 @@ function ImersaoHppPage() {
   useEffect(() => {
     const root = pageRef.current;
     if (!root) return;
+
+    let trackingLoaded = false;
+    const loadTracking = () => {
+      if (trackingLoaded) return;
+      trackingLoaded = true;
+
+      const trackedWindow = window as typeof window & { dataLayer?: Record<string, unknown>[] };
+      trackedWindow.dataLayer = trackedWindow.dataLayer || [];
+      trackedWindow.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+      const gtm = document.createElement("script");
+      gtm.async = true;
+      gtm.src = "https://www.googletagmanager.com/gtm.js?id=GTM-NNNKN4GS";
+      document.head.appendChild(gtm);
+
+      const dashWindow = window as typeof window & {
+        dashfacil?: { _c?: unknown[][]; dfq?: (key: string, value: string) => void };
+      };
+      const dashfacil = (dashWindow.dashfacil = dashWindow.dashfacil || {});
+      dashfacil._c = dashfacil._c || [];
+      dashfacil.dfq = (key, value) => dashfacil._c?.push([key, value]);
+      dashfacil.dfq("init", "1759");
+      const dash = document.createElement("script");
+      dash.async = true;
+      dash.id = "dashfacil-js";
+      dash.src = "https://server.dashfacil.com/static/assets/rastreio.js";
+      document.head.appendChild(dash);
+    };
+    const trackingTimer = window.setTimeout(loadTracking, 6000);
+    window.addEventListener("pointerdown", loadTracking, { once: true, passive: true });
+    window.addEventListener("scroll", loadTracking, { once: true, passive: true });
 
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -134,6 +183,9 @@ function ImersaoHppPage() {
       ctaObserver.disconnect();
       faqCleanups.forEach((cleanup) => cleanup());
       window.removeEventListener("scroll", updateFloating);
+      window.clearTimeout(trackingTimer);
+      window.removeEventListener("pointerdown", loadTracking);
+      window.removeEventListener("scroll", loadTracking);
     };
   }, []);
 
