@@ -9,11 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QuizImersaoHppRouteImport } from './routes/quiz-imersao-hpp'
 import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-oficial'
 import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
 import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
-import { Route as LiveSecretaRouteImport } from './routes/live-secreta'
 import { Route as ImersaoHppTyRouteImport } from './routes/imersao-hpp-ty'
 import { Route as ImersaoHpp2RouteImport } from './routes/imersao-hpp-2'
 import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
@@ -24,6 +24,11 @@ import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as BonusPosRouteImport } from './routes/bonus-pos'
 import { Route as IndexRouteImport } from './routes/index'
 
+const QuizImersaoHppRoute = QuizImersaoHppRouteImport.update({
+  id: '/quiz-imersao-hpp',
+  path: '/quiz-imersao-hpp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PosGraduacaoOficialRoute = PosGraduacaoOficialRouteImport.update({
   id: '/pos-graduacao-oficial',
   path: '/pos-graduacao-oficial',
@@ -43,11 +48,6 @@ const PosGraduacaoRoute = PosGraduacaoRouteImport.update({
 const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
   id: '/live-secreta-polemicas',
   path: '/live-secreta-polemicas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LiveSecretaRoute = LiveSecretaRouteImport.update({
-  id: '/live-secreta',
-  path: '/live-secreta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImersaoHppTyRoute = ImersaoHppTyRouteImport.update({
@@ -106,11 +106,11 @@ export interface FileRoutesByFullPath {
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
-  '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
+  '/quiz-imersao-hpp': typeof QuizImersaoHppRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -122,11 +122,11 @@ export interface FileRoutesByTo {
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
-  '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
+  '/quiz-imersao-hpp': typeof QuizImersaoHppRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -139,11 +139,11 @@ export interface FileRoutesById {
   '/fisiologia-farmacologia': typeof FisiologiaFarmacologiaRoute
   '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
-  '/live-secreta': typeof LiveSecretaRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
+  '/quiz-imersao-hpp': typeof QuizImersaoHppRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -157,11 +157,11 @@ export interface FileRouteTypes {
     | '/fisiologia-farmacologia'
     | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
-    | '/live-secreta'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
+    | '/quiz-imersao-hpp'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -173,11 +173,11 @@ export interface FileRouteTypes {
     | '/fisiologia-farmacologia'
     | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
-    | '/live-secreta'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
+    | '/quiz-imersao-hpp'
   id:
     | '__root__'
     | '/'
@@ -189,11 +189,11 @@ export interface FileRouteTypes {
     | '/fisiologia-farmacologia'
     | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
-    | '/live-secreta'
     | '/live-secreta-polemicas'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
+    | '/quiz-imersao-hpp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -206,15 +206,22 @@ export interface RootRouteChildren {
   FisiologiaFarmacologiaRoute: typeof FisiologiaFarmacologiaRoute
   ImersaoHpp2Route: typeof ImersaoHpp2Route
   ImersaoHppTyRoute: typeof ImersaoHppTyRoute
-  LiveSecretaRoute: typeof LiveSecretaRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
   PosGraduacaoRoute: typeof PosGraduacaoRoute
   PosGraduacaoAnestesiaObstetricaRoute: typeof PosGraduacaoAnestesiaObstetricaRoute
   PosGraduacaoOficialRoute: typeof PosGraduacaoOficialRoute
+  QuizImersaoHppRoute: typeof QuizImersaoHppRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/quiz-imersao-hpp': {
+      id: '/quiz-imersao-hpp'
+      path: '/quiz-imersao-hpp'
+      fullPath: '/quiz-imersao-hpp'
+      preLoaderRoute: typeof QuizImersaoHppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pos-graduacao-oficial': {
       id: '/pos-graduacao-oficial'
       path: '/pos-graduacao-oficial'
@@ -241,13 +248,6 @@ declare module '@tanstack/react-router' {
       path: '/live-secreta-polemicas'
       fullPath: '/live-secreta-polemicas'
       preLoaderRoute: typeof LiveSecretaPolemicasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/live-secreta': {
-      id: '/live-secreta'
-      path: '/live-secreta'
-      fullPath: '/live-secreta'
-      preLoaderRoute: typeof LiveSecretaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/imersao-hpp-ty': {
@@ -326,11 +326,11 @@ const rootRouteChildren: RootRouteChildren = {
   FisiologiaFarmacologiaRoute: FisiologiaFarmacologiaRoute,
   ImersaoHpp2Route: ImersaoHpp2Route,
   ImersaoHppTyRoute: ImersaoHppTyRoute,
-  LiveSecretaRoute: LiveSecretaRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
   PosGraduacaoRoute: PosGraduacaoRoute,
   PosGraduacaoAnestesiaObstetricaRoute: PosGraduacaoAnestesiaObstetricaRoute,
   PosGraduacaoOficialRoute: PosGraduacaoOficialRoute,
+  QuizImersaoHppRoute: QuizImersaoHppRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
