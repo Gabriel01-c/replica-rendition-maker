@@ -1,246 +1,323 @@
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Video, Calendar, Monitor, Check, Lock, X } from "lucide-react";
-import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-
-const WEBHOOK_URL = "https://n8n-n8n.s7gbvq.easypanel.host/webhook/livei-secreta";
+import "./live-secreta.css";
 
 export const Route = createFileRoute("/live-secreta")({
-  head: () => ({
-    meta: [
-      { title: "Live Secreta — Dr. Francisco Amaral" },
-      {
-        name: "description",
-        content:
-          "Reunião fechada no Google Meet com Dr. Francisco Amaral — decisões mais seguras em anestesia obstétrica, mesmo fora do protocolo.",
-      },
-      { property: "og:title", content: "Live Secreta — Dr. Francisco Amaral" },
-      {
-        property: "og:description",
-        content:
-          "Reunião fechada no Google Meet — anestesia obstétrica fora do protocolo.",
-      },
-    ],
-  }),
-  component: LiveSecretaPage,
+  component: LiveSecreta,
 });
 
-const RED = "#E11D2A";
-const GREEN = "#1FA84A";
-const WHATSAPP_URL = "https://chat.whatsapp.com/HDtCkQnhYAOEBn3pfs3iIz?s=sw&p=i&ilr=0";
+type Stage = "intro" | "question" | "result";
 
-function LiveSecretaPage() {
-  const marqueeText =
-    "EXCLUSIVO PARA ANESTESIOLOGISTAS, RESIDENTES E MÉDICOS INTERESSADOS EM ANESTESIA OBSTÉTRICA.";
-  const marqueeItems = Array.from({ length: 6 });
+type Question = {
+  eyebrow: string;
+  title: string;
+  scenario: string;
+  choices: string[];
+  correct: number;
+  correctFeedback: string;
+  wrongFeedback: string;
+};
 
-  const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
-  const [open, setOpen] = useState(false);
+const questions: Question[] = [
+  {
+    eyebrow: "Primeira resposta",
+    title: "Você reconhece a HPP antes do colapso?",
+    scenario: "Após uma cesariana, a perda sanguínea objetivamente estimada é de 350 mL. A paciente apresenta FC 108 bpm e PA 98/60 mmHg. Qual é a melhor decisão neste momento?",
+    choices: [
+      "Aguardar a perda alcançar 500 mL para caracterizar HPP.",
+      "Aguardar a perda alcançar 1.000 mL, por se tratar de cesariana.",
+      "Iniciar a resposta à HPP: há perda ≥ 300 mL associada a sinais hemodinâmicos anormais.",
+      "Solicitar hemoglobina e aguardar o resultado antes de intervir.",
+    ],
+    correct: 2,
+    correctFeedback: "A resposta não deve depender apenas de a perda chegar a 500 ou 1.000 mL. A associação entre perda objetiva e alterações hemodinâmicas já exige o pacote de primeira resposta.",
+    wrongFeedback: "O ponto crítico é não esperar um volume isolado. A gestante pode compensar inicialmente e deteriorar antes que a hipotensão pareça grave.",
+  },
+  {
+    eyebrow: "Leitura hemodinâmica",
+    title: "O que o índice de choque revela?",
+    scenario: "Durante uma HPP, a paciente apresenta frequência cardíaca de 112 bpm e pressão arterial sistólica de 100 mmHg. Como esse dado deve ser interpretado?",
+    choices: [
+      "Índice de choque de 0,89; resultado tranquilizador.",
+      "Índice de choque de 1,12; sinal de alerta que deve acelerar a avaliação e o escalonamento.",
+      "Índice de choque de 2,12; indicação isolada e obrigatória de transfusão maciça.",
+      "O índice de choque não é útil na paciente obstétrica.",
+    ],
+    correct: 1,
+    correctFeedback: "O índice de choque é FC ÷ PAS. Aqui, 112 ÷ 100 = 1,12. Um resultado acima de 1 aumenta a preocupação com instabilidade e necessidade de escalonamento.",
+    wrongFeedback: "A pressão isolada pode transmitir falsa segurança. O resultado de 1,12 não determina sozinho uma transfusão, mas deve acelerar a avaliação do sangramento, da perfusão e da resposta.",
+  },
+  {
+    eyebrow: "Sequência inicial",
+    title: "Qual frente vem primeiro?",
+    scenario: "A equipe suspeita de HPP por atonia uterina. Qual alternativa representa melhor a atuação nos primeiros minutos?",
+    choices: [
+      "Instalar monitorização invasiva e aguardar exames antes de começar o tratamento.",
+      "Administrar grande volume de cristaloide e observar antes de acionar outros recursos.",
+      "Coordenar a equipe, quantificar a perda, garantir acessos e perfusão, tratar e buscar o controle da causa em paralelo.",
+      "Corrigir a pressão com vasopressor e considerar o problema controlado se ela normalizar.",
+    ],
+    correct: 2,
+    correctFeedback: "Na HPP, diagnóstico, ressuscitação e controle da fonte acontecem simultaneamente. Os primeiros minutos servem para impedir o atraso cumulativo.",
+    wrongFeedback: "A emergência não deve ser conduzida de forma linear. Não se espera exame, resposta ao cristaloide ou monitorização invasiva para iniciar as medidas essenciais.",
+  },
+  {
+    eyebrow: "Tratamento tempo-dependente",
+    title: "Quando entra o ácido tranexâmico?",
+    scenario: "A HPP foi clinicamente diagnosticada e o parto ocorreu há menos de três horas. Qual conduta está mais alinhada ao uso terapêutico do TXA?",
+    choices: [
+      "Reservá-lo para quando todos os uterotônicos e procedimentos tiverem falhado.",
+      "Administrar 1 g IV em 10 minutos precocemente; repetir 1 g se o sangramento continuar após 30 minutos ou reiniciar em até 24 horas.",
+      "Utilizá-lo apenas quando exames confirmarem coagulopatia.",
+      "Administrá-lo profilaticamente a todas as pacientes, mesmo sem diagnóstico de HPP.",
+    ],
+    correct: 1,
+    correctFeedback: "O TXA terapêutico é tempo-dependente. Seu lugar é no tratamento precoce da HPP diagnosticada, junto às demais medidas, e não como último recurso.",
+    wrongFeedback: "A armadilha é tratar o TXA como resgate tardio. O benefício é maior quando ele é administrado cedo, dentro da janela recomendada.",
+  },
+  {
+    eyebrow: "Escolha farmacológica",
+    title: "A comorbidade muda sua escolha?",
+    scenario: "Uma paciente com pré-eclâmpsia grave e pressão arterial elevada apresenta atonia persistente após a ocitocina. O que deve pesar na escolha do próximo uterotônico?",
+    choices: [
+      "A metilergometrina é preferencial justamente por elevar a pressão arterial.",
+      "A metilergometrina deve ser evitada pelo risco de vasoconstrição e agravamento da hipertensão.",
+      "As comorbidades não interferem na escolha dos uterotônicos.",
+      "Todo uterotônico de segunda linha possui o mesmo perfil de contraindicações.",
+    ],
+    correct: 1,
+    correctFeedback: "A escolha do uterotônico precisa considerar as comorbidades. Em doença hipertensiva, a metilergometrina pode ampliar o risco materno.",
+    wrongFeedback: "Saber o nome do fármaco não basta. A metilergometrina exige especial cautela e deve ser evitada diante de hipertensão ou pré-eclâmpsia.",
+  },
+  {
+    eyebrow: "Controle da causa",
+    title: "Quando deixa de ser “só atonia”?",
+    scenario: "Apesar do tratamento inicial, o sangramento continua. Ao exame, o útero está firme e contraído. Qual deve ser o próximo raciocínio?",
+    choices: [
+      "Repetir indefinidamente uterotônicos, porque toda HPP decorre de atonia.",
+      "Considerar trauma, retenção de tecido, coagulopatia ou sangramento oculto e buscar o controle da fonte.",
+      "Interromper a investigação, porque o útero contraído exclui hemorragia relevante.",
+      "Manter apenas vasopressor até a estabilização da pressão arterial.",
+    ],
+    correct: 1,
+    correctFeedback: "Atonia é frequente, mas não explica todos os casos. Útero firme com sangramento persistente exige mudança de hipótese e investigação rápida das demais causas.",
+    wrongFeedback: "Persistir na hipótese errada gera atraso. É hora de reavaliar trauma, tecido, coagulação e a possibilidade de sangramento oculto.",
+  },
+  {
+    eyebrow: "Ressuscitação hemostática",
+    title: "Como interpretar o fibrinogênio?",
+    scenario: "Uma paciente permanece com HPP ativa e apresenta fibrinogênio de 170 mg/dL. Qual é a melhor interpretação?",
+    choices: [
+      "O valor é aceitável e não exige atenção durante a hemorragia obstétrica.",
+      "O resultado só importa depois que a hemoglobina estiver criticamente baixa.",
+      "É hipofibrinogenemia relevante; considerar reposição conforme o protocolo e corrigir também cálcio, temperatura e pH.",
+      "O resultado indica que apenas cristaloide aquecido é suficiente.",
+    ],
+    correct: 2,
+    correctFeedback: "Na gestação, o fibrinogênio basal é mais alto. Durante HPP ativa, valor abaixo de 200 mg/dL é um sinal importante para reposição hemostática conforme o protocolo.",
+    wrongFeedback: "O fibrinogênio pode cair precocemente na HPP grave. Esperar apenas pela hemoglobina pode atrasar a correção da coagulopatia.",
+  },
+  {
+    eyebrow: "Pós-cesariana",
+    title: "E quando o sangramento não está visível?",
+    scenario: "Na recuperação pós-anestésica, a paciente permanece hipotensa e exige doses crescentes de vasopressor. O sangramento vaginal parece pequeno e o útero está firme. Qual é a decisão mais segura?",
+    choices: [
+      "Atribuir a hipotensão ao bloqueio neuroaxial e manter apenas o vasopressor.",
+      "Considerar que a HPP está excluída porque o sangramento vaginal é pequeno.",
+      "Suspeitar de sangramento oculto, reavaliar perfusão e exames e acionar a equipe para localizar e controlar a fonte.",
+      "Aguardar a próxima hemoglobina antes de comunicar a equipe.",
+    ],
+    correct: 2,
+    correctFeedback: "Depois da cesariana, a ausência de sangramento vaginal volumoso não exclui hemorragia. Hipotensão persistente e necessidade crescente de vasopressor podem sinalizar perda oculta.",
+    wrongFeedback: "O sangramento pode não estar visível. Confiar apenas na perda vaginal pode atrasar o diagnóstico de hemorragia intra-abdominal ou retroperitoneal.",
+  },
+];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (submitting) return;
-    setError("");
-    const nome = form.nome.trim().slice(0, 100);
-    const email = form.email.trim().slice(0, 255);
-    const whatsapp = form.whatsapp.trim().slice(0, 30);
-    if (!nome || !email || !whatsapp) {
-      setError("Preencha todos os campos para continuar.");
-      return;
-    }
+const resultBands = [
+  {
+    max: 2,
+    title: "Suas decisões ainda não seguem uma sequência segura.",
+    diagnosis: "Você reconhece partes importantes da HPP, mas ainda pode perder o momento de agir ou escalar. Em uma emergência real, essa hesitação favorece atrasos sucessivos.",
+    bridge: "Na Imersão Hemorragia Pós-Parto, o Dr. Francisco Amaral Egydio vai organizar essas decisões em um protocolo clínico aplicável — da primeira resposta à transfusão maciça.",
+    cta: "Quero dominar o próximo passo",
+  },
+  {
+    max: 5,
+    title: "Você conhece as condutas, mas a sequência ainda pode falhar.",
+    diagnosis: "Sua base existe, porém alguns pontos críticos ainda não estão automáticos: reconhecer antes da deterioração, escolher pela comorbidade e integrar ressuscitação e controle da fonte.",
+    bridge: "Na imersão ao vivo, o Dr. Francisco vai transformar conhecimento fragmentado em uma linha de decisão clara, rápida e aplicável ao plantão obstétrico.",
+    cta: "Quero aprimorar minha condução",
+  },
+  {
+    max: 7,
+    title: "Sua base é boa. Agora, ela precisa virar precisão sob pressão.",
+    diagnosis: "Você reconhece a maior parte das decisões essenciais. O próximo nível é reduzir as zonas de dúvida e conectar farmacologia, hemodinâmica e controle da causa.",
+    bridge: "A Imersão Hemorragia Pós-Parto foi criada para aprofundar essa condução com casos clínicos, raciocínio de escalonamento e decisões simultâneas.",
+    cta: "Quero elevar minha precisão",
+  },
+  {
+    max: 8,
+    title: "Você domina os fundamentos. Agora, avance para os casos complexos.",
+    diagnosis: "Você demonstrou uma leitura sólida da primeira resposta à HPP. Mas reconhecer os fundamentos em um teste é diferente de coordenar decisões simultâneas em um cenário real.",
+    bridge: "Na imersão ao vivo, o Dr. Francisco vai avançar para a aplicação prática do protocolo, dos casos iniciais às situações de maior gravidade.",
+    cta: "Quero avançar para os casos complexos",
+  },
+];
 
-    setSubmitting(true);
-    const payload = { nome, email, whatsapp, source: "live-secreta" };
+function track(event: string, data: Record<string, unknown> = {}) {
+  if (typeof window === "undefined") return;
+  const target = window as typeof window & { dataLayer?: Record<string, unknown>[] };
+  target.dataLayer = target.dataLayer || [];
+  target.dataLayer.push({ event, ...data });
+}
 
-    try {
-      await Promise.allSettled([
-        supabase.from("leads").insert(payload),
-        fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...payload, submitted_at: new Date().toISOString() }),
-        }),
-      ]);
-    } catch (err) {
-      console.error("lead submit error", err);
-    }
-
-    window.location.href = WHATSAPP_URL;
-  };
-
-  const checks = (
-    <ul className="space-y-2 md:space-y-3 text-sm md:text-[15px] leading-snug">
-      <li className="flex gap-2">
-        <Check size={18} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>Quais decisões clínicas mais geram processos contra anestesistas no intraparto</span>
-      </li>
-      <li className="flex gap-2">
-        <Check size={18} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>Como documentar sua conduta para se proteger juridicamente em qualquer cenário</span>
-      </li>
-      <li className="flex gap-2">
-        <Check size={18} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>O que fazer quando a equipe toma uma decisão errada e você já estava na sala</span>
-      </li>
-    </ul>
+function BrandLockup() {
+  return (
+    <div className="brand brand--compact" aria-label="Imersão Hemorragia Pós-Parto">
+      <span>IMERSÃO</span><strong>HEMORRAGIA</strong><strong>PÓS-PARTO</strong>
+    </div>
   );
+}
 
-  const ctaButton = (
-    <button
-      type="button"
-      onClick={() => {
-        setError("");
-        setOpen(true);
-      }}
-      className="flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 md:py-3.5 text-base sm:text-lg font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99]"
-      style={{ backgroundColor: GREEN, color: "white" }}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-5 h-5"
-        aria-hidden="true"
-      >
-        <path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .17 5.33.17 11.89c0 2.09.55 4.13 1.6 5.93L0 24l6.34-1.66a11.86 11.86 0 0 0 5.72 1.46h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43ZM12.07 21.3h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.76.99 1-3.67-.22-.38a9.39 9.39 0 0 1-1.43-4.84c0-5.18 4.22-9.4 9.4-9.4 2.51 0 4.87.98 6.65 2.76a9.36 9.36 0 0 1 2.75 6.65c0 5.18-4.22 9.4-9.25 9.4Zm5.16-7.04c-.28-.14-1.66-.82-1.92-.92-.26-.09-.45-.14-.64.14-.19.28-.74.92-.91 1.11-.17.19-.34.21-.62.07-.28-.14-1.18-.43-2.25-1.39-.83-.74-1.39-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43s1.03 2.83 1.17 3.02c.14.19 2.02 3.08 4.9 4.32.69.3 1.22.47 1.64.6.69.22 1.32.19 1.82.12.55-.08 1.66-.68 1.9-1.34.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33Z" />
-      </svg>
-      GARANTIR MINHA VAGA
-    </button>
-  );
+export default function LiveSecreta() {
+  const [stage, setStage] = useState<Stage>("intro");
+  const [current, setCurrent] = useState(0);
+  const [answer, setAnswer] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [score, setScore] = useState(0);
+  const [offerUrl, setOfferUrl] = useState("https://anestesiotrends.com/imersao-hpp2/");
+
+  useEffect(() => {
+    const destination = new URL("https://anestesiotrends.com/imersao-hpp2/");
+    const incoming = new URLSearchParams(window.location.search);
+    incoming.forEach((value, key) => {
+      if (key.startsWith("utm_") || key === "gclid" || key === "fbclid") destination.searchParams.set(key, value);
+    });
+    setOfferUrl(destination.toString());
+  }, []);
+
+  const question = questions[current];
+  const isCorrect = answer === question?.correct;
+  const result = useMemo(() => resultBands.find((band) => score <= band.max) || resultBands[3], [score]);
+
+  function startQuiz() {
+    setCurrent(0); setAnswer(null); setRevealed(false); setScore(0); setStage("question");
+    track("quiz_start");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function confirmAnswer() {
+    if (answer === null || revealed) return;
+    const correct = answer === question.correct;
+    if (correct) setScore((value) => value + 1);
+    setRevealed(true);
+    track("quiz_answer", { question: current + 1, answer: answer + 1, correct });
+  }
+
+  function advance() {
+    if (current === questions.length - 1) {
+      setStage("result");
+      track("quiz_complete", { score, band: result.title });
+    } else {
+      setCurrent((value) => value + 1); setAnswer(null); setRevealed(false);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
-    <main className="min-h-screen w-full bg-black text-white flex flex-col">
-      {/* Faixa marquee topo */}
-      <div
-        className="w-full overflow-hidden py-2 shrink-0"
-        style={{ backgroundColor: RED }}
-      >
-        <div className="flex whitespace-nowrap animate-[marquee_12s_linear_infinite]">
-          {marqueeItems.map((_, i) => (
-            <span
-              key={i}
-              className="mx-6 text-[12px] sm:text-sm md:text-base font-bold tracking-wide"
-            >
-              {marqueeText} ★
-            </span>
-          ))}
+    <main className="hpp-page site-shell">
+      <div className="top-strip">
+        <div className="top-strip-track" aria-hidden="true">
+          <span>Imersão Hemorragia Pós-Parto</span><b>✦</b><strong>Exclusivo para anestesiologistas</strong><b>✦</b>
+          <span>Imersão Hemorragia Pós-Parto</span><b>✦</b><strong>Exclusivo para anestesiologistas</strong><b>✦</b>
         </div>
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
+        <span className="sr-only">Imersão Hemorragia Pós-Parto — exclusivo para anestesiologistas</span>
       </div>
 
-      <section className="flex-1 mx-auto w-full max-w-3xl px-4 sm:px-6 py-6 md:py-10 flex flex-col items-center justify-center text-center gap-5 md:gap-7">
-        <div className="flex flex-col sm:flex-row gap-2 items-center justify-center">
-          <div
-            className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
-            style={{ borderColor: RED, color: "white" }}
-          >
-            <Lock size={14} style={{ color: RED }} />
-            Exclusivo para médicos e residentes
+      {stage === "intro" && (
+        <section className="intro-stage" aria-labelledby="intro-title">
+          <div className="clinical-grid" />
+          <div className="doctor-stage" aria-hidden="true">
+            <div className="pulse-ring pulse-ring--one" /><div className="pulse-ring pulse-ring--two" /><div className="doctor-glow" />
+            <picture>
+              <source media="(max-width: 600px)" srcSet="/live-secreta/assets/dr-francisco-480.webp" />
+              <img src="/live-secreta/assets/dr-francisco-800.webp" alt="" width={800} height={940} fetchPriority="high" loading="eager" decoding="async" className="doctor-image" />
+            </picture>
+            <img src="/live-secreta/assets/logo-imersao-hpp.webp" alt="" width={520} height={215} loading="eager" decoding="async" className="hero-logo" />
           </div>
-          <div
-            className="inline-flex items-center gap-2 border rounded-md px-2.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wide"
-            style={{ borderColor: RED, color: "white" }}
-          >
-            <Video size={14} style={{ color: RED }} />
-            Reunião fechada no Google Meet
+          <div className="intro-copy">
+            <div className="test-label"><span className="icon" aria-hidden="true">⌁</span>Teste clínico <span>•</span> 8 decisões</div>
+            <h1 id="intro-title">Você confia na sua <span>conduta diante de uma HPP?</span> <em>Prove.</em></h1>
+            <p className="intro-description">Enfrente 8 situações clínicas rápidas e descubra se sua tomada de decisão está preparada para agir sob pressão.</p>
+            <button className="primary-cta" onClick={startQuiz}>Começar o teste <span aria-hidden="true">→</span></button>
+            <div className="microcopy"><span className="icon" aria-hidden="true">◷</span>Leva cerca de 4 minutos <span>•</span> Resultado imediato</div>
           </div>
-        </div>
+        </section>
+      )}
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.15]">
-          Polêmicas Jurídicas Intraparto. <span style={{ color: RED }}>Defendendo o médico.</span>
-        </h1>
-
-        <div className="flex flex-row flex-wrap gap-x-4 gap-y-2 justify-center">
-          <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
-            <Calendar size={14} style={{ color: RED }} />
-            Quinta-feira 18/06 às 20h30
-          </div>
-          <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
-            <Monitor size={14} style={{ color: RED }} />
-            Sala com capacidade limitada
-          </div>
-        </div>
-
-        <div className="text-left md:text-center w-full max-w-lg">{checks}</div>
-
-        <div className="w-full max-w-sm">{ctaButton}</div>
-      </section>
-
-      {/* Popup formulário */}
-      {open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => !submitting && setOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-md rounded-lg bg-neutral-900 border border-white/10 p-6 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => !submitting && setOpen(false)}
-              className="absolute top-3 right-3 text-white/60 hover:text-white"
-              aria-label="Fechar"
-            >
-              <X size={20} />
+      {stage === "question" && (
+        <section className="quiz-stage" aria-labelledby="question-title">
+          <header className="quiz-header">
+            <BrandLockup />
+            <div className="quiz-progress-copy"><span>Seu protocolo em ação</span><strong>{current + 1}/8</strong></div>
+          </header>
+          <div className="quiz-progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={((current + 1) / questions.length) * 100} aria-label={`Progresso: pergunta ${current + 1} de 8`}><span style={{ width: `${((current + 1) / questions.length) * 100}%` }} /></div>
+          <article className="question-card">
+            <div className="question-kicker"><span>Caso clínico {String(current + 1).padStart(2, "0")}</span><span className="question-dot" />{question.eyebrow}</div>
+            <h1 id="question-title">{question.title}</h1>
+            <p className="scenario">{question.scenario}</p>
+            <div className="choice-list" role="radiogroup" aria-label={`Alternativas da pergunta ${current + 1}`}>
+              {question.choices.map((choice, index) => {
+                const selected = answer === index;
+                const correct = index === question.correct;
+                const className = revealed ? (correct ? "choice choice--correct" : selected ? "choice choice--wrong" : "choice choice--muted") : selected ? "choice choice--selected" : "choice";
+                return (
+                  <label className={className} key={choice}>
+                    <input type="radio" name={`hpp-question-${current}`} value={index} checked={selected} disabled={revealed} onChange={() => setAnswer(index)} /><span>{choice}</span>
+                    {revealed && correct && <span className="choice-check" aria-hidden="true">✓</span>}
+                    {revealed && selected && !correct && <span className="choice-x" aria-hidden="true">×</span>}
+                  </label>
+                );
+              })}
+            </div>
+            {revealed && (
+              <div className={isCorrect ? "feedback feedback--correct" : "feedback feedback--wrong"} role="status" aria-live="polite">
+                <div className="feedback-icon" aria-hidden="true">{isCorrect ? "✓" : "×"}</div>
+                <div><strong>{isCorrect ? "Decisão correta." : "A melhor decisão seria outra."}</strong><p>{isCorrect ? question.correctFeedback : question.wrongFeedback}</p></div>
+              </div>
+            )}
+            <button className="primary-cta question-cta" disabled={answer === null} onClick={revealed ? advance : confirmAnswer}>
+              {revealed ? (current === questions.length - 1 ? "Ver meu resultado" : "Próximo caso") : "Confirmar decisão"}<span aria-hidden="true">→</span>
             </button>
+          </article>
+          <p className="educational-note">Conteúdo educacional. A conduta assistencial deve considerar avaliação clínica, recursos disponíveis e protocolo institucional.</p>
+        </section>
+      )}
 
-            <h2 className="text-xl font-extrabold mb-1 text-white">Garanta sua vaga</h2>
-            <p className="text-sm text-white/70 mb-4">
-              Preencha seus dados para entrar no grupo.
-            </p>
-
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-              <input
-                type="text"
-                required
-                maxLength={100}
-                placeholder="Seu nome"
-                value={form.nome}
-                onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                className="w-full rounded-md bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-white/50"
-              />
-              <input
-                type="email"
-                required
-                maxLength={255}
-                placeholder="Seu melhor e-mail"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full rounded-md bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-white/50"
-              />
-              <input
-                type="tel"
-                required
-                maxLength={30}
-                placeholder="Seu WhatsApp (com DDD)"
-                value={form.whatsapp}
-                onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-                className="w-full rounded-md bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-white/50"
-              />
-
-              {error && (
-                <p className="text-xs text-red-400 text-center -mt-1 mb-1">{error}</p>
-              )}
-
-              <button
-                type="submit"
-                disabled={submitting}
-                className="mt-1 flex items-center justify-center gap-3 w-full rounded-md px-5 py-3 text-base font-bold uppercase tracking-wide transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
-                style={{ backgroundColor: GREEN, color: "white" }}
-              >
-                {submitting ? "Enviando..." : "GARANTIR MINHA VAGA"}
-              </button>
-            </form>
-          </div>
-        </div>
+      {stage === "result" && (
+        <section className="result-stage" aria-labelledby="result-title">
+          <BrandLockup />
+          <article className="result-card">
+            <span className="result-eyebrow">Seu resultado</span>
+            <div className="result-score"><strong>{score}</strong><span>/8</span></div>
+            <h1 id="result-title">{result.title}</h1>
+            <p className="result-diagnosis">{result.diagnosis}</p>
+            <div className="result-bridge"><span>O próximo passo</span><p>{result.bridge}</p></div>
+            <a
+              className="primary-cta result-cta"
+              href={offerUrl}
+              target="_self"
+              onClick={(event) => {
+                event.preventDefault();
+                track("quiz_cta_click", { score, destination: "imersao_hpp" });
+                window.location.assign(offerUrl);
+              }}
+            >
+              {result.cta}<span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <footer className="result-footer"><strong>Imersão Hemorragia Pós-Parto</strong><span>Protocolo de decisão • 27 de setembro • 9h às 17h • Ao vivo</span></footer>
+        </section>
       )}
     </main>
   );
