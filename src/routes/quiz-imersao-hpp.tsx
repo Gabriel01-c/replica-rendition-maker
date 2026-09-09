@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import "./live-secreta.css";
 
-export const Route = createFileRoute("/live-secreta")({
+export const Route = createFileRoute("/quiz-imersao-hpp")({
   component: LiveSecreta,
 });
 
