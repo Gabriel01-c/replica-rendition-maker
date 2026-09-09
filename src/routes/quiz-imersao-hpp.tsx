@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import "./quiz-imersao-hpp.css";
 
 export const Route = createFileRoute("/quiz-imersao-hpp")({
-  component: LiveSecreta,
+  component: QuizImersaoHpp,
 });
 
 type Stage = "intro" | "question" | "result";
