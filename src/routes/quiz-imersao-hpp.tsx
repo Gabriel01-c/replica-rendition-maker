@@ -29,7 +29,7 @@ export const Route = createFileRoute("/quiz-imersao-hpp")({
       },
     ],
   }),
-  component: LiveSecreta,
+  component: QuizImersaoHpp,
 });
 
 type Stage = "intro" | "question" | "result";
@@ -205,7 +205,7 @@ function BrandLockup() {
   );
 }
 
-export default function LiveSecreta() {
+export default function QuizImersaoHpp() {
   const [stage, setStage] = useState<Stage>("intro");
   const [current, setCurrent] = useState(0);
   const [answer, setAnswer] = useState<number | null>(null);
