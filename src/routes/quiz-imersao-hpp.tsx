@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import "./live-secreta.css";
+import "./quiz-imersao-hpp.css";
 
-export const Route = createFileRoute("/live-secreta")({
+export const Route = createFileRoute("/quiz-imersao-hpp")({
   head: () => ({
     meta: [
       { title: "Teste Clínico | Imersão Hemorragia Pós-Parto" },
@@ -16,14 +16,14 @@ export const Route = createFileRoute("/live-secreta")({
       {
         rel: "preload",
         as: "image",
-        href: "/live-secreta/assets/dr-francisco-480.webp",
+        href: "/quiz-imersao-hpp/assets/dr-francisco-480.webp",
         type: "image/webp",
         media: "(max-width: 600px)",
       },
       {
         rel: "preload",
         as: "image",
-        href: "/live-secreta/assets/dr-francisco-800.webp",
+        href: "/quiz-imersao-hpp/assets/dr-francisco-800.webp",
         type: "image/webp",
         media: "(min-width: 601px)",
       },
@@ -266,10 +266,10 @@ export default function LiveSecreta() {
           <div className="doctor-stage" aria-hidden="true">
             <div className="pulse-ring pulse-ring--one" /><div className="pulse-ring pulse-ring--two" /><div className="doctor-glow" />
             <picture>
-              <source media="(max-width: 600px)" srcSet="/live-secreta/assets/dr-francisco-480.webp" />
-              <img src="/live-secreta/assets/dr-francisco-800.webp" alt="" width={800} height={940} fetchPriority="high" loading="eager" decoding="async" className="doctor-image" />
+              <source media="(max-width: 600px)" srcSet="/quiz-imersao-hpp/assets/dr-francisco-480.webp" />
+              <img src="/quiz-imersao-hpp/assets/dr-francisco-800.webp" alt="" width={800} height={940} fetchPriority="high" loading="eager" decoding="async" className="doctor-image" />
             </picture>
-            <img src="/live-secreta/assets/logo-imersao-hpp.webp" alt="" width={520} height={215} loading="eager" decoding="async" className="hero-logo" />
+            <img src="/quiz-imersao-hpp/assets/logo-imersao-hpp.webp" alt="" width={520} height={215} loading="eager" decoding="async" className="hero-logo" />
           </div>
           <div className="intro-copy">
             <div className="test-label"><span className="icon" aria-hidden="true">⌁</span>Teste clínico <span>•</span> 8 decisões</div>
