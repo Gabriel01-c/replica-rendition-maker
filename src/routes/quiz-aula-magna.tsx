@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import "./quiz-aula-magna.css";
 import doctorMobile from "@/assets/quiz-aula-magna-francisco-480.webp.asset.json";
@@ -89,6 +89,7 @@ function QuizAulaMagna() {
   const [answer, setAnswer] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [score, setScore] = useState(0);
+  const scoreRef = useRef(0);
   const [offerUrl, setOfferUrl] = useState("https://anestesiotrends.com/aula-magna/");
 
   useEffect(() => {
@@ -105,6 +106,7 @@ function QuizAulaMagna() {
   const result = useMemo(() => resultBands.find((band) => score <= band.max) || resultBands[3], [score]);
 
   function startQuiz() {
+    scoreRef.current = 0;
     setCurrent(0); setAnswer(null); setRevealed(false); setScore(0); setStage("question");
     track("quiz_start");
     recordAnalytics(supabase.rpc("quiz_aula_magna_start", { p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug }));
@@ -114,7 +116,10 @@ function QuizAulaMagna() {
   function confirmAnswer() {
     if (answer === null || revealed) return;
     const correct = answer === question.correct;
-    if (correct) setScore((value) => value + 1);
+    if (correct) {
+      scoreRef.current += 1;
+      setScore(scoreRef.current);
+    }
     setRevealed(true);
     track("quiz_answer", { question: current + 1, answer: answer + 1, correct });
     recordAnalytics(supabase.rpc("quiz_aula_magna_answer", {
@@ -125,7 +130,7 @@ function QuizAulaMagna() {
 
   function advance() {
     if (current === questions.length - 1) {
-      const finalScore = score + (isCorrect ? 1 : 0);
+      const finalScore = scoreRef.current;
       setStage("result");
       track("quiz_complete", { score: finalScore, band: resultBands.find((band) => finalScore <= band.max)?.title || resultBands[3].title });
       recordAnalytics(supabase.rpc("quiz_aula_magna_complete", {
