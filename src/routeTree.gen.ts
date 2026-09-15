@@ -14,6 +14,7 @@ import { Route as QuizAulaMagnaRouteImport } from './routes/quiz-aula-magna'
 import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-oficial'
 import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
 import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
+import { Route as PainelQuizAulaMagnaRouteImport } from './routes/painel-quiz-aula-magna'
 import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
 import { Route as ImersaoHppTyRouteImport } from './routes/imersao-hpp-ty'
 import { Route as ImersaoHpp2RouteImport } from './routes/imersao-hpp-2'
@@ -49,6 +50,11 @@ const PosGraduacaoAnestesiaObstetricaRoute =
 const PosGraduacaoRoute = PosGraduacaoRouteImport.update({
   id: '/pos-graduacao',
   path: '/pos-graduacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelQuizAulaMagnaRoute = PainelQuizAulaMagnaRouteImport.update({
+  id: '/painel-quiz-aula-magna',
+  path: '/painel-quiz-aula-magna',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
@@ -113,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/painel-quiz-aula-magna': typeof PainelQuizAulaMagnaRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/painel-quiz-aula-magna': typeof PainelQuizAulaMagnaRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
@@ -148,6 +156,7 @@ export interface FileRoutesById {
   '/imersao-hpp-2': typeof ImersaoHpp2Route
   '/imersao-hpp-ty': typeof ImersaoHppTyRoute
   '/live-secreta-polemicas': typeof LiveSecretaPolemicasRoute
+  '/painel-quiz-aula-magna': typeof PainelQuizAulaMagnaRoute
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
     | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
     | '/live-secreta-polemicas'
+    | '/painel-quiz-aula-magna'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
@@ -184,6 +194,7 @@ export interface FileRouteTypes {
     | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
     | '/live-secreta-polemicas'
+    | '/painel-quiz-aula-magna'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
@@ -201,6 +212,7 @@ export interface FileRouteTypes {
     | '/imersao-hpp-2'
     | '/imersao-hpp-ty'
     | '/live-secreta-polemicas'
+    | '/painel-quiz-aula-magna'
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
@@ -219,6 +231,7 @@ export interface RootRouteChildren {
   ImersaoHpp2Route: typeof ImersaoHpp2Route
   ImersaoHppTyRoute: typeof ImersaoHppTyRoute
   LiveSecretaPolemicasRoute: typeof LiveSecretaPolemicasRoute
+  PainelQuizAulaMagnaRoute: typeof PainelQuizAulaMagnaRoute
   PosGraduacaoRoute: typeof PosGraduacaoRoute
   PosGraduacaoAnestesiaObstetricaRoute: typeof PosGraduacaoAnestesiaObstetricaRoute
   PosGraduacaoOficialRoute: typeof PosGraduacaoOficialRoute
@@ -261,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/pos-graduacao'
       fullPath: '/pos-graduacao'
       preLoaderRoute: typeof PosGraduacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-quiz-aula-magna': {
+      id: '/painel-quiz-aula-magna'
+      path: '/painel-quiz-aula-magna'
+      fullPath: '/painel-quiz-aula-magna'
+      preLoaderRoute: typeof PainelQuizAulaMagnaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live-secreta-polemicas': {
@@ -347,6 +367,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImersaoHpp2Route: ImersaoHpp2Route,
   ImersaoHppTyRoute: ImersaoHppTyRoute,
   LiveSecretaPolemicasRoute: LiveSecretaPolemicasRoute,
+  PainelQuizAulaMagnaRoute: PainelQuizAulaMagnaRoute,
   PosGraduacaoRoute: PosGraduacaoRoute,
   PosGraduacaoAnestesiaObstetricaRoute: PosGraduacaoAnestesiaObstetricaRoute,
   PosGraduacaoOficialRoute: PosGraduacaoOficialRoute,
