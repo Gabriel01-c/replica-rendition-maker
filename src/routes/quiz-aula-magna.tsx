@@ -4,6 +4,7 @@ import "./quiz-aula-magna.css";
 import doctorMobile from "@/assets/quiz-aula-magna-francisco-480.webp.asset.json";
 import doctorDesktop from "@/assets/quiz-aula-magna-francisco-800.webp.asset.json";
 import fontAsset from "@/assets/quiz-aula-magna-inter-tight.woff2.asset.json";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/quiz-aula-magna")({
   head: () => ({
@@ -52,6 +53,21 @@ const resultBands = [
 {max:7,title:"Você domina os fundamentos. Agora avance para os casos complexos.",diagnosis:"Você demonstrou uma leitura sólida das principais decisões. Mas acertar em um teste é diferente de coordenar escolhas simultâneas quando o caso se agrava.",bridge:"Na Aula Magna, o Dr. Francisco vai levar essa base para a aplicação prática — da primeira queda de pressão ao controle do sangramento.",cta:"Quero avançar nos casos complexos"}
 ];
 
+const quizSlug = "quiz-aula-magna";
+const sessionKey = "quiz-aula-magna-session-id";
+
+function getQuizSessionId() {
+  const stored = window.sessionStorage.getItem(sessionKey);
+  if (stored) return stored;
+  const sessionId = window.crypto.randomUUID();
+  window.sessionStorage.setItem(sessionKey, sessionId);
+  return sessionId;
+}
+
+function recordAnalytics(request: PromiseLike<unknown>) {
+  void Promise.resolve(request).then(undefined, () => undefined);
+}
+
 function track(event: string, data: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
   const target = window as typeof window & { dataLayer?: Record<string, unknown>[] };
@@ -91,6 +107,7 @@ function QuizAulaMagna() {
   function startQuiz() {
     setCurrent(0); setAnswer(null); setRevealed(false); setScore(0); setStage("question");
     track("quiz_start");
+    recordAnalytics(supabase.rpc("quiz_aula_magna_start", { p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug }));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -100,12 +117,20 @@ function QuizAulaMagna() {
     if (correct) setScore((value) => value + 1);
     setRevealed(true);
     track("quiz_answer", { question: current + 1, answer: answer + 1, correct });
+    recordAnalytics(supabase.rpc("quiz_aula_magna_answer", {
+      p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug, p_question_number: current + 1,
+      p_selected_option: answer + 1, p_is_correct: correct,
+    }));
   }
 
   function advance() {
     if (current === questions.length - 1) {
+      const finalScore = score + (isCorrect ? 1 : 0);
       setStage("result");
-      track("quiz_complete", { score, band: result.title });
+      track("quiz_complete", { score: finalScore, band: resultBands.find((band) => finalScore <= band.max)?.title || resultBands[3].title });
+      recordAnalytics(supabase.rpc("quiz_aula_magna_complete", {
+        p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug, p_score: finalScore,
+      }));
     } else {
       setCurrent((value) => value + 1); setAnswer(null); setRevealed(false);
     }
