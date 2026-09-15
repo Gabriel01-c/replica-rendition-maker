@@ -60,9 +60,9 @@ function track(event: string, data: Record<string, unknown> = {}) {
   target.dataLayer.push({ event, ...data });
 }
 
-function BrandLockup() {
+function BrandLockup({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="brand brand--compact" aria-label="Aula Magna Emergência Obstétrica">
+    <div className={`brand-lockup${compact ? " compact" : ""}`} aria-label="Aula Magna Emergência Obstétrica">
       <small>Aula Magna</small><strong>Emergência</strong><strong>Obstétrica</strong>
     </div>
   );
@@ -124,7 +124,7 @@ function QuizAulaMagna() {
       </div>
 
       {stage === "intro" && (
-        <section className="intro-stage" aria-labelledby="intro-title">
+        <section className="intro" aria-labelledby="intro-title">
           <div className="doctor-stage" aria-hidden="true">
             <picture>
               <source media="(max-width: 600px)" srcSet={doctorMobile.url} />
@@ -145,7 +145,7 @@ function QuizAulaMagna() {
       {stage === "question" && (
         <section className="quiz-stage" aria-labelledby="question-title">
           <header className="quiz-header">
-            <BrandLockup />
+            <BrandLockup compact />
             <div className="progress-copy"><span>Seu raciocínio em ação</span><strong>{current + 1}/8</strong></div>
           </header>
           <div className="progress-bar" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={((current + 1) / questions.length) * 100} aria-label={`Progresso: pergunta ${current + 1} de 8`}><span style={{ width: `${((current + 1) / questions.length) * 100}%` }} /></div>
@@ -160,7 +160,7 @@ function QuizAulaMagna() {
                 const className = revealed ? (correct ? "choice correct" : selected ? "choice wrong" : "choice muted") : selected ? "choice selected" : "choice";
                 return (
                   <label className={className} key={choice}>
-                    <input type="radio" name={`aula-magna-question-${current}`} value={index} checked={selected} disabled={revealed} onChange={() => setAnswer(index)} /><span>{choice}</span>
+                    <input type="radio" name={`aula-magna-question-${current}`} value={index} checked={selected} disabled={revealed} onChange={() => setAnswer(index)} /><span>{String.fromCharCode(65 + index)}) {choice}</span>
                     {revealed && correct && <span className="mark" aria-hidden="true">✓</span>}
                     {revealed && selected && !correct && <span className="mark" aria-hidden="true">×</span>}
                   </label>
@@ -183,7 +183,7 @@ function QuizAulaMagna() {
 
       {stage === "result" && (
         <section className="result-stage" aria-labelledby="result-title">
-          <BrandLockup />
+          <BrandLockup compact />
           <article className="result-card">
             <span className="result-eyebrow">Seu resultado</span>
             <div className="result-score"><strong>{score}</strong><span>/8</span></div>
