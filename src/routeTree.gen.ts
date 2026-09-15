@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuizImersaoHppRouteImport } from './routes/quiz-imersao-hpp'
+import { Route as QuizAulaMagnaRouteImport } from './routes/quiz-aula-magna'
 import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-oficial'
 import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
 import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
@@ -27,6 +28,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const QuizImersaoHppRoute = QuizImersaoHppRouteImport.update({
   id: '/quiz-imersao-hpp',
   path: '/quiz-imersao-hpp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizAulaMagnaRoute = QuizAulaMagnaRouteImport.update({
+  id: '/quiz-aula-magna',
+  path: '/quiz-aula-magna',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PosGraduacaoOficialRoute = PosGraduacaoOficialRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
+  '/quiz-aula-magna': typeof QuizAulaMagnaRoute
   '/quiz-imersao-hpp': typeof QuizImersaoHppRoute
 }
 export interface FileRoutesByTo {
@@ -126,6 +133,7 @@ export interface FileRoutesByTo {
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
+  '/quiz-aula-magna': typeof QuizAulaMagnaRoute
   '/quiz-imersao-hpp': typeof QuizImersaoHppRoute
 }
 export interface FileRoutesById {
@@ -143,6 +151,7 @@ export interface FileRoutesById {
   '/pos-graduacao': typeof PosGraduacaoRoute
   '/pos-graduacao-anestesia-obstetrica': typeof PosGraduacaoAnestesiaObstetricaRoute
   '/pos-graduacao-oficial': typeof PosGraduacaoOficialRoute
+  '/quiz-aula-magna': typeof QuizAulaMagnaRoute
   '/quiz-imersao-hpp': typeof QuizImersaoHppRoute
 }
 export interface FileRouteTypes {
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
+    | '/quiz-aula-magna'
     | '/quiz-imersao-hpp'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
+    | '/quiz-aula-magna'
     | '/quiz-imersao-hpp'
   id:
     | '__root__'
@@ -193,6 +204,7 @@ export interface FileRouteTypes {
     | '/pos-graduacao'
     | '/pos-graduacao-anestesia-obstetrica'
     | '/pos-graduacao-oficial'
+    | '/quiz-aula-magna'
     | '/quiz-imersao-hpp'
   fileRoutesById: FileRoutesById
 }
@@ -210,6 +222,7 @@ export interface RootRouteChildren {
   PosGraduacaoRoute: typeof PosGraduacaoRoute
   PosGraduacaoAnestesiaObstetricaRoute: typeof PosGraduacaoAnestesiaObstetricaRoute
   PosGraduacaoOficialRoute: typeof PosGraduacaoOficialRoute
+  QuizAulaMagnaRoute: typeof QuizAulaMagnaRoute
   QuizImersaoHppRoute: typeof QuizImersaoHppRoute
 }
 
@@ -220,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/quiz-imersao-hpp'
       fullPath: '/quiz-imersao-hpp'
       preLoaderRoute: typeof QuizImersaoHppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz-aula-magna': {
+      id: '/quiz-aula-magna'
+      path: '/quiz-aula-magna'
+      fullPath: '/quiz-aula-magna'
+      preLoaderRoute: typeof QuizAulaMagnaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pos-graduacao-oficial': {
@@ -330,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   PosGraduacaoRoute: PosGraduacaoRoute,
   PosGraduacaoAnestesiaObstetricaRoute: PosGraduacaoAnestesiaObstetricaRoute,
   PosGraduacaoOficialRoute: PosGraduacaoOficialRoute,
+  QuizAulaMagnaRoute: QuizAulaMagnaRoute,
   QuizImersaoHppRoute: QuizImersaoHppRoute,
 }
 export const routeTree = rootRouteImport
