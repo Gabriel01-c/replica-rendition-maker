@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import "./quiz-aula-magna.css";
 import doctorMobile from "@/assets/quiz-aula-magna-francisco-480.webp.asset.json";
@@ -143,7 +143,7 @@ function QuizAulaMagna() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  async function followResultCta(event: React.MouseEvent<HTMLAnchorElement>) {
+  async function followResultCta(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     if (ctaNavigatingRef.current) return;
     ctaNavigatingRef.current = true;
