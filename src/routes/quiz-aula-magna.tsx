@@ -90,6 +90,7 @@ function QuizAulaMagna() {
   const [revealed, setRevealed] = useState(false);
   const [score, setScore] = useState(0);
   const scoreRef = useRef(0);
+  const ctaNavigatingRef = useRef(false);
   const [offerUrl, setOfferUrl] = useState("https://anestesiotrends.com/aula-magna/");
 
   useEffect(() => {
@@ -140,6 +141,25 @@ function QuizAulaMagna() {
       setCurrent((value) => value + 1); setAnswer(null); setRevealed(false);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  async function followResultCta(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    if (ctaNavigatingRef.current) return;
+    ctaNavigatingRef.current = true;
+    track("quiz_cta_click", { score, destination: "aula_magna" });
+    try {
+      await Promise.race([
+        supabase.rpc("quiz_aula_magna_cta_click", {
+          p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug,
+        }),
+        new Promise((resolve) => window.setTimeout(resolve, 250)),
+      ]);
+    } catch {
+      // Analytics must never prevent navigation to the offer.
+    } finally {
+      window.location.assign(offerUrl);
+    }
   }
 
   return (
@@ -223,11 +243,7 @@ function QuizAulaMagna() {
               className="primary-cta result-cta"
               href={offerUrl}
               target="_self"
-              onClick={(event) => {
-                event.preventDefault();
-                track("quiz_cta_click", { score, destination: "aula_magna" });
-                window.location.assign(offerUrl);
-              }}
+              onClick={followResultCta}
             >
               {result.cta}<span aria-hidden="true">→</span>
             </a>
