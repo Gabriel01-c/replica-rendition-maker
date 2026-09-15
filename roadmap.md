@@ -12,4 +12,4 @@
 - [x] Adicionar distribuição de notas e taxa de clique único no CTA ao painel.
 - [x] Trocar a senha administrativa sem armazená-la em texto puro.
 - [x] Validar métricas e limpar os registros de teste.
-- [ ] Publicar a atualização.
+- [x] Publicar a atualização.
