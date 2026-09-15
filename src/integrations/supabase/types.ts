@@ -82,6 +82,7 @@ export type Database = {
       quiz_sessions: {
         Row: {
           completed_at: string | null
+          cta_clicked_at: string | null
           last_activity_at: string
           last_question_reached: number
           quiz_slug: string
@@ -91,6 +92,7 @@ export type Database = {
         }
         Insert: {
           completed_at?: string | null
+          cta_clicked_at?: string | null
           last_activity_at?: string
           last_question_reached?: number
           quiz_slug: string
@@ -100,6 +102,7 @@ export type Database = {
         }
         Update: {
           completed_at?: string | null
+          cta_clicked_at?: string | null
           last_activity_at?: string
           last_question_reached?: number
           quiz_slug?: string
@@ -126,6 +129,10 @@ export type Database = {
       }
       quiz_aula_magna_complete: {
         Args: { p_quiz_slug: string; p_score: number; p_session_id: string }
+        Returns: undefined
+      }
+      quiz_aula_magna_cta_click: {
+        Args: { p_quiz_slug: string; p_session_id: string }
         Returns: undefined
       }
       quiz_aula_magna_dashboard: {

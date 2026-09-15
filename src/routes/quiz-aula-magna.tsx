@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import "./quiz-aula-magna.css";
 import doctorMobile from "@/assets/quiz-aula-magna-francisco-480.webp.asset.json";
@@ -90,6 +90,8 @@ function QuizAulaMagna() {
   const [revealed, setRevealed] = useState(false);
   const [score, setScore] = useState(0);
   const scoreRef = useRef(0);
+  const ctaNavigatingRef = useRef(false);
+  const completionRequestRef = useRef<PromiseLike<unknown> | null>(null);
   const [offerUrl, setOfferUrl] = useState("https://anestesiotrends.com/aula-magna/");
 
   useEffect(() => {
@@ -133,13 +135,36 @@ function QuizAulaMagna() {
       const finalScore = scoreRef.current;
       setStage("result");
       track("quiz_complete", { score: finalScore, band: resultBands.find((band) => finalScore <= band.max)?.title || resultBands[3].title });
-      recordAnalytics(supabase.rpc("quiz_aula_magna_complete", {
+      const completionRequest = supabase.rpc("quiz_aula_magna_complete", {
         p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug, p_score: finalScore,
-      }));
+      });
+      completionRequestRef.current = completionRequest;
+      recordAnalytics(completionRequest);
     } else {
       setCurrent((value) => value + 1); setAnswer(null); setRevealed(false);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  async function followResultCta(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    if (ctaNavigatingRef.current) return;
+    ctaNavigatingRef.current = true;
+    track("quiz_cta_click", { score, destination: "aula_magna" });
+    try {
+      await Promise.race([
+        Promise.resolve(completionRequestRef.current)
+          .catch(() => undefined)
+          .then(() => supabase.rpc("quiz_aula_magna_cta_click", {
+            p_session_id: getQuizSessionId(), p_quiz_slug: quizSlug,
+          })),
+        new Promise((resolve) => window.setTimeout(resolve, 250)),
+      ]);
+    } catch {
+      // Analytics must never prevent navigation to the offer.
+    } finally {
+      window.location.assign(offerUrl);
+    }
   }
 
   return (
@@ -223,11 +248,7 @@ function QuizAulaMagna() {
               className="primary-cta result-cta"
               href={offerUrl}
               target="_self"
-              onClick={(event) => {
-                event.preventDefault();
-                track("quiz_cta_click", { score, destination: "aula_magna" });
-                window.location.assign(offerUrl);
-              }}
+              onClick={followResultCta}
             >
               {result.cta}<span aria-hidden="true">→</span>
             </a>

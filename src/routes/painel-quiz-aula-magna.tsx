@@ -24,14 +24,16 @@ type Period = "all" | "today" | "7d" | "30d";
 type Summary = { starts: number; completions: number; completion_rate: number; average_score: number };
 type FunnelStep = { label: string; sessions: number; abandoned: number; abandonment_rate: number };
 type QuestionMetric = { question_number: number; reached: number; answers: number; option_a: number; option_b: number; option_c: number; option_d: number; accuracy: number };
-type DashboardData = { summary: Summary; funnel: FunnelStep[]; questions: QuestionMetric[]; generated_at: string };
+type ScoreMetric = { score: number; completions: number; percentage: number };
+type CtaMetric = { unique_clicks: number; click_rate: number };
+type DashboardData = { summary: Summary; funnel: FunnelStep[]; questions: QuestionMetric[]; score_distribution: ScoreMetric[]; cta: CtaMetric; generated_at: string };
 
 const passwordKey = "quiz-aula-magna-dashboard-password";
 
 function isDashboardData(value: unknown): value is DashboardData {
   if (!value || typeof value !== "object") return false;
   const candidate = value as Partial<DashboardData>;
-  return Boolean(candidate.summary && Array.isArray(candidate.funnel) && Array.isArray(candidate.questions));
+  return Boolean(candidate.summary && Array.isArray(candidate.funnel) && Array.isArray(candidate.questions) && Array.isArray(candidate.score_distribution) && candidate.cta);
 }
 
 function QuizDashboard() {
@@ -135,6 +137,20 @@ function QuizDashboard() {
           <div className="qd-section-head"><h2>Desempenho por pergunta</h2><span>Distribuição das alternativas</span></div>
           {data.summary.starts === 0 ? <p className="qd-copy">Ainda não há respostas neste período.</p> : <div className="qd-table-wrap"><table><thead><tr><th>Pergunta</th><th>Chegaram</th><th>Respostas</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Acerto</th></tr></thead><tbody>{data.questions.map((question) => <tr key={question.question_number}><td><strong>Pergunta {question.question_number}</strong></td><td>{question.reached}</td><td>{question.answers}</td><td>{question.option_a}%</td><td>{question.option_b}%</td><td>{question.option_c}%</td><td>{question.option_d}%</td><td className="qd-accuracy">{question.accuracy}%</td></tr>)}</tbody></table></div>}
         </section>
+
+        <div className="qd-insights">
+          <section className="qd-section">
+            <div className="qd-section-head"><h2>Distribuição das notas</h2><span>Somente conclusões</span></div>
+            <div className="qd-score-grid">
+              {data.score_distribution.map((item) => <div className="qd-score" key={item.score}><strong>{item.score}</strong><span>{item.completions} · {item.percentage}%</span></div>)}
+            </div>
+          </section>
+          <section className="qd-section qd-cta-section">
+            <div className="qd-section-head"><h2>Clique no CTA final</h2><span>Sessões únicas</span></div>
+            <strong className="qd-cta-rate">{data.cta.click_rate}%</strong>
+            <p className="qd-copy">{data.cta.unique_clicks} cliques únicos entre {data.summary.completions} conclusões.</p>
+          </section>
+        </div>
       </div>
     </main>
   );
