@@ -9,6 +9,6 @@
 - [x] Criar e proteger `/painel-quiz-aula-magna` com agregados e filtros.
 - [x] Aplicar migration, testar RPCs e remover somente os dados de teste.
 - [x] Validar TypeScript, build, quiz com 7 perguntas e painel sem publicar.
-- [ ] Adicionar distribuição de notas e taxa de clique único no CTA ao painel.
-- [ ] Trocar a senha administrativa sem armazená-la em texto puro.
+- [x] Adicionar distribuição de notas e taxa de clique único no CTA ao painel.
+- [x] Trocar a senha administrativa sem armazená-la em texto puro.
 - [ ] Validar métricas, limpar os registros de teste e publicar a atualização.
