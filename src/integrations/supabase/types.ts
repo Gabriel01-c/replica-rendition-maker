@@ -41,12 +41,101 @@ export type Database = {
         }
         Relationships: []
       }
+      quiz_answers: {
+        Row: {
+          answered_at: string
+          id: number
+          is_correct: boolean
+          question_number: number
+          quiz_slug: string
+          selected_option: number
+          session_id: string
+        }
+        Insert: {
+          answered_at?: string
+          id?: number
+          is_correct: boolean
+          question_number: number
+          quiz_slug: string
+          selected_option: number
+          session_id: string
+        }
+        Update: {
+          answered_at?: string
+          id?: number
+          is_correct?: boolean
+          question_number?: number
+          quiz_slug?: string
+          selected_option?: number
+          session_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quiz_answers_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "quiz_sessions"
+            referencedColumns: ["session_id"]
+          },
+        ]
+      }
+      quiz_sessions: {
+        Row: {
+          completed_at: string | null
+          last_activity_at: string
+          last_question_reached: number
+          quiz_slug: string
+          score: number | null
+          session_id: string
+          started_at: string
+        }
+        Insert: {
+          completed_at?: string | null
+          last_activity_at?: string
+          last_question_reached?: number
+          quiz_slug: string
+          score?: number | null
+          session_id: string
+          started_at?: string
+        }
+        Update: {
+          completed_at?: string | null
+          last_activity_at?: string
+          last_question_reached?: number
+          quiz_slug?: string
+          score?: number | null
+          session_id?: string
+          started_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      quiz_aula_magna_answer: {
+        Args: {
+          p_is_correct: boolean
+          p_question_number: number
+          p_quiz_slug: string
+          p_selected_option: number
+          p_session_id: string
+        }
+        Returns: undefined
+      }
+      quiz_aula_magna_complete: {
+        Args: { p_quiz_slug: string; p_score: number; p_session_id: string }
+        Returns: undefined
+      }
+      quiz_aula_magna_dashboard: {
+        Args: { p_password: string; p_period?: string }
+        Returns: Json
+      }
+      quiz_aula_magna_start: {
+        Args: { p_quiz_slug: string; p_session_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
