@@ -11,4 +11,5 @@
 - [x] Validar TypeScript, build, quiz com 7 perguntas e painel sem publicar.
 - [x] Adicionar distribuição de notas e taxa de clique único no CTA ao painel.
 - [x] Trocar a senha administrativa sem armazená-la em texto puro.
-- [ ] Validar métricas, limpar os registros de teste e publicar a atualização.
+- [x] Validar métricas e limpar os registros de teste.
+- [ ] Publicar a atualização.
