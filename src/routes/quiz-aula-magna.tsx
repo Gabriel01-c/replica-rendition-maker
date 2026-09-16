@@ -188,7 +188,7 @@ function QuizAulaMagna() {
           </div>
           <div className="intro-copy">
             <div className="test-label">Teste clínico • {questions.length} decisões</div>
-            <h1 id="intro-title">Você confia na sua conduta diante de uma <span>emergência obstétrica?</span> <em>Prove.</em></h1>
+            <h1 id="intro-title" translate="no">Você confia na sua conduta diante de uma <span>emergência obstétrica?</span> <em>Prove.</em></h1>
             <p className="intro-description">Enfrente {questions.length} decisões clínicas sobre hipotensão, hemorragia e HELLP e descubra se você sabe qual droga usar e qual passo vem depois quando o caso se agrava.</p>
             <button className="primary-cta" onClick={startQuiz}>Começar o teste <span aria-hidden="true">→</span></button>
             <p className="microcopy">◷ Leva cerca de 4 minutos &nbsp;•&nbsp; Resultado imediato</p>

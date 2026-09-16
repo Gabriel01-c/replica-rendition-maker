@@ -105,7 +105,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
   const excludeGlobalGtm = isFisiologiaFarmacologia || isEbookViasAereas || isImersaoHppTy || isImersaoHpp2;
 
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         {!isImersaoHpp2 && (
           <>
