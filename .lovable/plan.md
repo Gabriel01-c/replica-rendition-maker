@@ -1,24 +1,16 @@
-# Plano: Analytics e painel do Quiz Aula Magna
-
-## Objetivo
-Adicionar métricas anônimas somente ao `/quiz-aula-magna` e criar o painel privado `/painel-quiz-aula-magna`, sem alterar o visual, conteúdo, CTA ou demais páginas.
+# Ajuste mobile e idioma do Quiz Aula Magna
 
 ## Implementação
-- Criar uma migration isolada com `quiz_sessions` e `quiz_answers`, índices mínimos, RLS sem leitura pública e RPCs validadas/idempotentes para início, resposta e conclusão.
-- Gerar uma senha administrativa forte, armazenar somente seu hash no banco e expor apenas uma RPC de agregados que exige a senha.
-- Instrumentar o quiz com um UUID anônimo em `sessionStorage`; falhas serão silenciosas e nunca bloquearão o fluxo nem os eventos atuais.
-- Garantir que a conclusão registre a pontuação final incluindo o acerto da sétima pergunta.
-- Adicionar o painel não divulgado com senha mantida apenas em `sessionStorage`, filtros de período, atualização, saída e estados de carregamento, vazio e erro.
-- Exibir somente totais e percentuais; nenhuma resposta individual, identificador ou dado pessoal será retornado.
+- Compactar somente a abertura mobile de `/quiz-aula-magna`, priorizando 390×700 e 390×760, mantendo foto, logo, textos e botão na hierarquia atual.
+- Preservar integralmente a apresentação desktop e todo o funcionamento das sete perguntas, resultados, CTA e analytics.
+- Definir o idioma do documento como `pt-BR` e proteger a headline aprovada com `translate="no"`.
 
-## Arquivos
-- Modificar somente `src/routes/quiz-aula-magna.tsx`.
-- Adicionar `src/routes/painel-quiz-aula-magna.tsx` e seu CSS específico.
-- Adicionar uma migration em `supabase/migrations/` e atualizar tipos gerados apenas se necessário.
-- Permitir somente a regeneração automática da árvore de rotas.
+## Validação e publicação
+- Validar compilação e TypeScript.
+- Conferir visualmente 390×700, 390×760 e 1440×900, incluindo enquadramento da foto, legibilidade da logo, botão completo e ausência de sobreposições.
+- Confirmar headline, atributo de tradução, idioma no HTML e HTTP 200 no quiz e painel.
+- Publicar a versão validada e informar URL, commit, arquivos alterados, testes e custo.
 
-## Validação
-- Aplicar a migration e testar início, resposta, conclusão e consulta agregada protegida.
-- Remover exclusivamente os registros de teste criados para a validação.
-- Validar TypeScript, compilação, acesso direto ao quiz e ao painel, fluxo com 7 perguntas e demais rotas.
-- Não publicar. Ao final, informar arquivos alterados, testes, custo em créditos e a senha administrativa uma única vez.
+## Escopo técnico
+- Alterar apenas `src/routes/quiz-aula-magna.css`, `src/routes/quiz-aula-magna.tsx` e `src/routes/__root.tsx`.
+- Não alterar banco, migrations, senha, painel ou qualquer outra página.
