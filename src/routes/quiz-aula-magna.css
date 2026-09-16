@@ -39,3 +39,18 @@
   .aula-magna-quiz .intro .primary-cta{min-height:52px;margin-top:11px}
   .aula-magna-quiz .intro .microcopy{margin-top:8px}
 }
+
+/* Usa a altura disponível no mobile sem comprometer a primeira dobra curta. */
+@media(max-width:600px){
+  .aula-magna-quiz .doctor-stage{
+    min-height:clamp(306px,calc(100svh - 381px - env(safe-area-inset-top) - env(safe-area-inset-bottom)),463px);
+    height:clamp(306px,calc(100svh - 381px - env(safe-area-inset-top) - env(safe-area-inset-bottom)),463px)
+  }
+}
+
+@media(max-width:600px) and (min-height:730px){
+  .aula-magna-quiz .doctor-image{width:clamp(100%,calc(100% + (100svh - 730px)*.28),110%)}
+  .aula-magna-quiz .brand-lockup:not(.compact){width:clamp(310px,calc(310px + (100svh - 730px)*.16),328px)}
+  .aula-magna-quiz .brand-lockup:not(.compact) small{font-size:clamp(.53rem,calc(.53rem + (100svh - 730px)*.00035),.57rem)}
+  .aula-magna-quiz .brand-lockup:not(.compact) strong{font-size:clamp(1.82rem,calc(1.82rem + (100svh - 730px)*.00155),2rem)}
+}
