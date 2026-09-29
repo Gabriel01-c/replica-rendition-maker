@@ -73,9 +73,9 @@ function ImersaoHppTyPage() {
             className="text-[15px] md:text-base leading-relaxed"
             style={{ color: "#1a3a5c" }}
           >
-            Falta o próximo passo: clique no botão abaixo para entrar no{" "}
-            <strong>grupo oficial do WhatsApp</strong>. É por lá que você vai
-            receber o link da imersão e os avisos antes de começar.
+            Fale com um de nossos especialistas que vai te direcionar e explicar
+            como funciona a{" "}
+            <strong>1ª Pós-Graduação 100% online do Brasil</strong>
           </p>
 
           <div
