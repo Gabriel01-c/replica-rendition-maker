@@ -66,7 +66,7 @@ function ImersaoHppTyPage() {
             className="text-[26px] md:text-4xl font-extrabold leading-[1.15]"
             style={{ color: AZURE_FLAT }}
           >
-            Sua participação está quase garantida
+            Parabéns pela sua decisão em realizar a inscrição
           </h1>
 
           <p
