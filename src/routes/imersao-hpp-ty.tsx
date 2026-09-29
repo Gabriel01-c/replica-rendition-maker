@@ -47,7 +47,7 @@ function ImersaoHppTyPage() {
               key={i}
               className="text-[12px] sm:text-[13px] md:text-sm font-bold leading-tight tracking-wide px-8"
             >
-              INSCRIÇÃO CONFIRMADA — ENTRE NO GRUPO DA IMERSÃO AGORA
+              EXCLUSIVO PARA MÉDICOS E RESIDENTES EM ANESTESIOLOGIA
             </span>
           ))}
         </div>
