@@ -89,8 +89,7 @@ function ImersaoHppTyPage() {
               <strong className="block mb-1" style={{ color: RED }}>
                 Importante
               </strong>
-              Sem entrar no grupo, você não vai receber o link de acesso à
-              imersão.
+              Exclusivo para médicos e residentes em anestesiologia
             </p>
           </div>
 
