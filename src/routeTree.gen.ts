@@ -9,81 +9,36 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as BonusPosRouteImport } from './routes/bonus-pos'
-import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
-import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
-import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
-import { Route as EbookViasaereasObgRouteImport } from './routes/ebook-viasaereas-obg'
-import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
-import { Route as ImersaoHpp2RouteImport } from './routes/imersao-hpp-2'
-import { Route as ImersaoHppTyRouteImport } from './routes/imersao-hpp-ty'
-import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
-import { Route as PainelQuizAulaMagnaRouteImport } from './routes/painel-quiz-aula-magna'
-import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
-import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
-import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-oficial'
-import { Route as QuizAulaMagnaRouteImport } from './routes/quiz-aula-magna'
 import { Route as QuizImersaoHppRouteImport } from './routes/quiz-imersao-hpp'
+import { Route as QuizAulaMagnaRouteImport } from './routes/quiz-aula-magna'
+import { Route as PosGraduacaoOficialRouteImport } from './routes/pos-graduacao-oficial'
+import { Route as PosGraduacaoAnestesiaObstetricaRouteImport } from './routes/pos-graduacao-anestesia-obstetrica'
+import { Route as PosGraduacaoRouteImport } from './routes/pos-graduacao'
+import { Route as PainelQuizAulaMagnaRouteImport } from './routes/painel-quiz-aula-magna'
+import { Route as LiveSecretaPolemicasRouteImport } from './routes/live-secreta-polemicas'
+import { Route as ImersaoHppTyRouteImport } from './routes/imersao-hpp-ty'
+import { Route as ImersaoHpp2RouteImport } from './routes/imersao-hpp-2'
+import { Route as FisiologiaFarmacologiaRouteImport } from './routes/fisiologia-farmacologia'
+import { Route as EbookViasaereasObgRouteImport } from './routes/ebook-viasaereas-obg'
+import { Route as EbookViasAereasRouteImport } from './routes/ebook-vias-aereas'
+import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
+import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
+import { Route as BonusPosRouteImport } from './routes/bonus-pos'
+import { Route as IndexRouteImport } from './routes/index'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const QuizImersaoHppRoute = QuizImersaoHppRouteImport.update({
+  id: '/quiz-imersao-hpp',
+  path: '/quiz-imersao-hpp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BonusPosRoute = BonusPosRouteImport.update({
-  id: '/bonus-pos',
-  path: '/bonus-pos',
+const QuizAulaMagnaRoute = QuizAulaMagnaRouteImport.update({
+  id: '/quiz-aula-magna',
+  path: '/quiz-aula-magna',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EbookVasoativoRoute = EbookVasoativoRouteImport.update({
-  id: '/ebook-vasoativo',
-  path: '/ebook-vasoativo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EbookVasoativoObgRoute = EbookVasoativoObgRouteImport.update({
-  id: '/ebook-vasoativo-obg',
-  path: '/ebook-vasoativo-obg',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EbookViasAereasRoute = EbookViasAereasRouteImport.update({
-  id: '/ebook-vias-aereas',
-  path: '/ebook-vias-aereas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EbookViasaereasObgRoute = EbookViasaereasObgRouteImport.update({
-  id: '/ebook-viasaereas-obg',
-  path: '/ebook-viasaereas-obg',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
-  id: '/fisiologia-farmacologia',
-  path: '/fisiologia-farmacologia',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImersaoHpp2Route = ImersaoHpp2RouteImport.update({
-  id: '/imersao-hpp-2',
-  path: '/imersao-hpp-2',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImersaoHppTyRoute = ImersaoHppTyRouteImport.update({
-  id: '/imersao-hpp-ty',
-  path: '/imersao-hpp-ty',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
-  id: '/live-secreta-polemicas',
-  path: '/live-secreta-polemicas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PainelQuizAulaMagnaRoute = PainelQuizAulaMagnaRouteImport.update({
-  id: '/painel-quiz-aula-magna',
-  path: '/painel-quiz-aula-magna',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PosGraduacaoRoute = PosGraduacaoRouteImport.update({
-  id: '/pos-graduacao',
-  path: '/pos-graduacao',
+const PosGraduacaoOficialRoute = PosGraduacaoOficialRouteImport.update({
+  id: '/pos-graduacao-oficial',
+  path: '/pos-graduacao-oficial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PosGraduacaoAnestesiaObstetricaRoute =
@@ -92,19 +47,64 @@ const PosGraduacaoAnestesiaObstetricaRoute =
     path: '/pos-graduacao-anestesia-obstetrica',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PosGraduacaoOficialRoute = PosGraduacaoOficialRouteImport.update({
-  id: '/pos-graduacao-oficial',
-  path: '/pos-graduacao-oficial',
+const PosGraduacaoRoute = PosGraduacaoRouteImport.update({
+  id: '/pos-graduacao',
+  path: '/pos-graduacao',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuizAulaMagnaRoute = QuizAulaMagnaRouteImport.update({
-  id: '/quiz-aula-magna',
-  path: '/quiz-aula-magna',
+const PainelQuizAulaMagnaRoute = PainelQuizAulaMagnaRouteImport.update({
+  id: '/painel-quiz-aula-magna',
+  path: '/painel-quiz-aula-magna',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuizImersaoHppRoute = QuizImersaoHppRouteImport.update({
-  id: '/quiz-imersao-hpp',
-  path: '/quiz-imersao-hpp',
+const LiveSecretaPolemicasRoute = LiveSecretaPolemicasRouteImport.update({
+  id: '/live-secreta-polemicas',
+  path: '/live-secreta-polemicas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImersaoHppTyRoute = ImersaoHppTyRouteImport.update({
+  id: '/imersao-hpp-ty',
+  path: '/imersao-hpp-ty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImersaoHpp2Route = ImersaoHpp2RouteImport.update({
+  id: '/imersao-hpp-2',
+  path: '/imersao-hpp-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FisiologiaFarmacologiaRoute = FisiologiaFarmacologiaRouteImport.update({
+  id: '/fisiologia-farmacologia',
+  path: '/fisiologia-farmacologia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookViasaereasObgRoute = EbookViasaereasObgRouteImport.update({
+  id: '/ebook-viasaereas-obg',
+  path: '/ebook-viasaereas-obg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookViasAereasRoute = EbookViasAereasRouteImport.update({
+  id: '/ebook-vias-aereas',
+  path: '/ebook-vias-aereas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookVasoativoObgRoute = EbookVasoativoObgRouteImport.update({
+  id: '/ebook-vasoativo-obg',
+  path: '/ebook-vasoativo-obg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookVasoativoRoute = EbookVasoativoRouteImport.update({
+  id: '/ebook-vasoativo',
+  path: '/ebook-vasoativo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BonusPosRoute = BonusPosRouteImport.update({
+  id: '/bonus-pos',
+  path: '/bonus-pos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -241,102 +241,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/bonus-pos': {
-      id: '/bonus-pos'
-      path: '/bonus-pos'
-      fullPath: '/bonus-pos'
-      preLoaderRoute: typeof BonusPosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ebook-vasoativo': {
-      id: '/ebook-vasoativo'
-      path: '/ebook-vasoativo'
-      fullPath: '/ebook-vasoativo'
-      preLoaderRoute: typeof EbookVasoativoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ebook-vasoativo-obg': {
-      id: '/ebook-vasoativo-obg'
-      path: '/ebook-vasoativo-obg'
-      fullPath: '/ebook-vasoativo-obg'
-      preLoaderRoute: typeof EbookVasoativoObgRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ebook-vias-aereas': {
-      id: '/ebook-vias-aereas'
-      path: '/ebook-vias-aereas'
-      fullPath: '/ebook-vias-aereas'
-      preLoaderRoute: typeof EbookViasAereasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ebook-viasaereas-obg': {
-      id: '/ebook-viasaereas-obg'
-      path: '/ebook-viasaereas-obg'
-      fullPath: '/ebook-viasaereas-obg'
-      preLoaderRoute: typeof EbookViasaereasObgRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fisiologia-farmacologia': {
-      id: '/fisiologia-farmacologia'
-      path: '/fisiologia-farmacologia'
-      fullPath: '/fisiologia-farmacologia'
-      preLoaderRoute: typeof FisiologiaFarmacologiaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/imersao-hpp-2': {
-      id: '/imersao-hpp-2'
-      path: '/imersao-hpp-2'
-      fullPath: '/imersao-hpp-2'
-      preLoaderRoute: typeof ImersaoHpp2RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/imersao-hpp-ty': {
-      id: '/imersao-hpp-ty'
-      path: '/imersao-hpp-ty'
-      fullPath: '/imersao-hpp-ty'
-      preLoaderRoute: typeof ImersaoHppTyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/live-secreta-polemicas': {
-      id: '/live-secreta-polemicas'
-      path: '/live-secreta-polemicas'
-      fullPath: '/live-secreta-polemicas'
-      preLoaderRoute: typeof LiveSecretaPolemicasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/painel-quiz-aula-magna': {
-      id: '/painel-quiz-aula-magna'
-      path: '/painel-quiz-aula-magna'
-      fullPath: '/painel-quiz-aula-magna'
-      preLoaderRoute: typeof PainelQuizAulaMagnaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pos-graduacao': {
-      id: '/pos-graduacao'
-      path: '/pos-graduacao'
-      fullPath: '/pos-graduacao'
-      preLoaderRoute: typeof PosGraduacaoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pos-graduacao-anestesia-obstetrica': {
-      id: '/pos-graduacao-anestesia-obstetrica'
-      path: '/pos-graduacao-anestesia-obstetrica'
-      fullPath: '/pos-graduacao-anestesia-obstetrica'
-      preLoaderRoute: typeof PosGraduacaoAnestesiaObstetricaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pos-graduacao-oficial': {
-      id: '/pos-graduacao-oficial'
-      path: '/pos-graduacao-oficial'
-      fullPath: '/pos-graduacao-oficial'
-      preLoaderRoute: typeof PosGraduacaoOficialRouteImport
+    '/quiz-imersao-hpp': {
+      id: '/quiz-imersao-hpp'
+      path: '/quiz-imersao-hpp'
+      fullPath: '/quiz-imersao-hpp'
+      preLoaderRoute: typeof QuizImersaoHppRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz-aula-magna': {
@@ -346,11 +255,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuizAulaMagnaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/quiz-imersao-hpp': {
-      id: '/quiz-imersao-hpp'
-      path: '/quiz-imersao-hpp'
-      fullPath: '/quiz-imersao-hpp'
-      preLoaderRoute: typeof QuizImersaoHppRouteImport
+    '/pos-graduacao-oficial': {
+      id: '/pos-graduacao-oficial'
+      path: '/pos-graduacao-oficial'
+      fullPath: '/pos-graduacao-oficial'
+      preLoaderRoute: typeof PosGraduacaoOficialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pos-graduacao-anestesia-obstetrica': {
+      id: '/pos-graduacao-anestesia-obstetrica'
+      path: '/pos-graduacao-anestesia-obstetrica'
+      fullPath: '/pos-graduacao-anestesia-obstetrica'
+      preLoaderRoute: typeof PosGraduacaoAnestesiaObstetricaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pos-graduacao': {
+      id: '/pos-graduacao'
+      path: '/pos-graduacao'
+      fullPath: '/pos-graduacao'
+      preLoaderRoute: typeof PosGraduacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-quiz-aula-magna': {
+      id: '/painel-quiz-aula-magna'
+      path: '/painel-quiz-aula-magna'
+      fullPath: '/painel-quiz-aula-magna'
+      preLoaderRoute: typeof PainelQuizAulaMagnaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-secreta-polemicas': {
+      id: '/live-secreta-polemicas'
+      path: '/live-secreta-polemicas'
+      fullPath: '/live-secreta-polemicas'
+      preLoaderRoute: typeof LiveSecretaPolemicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imersao-hpp-ty': {
+      id: '/imersao-hpp-ty'
+      path: '/imersao-hpp-ty'
+      fullPath: '/imersao-hpp-ty'
+      preLoaderRoute: typeof ImersaoHppTyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imersao-hpp-2': {
+      id: '/imersao-hpp-2'
+      path: '/imersao-hpp-2'
+      fullPath: '/imersao-hpp-2'
+      preLoaderRoute: typeof ImersaoHpp2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fisiologia-farmacologia': {
+      id: '/fisiologia-farmacologia'
+      path: '/fisiologia-farmacologia'
+      fullPath: '/fisiologia-farmacologia'
+      preLoaderRoute: typeof FisiologiaFarmacologiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook-viasaereas-obg': {
+      id: '/ebook-viasaereas-obg'
+      path: '/ebook-viasaereas-obg'
+      fullPath: '/ebook-viasaereas-obg'
+      preLoaderRoute: typeof EbookViasaereasObgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook-vias-aereas': {
+      id: '/ebook-vias-aereas'
+      path: '/ebook-vias-aereas'
+      fullPath: '/ebook-vias-aereas'
+      preLoaderRoute: typeof EbookViasAereasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook-vasoativo-obg': {
+      id: '/ebook-vasoativo-obg'
+      path: '/ebook-vasoativo-obg'
+      fullPath: '/ebook-vasoativo-obg'
+      preLoaderRoute: typeof EbookVasoativoObgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook-vasoativo': {
+      id: '/ebook-vasoativo'
+      path: '/ebook-vasoativo'
+      fullPath: '/ebook-vasoativo'
+      preLoaderRoute: typeof EbookVasoativoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bonus-pos': {
+      id: '/bonus-pos'
+      path: '/bonus-pos'
+      fullPath: '/bonus-pos'
+      preLoaderRoute: typeof BonusPosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
