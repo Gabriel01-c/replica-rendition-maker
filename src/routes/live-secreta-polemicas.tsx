@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Video, Calendar, Monitor, Check, X } from "lucide-react";
+import { Video, Calendar, Monitor, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import drFrancisco from "@/assets/dr-francisco-polemicas.png.asset.json";
@@ -172,23 +172,6 @@ function LiveSecretaPolemicasPage() {
     </div>
   );
 
-  const checks = (
-    <ul className="flex flex-col gap-2.5 md:gap-3 text-[14px] md:text-[15px] leading-snug md:text-left">
-      <li className="flex gap-2.5">
-        <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>O raciocínio clínico que utilizo para tomar decisões em cenários de alta pressão</span>
-      </li>
-      <li className="flex gap-2.5">
-        <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>Por que muitos anestesistas experientes ainda se sentem inseguros diante de complicações obstétricas</span>
-      </li>
-      <li className="flex gap-2.5">
-        <Check size={20} strokeWidth={3} className="shrink-0 mt-0.5" style={{ color: RED }} />
-        <span>Como desenvolver critérios que permitem agir com segurança mesmo quando o caso não se encaixa no que está escrito nos livros</span>
-      </li>
-    </ul>
-  );
-
   return (
     <>
       <noscript>
@@ -240,7 +223,6 @@ function LiveSecretaPolemicasPage() {
           </div>
 
           {dateInfo}
-          {checks}
           {ctaButton}
         </div>
       </div>
@@ -255,7 +237,6 @@ function LiveSecretaPolemicasPage() {
               Aprenda a tomar decisões mais seguras em anestesia obstétrica <span style={{ color: RED }}>mesmo quando a gestante sai completamente do protocolo.</span>
             </h1>
             {dateInfo}
-            {checks}
             <div className="max-w-md">{ctaButton}</div>
           </div>
 
