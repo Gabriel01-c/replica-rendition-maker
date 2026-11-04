@@ -31,30 +31,17 @@ function AcretismoObrigado() {
           <i aria-hidden="true" />COMPRA CONFIRMADA
         </div>
 
-        <div className="player" aria-hidden="true">
-          <div className="player-screen">
-            <span className="play">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-            </span>
-            <div className="player-copy">
-              <strong>AULA BÔNUS</strong>
-              <span>DROGAS VASOATIVAS</span>
-            </div>
-            <svg className="ecg" viewBox="0 0 320 40" preserveAspectRatio="none" fill="none">
-              <path d="M0 24 H96 L108 24 L114 12 L121 34 L128 20 L134 24 H214 L226 24 L232 10 L239 32 L246 21 L252 24 H320" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-          </div>
-          <div className="player-caption">
-            <span className="unlock"><i aria-hidden="true" />AULA BÔNUS DESBLOQUEADA</span>
-            <span className="dur">CONTEÚDO EXCLUSIVO</span>
-          </div>
+        <div className="status">
+          <span className="unlock"><i aria-hidden="true" />AULA BÔNUS DESBLOQUEADA</span>
+          <span className="sep" aria-hidden="true" />
+          <span className="dur">CONTEÚDO EXCLUSIVO</span>
         </div>
 
         <h1>
           Sua compra está confirmada. Agora tem uma <em>Aula Bônus</em> esperando por você.
         </h1>
 
-        <p>Você acaba de receber uma aula exclusiva sobre <strong>Drogas Vasoativas</strong>, para aprofundar seu raciocínio e escolher a droga certa no plantão com mais critério.</p>
+        <p>Na Aula Bônus, você vai descobrir o que realmente deve guiar a escolha da droga no plantão e por que essa decisão vai muito além de decorar doses.</p>
 
         <p className="guide">Entre no grupo pelo botão abaixo. O link para assistir à aula está na descrição.</p>
 
