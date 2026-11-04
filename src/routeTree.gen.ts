@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AcretismoObrigadoRouteImport } from './routes/acretismo-obrigado'
 import { Route as BonusPosRouteImport } from './routes/bonus-pos'
 import { Route as EbookVasoativoRouteImport } from './routes/ebook-vasoativo'
 import { Route as EbookVasoativoObgRouteImport } from './routes/ebook-vasoativo-obg'
@@ -29,6 +30,11 @@ import { Route as QuizImersaoHppRouteImport } from './routes/quiz-imersao-hpp'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcretismoObrigadoRoute = AcretismoObrigadoRouteImport.update({
+  id: '/acretismo-obrigado',
+  path: '/acretismo-obrigado',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BonusPosRoute = BonusPosRouteImport.update({
@@ -110,6 +116,7 @@ const QuizImersaoHppRoute = QuizImersaoHppRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/acretismo-obrigado': typeof AcretismoObrigadoRoute
   '/bonus-pos': typeof BonusPosRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/acretismo-obrigado': typeof AcretismoObrigadoRoute
   '/bonus-pos': typeof BonusPosRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
@@ -147,6 +155,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/acretismo-obrigado': typeof AcretismoObrigadoRoute
   '/bonus-pos': typeof BonusPosRoute
   '/ebook-vasoativo': typeof EbookVasoativoRoute
   '/ebook-vasoativo-obg': typeof EbookVasoativoObgRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/acretismo-obrigado'
     | '/bonus-pos'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/acretismo-obrigado'
     | '/bonus-pos'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/acretismo-obrigado'
     | '/bonus-pos'
     | '/ebook-vasoativo'
     | '/ebook-vasoativo-obg'
@@ -222,6 +234,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcretismoObrigadoRoute: typeof AcretismoObrigadoRoute
   BonusPosRoute: typeof BonusPosRoute
   EbookVasoativoRoute: typeof EbookVasoativoRoute
   EbookVasoativoObgRoute: typeof EbookVasoativoObgRoute
@@ -246,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acretismo-obrigado': {
+      id: '/acretismo-obrigado'
+      path: '/acretismo-obrigado'
+      fullPath: '/acretismo-obrigado'
+      preLoaderRoute: typeof AcretismoObrigadoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bonus-pos': {
@@ -358,6 +378,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcretismoObrigadoRoute: AcretismoObrigadoRoute,
   BonusPosRoute: BonusPosRoute,
   EbookVasoativoRoute: EbookVasoativoRoute,
   EbookVasoativoObgRoute: EbookVasoativoObgRoute,
