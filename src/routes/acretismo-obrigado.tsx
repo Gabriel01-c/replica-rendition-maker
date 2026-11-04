@@ -51,7 +51,7 @@ function AcretismoObrigado() {
         </div>
 
         <h1>
-          Sua compra está confirmada e o seu protocolo está garantido. Agora tem uma <em>Aula Bônus</em> esperando por você.
+          Sua compra está confirmada. Agora tem uma <em>Aula Bônus</em> esperando por você.
         </h1>
 
         <p>Você acaba de receber uma aula exclusiva sobre <strong>Drogas Vasoativas</strong>, para aprofundar seu raciocínio e escolher a droga certa no plantão com mais critério.</p>
